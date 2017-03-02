@@ -1,0 +1,52 @@
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "bin": {
+        "apidoc-lite": "lib.apidoc.js"
+    },
+    "description": "this zero-dependency package will auto-generate documentation for your npm-package with zero-config",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/kaizhu256/node-apidoc-lite",
+    "keywords": [
+        "api-doc",
+        "apidoc",
+        "doc",
+        "documentation",
+        "doxygen",
+        "javadoc"
+    ],
+    "license": "MIT",
+    "main": "lib.apidoc.js",
+    "name": "apidoc-lite",
+    "nameAlias": "apidoc",
+    "nameOriginal": "apidoc-lite",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kaizhu256/node-apidoc-lite.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeBuild",
+        "deploy-github": "true",
+        "deploy-heroku": "true",
+        "env": "env",
+        "heroku-postbuild": "npm install 'kaizhu256/node-utility2#alpha' && utility2 shDeployHeroku",
+        "postinstall": "if [ -f lib.apidoc.npm-scripts.sh ]; then ./lib.apidoc.npm-scripts.sh postinstall; fi",
+        "publish-alias": "VERSION=$(npm info $npm_package_name version); for ALIAS in api_doc apidocs api-doctor doctor-api npm-doc npmdoc; do utility2 shNpmPublishAs . $ALIAS $VERSION; utility2 shNpmTestPublished $ALIAS || exit $?; done",
+        "start": "export PORT=${PORT:-8080} && export npm_config_mode_auto_restart=1 && utility2 start",
+        "test": "export PORT=$(utility2 shServerPortRandom) && utility2 test test.js",
+        "test-example-js": "true",
+        "test-example-sh": "utility2 shReadmeTestExampleSh",
+        "test-pre": "true",
+        "test-published": "utility2 shNpmTestPublished"
+    },
+    "version": "2017.2.27"
+}
