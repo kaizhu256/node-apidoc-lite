@@ -10,23 +10,20 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 
 
 
-# cdn download
-- [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/app/assets.apidoc.rollup.js](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/app/assets.apidoc.rollup.js)
-
-
-
 # documentation
 #### apidoc
 - [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
-[![apidoc](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.apidoc.browser._2Fhome_2Ftravis_2Fbuild_2Fkaizhu256_2Fnode-apidoc-lite_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.buildApidoc.browser._2Fhome_2Ftravis_2Fbuild_2Fkaizhu256_2Fnode-apidoc-lite_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
 #### todo
 - none
 
-#### change since 9fe8c225
-- npm publish 2017.2.27
-- successful travis-ci build
+#### change since dfed6414
+- npm publish 2017.3.9
+- add ability to create markdown documentation
+- auto-document dir ./lib/
+- increase auto-coverage of examples
 - none
 
 #### this package requires
@@ -76,13 +73,13 @@ shExampleSh() {(set -e
     # npm install mysql
     npm install mysql
     # auto-generate documentation for the mysql npm-package with zero-config
-    node_modules/.bin/apidoc-lite node_modules/mysql > /tmp/apidoc.html
+    node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
 )}
 shExampleSh
 ```
 
 #### output from browser
-![screen-capture](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.testExampleSh.browser._2Ftmp_2Fapidoc.html.png)
+[![screen-capture](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.testExampleSh.browser._2Ftmp_2Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html)
 
 #### output from shell
 ![screen-capture](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.testExampleSh.svg)
@@ -122,26 +119,21 @@ shExampleSh
         "darwin",
         "linux"
     ],
+    "readmeParse": "1",
     "repository": {
         "type": "git",
         "url": "https://github.com/kaizhu256/node-apidoc-lite.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeBuild",
-        "deploy-github": "true",
-        "deploy-heroku": "true",
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
         "heroku-postbuild": "npm install 'kaizhu256/node-utility2#alpha' && utility2 shDeployHeroku",
-        "postinstall": "if [ -f lib.apidoc.npm-scripts.sh ]; then ./lib.apidoc.npm-scripts.sh postinstall; fi",
+        "postinstall": "if [ -f lib.apidoc.npm_scripts.sh ]; then ./lib.apidoc.npm_scripts.sh postinstall; fi",
         "publish-alias": "VERSION=$(npm info $npm_package_name version); for ALIAS in api_doc apidocs api-doctor doctor-api npm-doc npmdoc; do utility2 shNpmPublishAs . $ALIAS $VERSION; utility2 shNpmTestPublished $ALIAS || exit $?; done",
         "start": "export PORT=${PORT:-8080} && export npm_config_mode_auto_restart=1 && utility2 start",
-        "test": "export PORT=$(utility2 shServerPortRandom) && utility2 test test.js",
-        "test-example-js": "true",
-        "test-example-sh": "utility2 shReadmeTestExampleSh",
-        "test-pre": "true",
-        "test-published": "utility2 shNpmTestPublished"
+        "test": "export PORT=$(utility2 shServerPortRandom) && utility2 test test.js"
     },
-    "version": "2017.2.27"
+    "version": "2017.3.9"
 }
 ```
 
@@ -153,42 +145,37 @@ shExampleSh
 
 
 # internal build-script
-- build.sh
+- build_ci.sh
 ```shell
-# build.sh
+# build_ci.sh
 
 # this shell script will run the build for this package
 
-shBuild() {(set -e
-# this function will run the main build
-    # init env
-    . node_modules/.bin/utility2 && shInit
-    # init github-gh-pages commit-limit
-    export COMMIT_LIMIT=20
-    case "$CI_BRANCH" in
-    alpha)
-        shBuildCiDefault
-        ;;
-    beta)
-        shBuildCiDefault
-        ;;
-    master)
-        shBuildCiDefault
-        git tag "$npm_package_version" || true
-        git push "git@github.com:$GITHUB_REPO.git" "$npm_package_version" || true
-        ;;
-    publish)
-        printf "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > "$HOME/.npmrc"
-        export CI_BRANCH=alpha
-        shNpmPublishAs
-        shBuildCiDefault
-        npm run publish-alias
-        git push "git@github.com:$GITHUB_REPO.git" publish:beta
-        ;;
-    esac
+shBuildCiInternalPost() {(set -e
+    shReadmeBuildLinkVerify
 )}
 
-shBuild
+shBuildCiInternalPre() {(set -e
+    shReadmeTest example.js
+    shReadmeTest example.sh
+    # save screen-capture
+    (export MODE_BUILD=testExampleSh &&
+        export url=/tmp/apidoc.html &&
+        utility2 shBrowserTest &&
+        cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html") || return $?
+    shNpmTestPublished
+)}
+
+shBuildCiPost() {(set -e
+    return
+)}
+
+shBuildCiPre() {(set -e
+    return
+)}
+
+# init env
+eval $(utility2 source) && shBuildCi
 ```
 
 

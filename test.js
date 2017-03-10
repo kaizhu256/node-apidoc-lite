@@ -40,13 +40,26 @@
     case 'node':
         local.testCase_apidocCreate_default = function (options, onError) {
         /*
-         * this function will test apidocCreate's handling-behavior
+         * this function will test apidocCreate's default handling-behavior-behavior
          */
-            // test libFilelist default handling-behavior
-            options = { dir: local.utility2.__dirname };
+            options = {
+                // test dir-custom handling-behavior
+                dir: local.utility2.__dirname
+            };
+            local.apidocCreate(options);
+            options = {
+                // test libFilelist-custom handling-behavior
+                libFileList: ['lib.apidoc.js', 'package.json'],
+                // test invalid module-name handling-behavior
+                moduleDict: { 'invalid syntax': {} },
+                // test packageJson default handling-behavior
+                packageJson: {},
+                // test markdown-template handling-behavior
+                template: local.templateApidocMd
+            };
             local.apidocCreate(options);
             local.testMock([
-                // test libFileList error handling-behavior
+                // test libFileList-error handling-behavior
                 [local.fs, { readdirSync: function () {
                     return ['undefined'];
                 } }]
@@ -59,7 +72,7 @@
 
         local.testCase_buildApidoc_default = function (options, onError) {
         /*
-         * this function will test buildApidoc's handling-behavior
+         * this function will test buildApidoc's default handling-behavior-behavior
          */
             options = {};
             local.buildApidoc(options, onError);
@@ -67,7 +80,7 @@
 
         local.testCase_buildApp_default = function (options, onError) {
         /*
-         * this function will test buildApp's handling-behavior
+         * this function will test buildApp's default handling-behavior-behavior
          */
             local.testCase_buildReadme_default(options, local.onErrorDefault);
             onError();
@@ -75,7 +88,7 @@
 
         local.testCase_buildReadme_default = function (options, onError) {
         /*
-         * this function will test buildReadme's handling-behavior
+         * this function will test buildReadme's default handling-behavior-behavior
          */
             options = {};
             options.customize = function () {

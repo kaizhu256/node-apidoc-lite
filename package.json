@@ -29,24 +29,19 @@
         "darwin",
         "linux"
     ],
+    "readmeParse": "1",
     "repository": {
         "type": "git",
         "url": "https://github.com/kaizhu256/node-apidoc-lite.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeBuild",
-        "deploy-github": "true",
-        "deploy-heroku": "true",
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
         "heroku-postbuild": "npm install 'kaizhu256/node-utility2#alpha' && utility2 shDeployHeroku",
-        "postinstall": "if [ -f lib.apidoc.npm-scripts.sh ]; then ./lib.apidoc.npm-scripts.sh postinstall; fi",
+        "postinstall": "if [ -f lib.apidoc.npm_scripts.sh ]; then ./lib.apidoc.npm_scripts.sh postinstall; fi",
         "publish-alias": "VERSION=$(npm info $npm_package_name version); for ALIAS in api_doc apidocs api-doctor doctor-api npm-doc npmdoc; do utility2 shNpmPublishAs . $ALIAS $VERSION; utility2 shNpmTestPublished $ALIAS || exit $?; done",
         "start": "export PORT=${PORT:-8080} && export npm_config_mode_auto_restart=1 && utility2 start",
-        "test": "export PORT=$(utility2 shServerPortRandom) && utility2 test test.js",
-        "test-example-js": "true",
-        "test-example-sh": "utility2 shReadmeTestExampleSh",
-        "test-pre": "true",
-        "test-published": "utility2 shNpmTestPublished"
+        "test": "export PORT=$(utility2 shServerPortRandom) && utility2 test test.js"
     },
-    "version": "2017.2.27"
+    "version": "2017.3.9"
 }
