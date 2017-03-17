@@ -16,11 +16,10 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 [![apidoc](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.buildApidoc.browser._2Fhome_2Ftravis_2Fbuild_2Fkaizhu256_2Fnode-apidoc-lite_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
 #### todo
+- npm publish 2017.3.17
 - none
 
-#### change since 7261b69f
-- npm publish 2017.3.16
-- revert npm_package_nameAlias back to npm_package_name
+#### change since 3936d724
 - none
 
 #### this package requires
@@ -111,7 +110,6 @@ shExampleSh
     "main": "lib.apidoc.js",
     "name": "apidoc-lite",
     "nameAlias": "apidoc",
-    "nameAliasDeprecate": "api_doc apidocs api-doctor doctor-api npm-doc",
     "nameAliasPublish": "npmdoc",
     "nameOriginal": "apidoc-lite",
     "os": [
@@ -128,10 +126,10 @@ shExampleSh
         "env": "env",
         "heroku-postbuild": "npm install 'kaizhu256/node-utility2#alpha' && utility2 shDeployHeroku",
         "postinstall": "if [ -f lib.apidoc.npm_scripts.sh ]; then ./lib.apidoc.npm_scripts.sh postinstall; fi",
-        "start": "export PORT=${PORT:-8080} && export npm_config_mode_auto_restart=1 && utility2 start test.js",
-        "test": "export PORT=$(utility2 shServerPortRandom) && utility2 test test.js"
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "2017.3.16"
+    "version": "2017.3.17"
 }
 ```
 
