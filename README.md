@@ -1,5 +1,4 @@
-apidoc-lite
-===========
+# apidoc-lite
 this zero-dependency package will auto-generate documentation for your npm-package with zero-config
 
 [![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-apidoc-lite.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite) [![istanbul-coverage](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.html/index.html)
@@ -19,11 +18,9 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### todo
 - none
 
-#### change since dfed6414
-- npm publish 2017.3.9
-- add ability to create markdown documentation
-- auto-document dir ./lib/
-- increase auto-coverage of examples
+#### change since 7261b69f
+- npm publish 2017.3.16
+- revert npm_package_nameAlias back to npm_package_name
 - none
 
 #### this package requires
@@ -114,6 +111,8 @@ shExampleSh
     "main": "lib.apidoc.js",
     "name": "apidoc-lite",
     "nameAlias": "apidoc",
+    "nameAliasDeprecate": "api_doc apidocs api-doctor doctor-api npm-doc",
+    "nameAliasPublish": "npmdoc",
     "nameOriginal": "apidoc-lite",
     "os": [
         "darwin",
@@ -129,11 +128,10 @@ shExampleSh
         "env": "env",
         "heroku-postbuild": "npm install 'kaizhu256/node-utility2#alpha' && utility2 shDeployHeroku",
         "postinstall": "if [ -f lib.apidoc.npm_scripts.sh ]; then ./lib.apidoc.npm_scripts.sh postinstall; fi",
-        "publish-alias": "VERSION=$(npm info $npm_package_name version); for ALIAS in api_doc apidocs api-doctor doctor-api npm-doc npmdoc; do utility2 shNpmPublishAs . $ALIAS $VERSION; utility2 shNpmTestPublished $ALIAS || exit $?; done",
-        "start": "export PORT=${PORT:-8080} && export npm_config_mode_auto_restart=1 && utility2 start",
+        "start": "export PORT=${PORT:-8080} && export npm_config_mode_auto_restart=1 && utility2 start test.js",
         "test": "export PORT=$(utility2 shServerPortRandom) && utility2 test test.js"
     },
-    "version": "2017.3.9"
+    "version": "2017.3.16"
 }
 ```
 
@@ -159,10 +157,10 @@ shBuildCiInternalPre() {(set -e
     shReadmeTest example.js
     shReadmeTest example.sh
     # save screen-capture
-    (export MODE_BUILD=testExampleSh &&
-        export url=/tmp/apidoc.html &&
-        utility2 shBrowserTest &&
-        cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html") || return $?
+    (export MODE_BUILD=testExampleSh
+        export url=/tmp/apidoc.html
+        utility2 shBrowserTest
+        cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html")
     shNpmTestPublished
 )}
 
@@ -174,8 +172,9 @@ shBuildCiPre() {(set -e
     return
 )}
 
-# init env
-eval $(utility2 source) && shBuildCi
+# run shBuildCi
+eval $(utility2 source)
+shBuildCi
 ```
 
 
