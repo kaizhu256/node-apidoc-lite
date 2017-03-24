@@ -5,7 +5,7 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 
 [![NPM](https://nodei.co/npm/apidoc-lite.png?downloads=true)](https://www.npmjs.com/package/apidoc-lite)
 
-[![package-listing](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.gitLsTree.svg)](https://github.com/kaizhu256/node-apidoc-lite)
+[![package-listing](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.npmPackageListing.svg)](https://github.com/kaizhu256/node-apidoc-lite)
 
 
 
