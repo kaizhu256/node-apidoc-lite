@@ -160,12 +160,11 @@
         /*
          * this function will test buildApidoc's default handling-behavior-behavior
          */
+            options = { modulePathList: module.paths };
             if (local.env.npm_package_buildNpmdoc) {
-                options = {};
                 local.buildNpmdoc(options, onError);
                 return;
             }
-            options = {};
             local.buildApidoc(options, onError);
         };
 

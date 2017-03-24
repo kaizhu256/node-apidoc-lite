@@ -64,7 +64,7 @@ this zero-dependency package will auto-generate documentation for your npm-packa
     # 2. open /tmp/apidoc.html to view the auto-generated documentation
 
 shExampleSh() {(set -e
-    # npm install apidoc-lite
+    # npm install "kaizhu256/node-apidoc-lite#alpha"
     npm install apidoc-lite
     # npm install mysql
     npm install mysql
