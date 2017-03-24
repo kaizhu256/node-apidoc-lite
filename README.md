@@ -159,7 +159,7 @@ shBuildCiInternalPre() {(set -e
         export url=/tmp/apidoc.html
         utility2 shBrowserTest
         cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html")
-    shNpmTestPublished
+    #!! shNpmTestPublished
 )}
 
 # run shBuildCi
