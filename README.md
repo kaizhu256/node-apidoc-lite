@@ -125,7 +125,7 @@ shExampleSh
         "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
         "heroku-postbuild": "npm install 'kaizhu256/node-utility2#alpha' && utility2 shDeployHeroku",
-        "postinstall": "if [ -f lib.apidoc.npm_scripts.sh ]; then ./lib.apidoc.npm_scripts.sh postinstall; fi",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
@@ -160,14 +160,6 @@ shBuildCiInternalPre() {(set -e
         utility2 shBrowserTest
         cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html")
     shNpmTestPublished
-)}
-
-shBuildCiPost() {(set -e
-    return
-)}
-
-shBuildCiPre() {(set -e
-    return
 )}
 
 # run shBuildCi

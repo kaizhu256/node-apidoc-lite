@@ -225,7 +225,7 @@
             onError
         ) {
         /*
-         * this function will test the webpage's default handling-behavior
+         * this function will test webpage's default handling-behavior
          */
             options = { modeCoverageMerge: true, url: local.serverLocalHost + '?modeTest=1' };
             local.browserTest(options, onError);
