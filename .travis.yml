@@ -6,11 +6,14 @@ branches:
     only:
     - alpha
     - beta
+    - docker.base
+    - docker.latest
     - master
     - publish
+    - task
 env:
     global:
-    # this value is auto-created by shAesEncryptTravis
+    # this value is auto-created by shTravisEncryptYml
     - secure: l2BYRV0vRNmUUE3nvcbibg7b3HtYuoyKR+lJ/shh2SlmH2idPF1kbahC7eKn07E7p05VD3L9LX7Kj7Mn09M3VOWqzUtvGE8PoVtasAnNtZsROFMWcjlwssvNW7anKJMjnE/BemeyqEntiNJ3UMPFo9N2BiJbcyE/o9fYwXHLlujACHl1Cmv5IuCrlG5AXK9NCo0MmaKAU8K+eelwkex4eszePEKNvRo1px0UdmIwwvwP/ZFlrDC3HuV4Fm42S3LQ5TAtwv+S0U7LqgISpMezUQPRpuRrYqts+/IaD0HwTCANFpM3T2YGc8eN5hu0Cr2G9XipDEmgT/92n57EwbxTQIAXzOAXZLyPBV8vkmI1u4IhNEkZJzjAdNgFkwswDI0pW7UuwudHpvXkqljJ/RYZrYY0JVHdtr2TfIcVs70y+Asay7LSLf4YN3enKVMCPo0qtJnL9bztYuREwDQWJymxpKFcXEhZP0i1nkocwYXxO9jfGkKx7u+0bQlgx2xxuWgR3vWRBhC1z0ET8phodEHZJqUKHlFJg38DBsQNi60Jj8IR7T5RQVZiYawGlu5KrBamwCwalcRGKvPOr5DsbHzAncCslwAS/QfZcMyqQWeo63rGSG8xaBDUZhfALu2PsraLi38HW0VyUjhobrTwc/zccFsO69bYjMyi96Fm4ymGcik= # CRYPTO_AES_KEY
     # this value is auto-created by shAesEncryptTravis
     # - CRYPTO_AES_ENCRYPTED_SH: YTM0YzM5ZTQwNTVlMzdlODhmZWViNDJhODI2MGQ5OGE=QNf5vW0Srp6og/+ZlSbCLJ3OAO+TKqxZMXy6cErf12jtioOfzRNK2YwwBIU+F2aQpqz2FGjenRqMT36g5RTJWN3IuiCXyGxDfCUsH8YcdcnBtJOlPzB4ZMvtyATQnms+F5VdIblE4e4KEHUJLQEbtgjYBjDCElZSw+KY6ZG8824FkWpbnpCRa/A+GVqsDN4FyrnN/ROA3BU5dDp9uM8aMlfYUqF0ExYgACPo0j0IOwr6YuxUtshjqzehR8U4w1+SQ463PkyS/4P8Dw/XgeRD+qjRvogCrUznvmFIi9H6NY9jjl4DHl/aq1M2OGeKoahA4XC4P2H/nBgXtARk64WnosZMAtWpR4YE3LuOZhYo3rUJBTNGhGGGFlni88VhWMerSU8E2UUzS8hJ7vGH2ESnbPDD2bjphenaQWhO6kZWpBOC4ivx/8qsnAXEwgWM+cfEhBilYUsYNN79+tPKXddFYafOchIPaSMnETavT9MYv5P7G3gyfETW6KdYb4aLQBGFUK7+PIsffRx/+PoLC8Kz8k9rAdMPNAd4VoEXBCxZDq2wCttUnc164vpDyzxwLhtW7zXe13hpnm68V/5/CAFqu8Nm4CqlU7+O4cboSjVg6Uvfa95bhc7JFp6oRpl4HMExMFQpnbr8txda+LazdAHuGNBZXmwCkF6RLm9//BFnuj8aiHlfiF4WORmxumvr2L8YjqbsHdQ/ou+S5+DqVQHjmsUsoACtpzfEEbjLMx5Nm/M6ltPGdPXjQaCZODA8lSDh # CRYPTO_AES_ENCRYPTED_SH
@@ -21,6 +24,8 @@ node_js:
     - node
 script:
     - npm run build-ci
+services:
+    - docker
 # http://docs.travis-ci.com/user/workers/container-based-infrastructure
 sudo:
     false
