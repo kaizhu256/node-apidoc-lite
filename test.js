@@ -48,7 +48,7 @@
         // re-init local from example.js
         case 'node':
             local = (local.global.utility2_rollup || require('utility2'))
-                .requireExampleJsFromReadme();
+                .requireReadme();
             break;
         }
         // export local
@@ -78,31 +78,44 @@
          * this function will test apidocCreate's default handling-behavior-behavior
          */
             options = {
-                // test dir-custom handling-behavior
-                dir: local.utility2.__dirname
+                // test readExample-error handling-behavior
+                exampleFileList: ['undefined'],
+                libFileList: [
+                    // test libFileList-error handling-behavior
+                    'lib.error.js'
+                ],
+                moduleDict: {
+                    // test invalid module-name handling-behavior
+                    'invalid syntax': {},
+                    // test weird-module handling-behavior
+                    'undefined': local.objectWeird
+                },
+                // test packageJson handling-behavior
+                packageJson: {
+                    _: '',
+                    aa: 'bb',
+                    emailDict: { email: 'a@a.com'},
+                    emailList: [{ email: 'a@a.com' }],
+                    readme: ''
+                }
+            };
+            local.apidocCreate(options);
+            local.assertJsonEqual(options.packageJson._, undefined);
+            local.assertJsonEqual(options.packageJson.aa, 'bb');
+            local.assertJsonEqual(options.packageJson.emailDict.email, undefined);
+            local.assertJsonEqual(options.packageJson.emailList[0].email, undefined);
+            local.assertJsonEqual(options.packageJson.readme, undefined);
+            options = {
+                // test modeNoApidoc handling-behavior
+                modeNoApidoc: true
             };
             local.apidocCreate(options);
             options = {
-                // test libFilelist-custom handling-behavior
-                libFileList: ['lib.apidoc.js', 'package.json'],
-                // test invalid module-name handling-behavior
-                moduleDict: { 'invalid syntax': {} },
-                // test packageJson default handling-behavior
-                packageJson: {},
-                // test markdown-template handling-behavior
-                template: local.templateApidocMd
+                // test invalid-require handling-behavior
+                require: local.nop
             };
             local.apidocCreate(options);
-            local.testMock([
-                // test libFileList-error handling-behavior
-                [local.fs, { readdirSync: function () {
-                    return ['undefined'];
-                } }]
-            ], function (onError) {
-                options = {};
-                local.apidocCreate(options);
-                onError();
-            }, onError);
+            onError();
         };
 
         local.testCase_buildReadme_default = function (options, onError) {
@@ -114,7 +127,7 @@
                 // search-and-replace - customize dataTo
                 [
                     // customize demo
-                    (/\n\[!\[package-listing\][\S\s]*?\n# documentation\n/),
+                    (/\n\[!\[npmPackageListing\][\S\s]*?\n# documentation\n/),
                     // customize test-server
                     (/\n\| git-branch : \|[\S\s]*?\n\| test-report : \|/),
                     // customize quickstart
@@ -142,6 +155,16 @@
 
     // run browser js-env code - post-init
     case 'browser':
+        local.testCase_browser_nullCase = local.testCase_browser_nullCase || function (
+            options,
+            onError
+        ) {
+        /*
+         * this function will test browsers's null-case handling-behavior-behavior
+         */
+            onError(null, options);
+        };
+
         // run tests
         local.nop(local.modeTest &&
             document.querySelector('#testRunButton1') &&
@@ -160,12 +183,7 @@
         /*
          * this function will test buildApidoc's default handling-behavior-behavior
          */
-            if (local.env.npm_package_buildNpmdoc) {
-                options = {};
-                local.buildNpmdoc(options, onError);
-                return;
-            }
-            options = {};
+            options = { modulePathList: module.paths };
             local.buildApidoc(options, onError);
         };
 
@@ -179,9 +197,19 @@
             local.testCase_buildReadme_default(options, local.onErrorThrow);
             local.testCase_buildLib_default(options, local.onErrorThrow);
             local.testCase_buildTest_default(options, local.onErrorThrow);
+            local.testCase_buildCustomOrg_default(options, local.onErrorThrow);
             options = [];
             local.buildApp(options, onError);
         };
+
+        local.testCase_buildCustomOrg_default = local.testCase_buildCustomOrg_default ||
+            function (options, onError) {
+            /*
+             * this function will test buildCustomOrg's default handling-behavior
+             */
+                options = {};
+                local.buildCustomOrg(options, onError);
+            };
 
         local.testCase_buildLib_default = local.testCase_buildLib_default || function (
             options,
@@ -201,10 +229,6 @@
         /*
          * this function will test buildReadme's default handling-behavior-behavior
          */
-            if (local.env.npm_package_buildNpmdoc) {
-                onError();
-                return;
-            }
             options = {};
             local.buildReadme(options, onError);
         };
@@ -225,7 +249,7 @@
             onError
         ) {
         /*
-         * this function will test the webpage's default handling-behavior
+         * this function will test webpage's default handling-behavior
          */
             options = { modeCoverageMerge: true, url: local.serverLocalHost + '?modeTest=1' };
             local.browserTest(options, onError);

@@ -5,7 +5,7 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 
 [![NPM](https://nodei.co/npm/apidoc-lite.png?downloads=true)](https://www.npmjs.com/package/apidoc-lite)
 
-[![package-listing](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.gitLsTree.svg)](https://github.com/kaizhu256/node-apidoc-lite)
+[![npmPackageListing](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.npmPackageListing.svg)](https://github.com/kaizhu256/node-apidoc-lite)
 
 
 
@@ -13,14 +13,17 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### apidoc
 - [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
-[![apidoc](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.buildApidoc.browser._2Fhome_2Ftravis_2Fbuild_2Fkaizhu256_2Fnode-apidoc-lite_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
 #### todo
 - none
 
-#### change since 7261b69f
-- npm publish 2017.3.16
-- revert npm_package_nameAlias back to npm_package_name
+#### changelog for v2017.4.22
+- npm publish 2017.4.22
+- limit exampleList to 256 examples to handle edge-cases with many example-files like lodash
+- generalize function apidocCreate to handle more real-world npm-modules
+- try to document all .js files in first 3-levels of directories using param libFileList
+- use breadth-first for files to add to param libFileList in function apidocCreate
 - none
 
 #### this package requires
@@ -76,16 +79,17 @@ shExampleSh
 ```
 
 #### output from browser
-[![screen-capture](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.testExampleSh.browser._2Ftmp_2Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html)
+[![screenCapture](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.testExampleSh.browser.%252Ftmp%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html)
 
 #### output from shell
-![screen-capture](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.testExampleSh.svg)
+![screenCapture](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.testExampleSh.svg)
 
 
 
 # package.json
 ```json
 {
+    "_coverageHack": "",
     "author": "kai zhu <kaizhu256@gmail.com>",
     "bin": {
         "apidoc-lite": "lib.apidoc.js"
@@ -111,14 +115,12 @@ shExampleSh
     "main": "lib.apidoc.js",
     "name": "apidoc-lite",
     "nameAlias": "apidoc",
-    "nameAliasDeprecate": "api_doc apidocs api-doctor doctor-api npm-doc",
     "nameAliasPublish": "npmdoc",
     "nameOriginal": "apidoc-lite",
     "os": [
         "darwin",
         "linux"
     ],
-    "readmeParse": "1",
     "repository": {
         "type": "git",
         "url": "https://github.com/kaizhu256/node-apidoc-lite.git"
@@ -127,18 +129,18 @@ shExampleSh
         "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
         "heroku-postbuild": "npm install 'kaizhu256/node-utility2#alpha' && utility2 shDeployHeroku",
-        "postinstall": "if [ -f lib.apidoc.npm_scripts.sh ]; then ./lib.apidoc.npm_scripts.sh postinstall; fi",
-        "start": "export PORT=${PORT:-8080} && export npm_config_mode_auto_restart=1 && utility2 start test.js",
-        "test": "export PORT=$(utility2 shServerPortRandom) && utility2 test test.js"
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "2017.3.16"
+    "version": "2017.4.22"
 }
 ```
 
 
 
 # changelog of last 50 commits
-[![screen-capture](https://kaizhu256.github.io/node-apidoc-lite/build/screen-capture.gitLog.svg)](https://github.com/kaizhu256/node-apidoc-lite/commits)
+[![screenCapture](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.gitLog.svg)](https://github.com/kaizhu256/node-apidoc-lite/commits)
 
 
 
@@ -149,27 +151,17 @@ shExampleSh
 
 # this shell script will run the build for this package
 
-shBuildCiInternalPost() {(set -e
+shBuildCiAfter() {(set -e
     shReadmeBuildLinkVerify
 )}
 
-shBuildCiInternalPre() {(set -e
+shBuildCiBefore() {(set -e
     shReadmeTest example.js
     shReadmeTest example.sh
-    # save screen-capture
-    (export MODE_BUILD=testExampleSh
-        export url=/tmp/apidoc.html
-        utility2 shBrowserTest
-        cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html")
+    # save screenCapture
+    MODE_BUILD=testExampleSh shBrowserTest /tmp/apidoc.html screenCapture
+    cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html"
     shNpmTestPublished
-)}
-
-shBuildCiPost() {(set -e
-    return
-)}
-
-shBuildCiPre() {(set -e
-    return
 )}
 
 # run shBuildCi

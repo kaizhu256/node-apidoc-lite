@@ -48,6 +48,7 @@
         } else {
             module.exports = local;
             module.exports.__dirname = __dirname;
+            module.exports.module = module;
         }
     }());
 
@@ -75,31 +76,30 @@
             throw error;
         };
 
-        local.moduleDirname = function (module) {
+        local.moduleDirname = function (module, modulePathList) {
         /*
-         * this function will return the __dirname of the module
+         * this function will search modulePathList for the module's __dirname
          */
-            var result;
-            if (!module || module.indexOf('/') >= 0 || module === '.') {
+            var result, tmp;
+            // search process.cwd()
+            if (!module || module === '.' || module.indexOf('/') >= 0) {
                 return require('path').resolve(process.cwd(), module || '');
             }
-            try {
-                require(process.cwd() + '/node_modules/' + module);
-            } catch (errorCaught) {
-                try {
-                    require(module);
-                } catch (ignore) {
-                }
-            }
+            // search modulePathList
             [
-                new RegExp('(.*?/' + module + ')\\b'),
-                new RegExp('(.*?/' + module + ')/[^/].*?$')
-            ].some(function (rgx) {
-                return Object.keys(require.cache).some(function (key) {
-                    result = rgx.exec(key);
-                    result = result && result[1];
-                    return result;
+                ['node_modules'],
+                modulePathList,
+                require('module').globalPaths
+            ].some(function (modulePathList) {
+                modulePathList.some(function (modulePath) {
+                    try {
+                        tmp = require('path').resolve(process.cwd(), modulePath + '/' + module);
+                        result = require('fs').statSync(tmp).isDirectory() && tmp;
+                        return result;
+                    } catch (ignore) {
+                    }
                 });
+                return result;
             });
             return result || '';
         };
@@ -224,6 +224,9 @@
                 }
                 argList.slice(1).forEach(function (arg) {
                     switch (arg) {
+                    case 'alphanumeric':
+                        value = value.replace((/\W/g), '_');
+                        break;
                     case 'decodeURIComponent':
                         value = decodeURIComponent(value);
                         break;
@@ -231,10 +234,18 @@
                         value = encodeURIComponent(value);
                         break;
                     case 'htmlSafe':
-                        value = local.stringHtmlSafe(String(value));
+                        value = value.replace((/["&'<>]/g), function (match0) {
+                            return '&#x' + match0.charCodeAt(0).toString(16) + ';';
+                        });
                         break;
                     case 'jsonStringify':
                         value = JSON.stringify(value);
+                        break;
+                    case 'jsonStringify4':
+                        value = JSON.stringify(value, null, 4);
+                        break;
+                    case 'markdownCodeSafe':
+                        value = value.replace((/`/g), '\'');
                         break;
                     default:
                         value = value[arg]();
@@ -243,6 +254,24 @@
                 });
                 return String(value);
             });
+        };
+
+        local.tryCatchOnError = function (fnc, onError) {
+        /*
+         * this function will try to run the fnc in a try-catch block,
+         * else call onError with the errorCaught
+         */
+            // validate onError
+            local.assert(typeof onError === 'function', typeof onError);
+            try {
+                // reset errorCaught
+                local._debugTryCatchErrorCaught = null;
+                return fnc();
+            } catch (errorCaught) {
+                // debug errorCaught
+                local._debugTryCatchErrorCaught = errorCaught;
+                return onError(errorCaught);
+            }
         };
     }());
 
@@ -299,13 +328,14 @@ local.templateApidocHtml = '\
     font-weight: bold;\n\
 }\n\
 </style>\n\
-<h1>api-documentation for\n\
+<h1>api documentation for\n\
     <a\n\
         {{#if env.npm_package_homepage}}\n\
         href="{{env.npm_package_homepage}}"\n\
         {{/if env.npm_package_homepage}}\n\
     >{{env.npm_package_name}} (v{{env.npm_package_version}})</a>\n\
 </h1>\n\
+<h4>{{env.npm_package_description}}</h4>\n\
 <div class="apidocSectionDiv"><a\n\
     href="#apidoc.tableOfContents"\n\
     id="apidoc.tableOfContents"\n\
@@ -353,71 +383,6 @@ local.templateApidocHtml = '\
 </div>\n\
 </div>\n\
 ';
-
-local.templateApidocMd = '\
-# api-documentation for \
-{{#if env.npm_package_homepage}} \
-[{{env.npm_package_name}} (v{{env.npm_package_version}})]({{env.npm_package_homepage}}) \
-{{#unless env.npm_package_homepage}} \
-{{env.npm_package_name}} (v{{env.npm_package_version}}) \
-{{/if env.npm_package_homepage}} \
-\n\
-\n\
-\n\
-\n\
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents) \
-{{#each moduleList}} \
-\n\
-\n\
-#### [module {{name}}](#{{id}}) \
-    {{#each elementList}} \
-\n\
-1. \
-{{#if source}} \
-[{{name}} {{signature}}](#{{id}}) \
-{{#unless source}} \
-{{name}} \
-{{/if source}} \
-{{/each elementList}} \
-{{/each moduleList}} \
-{{#each moduleList}} \
-\n\
-\n\
-\n\
-\n\
-# <a name="{{id}}"></a>[module {{name}}](#{{id}}) \
-{{#each elementList}} \
-{{#if source}} \
-\n\
-\n\
-#### <a name="{{id}}"></a>[{{name}} {{signature}}](#{{id}}) \
-\n\
-- description and source-code \
-\n\
-```javascript \
-\n\
-{{source}} \
-\n\
-``` \
-\n\
-- example usage \
-\n\
-```shell \
-\n\
-{{example}} \
-\n\
-``` \
-{{/if source}} \
-{{/each elementList}} \
-{{/each moduleList}} \
-\n\
-\n\
-\n\
-\n\
-# misc \
-\n\
-- this document was created with [utility2](https://github.com/kaizhu256/node-utility2) \
-\n';
 /* jslint-ignore-end */
 
 
@@ -428,12 +393,15 @@ local.templateApidocMd = '\
         /*
          * this function will create the apidoc from options.dir
          */
-            var elementCreate, module, moduleMain, readExample, tmp, trimLeft;
+            var elementCreate, module, moduleMain, readExample, tmp, toString, trimLeft;
             elementCreate = function (module, prefix, key) {
             /*
              * this function will create the apidoc-element in the given module
              */
                 var element;
+                if (options.modeNoApidoc) {
+                    return element;
+                }
                 element = {};
                 element.moduleName = prefix.split('.');
                 // handle case where module is a function
@@ -446,18 +414,16 @@ local.templateApidocMd = '\
                 element.name = (element.typeof + ' <span class="apidocSignatureSpan">' +
                     element.moduleName + '.</span>' + key)
                     // handle case where module is a function
-                    .replace('>.<', '');
+                    .replace('>.<', '><');
                 if (element.typeof !== 'function') {
                     return element;
                 }
                 // init source
-                element.source = trimLeft(module[key].toString());
+                element.source = trimLeft(toString(module[key])) || 'n/a';
                 if (element.source.length > 4096) {
                     element.source = element.source.slice(0, 4096).trimRight() + ' ...';
                 }
-                element.source = (options.template === local.templateApidocHtml
-                    ? local.stringHtmlSafe(element.source)
-                    : element.source.replace((/`/g), '_'))
+                element.source = local.stringHtmlSafe(element.source)
                     .replace((/\([\S\s]*?\)/), function (match0) {
                         // init signature
                         element.signature = match0
@@ -476,15 +442,13 @@ local.templateApidocMd = '\
                     example.replace(
                         new RegExp('((?:\n.*?){8}\\.)(' + key + ')(\\((?:.*?\n){8})'),
                         function (match0, match1, match2, match3) {
-                            element.example = '...' + trimLeft(
-                                options.template === local.templateApidocHtml
-                                    ?  local.stringHtmlSafe(match1) +
-                                        '<span class="apidocCodeKeywordSpan">' +
-                                        local.stringHtmlSafe(match2) +
-                                        '</span>' +
-                                        local.stringHtmlSafe(match3)
-                                    : match0.replace((/`/g), "'")
-                            ).trimRight() + '\n...';
+                            // jslint-hack
+                            local.nop(match0);
+                            element.example = '...' + trimLeft(local.stringHtmlSafe(match1) +
+                                '<span class="apidocCodeKeywordSpan">' +
+                                local.stringHtmlSafe(match2) +
+                                '</span>' +
+                                local.stringHtmlSafe(match3)).trimRight() + '\n...';
                         }
                     );
                     return element.example;
@@ -496,13 +460,25 @@ local.templateApidocMd = '\
             /*
              * this function will read the example from the given file
              */
-                try {
-                    return ('\n\n\n\n\n\n\n\n' +
+                var result;
+                local.tryCatchOnError(function () {
+                    result = '';
+                    result = ('\n\n\n\n\n\n\n\n' +
                         local.fs.readFileSync(local.path.resolve(options.dir, file), 'utf8') +
                         '\n\n\n\n\n\n\n\n').replace((/\r\n*/g), '\n');
-                } catch (errorCaught) {
-                    return '';
-                }
+                }, console.error);
+                return result;
+            };
+            toString = function (value) {
+            /*
+             * this function will try to return the string form of the value
+             */
+                var result;
+                local.tryCatchOnError(function () {
+                    result = '';
+                    result = String(value);
+                }, console.error);
+                return result;
             };
             trimLeft = function (text) {
             /*
@@ -517,31 +493,59 @@ local.templateApidocMd = '\
                 });
                 text = text.replace(new RegExp('^' + whitespace, 'gm'), '');
                 // enforce 128 character column limit
-                while ((/^.{128}[^\\\n]/m).test(text)) {
-                    text = text.replace((/^(.{128})([^\\\n]+)/gm), '$1\\\n$2');
-                }
+                text = text.replace((/^.{128}[^\\\n]+/gm), function (match0) {
+                    return match0.replace((/(.{128}(?:\b|\w+))/g), '$1\n').trimRight();
+                });
                 return text;
             };
             // init options
-            options.dir = local.moduleDirname(options.dir);
+            options.dir = local.moduleDirname(
+                options.dir,
+                options.modulePathList || local.module.paths
+            );
             local.objectSetDefault(options, {
-                packageJson: JSON.parse(readExample('package.json'))
+                env: { npm_package_description: '' },
+                packageJson: JSON.parse(readExample('package.json')),
+                require: function (file) {
+                    return local.tryCatchOnError(function () {
+                        return require(file);
+                    }, console.error);
+                }
             });
-            local.objectSetDefault(options, { env: {
-                npm_package_homepage: options.packageJson.homepage,
-                npm_package_name: options.packageJson.name,
-                npm_package_version: options.packageJson.version
-            } }, 2);
+            Object.keys(options.packageJson).forEach(function (key) {
+                tmp = options.packageJson[key];
+                // strip email from npmdoc documentation
+                // https://github.com/npmdoc/node-npmdoc-hpp/issues/1
+                if (tmp) {
+                    if (tmp.email) {
+                        delete tmp.email;
+                    }
+                    if (Array.isArray(tmp)) {
+                        tmp.forEach(function (element) {
+                            if (element && element.email) {
+                                delete element.email;
+                            }
+                        });
+                    }
+                }
+                if (key[0] === '_' || key === 'readme') {
+                    delete options.packageJson[key];
+                } else if (typeof tmp === 'string') {
+                    options.env['npm_package_' + key] = tmp;
+                }
+            });
             local.objectSetDefault(options, {
                 blacklistDict: { global: global },
                 circularList: [global],
                 exampleFileList: [],
                 exampleList: [],
                 html: '',
+                libFileList: [],
                 moduleDict: {},
                 moduleExtraDict: {},
+                packageJson: { bin: {} },
                 template: local.templateApidocHtml
-            });
+            }, 2);
             // init exampleList
             options.exampleList = options.exampleList.concat(options.exampleFileList.concat(
                 local.fs.readdirSync(options.dir)
@@ -551,10 +555,43 @@ local.templateApidocMd = '\
                             (/^(?:readme)\b/i).test(file) ||
                             (/^(?:index|lib|test)\b.*\.js$/i).test(file);
                     })
-            ).map(readExample));
+            ).map(readExample))
+                .filter(function (element) {
+                    return element.trim();
+                })
+                .slice(0, 128);
             // init moduleMain
+            local.tryCatchOnError(function () {
+                console.error('apidocCreate - requiring ' + options.dir + ' ...');
+                moduleMain = {};
+                moduleMain = options.moduleDict[options.env.npm_package_name] ||
+                    options.require(options.dir) ||
+                    options.require(options.dir + '/' + (options.packageJson.bin)[
+                        Object.keys(options.packageJson.bin)[0]
+                    ]) || {};
+                console.error('apidocCreate - ... required ' + options.dir);
+            }, console.error);
+            tmp = {};
+            // handle case where module is a function
+            if (typeof moduleMain === 'function') {
+                (function () {
+                    var text;
+                    text = toString(moduleMain);
+                    tmp = function () {
+                        return;
+                    };
+                    // coverage-hack
+                    tmp();
+                    Object.defineProperties(tmp, { toString: { get: function () {
+                        return function () {
+                            return text;
+                        };
+                    } } });
+                }());
+            }
+            // normalize moduleMain
             moduleMain = options.moduleDict[options.env.npm_package_name] =
-                options.moduleDict[options.env.npm_package_name] || require(options.dir);
+                local.objectSetDefault(tmp, moduleMain);
             // init circularList - builtin
             Object.keys(process.binding('natives')).forEach(function (key) {
                 if (!(/\/|_linklist|sys/).test(key)) {
@@ -584,42 +621,71 @@ local.templateApidocMd = '\
             });
             // init moduleDict child
             local.apidocModuleDictAdd(options, options.moduleDict);
-            // init moduleDict lib
-            (function () {
-                // optimization - isolate try-catch block
-                try {
-                    options.libFileList = options.libFileList ||
-                        local.fs.readdirSync(options.dir + '/lib')
-                        .sort()
-                        .map(function (file) {
-                            return 'lib/' + file;
-                        });
-                } catch (ignore) {
-                }
-            }());
+            // init moduleExtraDict
             module = options.moduleExtraDict[options.env.npm_package_name] =
                 options.moduleExtraDict[options.env.npm_package_name] || {};
-            (options.libFileList || []).forEach(function (file) {
-                try {
-                    tmp = {
-                        module: require(local.path.resolve(options.dir, file)),
-                        name: local.path.basename(file)
-                            .replace((/\.[^.]*?$/), '')
-                            .replace((/\W/g), '_')
-                    };
-                    if (module[tmp.name] || options.circularList.indexOf(tmp.module) >= 0) {
+            [1, 2, 3, 4].forEach(function (depth) {
+                options.libFileList = options.libFileList.concat(
+                    // http://stackoverflow.com
+                    // /questions/4509624/how-to-limit-depth-for-recursive-file-list
+                    // find . -maxdepth 1 -mindepth 1 -name "*.js" -type f
+                    local.child_process.execSync('find "' + options.dir +
+                        '" -maxdepth ' + depth + ' -mindepth ' + depth +
+                        ' -name "*.js" -type f | sed -e "s|' + options.dir +
+                        '/||" | grep -iv ' +
+/* jslint-ignore-begin */
+'"\
+/\\.\\|\\(\\b\\|_\\)\\(\
+archive\\|artifact\\|asset\\|\
+bower_component\\|build\\|\
+coverage\\|\
+doc\\|dist\\|\
+example\\|external\\|\
+fixture\\|\
+log\\|\
+min\\|mock\\|\
+node_module\\|\
+rollup\\|\
+test\\|tmp\\|\
+vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
+" ' +
+/* jslint-ignore-end */
+                            ' | sort | head -n 4096').toString()
+                        .split('\n')
+                );
+            });
+            options.libFileList.some(function (file) {
+                local.tryCatchOnError(function () {
+                    tmp = {};
+                    tmp.name = local.path.basename(file)
+                        .replace('lib.', '')
+                        .replace((/\.[^.]*?$/), '')
+                        .replace((/\W/g), '_');
+                    [
+                        tmp.name,
+                        tmp.name.slice(0, 1).toUpperCase() + tmp.name.slice(1)
+                    ].some(function (name) {
+                        tmp.isFiltered = name && (!options.packageJson.main ||
+                                ('./' + file).indexOf(options.packageJson.main) < 0) &&
+                            !module[name];
+                        return !tmp.isFiltered;
+                    });
+                    if (!tmp.isFiltered) {
+                        return;
+                    }
+                    tmp.module = options.require(options.dir + '/' + file);
+                    if (!(tmp.module && options.circularList.indexOf(tmp.module) < 0)) {
                         return;
                     }
                     module[tmp.name] = tmp.module;
                     // update exampleList
                     options.exampleList.push(readExample(file));
-                } catch (ignore) {
-                }
+                    console.error('apidocCreate - ' + options.exampleList.length +
+                        '. added libFile ' + file);
+                }, console.error);
+                return options.exampleList.length >= 256;
             });
             local.apidocModuleDictAdd(options, options.moduleExtraDict);
-            // normalize moduleMain
-            moduleMain = options.moduleDict[options.env.npm_package_name] =
-                local.objectSetDefault({}, moduleMain);
             Object.keys(options.moduleDict).forEach(function (key) {
                 if (key.indexOf(options.env.npm_package_name + '.') !== 0) {
                     return;
@@ -634,19 +700,20 @@ local.templateApidocMd = '\
                     module = options.moduleDict[prefix];
                     // handle case where module is a function
                     if (typeof module === 'function') {
-                        module[prefix.split('.').slice(-1)[0]] =
-                            module[prefix.split('.').slice(-1)[0]] || module;
+                        local.tryCatchOnError(function () {
+                            module[prefix.split('.').slice(-1)[0]] =
+                                module[prefix.split('.').slice(-1)[0]] || module;
+                        }, console.error);
                     }
                     return {
                         elementList: Object.keys(module)
                             .filter(function (key) {
-                                try {
+                                return local.tryCatchOnError(function () {
                                     return key &&
                                         (/^\w[\w\-.]*?$/).test(key) &&
                                         key.indexOf('testCase_') !== 0 &&
                                         module[key] !== options.blacklistDict[key];
-                                } catch (ignore) {
-                                }
+                                }, console.error);
                             })
                             .map(function (key) {
                                 return elementCreate(module, prefix, key);
@@ -661,7 +728,10 @@ local.templateApidocMd = '\
                     };
                 });
             // render apidoc
-            return local.templateRender(options.template, options);
+            options.result = local.templateRender(options.template, options)
+                .trim()
+                .replace((/ +$/gm), '') + '\n';
+            return options.result;
         };
 
         local.apidocModuleDictAdd = function (options, moduleDict) {
@@ -675,11 +745,11 @@ local.templateApidocMd = '\
                         return;
                     }
                     Object.keys(moduleDict[prefix]).forEach(function (key) {
-                        if (!(/^\w[\w\-.]*?$/).test(key)) {
-                            return;
-                        }
-                        // bug-workaround - buggy electron accessors
-                        try {
+                        // bug-workaround - buggy electron getter / setter
+                        local.tryCatchOnError(function () {
+                            if (!(/^\w[\w\-.]*?$/).test(key) || !moduleDict[prefix][key]) {
+                                return;
+                            }
                             tmp = element === 'prototype'
                                 ? {
                                     module: moduleDict[prefix][key].prototype,
@@ -701,10 +771,10 @@ local.templateApidocMd = '\
                                 tmp.module.prototype
                             ].some(function (dict) {
                                 return Object.keys(dict || {}).some(function (key) {
-                                    try {
+                                    // bug-workaround - buggy electron getter / setter
+                                    return local.tryCatchOnError(function () {
                                         return typeof dict[key] === 'function';
-                                    } catch (ignore) {
-                                    }
+                                    }, console.error);
                                 });
                             });
                             if (!isModule) {
@@ -712,8 +782,7 @@ local.templateApidocMd = '\
                             }
                             options.circularList.push(tmp.module);
                             options.moduleDict[tmp.name] = tmp.module;
-                        } catch (ignore) {
-                        }
+                        }, console.error);
                     });
                 });
             });
@@ -727,6 +796,7 @@ local.templateApidocMd = '\
     /* istanbul ignore next */
     case 'node':
         // require modules
+        local.child_process = require('child_process');
         local.fs = require('fs');
         local.path = require('path');
         // run the cli
@@ -736,9 +806,7 @@ local.templateApidocMd = '\
         // jslint files
         process.stdout.write(local.apidocCreate({
             dir: process.argv[2],
-            template: process.argv[3] === '--markdown'
-                ? local.templateApidocMd
-                : local.templateApidocHtml
+            modulePathList: module.paths
         }));
         break;
     }
