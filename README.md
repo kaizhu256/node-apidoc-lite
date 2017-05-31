@@ -1,11 +1,38 @@
 # apidoc-lite
 this zero-dependency package will auto-generate documentation for your npm-package with zero-config
 
-[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-apidoc-lite.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite) [![istanbul-coverage](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.html/index.html)
+[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-apidoc-lite.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite) [![coverage](https://kaizhu256.github.io/node-utility2/build/coverage.badge.svg)](https://kaizhu256.github.io/node-utility2/build/coverage.html/index.html)
 
 [![NPM](https://nodei.co/npm/apidoc-lite.png?downloads=true)](https://www.npmjs.com/package/apidoc-lite)
 
-[![npmPackageListing](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.npmPackageListing.svg)](https://github.com/kaizhu256/node-apidoc-lite)
+[![build commit status](https://kaizhu256.github.io/node-apidoc-lite/build/build.badge.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite)
+
+| git-branch : | [master](https://github.com/kaizhu256/node-apidoc-lite/tree/master) | [beta](https://github.com/kaizhu256/node-apidoc-lite/tree/beta) | [alpha](https://github.com/kaizhu256/node-apidoc-lite/tree/alpha)|
+|--:|:--|:--|:--|
+| test-report : | [![test-report](https://kaizhu256.github.io/node-apidoc-lite/build..master..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..master..travis-ci.org/test-report.html) | [![test-report](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/test-report.html) | [![test-report](https://kaizhu256.github.io/node-apidoc-lite/build..alpha..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..alpha..travis-ci.org/test-report.html)|
+| coverage : | [![coverage](https://kaizhu256.github.io/node-apidoc-lite/build..master..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..master..travis-ci.org/coverage.html/index.html) | [![coverage](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/coverage.html/index.html) | [![coverage](https://kaizhu256.github.io/node-apidoc-lite/build..alpha..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..alpha..travis-ci.org/coverage.html/index.html)|
+| build-artifacts : | [![build-artifacts](https://kaizhu256.github.io/node-apidoc-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-apidoc-lite/tree/gh-pages/build..master..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-apidoc-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-apidoc-lite/tree/gh-pages/build..beta..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-apidoc-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-apidoc-lite/tree/gh-pages/build..alpha..travis-ci.org)|
+
+[![npmPackageListing](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.npmPackageListing.svg)](https://github.com/kaizhu256/node-apidoc-lite)
+
+![npmPackageDependencyTree](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.npmPackageDependencyTree.svg)
+
+
+
+# table of contents
+1. [cdn download](#cdn-download)
+1. [documentation](#documentation)
+1. [quickstart shell example](#quickstart-shell-example)
+1. [all screenshots](#all-screenshots)
+1. [package.json](#packagejson)
+1. [changelog of last 50 commits](#changelog-of-last-50-commits)
+1. [internal build script](#internal-build-script)
+1. [misc](#misc)
+
+
+
+# cdn download
+- [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/app/assets.apidoc.js](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/app/assets.apidoc.js)
 
 
 
@@ -13,45 +40,19 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### apidoc
 - [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
-[![apidoc](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
 #### todo
 - none
 
-#### changelog for v2017.4.22
-- npm publish 2017.4.22
-- limit exampleList to 256 examples to handle edge-cases with many example-files like lodash
-- generalize function apidocCreate to handle more real-world npm-modules
-- try to document all .js files in first 3-levels of directories using param libFileList
-- use breadth-first for files to add to param libFileList in function apidocCreate
+#### changelog for v2017.5.30
+- npm publish 2017.5.30
+- fix 'use strict' demo bug affecting firefox and safari
+- revamp README.md
 - none
 
 #### this package requires
 - darwin or linux os
-
-
-
-# build status [![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-apidoc-lite.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite)
-[![build commit status](https://kaizhu256.github.io/node-apidoc-lite/build/build.badge.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite)
-
-| git-branch : | [master](https://github.com/kaizhu256/node-apidoc-lite/tree/master) | [beta](https://github.com/kaizhu256/node-apidoc-lite/tree/beta) | [alpha](https://github.com/kaizhu256/node-apidoc-lite/tree/alpha)|
-|--:|:--|:--|:--|
-| test-report : | [![test-report](https://kaizhu256.github.io/node-apidoc-lite/build..master..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..master..travis-ci.org/test-report.html) | [![test-report](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/test-report.html) | [![test-report](https://kaizhu256.github.io/node-apidoc-lite/build..alpha..travis-ci.org/test-report.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..alpha..travis-ci.org/test-report.html)|
-| coverage : | [![istanbul-coverage](https://kaizhu256.github.io/node-apidoc-lite/build..master..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..master..travis-ci.org/coverage.html/index.html) | [![istanbul-coverage](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/coverage.html/index.html) | [![istanbul-coverage](https://kaizhu256.github.io/node-apidoc-lite/build..alpha..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build..alpha..travis-ci.org/coverage.html/index.html)|
-| build-artifacts : | [![build-artifacts](https://kaizhu256.github.io/node-apidoc-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-apidoc-lite/tree/gh-pages/build..master..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-apidoc-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-apidoc-lite/tree/gh-pages/build..beta..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-apidoc-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-apidoc-lite/tree/gh-pages/build..alpha..travis-ci.org)|
-
-#### master branch
-- stable branch
-- HEAD should be tagged, npm-published package
-
-#### beta branch
-- semi-stable branch
-- HEAD should be latest, npm-published package
-
-#### alpha branch
-- unstable branch
-- HEAD is arbitrary
-- commit history may be rewritten
 
 
 
@@ -63,26 +64,32 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 
 # this shell script will auto-generate documentation for the mysql npm-package with zero-config
 
-# instruction
-    # 1. copy and paste this entire shell script into a console and press enter
-    # 2. open /tmp/apidoc.html to view the auto-generated documentation
-
-shExampleSh() {(set -e
-    # npm install apidoc-lite
-    npm install apidoc-lite
-    # npm install mysql
-    npm install mysql
-    # auto-generate documentation for the mysql npm-package with zero-config
-    node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
-)}
-shExampleSh
+# 1. npm install apidoc-lite
+npm install apidoc-lite
+# 2. npm install mysql
+npm install mysql
+# 3. auto-generate documentation for the mysql npm-package with zero-config
+node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
+# 4. open /tmp/apidoc.html to view the auto-generated mysql documentation
 ```
 
 #### output from browser
-[![screenCapture](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.testExampleSh.browser.%252Ftmp%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html)
+[![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.testExampleSh.browser.%252Ftmp%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html)
 
 #### output from shell
-![screenCapture](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.testExampleSh.svg)
+![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.testExampleSh.svg)
+
+
+
+# all screenshots
+1. [https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)
+[![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)
+
+1. [https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)
+[![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)
+
+1. [https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)
+[![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)
 
 
 
@@ -133,18 +140,18 @@ shExampleSh
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "2017.4.22"
+    "version": "2017.5.30"
 }
 ```
 
 
 
 # changelog of last 50 commits
-[![screenCapture](https://kaizhu256.github.io/node-apidoc-lite/build/screenCapture.gitLog.svg)](https://github.com/kaizhu256/node-apidoc-lite/commits)
+[![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.gitLog.svg)](https://github.com/kaizhu256/node-apidoc-lite/commits)
 
 
 
-# internal build-script
+# internal build script
 - build_ci.sh
 ```shell
 # build_ci.sh
@@ -152,16 +159,15 @@ shExampleSh
 # this shell script will run the build for this package
 
 shBuildCiAfter() {(set -e
-    shReadmeBuildLinkVerify
+    shReadmeTest example.sh
+    # screenshot
+    MODE_BUILD=testExampleSh shBrowserTest /tmp/apidoc.html screenshot
+    cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html"
 )}
 
 shBuildCiBefore() {(set -e
-    shReadmeTest example.js
-    shReadmeTest example.sh
-    # save screenCapture
-    MODE_BUILD=testExampleSh shBrowserTest /tmp/apidoc.html screenCapture
-    cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html"
     shNpmTestPublished
+    shReadmeTest example.js
 )}
 
 # run shBuildCi

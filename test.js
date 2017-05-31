@@ -15,7 +15,7 @@
 
 
 
-    // run shared js-env code - pre-init
+    // run shared js-env code - init-before
     (function () {
         // init local
         local = {};
@@ -47,11 +47,11 @@
             break;
         // re-init local from example.js
         case 'node':
-            local = (local.global.utility2_rollup || require('utility2'))
-                .requireReadme();
+            local = (local.global.utility2_rollup ||
+                require('utility2')).requireReadme();
             break;
         }
-        // export local
+        // init exports
         local.global.local = local;
     }());
 
@@ -117,35 +117,12 @@
             local.apidocCreate(options);
             onError();
         };
-
-        local.testCase_buildReadme_default = function (options, onError) {
-        /*
-         * this function will test buildReadme's default handling-behavior-behavior
-         */
-            options = {};
-            options.customize = function () {
-                // search-and-replace - customize dataTo
-                [
-                    // customize demo
-                    (/\n\[!\[npmPackageListing\][\S\s]*?\n# documentation\n/),
-                    // customize test-server
-                    (/\n\| git-branch : \|[\S\s]*?\n\| test-report : \|/),
-                    // customize quickstart
-                    (/\n# quickstart[\S\s]*?\n# package.json\n/)
-                ].forEach(function (rgx) {
-                    options.dataFrom.replace(rgx, function (match0) {
-                        options.dataTo = options.dataTo.replace(rgx, match0);
-                    });
-                });
-            };
-            local.buildReadme(options, onError);
-        };
         break;
     }
 
 
 
-    // run shared js-env code - post-init
+    // run shared js-env code - init-after
     (function () {
         return;
     }());
@@ -153,27 +130,40 @@
 
 
 
-    // run browser js-env code - post-init
+    // run browser js-env code - init-after
+    /* istanbul ignore next */
     case 'browser':
         local.testCase_browser_nullCase = local.testCase_browser_nullCase || function (
             options,
             onError
         ) {
         /*
-         * this function will test browsers's null-case handling-behavior-behavior
+         * this function will test browser's null-case handling-behavior-behavior
          */
             onError(null, options);
         };
 
+        local.utility2.ajaxForwardProxyUrlTest = local.utility2.ajaxForwardProxyUrlTest ||
+            function (url, location) {
+            /*
+             * this function will test if the url requires forward-proxy
+             */
+                // jslint-hack
+                local.nop(url);
+                return local.env.npm_package_nameAlias && (/\bgithub.io$/).test(location.host)
+                    ? 'https://h1-' + local.env.npm_package_nameAlias + '-alpha.herokuapp.com'
+                    : location.protocol + '//' + location.host;
+            };
+
         // run tests
-        local.nop(local.modeTest &&
-            document.querySelector('#testRunButton1') &&
-            document.querySelector('#testRunButton1').click());
+        if (local.modeTest && document.querySelector('#testRunButton1')) {
+            document.querySelector('#testRunButton1').click();
+        }
         break;
 
 
 
-    // run node js-env code - post-init
+    // run node js-env code - init-after
     /* istanbul ignore next */
     case 'node':
         local.testCase_buildApidoc_default = local.testCase_buildApidoc_default || function (
