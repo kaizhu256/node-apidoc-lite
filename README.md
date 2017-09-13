@@ -1,7 +1,14 @@
 # apidoc-lite
 this zero-dependency package will auto-generate documentation for your npm-package with zero-config
 
-[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-apidoc-lite.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite) [![coverage](https://kaizhu256.github.io/node-utility2/build/coverage.badge.svg)](https://kaizhu256.github.io/node-utility2/build/coverage.html/index.html)
+# live demo
+- [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html)
+
+[![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.testExampleSh.browser.%252Ftmp%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html)
+
+
+
+[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-apidoc-lite.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite) [![coverage](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.html/index.html) [![snyk.io vulnerabilities](https://snyk.io/test/github/kaizhu256/node-apidoc-lite/badge.svg)](https://snyk.io/test/github/kaizhu256/node-apidoc-lite)
 
 [![NPM](https://nodei.co/npm/apidoc-lite.png?downloads=true)](https://www.npmjs.com/package/apidoc-lite)
 
@@ -23,7 +30,7 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 1. [cdn download](#cdn-download)
 1. [documentation](#documentation)
 1. [quickstart shell example](#quickstart-shell-example)
-1. [all screenshots](#all-screenshots)
+1. [extra screenshots](#extra-screenshots)
 1. [package.json](#packagejson)
 1. [changelog of last 50 commits](#changelog-of-last-50-commits)
 1. [internal build script](#internal-build-script)
@@ -37,6 +44,9 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 
 
 # documentation
+#### cli help
+![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.npmPackageCliHelp.svg)
+
 #### apidoc
 - [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
@@ -45,10 +55,9 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### todo
 - none
 
-#### changelog for v2017.5.30
-- npm publish 2017.5.30
-- fix 'use strict' demo bug affecting firefox and safari
-- revamp README.md
+#### changelog for v2017.9.12
+- npm publish 2017.9.12
+- add cli-help doc to README.md
 - none
 
 #### this package requires
@@ -65,7 +74,7 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 # this shell script will auto-generate documentation for the mysql npm-package with zero-config
 
 # 1. npm install apidoc-lite
-npm install apidoc-lite
+mkdir -p node_modules && npm install apidoc-lite
 # 2. npm install mysql
 npm install mysql
 # 3. auto-generate documentation for the mysql npm-package with zero-config
@@ -81,7 +90,7 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
 
 
 
-# all screenshots
+# extra screenshots
 1. [https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)
 [![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)
 
@@ -140,7 +149,7 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "2017.5.30"
+    "version": "2017.9.12"
 }
 ```
 
@@ -159,6 +168,7 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
 # this shell script will run the build for this package
 
 shBuildCiAfter() {(set -e
+    # shDeployCustom
     shReadmeTest example.sh
     # screenshot
     MODE_BUILD=testExampleSh shBrowserTest /tmp/apidoc.html screenshot

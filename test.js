@@ -124,7 +124,21 @@
 
     // run shared js-env code - init-after
     (function () {
-        return;
+        // init objectWeird
+        local.objectWeird = function () {
+            return;
+        };
+        // coverage-hack
+        local.tryCatchOnError(function () {
+            local.objectWeird();
+        }, local.nop);
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+        // #Defining_getters_and_setters
+        Object.defineProperty(local.objectWeird, 'error', {
+            get: local.throwError,
+            set: local.throwError
+        });
+        local.objectWeird.toString = local.throwError;
     }());
     switch (local.modeJs) {
 
@@ -138,7 +152,7 @@
             onError
         ) {
         /*
-         * this function will test browser's null-case handling-behavior-behavior
+         * this function will test browser's null-case handling-behavior
          */
             onError(null, options);
         };
@@ -171,7 +185,7 @@
             onError
         ) {
         /*
-         * this function will test buildApidoc's default handling-behavior-behavior
+         * this function will test buildApidoc's default handling-behavior
          */
             options = { modulePathList: module.paths };
             local.buildApidoc(options, onError);
@@ -182,7 +196,7 @@
             onError
         ) {
         /*
-         * this function will test buildApp's default handling-behavior-behavior
+         * this function will test buildApp's default handling-behavior
          */
             local.testCase_buildReadme_default(options, local.onErrorThrow);
             local.testCase_buildLib_default(options, local.onErrorThrow);
@@ -217,7 +231,7 @@
             onError
         ) {
         /*
-         * this function will test buildReadme's default handling-behavior-behavior
+         * this function will test buildReadme's default handling-behavior
          */
             options = {};
             local.buildReadme(options, onError);
