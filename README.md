@@ -47,7 +47,7 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### cli help
 ![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.npmPackageCliHelp.svg)
 
-#### apidoc
+#### api doc
 - [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
 [![apidoc](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
@@ -55,9 +55,10 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### todo
 - none
 
-#### changelog for v2017.9.12
-- npm publish 2017.9.12
-- add cli-help doc to README.md
+#### changelog for v2017.10.23
+- npm publish 2017.10.23
+- fix assert-module bug
+- fix test-coverage
 - none
 
 #### this package requires
@@ -74,7 +75,7 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 # this shell script will auto-generate documentation for the mysql npm-package with zero-config
 
 # 1. npm install apidoc-lite
-mkdir -p node_modules && npm install apidoc-lite
+npm install apidoc-lite
 # 2. npm install mysql
 npm install mysql
 # 3. auto-generate documentation for the mysql npm-package with zero-config
@@ -130,8 +131,8 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
     "license": "MIT",
     "main": "lib.apidoc.js",
     "name": "apidoc-lite",
-    "nameAlias": "apidoc",
     "nameAliasPublish": "npmdoc",
+    "nameLib": "apidoc",
     "nameOriginal": "apidoc-lite",
     "os": [
         "darwin",
@@ -144,12 +145,12 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
     "scripts": {
         "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
-        "heroku-postbuild": "npm install 'kaizhu256/node-utility2#alpha' && utility2 shDeployHeroku",
-        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
-        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
-        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+        "heroku-postbuild": "npm uninstall utility2 2>/dev/null; npm install kaizhu256/node-utility2#alpha && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },
-    "version": "2017.9.12"
+    "version": "2017.10.23"
 }
 ```
 
