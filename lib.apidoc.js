@@ -168,8 +168,8 @@
                 local.replStart();
             };
             if (local.replStart) {
-                local.cliDict['--interactive'] =
-                    local.cliDict['--interactive'] || local.cliDict._interactive;
+                local.cliDict['--interactive'] = local.cliDict['--interactive'] ||
+                    local.cliDict._interactive;
                 local.cliDict['-i'] = local.cliDict['-i'] || local.cliDict._interactive;
             }
             // run fnc()
@@ -233,7 +233,10 @@
                     return;
                 }
                 // init arg[key] to default value defaults[key]
-                if (!arg2) {
+                switch (arg2) {
+                case '':
+                case null:
+                case undefined:
                     arg[key] = defaults2;
                     return;
                 }
@@ -265,12 +268,13 @@
             });
         };
 
-        local.templateRender = function (template, dict) {
+        local.templateRender = function (template, dict, options) {
         /*
          * this function will render the template with the given dict
          */
-            var argList, getValue, match, renderPartial, rgx, value;
+            var argList, getValue, match, renderPartial, rgx, tryCatch, value;
             dict = dict || {};
+            options = options || {};
             getValue = function (key) {
                 argList = key.split(' ');
                 value = dict;
@@ -287,7 +291,7 @@
                     return Array.isArray(value)
                         ? value.map(function (dict) {
                             // recurse with partial
-                            return local.templateRender(partial, dict);
+                            return local.templateRender(partial, dict, options);
                         }).join('')
                         : '';
                 case 'if':
@@ -297,15 +301,26 @@
                         // handle 'unless' case
                         : partial.slice(1).join('{{#unless ' + key + '}}');
                     // recurse with partial
-                    return local.templateRender(partial, dict);
+                    return local.templateRender(partial, dict, options);
                 case 'unless':
                     return getValue(key)
                         ? ''
                         // recurse with partial
-                        : local.templateRender(partial, dict);
+                        : local.templateRender(partial, dict, options);
                 default:
                     // recurse with partial
-                    return match0[0] + local.templateRender(match0.slice(1), dict);
+                    return match0[0] + local.templateRender(match0.slice(1), dict, options);
+                }
+            };
+            tryCatch = function (fnc, message) {
+            /*
+             * this function will prepend the message to errorCaught
+             */
+                try {
+                    return fnc();
+                } catch (errorCaught) {
+                    errorCaught.message = message + errorCaught.message;
+                    throw errorCaught;
                 }
             };
             // render partials
@@ -322,41 +337,57 @@
             }
             // search for keys in the template
             return template.replace((/\{\{[^}]+?\}\}/g), function (match0) {
-                getValue(match0.slice(2, -2));
-                if (value === undefined) {
-                    return match0;
-                }
-                argList.slice(1).forEach(function (arg) {
-                    switch (arg) {
-                    case 'alphanumeric':
-                        value = value.replace((/\W/g), '_');
-                        break;
-                    case 'decodeURIComponent':
-                        value = decodeURIComponent(value);
-                        break;
-                    case 'encodeURIComponent':
-                        value = encodeURIComponent(value);
-                        break;
-                    case 'htmlSafe':
+                var htmlBr, notHtmlSafe;
+                notHtmlSafe = options.notHtmlSafe;
+                return tryCatch(function () {
+                    getValue(match0.slice(2, -2));
+                    if (value === undefined) {
+                        return match0;
+                    }
+                    argList.slice(1).forEach(function (arg) {
+                        switch (arg) {
+                        case 'alphanumeric':
+                            value = value.replace((/\W/g), '_');
+                            break;
+                        case 'decodeURIComponent':
+                            value = decodeURIComponent(value);
+                            break;
+                        case 'encodeURIComponent':
+                            value = encodeURIComponent(value);
+                            break;
+                        case 'htmlBr':
+                            htmlBr = true;
+                            break;
+                        case 'jsonStringify':
+                            value = JSON.stringify(value);
+                            break;
+                        case 'jsonStringify4':
+                            value = JSON.stringify(value, null, 4);
+                            break;
+                        case 'markdownSafe':
+                            value = value.replace((/`/g), '\'');
+                            break;
+                        case 'notHtmlSafe':
+                            notHtmlSafe = true;
+                            break;
+                        // default to String.prototype[arg]()
+                        default:
+                            value = value[arg]();
+                            break;
+                        }
+                    });
+                    value = String(value);
+                    // default to htmlSafe
+                    if (!notHtmlSafe) {
                         value = value.replace((/["&'<>]/g), function (match0) {
                             return '&#x' + match0.charCodeAt(0).toString(16) + ';';
                         });
-                        break;
-                    case 'jsonStringify':
-                        value = JSON.stringify(value);
-                        break;
-                    case 'jsonStringify4':
-                        value = JSON.stringify(value, null, 4);
-                        break;
-                    case 'markdownCodeSafe':
-                        value = value.replace((/`/g), '\'');
-                        break;
-                    default:
-                        value = value[arg]();
-                        break;
                     }
-                });
-                return String(value);
+                    if (htmlBr) {
+                        value = value.replace((/\n/g), '<br>');
+                    }
+                    return value;
+                }, 'templateRender could not render expression ' + JSON.stringify(match0) + '\n');
             });
         };
 
@@ -365,15 +396,18 @@
          * this function will try to run the fnc in a try-catch block,
          * else call onError with the errorCaught
          */
+            var result;
             // validate onError
             local.assert(typeof onError === 'function', typeof onError);
             try {
                 // reset errorCaught
-                local._debugTryCatchErrorCaught = null;
-                return fnc();
+                local._debugTryCatchError = null;
+                result = fnc();
+                local._debugTryCatchError = null;
+                return result;
             } catch (errorCaught) {
                 // debug errorCaught
-                local._debugTryCatchErrorCaught = errorCaught;
+                local._debugTryCatchError = errorCaught;
                 return onError(errorCaught);
             }
         };
@@ -715,8 +749,10 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
                 }());
             }
             // normalize moduleMain
-            moduleMain = options.moduleDict[options.env.npm_package_name] =
-                local.objectSetDefault(tmp, moduleMain);
+            moduleMain = options.moduleDict[options.env.npm_package_name] = local.objectSetDefault(
+                tmp,
+                moduleMain
+            );
             // init circularList - builtin
             Object.keys(process.binding('natives')).forEach(function (key) {
                 if (!(/\/|^_linklist$|^sys$/).test(key)) {
@@ -748,10 +784,10 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
             local.apidocModuleDictAdd(options, options.moduleDict);
             // init swgg.apiDict
             Object.keys((moduleMain.swgg && moduleMain.swgg.apiDict) || {}).forEach(function (key) {
-                tmp = options.env.npm_package_name + '.swgg.apiDict';
+                tmp = 'swgg.apiDict';
                 tmp = options.moduleDict[tmp] = options.moduleDict[tmp] || {};
-                tmp[encodeURIComponent(key) + '.ajax'] =
-                    moduleMain.swgg.apiDict[key] && moduleMain.swgg.apiDict[key].ajax;
+                tmp[key + '.ajax'] = moduleMain.swgg.apiDict[key] &&
+                    moduleMain.swgg.apiDict[key].ajax;
             });
             // init moduleExtraDict
             module = options.moduleExtraDict[options.env.npm_package_name] =
@@ -844,7 +880,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
                             .filter(function (key) {
                                 return local.tryCatchOnError(function () {
                                     return key &&
-                                        (/^\w[\w%\-.]*?$/).test(key) &&
+                                        (/^\w[\w\-.]*?$/).test(key) &&
                                         key.indexOf('testCase_') !== 0 &&
                                         module[key] !== options.blacklistDict[key];
                                 }, console.error);
@@ -862,7 +898,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
                     };
                 });
             // render apidoc
-            options.result = local.templateRender(options.template, options)
+            options.result = local.templateRender(options.template, options, { notHtmlSafe: true })
                 .trim()
                 .replace((/ +$/gm), '') + '\n';
             return options.result;

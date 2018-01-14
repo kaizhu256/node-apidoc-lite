@@ -1,5 +1,4 @@
 {
-    "_coverageHack": "",
     "author": "kai zhu <kaizhu256@gmail.com>",
     "bin": {
         "apidoc-lite": "lib.apidoc.js"
@@ -14,12 +13,9 @@
     },
     "homepage": "https://github.com/kaizhu256/node-apidoc-lite",
     "keywords": [
-        "api-doc",
         "apidoc",
-        "doc",
-        "documentation",
-        "doxygen",
-        "javadoc"
+        "documentation-generator",
+        "doxygen"
     ],
     "license": "MIT",
     "main": "lib.apidoc.js",
@@ -43,5 +39,5 @@
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },
-    "version": "2017.10.23"
+    "version": "2017.1.13"
 }

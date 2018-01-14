@@ -1,7 +1,7 @@
 # apidoc-lite
 this zero-dependency package will auto-generate documentation for your npm-package with zero-config
 
-# live demo
+# live web demo
 - [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html)
 
 [![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.testExampleSh.browser.%252Ftmp%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.example.html)
@@ -55,10 +55,9 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### todo
 - none
 
-#### changelog for v2017.10.23
-- npm publish 2017.10.23
-- fix assert-module bug
-- fix test-coverage
+#### changelog for v2017.1.13
+- npm publish 2017.1.13
+- update build
 - none
 
 #### this package requires
@@ -106,7 +105,6 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
 # package.json
 ```json
 {
-    "_coverageHack": "",
     "author": "kai zhu <kaizhu256@gmail.com>",
     "bin": {
         "apidoc-lite": "lib.apidoc.js"
@@ -121,12 +119,9 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
     },
     "homepage": "https://github.com/kaizhu256/node-apidoc-lite",
     "keywords": [
-        "api-doc",
         "apidoc",
-        "doc",
-        "documentation",
-        "doxygen",
-        "javadoc"
+        "documentation-generator",
+        "doxygen"
     ],
     "license": "MIT",
     "main": "lib.apidoc.js",
@@ -150,7 +145,7 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },
-    "version": "2017.10.23"
+    "version": "2017.1.13"
 }
 ```
 
@@ -169,7 +164,7 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
 # this shell script will run the build for this package
 
 shBuildCiAfter() {(set -e
-    # shDeployCustom
+    shDeployCustom
     shReadmeTest example.sh
     # screenshot
     MODE_BUILD=testExampleSh shBrowserTest /tmp/apidoc.html screenshot
