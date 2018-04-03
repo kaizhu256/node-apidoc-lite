@@ -8,7 +8,7 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 
 
 
-[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-apidoc-lite.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite) [![coverage](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.html/index.html) [![snyk.io vulnerabilities](https://snyk.io/test/github/kaizhu256/node-apidoc-lite/badge.svg)](https://snyk.io/test/github/kaizhu256/node-apidoc-lite)
+[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-apidoc-lite.svg)](https://travis-ci.org/kaizhu256/node-apidoc-lite) [![coverage](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.html/index.html)
 
 [![NPM](https://nodei.co/npm/apidoc-lite.png?downloads=true)](https://www.npmjs.com/package/apidoc-lite)
 
@@ -55,9 +55,10 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### todo
 - none
 
-#### changelog for v2017.1.13
-- npm publish 2017.1.13
-- update build
+#### changelog for v2017.4.2
+- npm publish v2017.4.2
+- replace option htmlBr with markdownToHtml in function templateRender
+- update function apidocCreate with extra param options.whitelistDict
 - none
 
 #### this package requires
@@ -138,14 +139,16 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
         "url": "https://github.com/kaizhu256/node-apidoc-lite.git"
     },
     "scripts": {
+        "apidocRawCreate": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawCreate",
+        "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawFetch",
         "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
         "heroku-postbuild": "npm uninstall utility2 2>/dev/null; npm install kaizhu256/node-utility2#alpha && utility2 shDeployHeroku",
-        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptPostinstall",
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },
-    "version": "2017.1.13"
+    "version": "2017.4.2"
 }
 ```
 
@@ -165,6 +168,8 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
 
 shBuildCiAfter() {(set -e
     shDeployCustom
+    # shDeployGithub
+    # shDeployHeroku
     shReadmeTest example.sh
     # screenshot
     MODE_BUILD=testExampleSh shBrowserTest /tmp/apidoc.html screenshot
