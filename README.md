@@ -55,10 +55,10 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### todo
 - none
 
-#### changelog for v2017.4.2
-- npm publish v2017.4.2
-- replace option htmlBr with markdownToHtml in function templateRender
-- update function apidocCreate with extra param options.whitelistDict
+#### changelog for v2017.4.12
+- npm publish v2017.4.12
+- improve error-handling for misbehaving property-accessors
+- fix build-ci for nodejs v9.x
 - none
 
 #### this package requires
@@ -75,11 +75,11 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 # this shell script will auto-generate documentation for the mysql npm-package with zero-config
 
 # 1. npm install apidoc-lite
-npm install apidoc-lite
+npm install apidoc-lite --prefix .
 # 2. npm install mysql
 npm install mysql
 # 3. auto-generate documentation for the mysql npm-package with zero-config
-node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
+./node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
 # 4. open /tmp/apidoc.html to view the auto-generated mysql documentation
 ```
 
@@ -143,12 +143,12 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
         "apidocRawFetch": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptApidocRawFetch",
         "build-ci": "utility2 shReadmeTest build_ci.sh",
         "env": "env",
-        "heroku-postbuild": "npm uninstall utility2 2>/dev/null; npm install kaizhu256/node-utility2#alpha && utility2 shDeployHeroku",
+        "heroku-postbuild": "npm install kaizhu256/node-utility2#alpha --prefix . && utility2 shDeployHeroku",
         "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh shNpmScriptPostinstall",
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },
-    "version": "2017.4.2"
+    "version": "2017.4.12"
 }
 ```
 
@@ -166,7 +166,7 @@ node_modules/.bin/apidoc-lite mysql > /tmp/apidoc.html
 
 # this shell script will run the build for this package
 
-shBuildCiAfter() {(set -e
+shBuildCiAfter () {(set -e
     shDeployCustom
     # shDeployGithub
     # shDeployHeroku
@@ -176,7 +176,7 @@ shBuildCiAfter() {(set -e
     cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html"
 )}
 
-shBuildCiBefore() {(set -e
+shBuildCiBefore () {(set -e
     shNpmTestPublished
     shReadmeTest example.js
 )}

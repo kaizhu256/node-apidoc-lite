@@ -44,16 +44,19 @@
         // init test
         local.testRunInit(local);
     }());
-    switch (local.modeJs) {
 
 
 
-    // run node js-env code - function
-    case 'node':
+    // run shared js-env code - function
+    (function () {
         local.testCase_apidocCreate_default = function (options, onError) {
         /*
          * this function will test apidocCreate's default handling-behavior-behavior
          */
+            if (local.modeJs !== 'node') {
+                onError(null, options);
+                return;
+            }
             options = {
                 // test readExample-error handling-behavior
                 exampleFileList: ['undefined'],
@@ -107,6 +110,5 @@
             local.apidocCreate(options);
             onError(null, options);
         };
-        break;
-    }
+    }());
 }());

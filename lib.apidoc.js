@@ -53,11 +53,40 @@
             local.global.utility2_apidoc = local;
         } else {
             // require builtins
-            Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!local[key] && !(/\/|^_|^assert|^sys$/).test(key)) {
-                    local[key] = require(key);
-                }
-            });
+            // local.assert = require('assert');
+            local.buffer = require('buffer');
+            local.child_process = require('child_process');
+            local.cluster = require('cluster');
+            local.console = require('console');
+            local.constants = require('constants');
+            local.crypto = require('crypto');
+            local.dgram = require('dgram');
+            local.dns = require('dns');
+            local.domain = require('domain');
+            local.events = require('events');
+            local.fs = require('fs');
+            local.http = require('http');
+            local.https = require('https');
+            local.module = require('module');
+            local.net = require('net');
+            local.os = require('os');
+            local.path = require('path');
+            local.process = require('process');
+            local.punycode = require('punycode');
+            local.querystring = require('querystring');
+            local.readline = require('readline');
+            local.repl = require('repl');
+            local.stream = require('stream');
+            local.string_decoder = require('string_decoder');
+            local.timers = require('timers');
+            local.tls = require('tls');
+            local.tty = require('tty');
+            local.url = require('url');
+            local.util = require('util');
+            local.v8 = require('v8');
+            local.vm = require('vm');
+            local.zlib = require('zlib');
+/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
@@ -801,9 +830,9 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
             );
             // init circularList - builtin
             Object.keys(process.binding('natives')).forEach(function (key) {
-                if (!(/\/|^_linklist$|^sys$/).test(key)) {
+                local.tryCatchOnError(function () {
                     options.circularList.push(require(key));
-                }
+                }, local.nop);
             });
             // init circularList - blacklistDict
             Object.keys(options.blacklistDict).forEach(function (key) {
@@ -956,11 +985,11 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
          */
             var isModule, tmp;
             ['child', 'prototype', 'grandchild', 'prototype'].forEach(function (element) {
-                Object.keys(moduleDict).sort().forEach(function (prefix) {
+                local.objectKeysValid(moduleDict).forEach(function (prefix) {
                     if (!(/^\w[\w\-.]*?$/).test(prefix)) {
                         return;
                     }
-                    Object.keys(moduleDict[prefix]).forEach(function (key) {
+                    local.objectKeysValid(moduleDict[prefix]).forEach(function (key) {
                         // bug-workaround - buggy electron getter / setter
                         local.tryCatchOnError(function () {
                             if (!(/^\w[\w\-.]*?$/).test(key) || !moduleDict[prefix][key]) {
@@ -987,7 +1016,9 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
                                 tmp.module,
                                 tmp.module.prototype
                             ].some(function (dict) {
-                                return Object.keys(dict || {}).some(function (key) {
+                                return local.objectKeysValid(dict || {}).some(function (
+                                    key
+                                ) {
                                     // bug-workaround - buggy electron getter / setter
                                     return local.tryCatchOnError(function () {
                                         return typeof dict[key] === 'function';
@@ -1004,6 +1035,18 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
                 });
             });
         };
+
+        local.objectKeysValid = function (arg) {
+        /*
+         * this function will return a list of the arg's keys, with valid getters
+         */
+            return Object.keys(arg).sort().filter(function (key) {
+                return local.tryCatchOnError(function () {
+                    return arg[key] || true;
+                }, local.nop);
+            });
+        };
+
     }());
     switch (local.modeJs) {
 
