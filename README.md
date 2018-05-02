@@ -55,10 +55,9 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### todo
 - none
 
-#### changelog for v2017.4.12
-- npm publish v2017.4.12
-- improve error-handling for misbehaving property-accessors
-- fix build-ci for nodejs v9.x
+#### changelog 2018.5.2
+- npm publish 2018.5.2
+- update build
 - none
 
 #### this package requires
@@ -148,7 +147,7 @@ npm install mysql
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "PORT=$(utility2 shServerPortRandom) utility2 test test.js"
     },
-    "version": "2017.4.12"
+    "version": "2018.5.2"
 }
 ```
 
@@ -170,6 +169,13 @@ shBuildCiAfter () {(set -e
     shDeployCustom
     # shDeployGithub
     # shDeployHeroku
+    # bug-workaround for "npm install [package name] removes packages"
+    # https://github.com/npm/npm/issues/17379
+    # https://github.com/travis-ci/travis-ci/issues/4653#issuecomment-379397837
+    if [ "$TRAVIS" ] && (dpkg --compare-versions "$(npm -v)" lt 5.8)
+    then
+         npm i -g npm@5.8
+    fi
     shReadmeTest example.sh
     # screenshot
     MODE_BUILD=testExampleSh shBrowserTest /tmp/apidoc.html screenshot
@@ -182,7 +188,7 @@ shBuildCiBefore () {(set -e
 )}
 
 # run shBuildCi
-eval $(utility2 source)
+eval "$(utility2 source)"
 shBuildCi
 ```
 

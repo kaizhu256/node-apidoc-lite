@@ -16,6 +16,32 @@
 
 
 
+    /* istanbul ignore next */
+    // init debug_inline
+    (function () {
+        var consoleError, key;
+        key = "debug_inline".replace("_i", "I");
+        if (console[key]) {
+            return;
+        }
+        consoleError = console.error;
+        console[key] = function (arg0) {
+        /*
+         * this function will both print arg0 to stderr and return it
+         */
+            // debug arguments
+            console[key + "Arguments"] = arguments;
+            consoleError("\n\n" + key);
+            consoleError.apply(console, arguments);
+            consoleError("\n");
+            // return arg0 for inspection
+            return arg0;
+        };
+        ((typeof window === "object" && window) || global)[key] = console[key];
+    }());
+
+
+
     // run shared js-env code - init-before
     (function () {
         // init local
