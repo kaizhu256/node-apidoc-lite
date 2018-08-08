@@ -18,38 +18,54 @@
 
 
     // run shared js-env code - init-before
+    /* istanbul ignore next */
     (function () {
+        // init debug_inline
+        (function () {
+            var consoleError, context, key;
+            context = (typeof window === "object" && window) || global;
+            key = "debug_inline".replace("_i", "I");
+            if (context[key]) {
+                return;
+            }
+            consoleError = console.error;
+            context[key] = function (arg0) {
+            /*
+             * this function will both print arg0 to stderr and return it
+             */
+                // debug arguments
+                context["_" + key + "Arguments"] = arguments;
+                consoleError("\n\n" + key);
+                consoleError.apply(console, arguments);
+                consoleError("\n");
+                // return arg0 for inspection
+                return arg0;
+            };
+        }());
         // init local
         local = {};
-        // init modeJs
-        local.modeJs = (function () {
-            try {
-                return typeof navigator.userAgent === 'string' &&
-                    typeof document.querySelector('body') === 'object' &&
-                    typeof XMLHttpRequest.prototype.open === 'function' &&
-                    'browser';
-            } catch (errorCaughtBrowser) {
-                return module.exports &&
-                    typeof process.versions.node === 'string' &&
-                    typeof require('http').createServer === 'function' &&
-                    'node';
-            }
-        }());
+        // init isBrowser
+        local.isBrowser = typeof window === "object" &&
+            typeof window.XMLHttpRequest === "function" &&
+            window.document &&
+            typeof window.document.querySelectorAll === "function";
         // init global
-        local.global = local.modeJs === 'browser'
+        local.global = local.isBrowser
             ? window
             : global;
-        // init utility2_rollup
-        local = local.global.utility2_rollup || local;
-        /* istanbul ignore next */
-        if (!local) {
-            local = local.global.utility2_rollup ||
-                local.global.utility2_rollup_old ||
-                require('./assets.utility2.rollup.js');
-            local.fs = null;
-        }
+        // re-init local
+        local = local.global.utility2_rollup ||
+            // local.global.utility2_rollup_old || require('./assets.utility2.rollup.js') ||
+            local;
+        // init nop
+        local.nop = function () {
+        /*
+         * this function will do nothing
+         */
+            return;
+        };
         // init exports
-        if (local.modeJs === 'browser') {
+        if (local.isBrowser) {
             local.global.utility2_apidoc = local;
         } else {
             // require builtins
@@ -86,19 +102,15 @@
             local.v8 = require('v8');
             local.vm = require('vm');
             local.zlib = require('zlib');
-/* validateLineSortedReset */
             module.exports = local;
             module.exports.__dirname = __dirname;
         }
-        // init lib
+        // init lib main
         local.local = local.apidoc = local;
-    }());
 
 
 
-    // run shared js-env code - function-before
-    /* istanbul ignore next */
-    (function () {
+        /* validateLineSortedReset */
         local.assert = function (passed, message, onError) {
         /*
          * this function will throw the error message if passed is falsey
@@ -268,13 +280,6 @@
                     return result;
                 });
             return result || '';
-        };
-
-        local.nop = function () {
-        /*
-         * this function will do nothing
-         */
-            return;
         };
 
         local.objectSetDefault = function (arg0, defaults, depth) {
@@ -460,8 +465,8 @@
                     // default to htmlSafe
                     if (!notHtmlSafe) {
                         value = value
-                            .replace((/"/g), '&quot;')
                             .replace((/&/g), '&amp;')
+                            .replace((/"/g), '&quot;')
                             .replace((/'/g), '&apos;')
                             .replace((/</g), '&lt;')
                             .replace((/>/g), '&gt;')
@@ -1046,16 +1051,18 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
             });
         };
     }());
-    switch (local.modeJs) {
 
 
 
     // run node js-env code - init-after
     /* istanbul ignore next */
-    case 'node':
+    (function () {
+        if (local.isBrowser) {
+            return;
+        }
         // init cli
         if (module !== require.main || local.global.utility2_rollup) {
-            break;
+            return;
         }
         local.cliDict = {};
         local.cliDict._default = function () {
@@ -1070,6 +1077,5 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
             }));
         };
         local.cliRun();
-        break;
-    }
+    }());
 }());

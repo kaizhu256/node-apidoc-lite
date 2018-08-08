@@ -16,52 +16,17 @@
 
 
 
-    /* istanbul ignore next */
-    // init debug_inline
-    (function () {
-        var consoleError, key;
-        key = "debug_inline".replace("_i", "I");
-        if (console[key]) {
-            return;
-        }
-        consoleError = console.error;
-        console[key] = function (arg0) {
-        /*
-         * this function will both print arg0 to stderr and return it
-         */
-            // debug arguments
-            console[key + "Arguments"] = arguments;
-            consoleError("\n\n" + key);
-            consoleError.apply(console, arguments);
-            consoleError("\n");
-            // return arg0 for inspection
-            return arg0;
-        };
-        ((typeof window === "object" && window) || global)[key] = console[key];
-    }());
-
-
-
     // run shared js-env code - init-before
     (function () {
         // init local
         local = {};
-        // init modeJs
-        local.modeJs = (function () {
-            try {
-                return typeof navigator.userAgent === 'string' &&
-                    typeof document.querySelector('body') === 'object' &&
-                    typeof XMLHttpRequest.prototype.open === 'function' &&
-                    'browser';
-            } catch (errorCaughtBrowser) {
-                return module.exports &&
-                    typeof process.versions.node === 'string' &&
-                    typeof require('http').createServer === 'function' &&
-                    'node';
-            }
-        }());
+        // init isBrowser
+        local.isBrowser = typeof window === "object" &&
+            typeof window.XMLHttpRequest === "function" &&
+            window.document &&
+            typeof window.document.querySelectorAll === "function";
         // init global
-        local.global = local.modeJs === 'browser'
+        local.global = local.isBrowser
             ? window
             : global;
         // re-init local
@@ -79,7 +44,7 @@
         /*
          * this function will test apidocCreate's default handling-behavior-behavior
          */
-            if (local.modeJs !== 'node') {
+            if (local.isBrowser) {
                 onError(null, options);
                 return;
             }
