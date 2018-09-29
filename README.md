@@ -55,8 +55,9 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### todo
 - none
 
-#### changelog 2018.8.8
-- npm publish 2018.8.8
+#### changelog 2018.9.29
+- npm publish 2018.9.29
+- migrate to new jslint (2018-09)
 - migrate from modeJs -> isBrowser
 - update build
 - none
@@ -116,7 +117,7 @@ npm install mysql
         "utility2": "kaizhu256/node-utility2#alpha"
     },
     "engines": {
-        "node": ">=4.0"
+        "node": ">=8.0"
     },
     "homepage": "https://github.com/kaizhu256/node-apidoc-lite",
     "keywords": [
@@ -148,7 +149,7 @@ npm install mysql
         "test": "./npm_scripts.sh",
         "utility2": "./npm_scripts.sh"
     },
-    "version": "2018.8.8"
+    "version": "2018.9.29"
 }
 ```
 
