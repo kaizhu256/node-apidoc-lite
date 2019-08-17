@@ -3,7 +3,7 @@
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-08-17T17:29:14.128Z - npm-testing /home/travis/build/\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-08-17T17:33:08.715Z - npm-testing /home/travis/build/\</tspan>
 <tspan x="10" y="58">kaizhu256/node-apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -25,89 +25,89 @@
 
 <tspan x="10" y="234">jslint - 1ms /home/travis/build/kaizhu256/node-apidoc-lite/README.md</tspan>
 
-<tspan x="10" y="250">http-server listening on port 37045</tspan>
+<tspan x="10" y="250">http-server listening on port 53020</tspan>
 
 <tspan x="10" y="266">db - dropping database ...</tspan>
 
-<tspan x="10" y="282">jslint - 443ms /home/travis/build/kaizhu256/node-apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="282">jslint - 532ms /home/travis/build/kaizhu256/node-apidoc-lite/lib.apidoc.js</tspan>
 
-<tspan x="10" y="298">jslint - 1ms /home/travis/build/kaizhu256/node-apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="298">jslint - 4ms /home/travis/build/kaizhu256/node-apidoc-lite/npm_scripts.sh</tspan>
 
 <tspan x="10" y="314">jslint - 0ms /home/travis/build/kaizhu256/node-apidoc-lite/package.json</tspan>
 
-<tspan x="10" y="330">jslint - 44ms /home/travis/build/kaizhu256/node-apidoc-lite/test.js</tspan>
+<tspan x="10" y="330">jslint - 62ms /home/travis/build/kaizhu256/node-apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="346">testRunDefault - 485 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
+<tspan x="10" y="346">testRunDefault - 567 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
 
-<tspan x="10" y="362">testRunDefault - 579 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="362">testRunDefault - 671 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="378">testRunDefault - 604 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="378">testRunDefault - 699 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
 
-<tspan x="10" y="394">testRunDefault - 614 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="394">testRunDefault - 709 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="410">testRunDefault - 615 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="410">testRunDefault - 709 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
 
-<tspan x="10" y="426">testRunDefault - 616 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="426">testRunDefault - 710 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
 
-<tspan x="10" y="442">http-server listening on port 61969</tspan>
+<tspan x="10" y="442">http-server listening on port 51485</tspan>
 
 <tspan x="10" y="458">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
 
-<tspan x="10" y="474">[5851:0817/172916.616075:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="474">[5902:0817/173311.768730:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
 <tspan x="10" y="490"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="506">[5851:0817/172916.623366:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="506">[5902:0817/173311.777020:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
 <tspan x="10" y="522"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="538">[5913:0817/172916.786351:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
+<tspan x="10" y="538">[5964:0817/173311.971317:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
 <tspan x="10" y="554">hreads in process gpu-process.</tspan>
 
-<tspan x="10" y="570">[5851:0817/172917.004749:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="570">[5902:0817/173312.188828:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
 <tspan x="10" y="586">ity-Policy)", source: /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/electron-lite/e\</tspan>
 <tspan x="10" y="602">xternal/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="618">[5851:0817/172917.014541:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="618">[5902:0817/173312.223481:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
 <tspan x="10" y="634">ity-Policy)", source: /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/electron-lite/e\</tspan>
 <tspan x="10" y="650">xternal/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="666">[5851:0817/172917.769594:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="682">:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="666">[5902:0817/173313.167174:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="682">:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="698">[5851:0817/172917.796931:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
+<tspan x="10" y="698">[5902:0817/173313.198966:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
 <tspan x="10" y="714">ngs.</tspan>
 
-<tspan x="10" y="730">[5851:0817/172917.802828:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="746">source: /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/electron-lite/external/resour\</tspan>
-<tspan x="10" y="762">ces/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="730">[5902:0817/173313.218468:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="746">:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="778">[5851:0817/172917.815392:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="794">:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="762">[5902:0817/173313.233574:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="778">source: /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/electron-lite/external/resour\</tspan>
+<tspan x="10" y="794">ces/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="810">[5851:0817/172917.826574:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="810">[5902:0817/173313.243211:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
 <tspan x="10" y="826">ity-Policy)", source: /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/electron-lite/e\</tspan>
 <tspan x="10" y="842">xternal/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="858">[5851:0817/172917.838521:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="858">[5902:0817/173313.252814:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
 <tspan x="10" y="874">source: /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/electron-lite/external/resour\</tspan>
 <tspan x="10" y="890">ces/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="906">[5851:0817/172917.838593:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="906">[5902:0817/173313.253749:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
 <tspan x="10" y="922">ity-Policy)", source: /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/electron-lite/e\</tspan>
 <tspan x="10" y="938">xternal/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="954">[5851:0817/172917.862661:INFO:CONSOLE(8)] "testRunDefault - 6 ms - [browser test-case 1 of 2 pas\</tspan>
-<tspan x="10" y="970">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="954">[5902:0817/173313.292714:INFO:CONSOLE(8)] "testRunDefault - 7 ms - [browser test-case 1 of 2 pas\</tspan>
+<tspan x="10" y="970">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="986">[5851:0817/172917.870316:INFO:CONSOLE(8)] "testRunDefault - 9 ms - [browser test-case 1 of 2 pas\</tspan>
-<tspan x="10" y="1002">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="986">[5902:0817/173313.305549:INFO:CONSOLE(8)] "testRunDefault - 20 ms - [browser test-case 2 of 2 pa\</tspan>
+<tspan x="10" y="1002">ssed] - testCase_nop_default", source: http://127.0.0.1:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1018">[5851:0817/172917.877722:INFO:CONSOLE(8)] "testRunDefault - 21 ms - [browser test-case 2 of 2 pa\</tspan>
-<tspan x="10" y="1034">ssed] - testCase_nop_default", source: http://127.0.0.1:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="1018">[5902:0817/173313.327790:INFO:CONSOLE(8)] "testRunDefault - 42 ms - [browser test-case 1 of 2 pa\</tspan>
+<tspan x="10" y="1034">ssed] - testCase_apidocCreate_default", source: http://127.0.0.1:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1050">[5851:0817/172917.881890:INFO:CONSOLE(8)] "testRunDefault - 22 ms - [browser test-case 2 of 2 pa\</tspan>
-<tspan x="10" y="1066">ssed] - testCase_nop_default", source: http://127.0.0.1:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="1050">[5902:0817/173313.343189:INFO:CONSOLE(8)] "testRunDefault - 57 ms - [browser test-case 2 of 2 pa\</tspan>
+<tspan x="10" y="1066">ssed] - testCase_nop_default", source: http://127.0.0.1:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1082">[5851:0817/172918.885074:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="1082">[5902:0817/173314.311677:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
 <tspan x="10" y="1098">-----|</tspan>
 
 <tspan x="10" y="1114">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
@@ -120,12 +120,12 @@
 
 <tspan x="10" y="1178">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1194">", source: http://127.0.0.1:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="1194">", source: http://127.0.0.1:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1210">[5851:0817/172918.891835:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="1226">html", source: http://127.0.0.1:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="1210">[5902:0817/173314.322419:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="1226">html", source: http://127.0.0.1:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1242">[5851:0817/172918.900149:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="1242">[5902:0817/173314.379793:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
 <tspan x="10" y="1258">-----|</tspan>
 
 <tspan x="10" y="1274">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
@@ -138,22 +138,22 @@
 
 <tspan x="10" y="1338">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1354">", source: http://127.0.0.1:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="1354">", source: http://127.0.0.1:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1370">[5851:0817/172918.907094:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="1386">html", source: http://127.0.0.1:37045/assets.example.js (8)</tspan>
+<tspan x="10" y="1370">[5902:0817/173314.382986:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="1386">html", source: http://127.0.0.1:53020/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1402">testRunDefault - 5028 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defaul\</tspan>
+<tspan x="10" y="1402">testRunDefault - 5060 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defaul\</tspan>
 <tspan x="10" y="1418">t ...</tspan>
 
-<tspan x="10" y="1434">testRunDefault - 5944 ms - [node test-case 7 of 8 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="1434">testRunDefault - 6115 ms - [node test-case 7 of 8 passed] - testCase_buildApp_default</tspan>
 
-<tspan x="10" y="1450">[5851:0817/172922.785568:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:37045/assets.example.\</tspan>
+<tspan x="10" y="1450">[5902:0817/173318.186342:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:53020/assets.example.\</tspan>
 <tspan x="10" y="1466">js (8)</tspan>
 
-<tspan x="10" y="1482">[5851:0817/172922.952072:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/ho\</tspan>
-<tspan x="10" y="1498">me/travis/build/kaizhu256/node-apidoc-lite/tmp/electron.16ca0a04c660.4861833766417.html' -&gt; '/ho\</tspan>
-<tspan x="10" y="1514">me/travis/build/kaizhu256/node-apidoc-lite/tmp/electron.html'", source: http://127.0.0.1:37045/a\</tspan>
+<tspan x="10" y="1482">[5902:0817/173318.368025:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/ho\</tspan>
+<tspan x="10" y="1498">me/travis/build/kaizhu256/node-apidoc-lite/tmp/electron.16ca0a3e1910.416673045bd77.html' -&gt; '/ho\</tspan>
+<tspan x="10" y="1514">me/travis/build/kaizhu256/node-apidoc-lite/tmp/electron.html'", source: http://127.0.0.1:53020/a\</tspan>
 <tspan x="10" y="1530">ssets.example.js (8)</tspan>
 
 <tspan x="10" y="1546"></tspan>
@@ -176,7 +176,7 @@
 <tspan x="10" y="1706">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
 <tspan x="10" y="1722">reenshot.npmTest.browser.%2F.html</tspan>
 
-<tspan x="10" y="1738">testRunDefault - 8033 ms - [node test-case 8 of 8 passed] - testCase_webpage_default</tspan>
+<tspan x="10" y="1738">testRunDefault - 8730 ms - [node test-case 8 of 8 passed] - testCase_webpage_default</tspan>
 
 <tspan x="10" y="1754">---------------------|-----------|-----------|-----------|-----------|</tspan>
 
@@ -213,15 +213,15 @@
 <tspan x="10" y="2026">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="2042">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="2058">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-17T17:29:17.277Z</tspan>
+<tspan x="10" y="2058">L, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-17T17:33:12.474Z</tspan>
 
-<tspan x="10" y="2074">|    1004 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="2074">|    1005 ms            0 failed        2 passed      |</tspan>
 
 <tspan x="10" y="2090">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="2106">| test-report - npmTest - node - linux v12.8.1 - 2019-08-17T17:29:14.283Z</tspan>
+<tspan x="10" y="2106">| test-report - npmTest - node - linux v12.8.1 - 2019-08-17T17:33:08.889Z</tspan>
 
-<tspan x="10" y="2122">|    8034 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="2122">|    8730 ms            0 failed        8 passed      |</tspan>
 
 <tspan x="10" y="2138">-------------------------------------------------------</tspan>
 
@@ -240,7 +240,7 @@
 
 <tspan x="10" y="2266"></tspan>
 
-<tspan x="10" y="2282">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-08-17T17:29:24.259Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="2282">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2019-08-17T17:33:19.664Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
