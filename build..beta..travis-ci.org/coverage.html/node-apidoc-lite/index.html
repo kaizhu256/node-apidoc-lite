@@ -93,6 +93,9 @@
     text-align: right;
     width: 50px;
 }
+.x-istanbul .coverage .line-count a {
+    text-decoration: none;
+}
 .x-istanbul .coverage .line-coverage {
     border-left: 1px solid #666;
     border-right: 1px solid #666;
@@ -246,27 +249,37 @@
     if (window.domOnEventSelectAllWithinPre) {
         return;
     }
-    window.domOnEventSelectAllWithinPre = function (event) {
+    window.domOnEventSelectAllWithinPre = function (evt) {
         var range;
         var selection;
-        if (event &&
-                event.key === "a" &&
-                (event.ctrlKey || event.metaKey) &&
-                event.target.closest("pre")) {
+        if (
+            evt
+            && evt.key === "a"
+            && (evt.ctrlKey || evt.metaKey)
+            && evt.target.closest(
+                "pre"
+            )
+        ) {
             range = document.createRange();
-            range.selectNodeContents(event.target.closest("pre"));
+            range.selectNodeContents(evt.target.closest(
+                "pre"
+            ));
             selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
-            event.preventDefault();
+            evt.preventDefault();
         }
     };
-    document.addEventListener("keydown", window.domOnEventSelectAllWithinPre);
+    // init event-handling
+    document.addEventListener(
+        "keydown",
+        window.domOnEventSelectAllWithinPre
+    );
 }());
 </script>
-<div class="header high">
+<div class="header medium">
     <h1 style="font-weight: bold;">
-        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2018.9.29)</a>
+        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2019.8.16)</a>
     </h1>
     <h1>Code coverage report for <span class="entity">node-apidoc-lite/</span></h1>
     <table class="tableHeader">
@@ -280,11 +293,11 @@
     </tr>
     </thead>
     <tbody>
-        <td>branches: 127<br>statements: 135<br>functions: 14</td>
-        <td>100%<br>(590 / 590)</td>
-        <td>100%<br>(347 / 347)</td>
-        <td>100%<br>(103 / 103)</td>
-        <td>100%<br>(590 / 590)</td>
+        <td><span class="ignore-none">none</span></td>
+        <td>70.85%<br>(491 / 693)</td>
+        <td>50.62%<br>(203 / 401)</td>
+        <td>71.43%<br>(85 / 119)</td>
+        <td>70.85%<br>(491 / 693)</td>
     </tbody>
     </table>
     <div class="path"><a href="../index.html">All files</a> &#187; node-apidoc-lite/</div>
@@ -302,34 +315,34 @@
 </tr>
 </thead>
 <tbody><tr>
-	<td class="file high" data-value="example.js"><a href="example.js.html"><div>example.js</div><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></a></td>
-	<td data-value="100" class="pct high">100%<br>(112 / 112)</td>
-	<td data-value="100" class="pct high">100%<br>(75 / 75)</td>
-	<td data-value="100" class="pct high">100%<br>(14 / 14)</td>
-	<td data-value="100" class="pct high">100%<br>(112 / 112)</td>
+	<td class="file medium" data-value="example.js"><a href="example.js.html"><div>example.js</div><span class="cover-fill" style="width: 64px;"></span><span class="cover-empty" style="width:36px;"></span></a></td>
+	<td data-value="64.58" class="pct medium">64.58%<br>(93 / 144)</td>
+	<td data-value="38.46" class="pct low">38.46%<br>(35 / 91)</td>
+	<td data-value="60" class="pct medium">60%<br>(12 / 20)</td>
+	<td data-value="64.58" class="pct medium">64.58%<br>(93 / 144)</td>
 	</tr>
 
 <tr>
-	<td class="file high" data-value="lib.apidoc.js"><a href="lib.apidoc.js.html"><div>lib.apidoc.js</div><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></a></td>
-	<td data-value="100" class="pct high">100%<br>(445 / 445)</td>
-	<td data-value="100" class="pct high">100%<br>(262 / 262)</td>
-	<td data-value="100" class="pct high">100%<br>(84 / 84)</td>
-	<td data-value="100" class="pct high">100%<br>(445 / 445)</td>
+	<td class="file medium" data-value="lib.apidoc.js"><a href="lib.apidoc.js.html"><div>lib.apidoc.js</div><span class="cover-fill" style="width: 71px;"></span><span class="cover-empty" style="width:29px;"></span></a></td>
+	<td data-value="71.52" class="pct medium">71.52%<br>(324 / 453)</td>
+	<td data-value="56.73" class="pct medium">56.73%<br>(156 / 275)</td>
+	<td data-value="77.65" class="pct medium">77.65%<br>(66 / 85)</td>
+	<td data-value="71.52" class="pct medium">71.52%<br>(324 / 453)</td>
 	</tr>
 
 <tr>
-	<td class="file high" data-value="test.js"><a href="test.js.html"><div>test.js</div><span class="cover-fill cover-full" style="width: 100px;"></span><span class="cover-empty" style="width:0px;"></span></a></td>
-	<td data-value="100" class="pct high">100%<br>(33 / 33)</td>
-	<td data-value="100" class="pct high">100%<br>(10 / 10)</td>
-	<td data-value="100" class="pct high">100%<br>(5 / 5)</td>
-	<td data-value="100" class="pct high">100%<br>(33 / 33)</td>
+	<td class="file medium" data-value="test.js"><a href="test.js.html"><div>test.js</div><span class="cover-fill" style="width: 77px;"></span><span class="cover-empty" style="width:23px;"></span></a></td>
+	<td data-value="77.08" class="pct medium">77.08%<br>(74 / 96)</td>
+	<td data-value="34.29" class="pct low">34.29%<br>(12 / 35)</td>
+	<td data-value="50" class="pct medium">50%<br>(7 / 14)</td>
+	<td data-value="77.08" class="pct medium">77.08%<br>(74 / 96)</td>
 	</tr>
 
 </tbody>
 </table>
 </div></div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat, 29 Sep 2018 19:47:56 GMT</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat, 17 Aug 2019 17:37:36 GMT</div>
 </div>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- "assets.utility2.template.html" -->
-<title>apidoc-lite (2018.9.29)</title>
+<title>apidoc-lite (2019.8.16)</title>
 <style>
 /* jslint utility2:true */
 /*csslint
@@ -17,23 +17,25 @@
 }
 /* csslint ignore:end */
 @keyframes uiAnimateShake {
-    0%, 50% {
-        transform: translateX(10px);
-    }
-    25%, 75% {
-        transform: translateX(-10px);
-    }
-    100% {
-        transform: translateX(0);
-    }
+0%,
+50% {
+    transform: translateX(10px);
+}
+100% {
+    transform: translateX(0);
+}
+25%,
+75% {
+    transform: translateX(-10px);
+}
 }
 @keyframes uiAnimateSpin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
 }
 a {
     overflow-wrap: break-word;
@@ -41,19 +43,21 @@ a {
 body {
     background: #eef;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
     margin: 0 40px;
 }
 body > div,
 body > form > div,
 body > form > input,
 body > form > pre,
-body > form > textarea,
 body > form > .button,
+body > form > .textarea,
 body > input,
 body > pre,
-body > textarea,
-body > .button {
+body > .button,
+body > .textarea {
     margin-bottom: 20px;
+    margin-top: 0;
 }
 body > form > input,
 body > form > .button,
@@ -61,27 +65,23 @@ body > input,
 body > .button {
     width: 20rem;
 }
-body > form > textarea,
-body > textarea {
+body > form > .textarea,
+body > .textarea {
     height: 10rem;
     width: 100%;
 }
-body > textarea[readonly] {
+body > .readonly {
     background: #ddd;
 }
 code,
 pre,
-textarea {
+.textarea {
     font-family: Consolas, Menlo, monospace;
-    font-size: small;
+    font-size: smaller;
 }
 pre {
     overflow-wrap: break-word;
     white-space: pre-wrap;
-}
-textarea {
-    overflow: auto;
-    white-space: pre;
 }
 .button {
     background-color: #fff;
@@ -105,6 +105,14 @@ textarea {
 }
 .colorError {
     color: #d00;
+}
+.textarea {
+    background: #fff;
+    border: 1px solid #999;
+    border-radius: 0;
+    cursor: auto;
+    overflow: auto;
+    padding: 2px;
 }
 .uiAnimateShake {
     animation-duration: 500ms;
@@ -130,13 +138,13 @@ textarea {
 <div id="ajaxProgressDiv1" style="background: #d00; height: 2px; left: 0; margin: 0; padding: 0; position: fixed; top: 0; transition: background 500ms, width 1500ms; width: 0%; z-index: 1;"></div>
 <div class="uiAnimateSpin" style="animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;"></div>
 <a class="zeroPixel" download="db.persistence.json" href="" id="dbExportA1"></a>
-<input class="zeroPixel" id="dbImportInput1" type="file">
+<input class="zeroPixel" data-onevent="onEventDomDb" data-onevent-db="dbImportInput" type="file">
 <script>
 /* jslint utility2:true */
 // init domOnEventWindowOnloadTimeElapsed
 (function () {
 /*
- * this function will measure and print the time-elapsed for window.onload
+ * this function will measure and print time-elapsed for window.onload
  */
     "use strict";
     if (window.domOnEventWindowOnloadTimeElapsed) {
@@ -145,34 +153,139 @@ textarea {
     window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;
     window.addEventListener("load", function () {
         setTimeout(function () {
-            window.domOnEventWindowOnloadTimeElapsed = Date.now() -
-                    window.domOnEventWindowOnloadTimeElapsed;
+            window.domOnEventWindowOnloadTimeElapsed = (
+                Date.now()
+                - window.domOnEventWindowOnloadTimeElapsed
+            );
             console.error(
-                "domOnEventWindowOnloadTimeElapsed = " + window.domOnEventWindowOnloadTimeElapsed
+                "domOnEventWindowOnloadTimeElapsed = "
+                + window.domOnEventWindowOnloadTimeElapsed
             );
         }, 100);
     });
 }());
+
+
+
+// init domOnEventDelegateDict
+(function () {
+/*
+ * this function will handle delegated dom-event
+ */
+    "use strict";
+    var timerTimeoutDict;
+    if (window.domOnEventDelegateDict) {
+        return;
+    }
+    window.domOnEventDelegateDict = {};
+    timerTimeoutDict = {};
+    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {
+        evt.targetOnEvent = evt.target.closest(
+            "[data-onevent]"
+        );
+        if (
+            !evt.targetOnEvent
+            || evt.targetOnEvent.dataset.onevent === "domOnEventNop"
+            || evt.target.closest(
+                ".disabled, .readonly"
+            )
+        ) {
+            return;
+        }
+        // rate-limit high-frequency-event
+        switch (evt.type) {
+        case "keydown":
+        case "keyup":
+            // filter non-input keyboard-event
+            if (!evt.target.closest(
+                "input, option, select, textarea"
+            )) {
+                return;
+            }
+            if (timerTimeoutDict[evt.type] !== true) {
+                timerTimeoutDict[evt.type] = timerTimeoutDict[
+                    evt.type
+                ] || setTimeout(function () {
+                    timerTimeoutDict[evt.type] = true;
+                    window.domOnEventDelegateDict.domOnEventDelegate(evt);
+                }, 50);
+                return;
+            }
+            timerTimeoutDict[evt.type] = null;
+            break;
+        }
+        switch (evt.targetOnEvent.tagName) {
+        case "BUTTON":
+        case "FORM":
+            evt.preventDefault();
+            break;
+        }
+        evt.stopPropagation();
+        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](
+            evt
+        );
+    };
+    window.domOnEventDelegateDict.domOnEventResetOutput = function () {
+        Array.from(document.querySelectorAll(
+            ".onevent-reset-output"
+        )).forEach(function (elem) {
+            switch (elem.tagName) {
+            case "INPUT":
+            case "TEXTAREA":
+                elem.value = "";
+                break;
+            case "PRE":
+                elem.textContent = "";
+                break;
+            default:
+                elem.innerHTML = "";
+            }
+        });
+    };
+    // init event-handling
+    [
+        "change",
+        "click",
+        "keydown",
+        "submit"
+    ].forEach(function (eventType) {
+        document.addEventListener(
+            eventType,
+            window.domOnEventDelegateDict.domOnEventDelegate
+        );
+    });
+}());
+
+
+
 // init timerIntervalAjaxProgressUpdate
 (function () {
 /*
- * this function will increment the ajax-progress-bar until the webpage has loaded
+ * this function will increment ajax-progress-bar
+ * until webpage has loaded
  */
     "use strict";
-    var ajaxProgressDiv1,
-        ajaxProgressState,
-        ajaxProgressUpdate;
-    if (window.timerIntervalAjaxProgressUpdate || !document.querySelector("#ajaxProgressDiv1")) {
+    var ajaxProgressDiv1;
+    var ajaxProgressState;
+    var ajaxProgressUpdate;
+    if (
+        window.timerIntervalAjaxProgressUpdate
+        || !document.querySelector(
+            "#ajaxProgressDiv1"
+        )
+    ) {
         return;
     }
-    ajaxProgressDiv1 = document.querySelector("#ajaxProgressDiv1");
+    ajaxProgressDiv1 = document.querySelector(
+        "#ajaxProgressDiv1"
+    );
     setTimeout(function () {
         ajaxProgressDiv1.style.width = "25%";
     });
     ajaxProgressState = 0;
     ajaxProgressUpdate = (
-        window.local &&
-        window.local.ajaxProgressUpdate
+        window.local
+        && window.local.ajaxProgressUpdate
     ) || function () {
         ajaxProgressDiv1.style.width = "100%";
         setTimeout(function () {
@@ -194,6 +307,9 @@ textarea {
         ajaxProgressUpdate();
     });
 }());
+
+
+
 // init domOnEventSelectAllWithinPre
 (function () {
 /*
@@ -204,24 +320,32 @@ textarea {
     if (window.domOnEventSelectAllWithinPre) {
         return;
     }
-    window.domOnEventSelectAllWithinPre = function (event) {
+    window.domOnEventSelectAllWithinPre = function (evt) {
         var range;
         var selection;
         if (
-            event &&
-            event.key === "a" &&
-            (event.ctrlKey || event.metaKey) &&
-            event.target.closest("pre")
+            evt
+            && evt.key === "a"
+            && (evt.ctrlKey || evt.metaKey)
+            && evt.target.closest(
+                "pre"
+            )
         ) {
             range = document.createRange();
-            range.selectNodeContents(event.target.closest("pre"));
+            range.selectNodeContents(evt.target.closest(
+                "pre"
+            ));
             selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
-            event.preventDefault();
+            evt.preventDefault();
         }
     };
-    document.addEventListener("keydown", window.domOnEventSelectAllWithinPre);
+    // init event-handling
+    document.addEventListener(
+        "keydown",
+        window.domOnEventSelectAllWithinPre
+    );
 }());
 </script>
 <h1>
@@ -233,7 +357,7 @@ textarea {
         target="_blank"
     >
 
-        apidoc-lite (2018.9.29)
+        apidoc-lite (2019.8.16)
 
     </a>
 
@@ -241,14 +365,14 @@ textarea {
 <h3>this zero-dependency package will auto-generate documentation for your npm-package with zero-config</h3>
 
 <a class="button" download href="assets.app.js">download standalone app</a><br>
-<button class="button onclick onreset" id="testRunButton1">run internal test</button><br>
+<button class="button" data-onevent="testRunBrowser" data-onevent-reset-output="1" id="testRunButton1">run internal test</button><br>
 <div class="uiAnimateSlide" id="testReportDiv1" style="border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;"></div>
 
 
 
 
 <label>stderr and stdout</label>
-<textarea class="resettable" id="outputStdoutTextarea1" readonly></textarea>
+<pre class="onevent-reset-output readonly textarea" id="outputStdout1" tabIndex="0"></pre>
 
 
 
