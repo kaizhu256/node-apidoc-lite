@@ -55,10 +55,8 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### todo
 - none
 
-#### changelog 2018.9.29
-- npm publish 2018.9.29
-- migrate to new jslint (2018-09)
-- migrate from modeJs -> isBrowser
+#### changelog 2019.8.16
+- npm publish 2019.8.16
 - update build
 - none
 
@@ -149,7 +147,7 @@ npm install mysql
         "test": "./npm_scripts.sh",
         "utility2": "./npm_scripts.sh"
     },
-    "version": "2018.9.29"
+    "version": "2019.8.16"
 }
 ```
 
@@ -180,7 +178,7 @@ shBuildCiAfter () {(set -e
     fi
     shReadmeTest example.sh
     # screenshot
-    MODE_BUILD=testExampleSh shBrowserTest /tmp/apidoc.html screenshot
+    MODE_BUILD=testExampleSh shBrowserScreenshot file:///tmp/apidoc.html
     cp /tmp/apidoc.html "$npm_config_dir_build/apidoc.example.html"
 )}
 
