@@ -1,577 +1,232 @@
-<svg height="5630" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="5630" fill="#555" width="720"></rect>
+<svg height="2174" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="2174" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">[MODE_BUILD=npmTestPublished] - 2018-08-11T13:47:23.088Z - npm-testing /tmp/npmTestPublished/nod\</tspan>
-<tspan x="10" y="58">e_modules/apidoc-lite</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-18T17:51:50.332Z - npm-testing /tmp/npmTe\</tspan>
+<tspan x="10" y="58">stPublished/node_modules/apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
 
 <tspan x="10" y="90"></tspan>
 
-<tspan x="10" y="106">covering $ /home/travis/.nvm/versions/node/v10.8.0/bin/node /tmp/npmTestPublished/node_modules/a\</tspan>
+<tspan x="10" y="106">covering $ /home/travis/.nvm/versions/node/v12.8.1/bin/node /tmp/npmTestPublished/node_modules/a\</tspan>
 <tspan x="10" y="122">pidoc-lite/test.js</tspan>
 
-<tspan x="10" y="138">&gt; server listening on http-port 40076</tspan>
+<tspan x="10" y="138">&gt; jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
 
-<tspan x="10" y="154">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="154">jslint - 440ms /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
 
-<tspan x="10" y="170">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="170">jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="186">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/LICENSE</tspan>
+<tspan x="10" y="186">jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
 
-<tspan x="10" y="202">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="202">jslint - 40ms /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="218">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="218">http-server listening on port 58922</tspan>
 
-<tspan x="10" y="234">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package-lock.json</tspan>
+<tspan x="10" y="234">db - dropping database ...</tspan>
 
-<tspan x="10" y="250">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
+<tspan x="10" y="250">testRunDefault - 503 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
 
-<tspan x="10" y="266">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="266">testRunDefault - 607 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="282">apidocCreate - requiring /tmp/npmTestPublished/node_modules/apidoc-lite ...</tspan>
+<tspan x="10" y="282">testRunDefault - 634 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
 
-<tspan x="10" y="298">apidocCreate - ... required /tmp/npmTestPublished/node_modules/apidoc-lite</tspan>
+<tspan x="10" y="298">testRunDefault - 643 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="314">Error</tspan>
+<tspan x="10" y="314">testRunDefault - 644 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
 
-<tspan x="10" y="330">    at Function.local.throwError [as toString] (/tmp/npmTestPublished/node_modules/apidoc-lite/n\</tspan>
-<tspan x="10" y="346">ode_modules/utility2/lib.utility2.js:7328:19)</tspan>
+<tspan x="10" y="330">testRunDefault - 645 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
 
-<tspan x="10" y="362">    at String (&lt;anonymous&gt;)</tspan>
+<tspan x="10" y="346">http-server listening on port 64622</tspan>
 
-<tspan x="10" y="378">    at /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js:8:29285</tspan>
+<tspan x="10" y="362">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
 
-<tspan x="10" y="394">    at Object.local.tryCatchOnError (/tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.j\</tspan>
-<tspan x="10" y="410">s:8:22545)</tspan>
+<tspan x="10" y="378">[5962:0818/175153.032281:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="394"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="426">    at toString (/tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js:8:29149)</tspan>
+<tspan x="10" y="410">[5962:0818/175153.042690:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="426"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="442">    at /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js:8:34534</tspan>
+<tspan x="10" y="442">[6024:0818/175153.210397:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
+<tspan x="10" y="458">hreads in process gpu-process.</tspan>
 
-<tspan x="10" y="458">    at Object.local.apidocCreate (/tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js:8\</tspan>
-<tspan x="10" y="474">:34953)</tspan>
+<tspan x="10" y="474">[5962:0818/175153.451646:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="490">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
+<tspan x="10" y="506">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="490">    at Object.local.testCase_apidocCreate_default [as onTestCase] (/tmp/npmTestPublished/node_mo\</tspan>
-<tspan x="10" y="506">dules/apidoc-lite/test.js:8:2015)</tspan>
+<tspan x="10" y="522">[5962:0818/175153.474130:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="538">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
+<tspan x="10" y="554">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="522">    at /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utility2/lib.utility2.js:7192\</tspan>
-<tspan x="10" y="538">:30</tspan>
+<tspan x="10" y="570">[5962:0818/175154.254518:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="586">:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="554">    at Object.local.tryCatchOnError (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules\</tspan>
-<tspan x="10" y="570">/utility2/lib.utility2.js:7360:26)</tspan>
+<tspan x="10" y="602">[5962:0818/175154.284923:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="618">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
+<tspan x="10" y="634">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="586">apidocCreate - libFile lib.error.js</tspan>
+<tspan x="10" y="650">[5962:0818/175154.287705:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
+<tspan x="10" y="666">ngs.</tspan>
 
-<tspan x="10" y="602">{ Error: Cannot find module '/tmp/npmTestPublished/node_modules/apidoc-lite/lib.error.js'</tspan>
+<tspan x="10" y="682">[5962:0818/175154.306148:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="698">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
+<tspan x="10" y="714">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="618">    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:581:15)</tspan>
+<tspan x="10" y="730">[5962:0818/175154.331574:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="746">:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="634">    at Function.Module._load (internal/modules/cjs/loader.js:507:25)</tspan>
+<tspan x="10" y="762">[5962:0818/175154.357305:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="778">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
+<tspan x="10" y="794">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="650">    at Module.require (internal/modules/cjs/loader.js:637:17)</tspan>
+<tspan x="10" y="810">[5962:0818/175154.359711:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="826">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
+<tspan x="10" y="842">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="666">    at require (internal/modules/cjs/helpers.js:20:18)</tspan>
+<tspan x="10" y="858">[5962:0818/175154.373707:INFO:CONSOLE(8)] "testRunDefault - 24 ms - [browser test-case 1 of 2 pa\</tspan>
+<tspan x="10" y="874">ssed] - testCase_apidocCreate_default", source: http://127.0.0.1:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="682">    at /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js:8:30793</tspan>
+<tspan x="10" y="890">[5962:0818/175154.382383:INFO:CONSOLE(8)] "testRunDefault - 6 ms - [browser test-case 1 of 2 pas\</tspan>
+<tspan x="10" y="906">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="698">    at Object.local.tryCatchOnError (/tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.j\</tspan>
-<tspan x="10" y="714">s:8:22545)</tspan>
+<tspan x="10" y="922">[5962:0818/175154.387953:INFO:CONSOLE(8)] "testRunDefault - 38 ms - [browser test-case 2 of 2 pa\</tspan>
+<tspan x="10" y="938">ssed] - testCase_nop_default", source: http://127.0.0.1:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="730">    at Object.require (/tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js:8:30698)</tspan>
+<tspan x="10" y="954">[5962:0818/175154.396923:INFO:CONSOLE(8)] "testRunDefault - 21 ms - [browser test-case 2 of 2 pa\</tspan>
+<tspan x="10" y="970">ssed] - testCase_nop_default", source: http://127.0.0.1:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="746">    at /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js:8:39331</tspan>
+<tspan x="10" y="986">[5962:0818/175155.395528:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="1002">-----|</tspan>
 
-<tspan x="10" y="762">    at Object.local.tryCatchOnError (/tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.j\</tspan>
-<tspan x="10" y="778">s:8:22545)</tspan>
+<tspan x="10" y="1018">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 
-<tspan x="10" y="794">    at /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js:8:38335 code: 'MODULE_NOT_FO\</tspan>
-<tspan x="10" y="810">UND' }</tspan>
+<tspan x="10" y="1034">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="826">apidocCreate - libFile lib.apidoc.js</tspan>
+<tspan x="10" y="1050">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="842">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="1066">All files |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="858">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="1082">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="874">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/LICENSE</tspan>
+<tspan x="10" y="1098">", source: http://127.0.0.1:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="890">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="1114">[5962:0818/175155.400761:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="1130">html", source: http://127.0.0.1:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="906">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="1146">[5962:0818/175155.418449:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="1162">-----|</tspan>
 
-<tspan x="10" y="922">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package-lock.json</tspan>
+<tspan x="10" y="1178">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 
-<tspan x="10" y="938">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
+<tspan x="10" y="1194">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="954">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="1210">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="970">apidocCreate - requiring /tmp/npmTestPublished/node_modules/apidoc-lite ...</tspan>
+<tspan x="10" y="1226">All files |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="986">apidocCreate - ... required /tmp/npmTestPublished/node_modules/apidoc-lite</tspan>
+<tspan x="10" y="1242">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1002">apidocCreate - libFile lib.apidoc.js</tspan>
+<tspan x="10" y="1258">", source: http://127.0.0.1:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1018">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="1274">[5962:0818/175155.429825:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="1290">html", source: http://127.0.0.1:58922/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1034">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="1306">testRunDefault - 5034 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defaul\</tspan>
+<tspan x="10" y="1322">t ...</tspan>
 
-<tspan x="10" y="1050">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/LICENSE</tspan>
+<tspan x="10" y="1338">testRunDefault - 5991 ms - [node test-case 7 of 8 passed] - testCase_buildApp_default</tspan>
 
-<tspan x="10" y="1066">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="1354">[5962:0818/175159.274496:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:58922/assets.example.\</tspan>
+<tspan x="10" y="1370">js (8)</tspan>
 
-<tspan x="10" y="1082">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="1386">[5962:0818/175159.454176:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/tm\</tspan>
+<tspan x="10" y="1402">p/npmTestPublished/node_modules/apidoc-lite/tmp/electron.16ca5db5a9b0.fbff926e42e2b.html' -&gt; '/t\</tspan>
+<tspan x="10" y="1418">mp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.html'", source: http://127.0.0.1:58922\</tspan>
+<tspan x="10" y="1434">/assets.example.js (8)</tspan>
 
-<tspan x="10" y="1098">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package-lock.json</tspan>
+<tspan x="10" y="1450"></tspan>
 
-<tspan x="10" y="1114">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
+<tspan x="10" y="1466">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
+<tspan x="10" y="1482">reenshot.npmTestPublished.browser.%2F.png</tspan>
 
-<tspan x="10" y="1130">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="1498"></tspan>
 
-<tspan x="10" y="1146">apidocCreate - requiring /tmp/npmTestPublished/node_modules/apidoc-lite ...</tspan>
+<tspan x="10" y="1514">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
+<tspan x="10" y="1530">reenshot.npmTestPublished.browser.%2F.html</tspan>
 
-<tspan x="10" y="1162">apidocCreate - ... required /tmp/npmTestPublished/node_modules/apidoc-lite</tspan>
+<tspan x="10" y="1546"></tspan>
 
-<tspan x="10" y="1178">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="1562">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
+<tspan x="10" y="1578">reenshot.npmTestPublished.browser.%2F.png</tspan>
 
-<tspan x="10" y="1194">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="1594"></tspan>
 
-<tspan x="10" y="1210">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/LICENSE</tspan>
+<tspan x="10" y="1610">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
+<tspan x="10" y="1626">reenshot.npmTestPublished.browser.%2F.html</tspan>
 
-<tspan x="10" y="1226">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="1642">testRunDefault - 8248 ms - [node test-case 8 of 8 passed] - testCase_webpage_default</tspan>
 
-<tspan x="10" y="1242">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="1658">--------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1258">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package-lock.json</tspan>
+<tspan x="10" y="1674">File                |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 
-<tspan x="10" y="1274">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
+<tspan x="10" y="1690">--------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1290">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="1706">   apidoc-lite/     |     99.13 |        99 |     97.48 |     99.13 |</tspan>
 
-<tspan x="10" y="1306">apidocCreate - requiring /tmp/npmTestPublished/node_modules/apidoc-lite ...</tspan>
+<tspan x="10" y="1722">      example.js    |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="1322">apidocCreate - ... required /tmp/npmTestPublished/node_modules/apidoc-lite</tspan>
+<tspan x="10" y="1738">      lib.apidoc.js |     98.68 |     98.55 |     96.47 |     98.68 |</tspan>
 
-<tspan x="10" y="1338">[node test-case 1 of 10 passed] - testCase_apidocCreate_default</tspan>
+<tspan x="10" y="1754">      test.js       |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="1354">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="1770">--------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1370">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="1786">All files           |     99.13 |        99 |     97.48 |     99.13 |</tspan>
 
-<tspan x="10" y="1386">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/LICENSE</tspan>
+<tspan x="10" y="1802">--------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="1402">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="1818"></tspan>
 
-<tspan x="10" y="1418">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="1834">created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage.html/ind\</tspan>
+<tspan x="10" y="1850">ex.html</tspan>
 
-<tspan x="10" y="1434">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/package-lock.json</tspan>
+<tspan x="10" y="1866"></tspan>
 
-<tspan x="10" y="1450">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
+<tspan x="10" y="1882">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1466">apidocCreate - readExample /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="1898">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
+<tspan x="10" y="1914">.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-18T17:51:53\</tspan>
+<tspan x="10" y="1930">.739Z</tspan>
 
-<tspan x="10" y="1482">apidocCreate - requiring /tmp/npmTestPublished/node_modules/apidoc-lite ...</tspan>
+<tspan x="10" y="1946">|    1007 ms            0 failed        2 passed      |</tspan>
 
-<tspan x="10" y="1498">apidocCreate - ... required /tmp/npmTestPublished/node_modules/apidoc-lite</tspan>
+<tspan x="10" y="1962">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1514">created apidoc file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/apidoc.html</tspan>
+<tspan x="10" y="1978">| test-report - npmTestPublished - node - linux v12.8.1 - 2019-08-18T17:51:50.504Z</tspan>
 
-<tspan x="10" y="1530"></tspan>
+<tspan x="10" y="1994">|    8249 ms            0 failed        8 passed      |</tspan>
 
-<tspan x="10" y="1546">[node test-case 2 of 10 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="2010">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1562">[node test-case 3 of 10 passed] - testCase_buildCustomOrg_default</tspan>
+<tspan x="10" y="2026"></tspan>
 
-<tspan x="10" y="1578">[node test-case 4 of 10 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="2042">created test-report file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.ht\</tspan>
+<tspan x="10" y="2058">ml</tspan>
 
-<tspan x="10" y="1594">[node test-case 5 of 10 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="2074"></tspan>
 
-<tspan x="10" y="1610">[node test-case 6 of 10 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="2090"></tspan>
 
-<tspan x="10" y="1626">[node test-case 7 of 10 passed] - testCase_domOnEventWindowOnloadTimeElapsed_default</tspan>
+<tspan x="10" y="2106">npmTestPublished - 0 failed tests</tspan>
 
-<tspan x="10" y="1642">[node test-case 8 of 10 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="2122"></tspan>
 
-<tspan x="10" y="1658"></tspan>
+<tspan x="10" y="2138"></tspan>
 
-<tspan x="10" y="1674">browserTest - created electron entry-page /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/ele\</tspan>
-<tspan x="10" y="1690">ctron.165293ddd200.d8ebabb72b2ec.html</tspan>
-
-<tspan x="10" y="1706"></tspan>
-
-<tspan x="10" y="1722">(node:4909) ExperimentalWarning: The http2 module is an experimental API.</tspan>
-
-<tspan x="10" y="1738">(node:4909) [DEP0025] DeprecationWarning: sys is deprecated. Use util instead.</tspan>
-
-<tspan x="10" y="1754">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/splaytree' module \</tspan>
-<tspan x="10" y="1770">is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="1786">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/codemap' module is\</tspan>
-<tspan x="10" y="1802"> deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="1818">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/consarray' module \</tspan>
-<tspan x="10" y="1834">is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="1850">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/csvparser' module \</tspan>
-<tspan x="10" y="1866">is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="1882">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/profile' module is\</tspan>
-<tspan x="10" y="1898"> deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="1914">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/profile_view' modu\</tspan>
-<tspan x="10" y="1930">le is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="1946">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/logreader' module \</tspan>
-<tspan x="10" y="1962">is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="1978">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/arguments' module \</tspan>
-<tspan x="10" y="1994">is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2010">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor' mod\</tspan>
-<tspan x="10" y="2026">ule is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2042">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/SourceMap' module \</tspan>
-<tspan x="10" y="2058">is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2074">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor-driv\</tspan>
-<tspan x="10" y="2090">er' module is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2106">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'node-inspect/lib/_inspect' \</tspan>
-<tspan x="10" y="2122">module is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2138">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'node-inspect/lib/internal/i\</tspan>
-<tspan x="10" y="2154">nspect_client' module is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2170">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'node-inspect/lib/internal/i\</tspan>
-<tspan x="10" y="2186">nspect_repl' module is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2202">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/profile' module is\</tspan>
-<tspan x="10" y="2218"> deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2234">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor' mod\</tspan>
-<tspan x="10" y="2250">ule is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2266">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor-driv\</tspan>
-<tspan x="10" y="2282">er' module is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2298">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/profile' module is\</tspan>
-<tspan x="10" y="2314"> deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2330">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor' mod\</tspan>
-<tspan x="10" y="2346">ule is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2362">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor-driv\</tspan>
-<tspan x="10" y="2378">er' module is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2394">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/profile' module is\</tspan>
-<tspan x="10" y="2410"> deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2426">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor' mod\</tspan>
-<tspan x="10" y="2442">ule is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2458">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor-driv\</tspan>
-<tspan x="10" y="2474">er' module is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2490">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/profile' module is\</tspan>
-<tspan x="10" y="2506"> deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2522">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor' mod\</tspan>
-<tspan x="10" y="2538">ule is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2554">(node:4909) [DEP0084] DeprecationWarning: Requiring Node.js-bundled 'v8/tools/tickprocessor-driv\</tspan>
-<tspan x="10" y="2570">er' module is deprecated. Please install the necessary module locally.</tspan>
-
-<tspan x="10" y="2586">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
-
-<tspan x="10" y="2602">&gt; server listening on http-port 36724</tspan>
-
-<tspan x="10" y="2618">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
-
-<tspan x="10" y="2634">[5168:0811/134725.878798:WARNING:audio_manager.cc(295)] Multiple instances of AudioManager detec\</tspan>
-<tspan x="10" y="2650">ted</tspan>
-
-<tspan x="10" y="2666">[5168:0811/134725.878854:WARNING:audio_manager.cc(254)] Multiple instances of AudioManager detec\</tspan>
-<tspan x="10" y="2682">ted</tspan>
-
-<tspan x="10" y="2698">[5206:0811/134725.927177:ERROR:sandbox_linux.cc(343)] InitializeSandbox() called with multiple t\</tspan>
-<tspan x="10" y="2714">hreads in process gpu-process. </tspan>
-
-<tspan x="10" y="2730">[5168:0811/134726.024817:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
-<tspan x="10" y="2746">l.</tspan>
-
-<tspan x="10" y="2762">[5168:0811/134726.025135:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
-<tspan x="10" y="2778">l.</tspan>
-
-<tspan x="10" y="2794">[5168:0811/134726.026173:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
-<tspan x="10" y="2810">l.</tspan>
-
-<tspan x="10" y="2826">[5168:0811/134726.026299:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
-<tspan x="10" y="2842">l.</tspan>
-
-<tspan x="10" y="2858">[5168:0811/134726.026349:ERROR:browser_gpu_channel_host_factory.cc(125)] Failed to create channe\</tspan>
-<tspan x="10" y="2874">l.</tspan>
-
-<tspan x="10" y="2890"></tspan>
-
-<tspan x="10" y="2906">browserTest - opened http://127.0.0.1:40076?modeTest=1&amp;timeoutDefault=30000</tspan>
-
-<tspan x="10" y="2922"></tspan>
-
-<tspan x="10" y="2938">[5168:0811/134726.717590:INFO:CONSOLE(284)] "[browser test-case 1 of 10 passed] - testCase_apido\</tspan>
-<tspan x="10" y="2954">cCreate_default", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165\</tspan>
-<tspan x="10" y="2970">293ddd200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="2986">[5168:0811/134726.730682:INFO:CONSOLE(284)] "[browser test-case 2 of 10 passed] - testCase_build\</tspan>
-<tspan x="10" y="3002">Apidoc_default", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.1652\</tspan>
-<tspan x="10" y="3018">93ddd200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3034">[5168:0811/134726.731275:INFO:CONSOLE(284)] "[browser test-case 3 of 10 passed] - testCase_build\</tspan>
-<tspan x="10" y="3050">App_default", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293d\</tspan>
-<tspan x="10" y="3066">dd200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3082">[5168:0811/134726.732234:INFO:CONSOLE(284)] "[browser test-case 4 of 10 passed] - testCase_build\</tspan>
-<tspan x="10" y="3098">CustomOrg_default", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.1\</tspan>
-<tspan x="10" y="3114">65293ddd200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3130">[5168:0811/134726.734085:INFO:CONSOLE(284)] "[browser test-case 5 of 10 passed] - testCase_build\</tspan>
-<tspan x="10" y="3146">Lib_default", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293d\</tspan>
-<tspan x="10" y="3162">dd200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3178">[5168:0811/134726.735720:INFO:CONSOLE(284)] "[browser test-case 6 of 10 passed] - testCase_build\</tspan>
-<tspan x="10" y="3194">Readme_default", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.1652\</tspan>
-<tspan x="10" y="3210">93ddd200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3226">[5168:0811/134726.737375:INFO:CONSOLE(284)] "[browser test-case 7 of 10 passed] - testCase_build\</tspan>
-<tspan x="10" y="3242">Test_default", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293\</tspan>
-<tspan x="10" y="3258">ddd200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3274">[5168:0811/134726.739042:INFO:CONSOLE(284)] "[browser test-case 8 of 10 passed] - testCase_domOn\</tspan>
-<tspan x="10" y="3290">EventWindowOnloadTimeElapsed_default", source: file:///tmp/npmTestPublished/node_modules/apidoc-\</tspan>
-<tspan x="10" y="3306">lite/tmp/electron.165293ddd200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3322">[5168:0811/134726.740831:INFO:CONSOLE(284)] "[browser test-case 9 of 10 passed] - testCase_nop_d\</tspan>
-<tspan x="10" y="3338">efault", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200\</tspan>
-<tspan x="10" y="3354">.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3370">[5168:0811/134726.745480:INFO:CONSOLE(284)] "domStyleValidateUnmatched 0. 1 textarea {", source:\</tspan>
-<tspan x="10" y="3386"> file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.h\</tspan>
-<tspan x="10" y="3402">tml (284)</tspan>
-
-<tspan x="10" y="3418">[5168:0811/134726.747694:INFO:CONSOLE(284)] "domStyleValidateUnmatched 1. 1 textarea {", source:\</tspan>
-<tspan x="10" y="3434"> file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.h\</tspan>
-<tspan x="10" y="3450">tml (284)</tspan>
-
-<tspan x="10" y="3466">[5168:0811/134726.749316:INFO:CONSOLE(284)] "domStyleValidateUnmatched 2. 1 textarea {", source:\</tspan>
-<tspan x="10" y="3482"> file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.h\</tspan>
-<tspan x="10" y="3498">tml (284)</tspan>
-
-<tspan x="10" y="3514">[5168:0811/134726.750915:INFO:CONSOLE(284)] "domStyleValidateUnmatched 3. 1 textarea {", source:\</tspan>
-<tspan x="10" y="3530"> file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.h\</tspan>
-<tspan x="10" y="3546">tml (284)</tspan>
-
-<tspan x="10" y="3562">[5168:0811/134726.752381:INFO:CONSOLE(284)] "domStyleValidateUnmatched 4. 1 pre,", source: file:\</tspan>
-<tspan x="10" y="3578">///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.html (2\</tspan>
-<tspan x="10" y="3594">84)</tspan>
-
-<tspan x="10" y="3610">[5168:0811/134726.753823:INFO:CONSOLE(284)] "domStyleValidateUnmatched 5. 1 pre,", source: file:\</tspan>
-<tspan x="10" y="3626">///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.html (2\</tspan>
-<tspan x="10" y="3642">84)</tspan>
-
-<tspan x="10" y="3658">[5168:0811/134726.755315:INFO:CONSOLE(284)] "domStyleValidateUnmatched 6. 1 pre {", source: file\</tspan>
-<tspan x="10" y="3674">:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.html (\</tspan>
-<tspan x="10" y="3690">284)</tspan>
-
-<tspan x="10" y="3706">[5168:0811/134726.756869:INFO:CONSOLE(284)] "domStyleValidateUnmatched 7. 1 pre {", source: file\</tspan>
-<tspan x="10" y="3722">:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.html (\</tspan>
-<tspan x="10" y="3738">284)</tspan>
-
-<tspan x="10" y="3754">[5168:0811/134726.758545:INFO:CONSOLE(284)] "domStyleValidateUnmatched 8. 1 body {", source: fil\</tspan>
-<tspan x="10" y="3770">e:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.html \</tspan>
-<tspan x="10" y="3786">(284)</tspan>
-
-<tspan x="10" y="3802">[5168:0811/134726.760386:INFO:CONSOLE(284)] "domStyleValidateUnmatched 9. 1 body {", source: fil\</tspan>
-<tspan x="10" y="3818">e:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.html \</tspan>
-<tspan x="10" y="3834">(284)</tspan>
-
-<tspan x="10" y="3850">[5168:0811/134726.762185:INFO:CONSOLE(284)] "domStyleValidateUnmatched 10. 1 body &gt; textarea[rea\</tspan>
-<tspan x="10" y="3866">donly] {", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd2\</tspan>
-<tspan x="10" y="3882">00.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3898">[5168:0811/134726.764120:INFO:CONSOLE(284)] "domStyleValidateUnmatched 11. 1 body &gt; textarea[rea\</tspan>
-<tspan x="10" y="3914">donly] {", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd2\</tspan>
-<tspan x="10" y="3930">00.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="3946">[5168:0811/134726.766125:INFO:CONSOLE(284)] "domStyleValidateUnmatched 12. 1 body &gt; textarea,", \</tspan>
-<tspan x="10" y="3962">source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb7\</tspan>
-<tspan x="10" y="3978">2b2ec.html (284)</tspan>
-
-<tspan x="10" y="3994">[5168:0811/134726.768315:INFO:CONSOLE(284)] "domStyleValidateUnmatched 13. 1 body &gt; textarea,", \</tspan>
-<tspan x="10" y="4010">source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb7\</tspan>
-<tspan x="10" y="4026">2b2ec.html (284)</tspan>
-
-<tspan x="10" y="4042">[5168:0811/134726.770553:INFO:CONSOLE(284)] "domStyleValidateUnmatched 14. 1 body &gt; textarea {",\</tspan>
-<tspan x="10" y="4058"> source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb\</tspan>
-<tspan x="10" y="4074">72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4090">[5168:0811/134726.772735:INFO:CONSOLE(284)] "domStyleValidateUnmatched 15. 1 body &gt; textarea {",\</tspan>
-<tspan x="10" y="4106"> source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb\</tspan>
-<tspan x="10" y="4122">72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4138">[5168:0811/134726.774912:INFO:CONSOLE(284)] "domStyleValidateUnmatched 16. 1 .utility2FooterDiv \</tspan>
-<tspan x="10" y="4154">{", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8eb\</tspan>
-<tspan x="10" y="4170">abb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4186">[5168:0811/134726.777200:INFO:CONSOLE(284)] "domStyleValidateUnmatched 17. 1 .utility2FooterDiv \</tspan>
-<tspan x="10" y="4202">{", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8eb\</tspan>
-<tspan x="10" y="4218">abb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4234">[5168:0811/134726.779364:INFO:CONSOLE(284)] "domStyleValidateUnmatched 18. 1 .uiAnimateSlide {",\</tspan>
-<tspan x="10" y="4250"> source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb\</tspan>
-<tspan x="10" y="4266">72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4282">[5168:0811/134726.781628:INFO:CONSOLE(284)] "domStyleValidateUnmatched 19. 1 .uiAnimateSlide {",\</tspan>
-<tspan x="10" y="4298"> source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb\</tspan>
-<tspan x="10" y="4314">72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4330">[5168:0811/134726.784238:INFO:CONSOLE(284)] "domStyleValidateUnmatched 20. 1 .testReportDiv pre \</tspan>
-<tspan x="10" y="4346">{", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8eb\</tspan>
-<tspan x="10" y="4362">abb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4378">[5168:0811/134726.790229:INFO:CONSOLE(284)] "domStyleValidateUnmatched 21. 1 .testReportDiv .sum\</tspan>
-<tspan x="10" y="4394">mary {", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200\</tspan>
-<tspan x="10" y="4410">.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4426">[5168:0811/134726.793099:INFO:CONSOLE(284)] "domStyleValidateUnmatched 22. 1 .testReportDiv .foo\</tspan>
-<tspan x="10" y="4442">ter {", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.\</tspan>
-<tspan x="10" y="4458">d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4474">[5168:0811/134726.795735:INFO:CONSOLE(284)] "domStyleValidateUnmatched 23. 1 .testReportDiv .dis\</tspan>
-<tspan x="10" y="4490">playNone {", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293dd\</tspan>
-<tspan x="10" y="4506">d200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4522">[5168:0811/134726.798547:INFO:CONSOLE(284)] "[browser test-case 10 of 10 passed] - testCase_webp\</tspan>
-<tspan x="10" y="4538">age_default", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293d\</tspan>
-<tspan x="10" y="4554">dd200.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4570">[5168:0811/134726.825203:INFO:CONSOLE(284)] "domOnEventWindowOnloadTimeElapsed = 357", source: f\</tspan>
-<tspan x="10" y="4586">ile:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8ebabb72b2ec.htm\</tspan>
-<tspan x="10" y="4602">l (284)</tspan>
-
-<tspan x="10" y="4618">[5168:0811/134727.813709:INFO:CONSOLE(284)] "----------|-----------|-----------|-----------|----\</tspan>
-<tspan x="10" y="4634">-------|</tspan>
-
-<tspan x="10" y="4650">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
-
-<tspan x="10" y="4666">----------|-----------|-----------|-----------|-----------|</tspan>
-
-<tspan x="10" y="4682">----------|-----------|-----------|-----------|-----------|</tspan>
-
-<tspan x="10" y="4698">All files |       100 |       100 |       100 |       100 |</tspan>
-
-<tspan x="10" y="4714">----------|-----------|-----------|-----------|-----------|</tspan>
-
-<tspan x="10" y="4730">", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200.d8eba\</tspan>
-<tspan x="10" y="4746">bb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4762">[5168:0811/134727.821632:INFO:CONSOLE(284)] "created coverage file /tmp/build/coverage.html/inde\</tspan>
-<tspan x="10" y="4778">x.html", source: file:///tmp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.165293ddd200\</tspan>
-<tspan x="10" y="4794">.d8ebabb72b2ec.html (284)</tspan>
-
-<tspan x="10" y="4810">[node test-case 9 of 10 passed] - testCase_buildApp_default</tspan>
-
-<tspan x="10" y="4826"></tspan>
-
-<tspan x="10" y="4842">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="4858">reenshot.npmTestPublished.browser.%2F.png</tspan>
-
-<tspan x="10" y="4874"></tspan>
-
-<tspan x="10" y="4890">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="4906">reenshot.npmTestPublished.browser.%2F.html</tspan>
-
-<tspan x="10" y="4922"></tspan>
-
-<tspan x="10" y="4938">browserTest - exit-code 0 - http://127.0.0.1:40076?modeTest=1&amp;timeoutDefault=30000</tspan>
-
-<tspan x="10" y="4954"></tspan>
-
-<tspan x="10" y="4970"></tspan>
-
-<tspan x="10" y="4986">browserTest - merged coverage from file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/cover\</tspan>
-<tspan x="10" y="5002">age.npmTestPublished.browser.%2F.json</tspan>
-
-<tspan x="10" y="5018"></tspan>
-
-<tspan x="10" y="5034"></tspan>
-
-<tspan x="10" y="5050">browserTest - merged test-report from file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/te\</tspan>
-<tspan x="10" y="5066">st-report.npmTestPublished.browser.%2F.json</tspan>
-
-<tspan x="10" y="5082"></tspan>
-
-<tspan x="10" y="5098">[node test-case 10 of 10 passed] - testCase_webpage_default</tspan>
-
-<tspan x="10" y="5114">--------------------|-----------|-----------|-----------|-----------|</tspan>
-
-<tspan x="10" y="5130">File                |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
-
-<tspan x="10" y="5146">--------------------|-----------|-----------|-----------|-----------|</tspan>
-
-<tspan x="10" y="5162">   apidoc-lite/     |       100 |       100 |       100 |       100 |</tspan>
-
-<tspan x="10" y="5178">      example.js    |       100 |       100 |       100 |       100 |</tspan>
-
-<tspan x="10" y="5194">      lib.apidoc.js |       100 |       100 |       100 |       100 |</tspan>
-
-<tspan x="10" y="5210">      test.js       |       100 |       100 |       100 |       100 |</tspan>
-
-<tspan x="10" y="5226">--------------------|-----------|-----------|-----------|-----------|</tspan>
-
-<tspan x="10" y="5242">All files           |       100 |       100 |       100 |       100 |</tspan>
-
-<tspan x="10" y="5258">--------------------|-----------|-----------|-----------|-----------|</tspan>
-
-<tspan x="10" y="5274"></tspan>
-
-<tspan x="10" y="5290">created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage.html/ind\</tspan>
-<tspan x="10" y="5306">ex.html</tspan>
-
-<tspan x="10" y="5322"></tspan>
-
-<tspan x="10" y="5338">-------------------------------------------------------</tspan>
-
-<tspan x="10" y="5354">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
-<tspan x="10" y="5370">.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Electron/1.7.15 Safari/537.36 - 2018-08-11T13:47:26\</tspan>
-<tspan x="10" y="5386">.643Z</tspan>
-
-<tspan x="10" y="5402">|      92 ms            0 failed       10 passed      |</tspan>
-
-<tspan x="10" y="5418">-------------------------------------------------------</tspan>
-
-<tspan x="10" y="5434">| test-report - npmTestPublished - node - linux v10.8.0 - 2018-08-11T13:47:23.304Z</tspan>
-
-<tspan x="10" y="5450">|   17865 ms            0 failed       10 passed      |</tspan>
-
-<tspan x="10" y="5466">-------------------------------------------------------</tspan>
-
-<tspan x="10" y="5482"></tspan>
-
-<tspan x="10" y="5498">created test-report file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.htm\</tspan>
-<tspan x="10" y="5514">l</tspan>
-
-<tspan x="10" y="5530"></tspan>
-
-<tspan x="10" y="5546"></tspan>
-
-<tspan x="10" y="5562">npmTestPublished - 0 failed tests</tspan>
-
-<tspan x="10" y="5578"></tspan>
-
-<tspan x="10" y="5594"></tspan>
-
-<tspan x="10" y="5610">[MODE_BUILD=npmTestPublished] - 2018-08-11T13:47:42.887Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="2154">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-18T17:52:00.916Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>

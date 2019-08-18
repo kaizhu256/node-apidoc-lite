@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- "assets.utility2.template.html" -->
-<title>utility2 (0.0.1)</title>
+<title>apidoc-lite (2019.8.16)</title>
 <style>
 /* jslint utility2:true */
 /*csslint
@@ -352,84 +352,30 @@ pre {
 
     <a
         
-        href="https://github.com/kaizhu256/node-utility2"
+        href="https://github.com/kaizhu256/node-apidoc-lite"
         
         target="_blank"
     >
 
-        utility2 (0.0.1)
+        apidoc-lite (2019.8.16)
 
     </a>
 
 </h1>
-<h3>this zero-dependency package will provide a collection of high-level functions to to build, test, and deploy webapps</h3>
+<h3>this zero-dependency package will auto-generate documentation for your npm-package with zero-config</h3>
 
 <a class="button" download href="assets.app.js">download standalone app</a><br>
-<button class="button" data-onevent="testRunBrowser" id="testRunButton1">run internal test</button><br>
+<button class="button" data-onevent="testRunBrowser" data-onevent-reset-output="1" id="testRunButton1">run internal test</button><br>
+<div class="uiAnimateSlide" id="testReportDiv1" style="border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;"></div>
 
 
 
 
-<label>edit or paste script below to cover and test</label>
-<textarea class="textarea" data-onevent="testRunBrowser" id="inputEval1">
-// remove comment below to disable jslint
-/*jslint browser, devel*/
-/*global window*/
-(function () {
-    "use strict";
-    var testCaseDict;
-    testCaseDict = {};
-    testCaseDict.modeTest = 1;
-
-    // comment this testCase to disable failed error demo
-    testCaseDict.testCase_failed_error_demo = function (opt, onError) {
-    /*
-     * this function will run a failed error demo
-     */
-        // jslint-hack
-        window.utility2.nop(opt);
-        onError(new Error("this is a failed error demo"));
-    };
-
-    testCaseDict.testCase_passed_ajax_demo = function (opt, onError) {
-    /*
-     * this function will demo a passed ajax test
-     */
-        var data;
-        opt = {url: "/"};
-        // test ajax-req for main-page "/"
-        window.utility2.ajax(opt, function (err, xhr) {
-            try {
-                // validate no err occurred
-                console.assert(!err, err);
-                // validate "200 ok" status
-                console.assert(xhr.statusCode === 200, xhr.statusCode);
-                // validate non-empty data
-                data = xhr.responseText;
-                console.assert(data && data.length > 0, data);
-                onError();
-            } catch (errorCaught) {
-                onError(errorCaught);
-            }
-        });
-    };
-
-    window.utility2.testRunDefault(testCaseDict);
-}());
-</textarea>
-<button class="button" data-onevent="testRunBrowser" id="jslintAutofixButton1">jslint autofix</button><br>
-<pre class= "colorError" id="outputJslintPre1" tabindex="0"></pre>
-<label>instrumented-code</label>
-<pre class="readonly textarea" id="outputCode1" tabindex="0"></pre>
 <label>stderr and stdout</label>
-<pre class="onevent-reset-output readonly textarea" id="outputStdout1" tabindex="0"></pre>
-<div id="testReportDiv1"></div>
-<div id="coverageReportDiv1"></div>
+<pre class="onevent-reset-output readonly textarea" id="outputStdout1" tabIndex="0"></pre>
 
 
-<script src="assets.utility2.rollup.js"></script>
-<script src="assets.utility2.example.js"></script>
-<script src="assets.utility2.test.js"></script>
+<script src="assets.app.js"></script>
 
 
 <div class="utility2FooterDiv">

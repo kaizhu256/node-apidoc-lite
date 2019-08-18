@@ -167,7 +167,7 @@
 /* script-begin /assets.utility2.lib.apidoc.js */
 // usr/bin/env node
 /*
- * lib.apidoc.js (2019.8.1)
+ * lib.apidoc.js (2019.8.16)
  * https://github.com/kaizhu256/node-apidoc-lite
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
@@ -2061,13 +2061,13 @@ local.onErrorWithStack = function (onError) {
         /(.*?)\n.*?$/m
     ), "$1");
     onError2 = function (err, data, meta) {
+        // append current-stack to err.stack
         if (
             err
             && typeof err.stack === "string"
             && err !== local.errDefault
             && String(err.stack).indexOf(stack.split("\n")[2]) < 0
         ) {
-            // append current-stack to err.stack
             err.stack += "\n" + stack;
         }
         onError(err, data, meta);
@@ -4291,7 +4291,9 @@ local.ajax = function (opt, onError) {
     var bufferValidateAndCoerce;
     var isDone;
     var local2;
+    var onError2;
     var onEvent;
+    var stack;
     var streamCleanup;
     var timeout;
     var tmp;
@@ -4428,9 +4430,17 @@ local.ajax = function (opt, onError) {
             // cleanup reqStream and resStream
             streamCleanup(xhr.reqStream);
             streamCleanup(xhr.resStream);
-            onError(xhr.err, xhr);
+            onError2(xhr.err, xhr);
             break;
         }
+    };
+    // init onError2
+    stack = new Error().stack;
+    onError2 = function (err, xhr) {
+        if (err && typeof err.stack === "string") {
+            err.stack += "\n" + stack;
+        }
+        onError(err, xhr);
     };
     streamCleanup = function (stream) {
     /*
@@ -4489,10 +4499,6 @@ local.ajax = function (opt, onError) {
         xhr.resHeaders = {};
         xhr.timeStart = xhr.timeStart || Date.now();
     };
-    // init onError
-    if (local2.onErrorWithStack) {
-        onError = local2.onErrorWithStack(onError);
-    }
     // init xhr - XMLHttpRequest
     xhr = (
         local.isBrowser
@@ -4559,7 +4565,7 @@ local.ajax = function (opt, onError) {
     // init timerTimeout
     xhr.timerTimeout = setTimeout(function () {
         xhr.err = xhr.err || new Error(
-            "onTimeout - errTimeout - "
+            "onTimeout - "
             + timeout + " ms - " + "ajax " + xhr.method + " " + xhr.url
         );
         xhr.abort();
@@ -4806,13 +4812,13 @@ local.onErrorWithStack = function (onError) {
         /(.*?)\n.*?$/m
     ), "$1");
     onError2 = function (err, data, meta) {
+        // append current-stack to err.stack
         if (
             err
             && typeof err.stack === "string"
             && err !== local.errDefault
             && String(err.stack).indexOf(stack.split("\n")[2]) < 0
         ) {
-            // append current-stack to err.stack
             err.stack += "\n" + stack;
         }
         onError(err, data, meta);
@@ -6046,7 +6052,7 @@ local.coverageReportCreate = function () {
             Object.keys(opt.coverageCodeDict).forEach(function (key) {
                 globalThis.__coverageCodeDict__[key] = (
                     globalThis.__coverageCodeDict__[key]
-                    || opt.coverageCodeDict[key]
+                    || true
                 );
             });
         } catch (ignore) {}
@@ -6150,7 +6156,7 @@ local.instrumentSync = function (code, file) {
     // 1. normalize the file
     file = local._istanbul_path.resolve("/", file);
     // 2. save code to __coverageCodeDict__[file] for future html-report
-    globalThis.__coverageCodeDict__[file] = code;
+    globalThis.__coverageCodeDict__[file] = true;
     // 3. return instrumented code
     return new local.Instrumenter({
         embedSource: true,
@@ -15487,6 +15493,7 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
                     sourceType: this.opts.esModules ? 'module' : 'script'
                 };
                 program = ESP.parse(code, opt);
+                program.comments = opt.onComment
             } catch (e) {
                 console.log('Failed to parse file: ' + filename);
                 throw e;
@@ -17985,7 +17992,23 @@ local.cliDict.instrument = function () {
     ));
 };
 
-//
+local.cliDict.report = function () {
+/*
+ * <coverageJson>
+ * will create coverage-report from file <coverageJson>
+ */
+    process.argv[3] = local.path.resolve(process.cwd(), process.argv[3]);
+    globalThis.__coverage__ = JSON.parse(
+        local.fs.readFileSync(process.argv[3])
+    );
+    globalThis.__coverageCodeDict__ = {};
+    Object.entries(globalThis.__coverage__).forEach(function (entry) {
+        globalThis.__coverageCodeDict__[entry[0]] = true;
+        entry[1].code = entry[1].code || (entry[1].text || "").split("\n");
+    });
+    local.coverageReportCreate();
+};
+
 local.cliDict.test = function () {
 /*
  * <script>
@@ -18442,13 +18465,13 @@ local.onErrorWithStack = function (onError) {
         /(.*?)\n.*?$/m
     ), "$1");
     onError2 = function (err, data, meta) {
+        // append current-stack to err.stack
         if (
             err
             && typeof err.stack === "string"
             && err !== local.errDefault
             && String(err.stack).indexOf(stack.split("\n")[2]) < 0
         ) {
-            // append current-stack to err.stack
             err.stack += "\n" + stack;
         }
         onError(err, data, meta);
@@ -36803,7 +36826,7 @@ if (local.isBrowser) {
 /* script-begin /assets.utility2.js */
 // usr/bin/env node
 /*
- * lib.utility2.js (2019.8.12)
+ * lib.utility2.js (2019.8.17)
  * https://github.com/kaizhu256/node-utility2
  * this zero-dependency package will provide a collection of high-level functions to to build, test, and deploy webapps
  *
@@ -39161,7 +39184,9 @@ local.ajax = function (opt, onError) {
     var bufferValidateAndCoerce;
     var isDone;
     var local2;
+    var onError2;
     var onEvent;
+    var stack;
     var streamCleanup;
     var timeout;
     var tmp;
@@ -39298,9 +39323,17 @@ local.ajax = function (opt, onError) {
             // cleanup reqStream and resStream
             streamCleanup(xhr.reqStream);
             streamCleanup(xhr.resStream);
-            onError(xhr.err, xhr);
+            onError2(xhr.err, xhr);
             break;
         }
+    };
+    // init onError2
+    stack = new Error().stack;
+    onError2 = function (err, xhr) {
+        if (err && typeof err.stack === "string") {
+            err.stack += "\n" + stack;
+        }
+        onError(err, xhr);
     };
     streamCleanup = function (stream) {
     /*
@@ -39359,10 +39392,6 @@ local.ajax = function (opt, onError) {
         xhr.resHeaders = {};
         xhr.timeStart = xhr.timeStart || Date.now();
     };
-    // init onError
-    if (local2.onErrorWithStack) {
-        onError = local2.onErrorWithStack(onError);
-    }
     // init xhr - XMLHttpRequest
     xhr = (
         local.isBrowser
@@ -39429,7 +39458,7 @@ local.ajax = function (opt, onError) {
     // init timerTimeout
     xhr.timerTimeout = setTimeout(function () {
         xhr.err = xhr.err || new Error(
-            "onTimeout - errTimeout - "
+            "onTimeout - "
             + timeout + " ms - " + "ajax " + xhr.method + " " + xhr.url
         );
         xhr.abort();
@@ -42002,12 +42031,9 @@ local.middlewareAssetsCached = function (req, res, next) {
         switch (opt.modeNext) {
         case 1:
             // skip gzip
-            if (
-                res.headersSent
-                || !(
-                    /\bgzip\b/
-                ).test(req.headers["accept-encoding"])
-            ) {
+            if (res.headersSent || !(
+                /\bgzip\b/
+            ).test(req.headers["accept-encoding"])) {
                 opt.modeNext += 1;
                 opt.onNext();
                 return;
@@ -42537,13 +42563,13 @@ local.onErrorWithStack = function (onError) {
         /(.*?)\n.*?$/m
     ), "$1");
     onError2 = function (err, data, meta) {
+        // append current-stack to err.stack
         if (
             err
             && typeof err.stack === "string"
             && err !== local.errDefault
             && String(err.stack).indexOf(stack.split("\n")[2]) < 0
         ) {
-            // append current-stack to err.stack
             err.stack += "\n" + stack;
         }
         onError(err, data, meta);
@@ -42712,15 +42738,13 @@ local.onParallelList = function (opt, onEach, onError) {
 
 local.onTimeout = function (onError, timeout, message) {
 /*
- * this function will create a timeout-err-handler,
+ * this function will create <timeout>-handler,
  * that appends current-stack to any err encountered
  */
     onError = local.onErrorWithStack(onError);
     // create timerTimeout
     return setTimeout(function () {
-        onError(new Error(
-            "onTimeout - errTimeout - " + timeout + " ms - " + message
-        ));
+        onError(new Error("onTimeout - " + timeout + " ms - " + message));
     // coerce to finite integer
     }, timeout);
 };
@@ -43434,7 +43458,7 @@ local.serverRespondHeadSet = function (ignore, res, statusCode, headers) {
 
 local.serverRespondTimeoutDefault = function (req, res, timeout) {
 /*
- * this function will create a timeout-err-handler for server-<req>
+ * this function will create <timeout>-handler for server-<req>
  */
     var isDone;
     var onError;
@@ -44508,15 +44532,15 @@ local.testRunDefault = function (opt) {
     local.ajaxProgressUpdate();
     // mock serverLog
     local._testRunConsoleError = local._testRunConsoleError || console.error;
-    console.error = function (arg0) {
+    console.error = function (...argList) {
     /*
      * this function will ignore serverLog-messages during test-run
      */
         /* istanbul ignore next */
         if (!globalThis.__coverage__ && !(
             /^serverLog\u0020-\u0020\{/
-        ).test(arg0)) {
-            local._testRunConsoleError.apply(console, arguments); // jslint ignore:line
+        ).test(argList[0])) {
+            local._testRunConsoleError(...argList);
         }
     };
     if (!local.isBrowser) {
@@ -44600,8 +44624,7 @@ local.testRunDefault = function (opt) {
     // shallow-copy testPlatform.testCaseList to prevent side-effects
     // from in-place sort from testReportMerge
     local.onParallelList({
-        list: testPlatform.testCaseList.slice(),
-        rateLimit: Infinity
+        list: testPlatform.testCaseList.slice()
     }, function (testCase, onParallel) {
         var onError;
         var timerTimeout;
@@ -45086,6 +45109,7 @@ local.contentTypeDict = {
     // image
     ".bmp": "image/bmp",
     ".gif": "image/gif",
+    ".jpe": "image/jpeg",
     ".jpeg": "image/jpeg",
     ".jpg": "image/jpeg",
     ".png": "image/png",
@@ -53770,6 +53794,7 @@ local.testCase_ajax_default = function (opt, onError) {\n\
             onParallel.counter += 1;\n\
             local.ajax({\n\
                 responseType,\n\
+                timeout: 60000,\n\
                 url: (\n\
                     local.isBrowser\n\
                     ? location.href\n\
@@ -53786,6 +53811,7 @@ local.testCase_ajax_default = function (opt, onError) {\n\
             onParallel.counter += 1;\n\
             local.ajax({\n\
                 responseType,\n\
+                timeout: 60000,\n\
                 undefined,\n\
                 url: (\n\
                     local.isBrowser\n\
