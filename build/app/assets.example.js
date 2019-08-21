@@ -708,8 +708,9 @@ local.assetsDict["/assets.apidoc.js"] =
 ).replace((/^#!\//), "// ");
 /* jslint ignore:end */
 /* validateLineSortedReset */
-local.assetsDict["/"] = local.assetsDict["/assets.index.template.html"]
-.replace((
+local.assetsDict["/"] = local.assetsDict[
+    "/assets.index.template.html"
+].replace((
     /\{\{env\.(\w+?)\}\}/g
 ), function (match0, match1) {
     switch (match1) {
@@ -758,7 +759,4 @@ local.http.createServer(function (req, res) {
     res.end();
 }).listen(process.env.PORT);
 }());
-
-
-
 }());

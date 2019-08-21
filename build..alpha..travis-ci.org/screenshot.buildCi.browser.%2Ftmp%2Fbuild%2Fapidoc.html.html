@@ -273,9 +273,8 @@
         elem.name = (
             elem.typeof + " &lt;span class=\"apidocSignatureSpan\"&gt;"
             + elem.moduleName + ".&lt;/span&gt;" + key
-        )
-            // handle case where module is a function
-            .replace("&gt;.&lt;", "&gt;&lt;");
+        // handle case where module is a function
+        ).replace("&gt;.&lt;", "&gt;&lt;");
         if (elem.typeof !== "function") {
             return elem;
         }
@@ -288,19 +287,15 @@
             // init signature
             elem.signature = match0.replace((
                 /\u0020*?\/\*[\S\s]*?\*\/\u0020*/g
-            ), "")
-            .replace((
+            ), "").replace((
                 /,/g
-            ), ", ")
-            .replace((
+            ), ", ").replace((
                 /\s+/g
             ), " ");
             return elem.signature;
-        })
-        .replace((
+        }).replace((
             /(\u0020*?\/\*[\S\s]*?\*\/\n)/
-        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;")
-        .replace((
+        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;").replace((
             /^function\u0020\(/
         ), key + " = function (");
         // init example
@@ -355,7 +350,9 @@
     };
     trimLeft = function (text) {
     /*
-     * this function will...</pre></li>
+     * this function will normalize the whitespace around the text
+     */
+        var...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 local.cliDict._default = function () {
@@ -659,9 +656,6 @@ if (module === require.main &amp;&amp; !globalThis.utility2_rollup) {
     local.<span class="apidocCodeKeywordSpan">cliRun</span>();
 }
 }());
-
-
-
 }());
 ...</pre></li>
     </ul>
@@ -741,13 +735,9 @@ local.cliDict["--interactive"] = (
     // search modulePathList
     [
         "node_modules"
-    ]
-    .concat(modulePathList)
-    .concat(require("module").globalPaths)
-    .concat([
+    ].concat(modulePathList).concat(require("module").globalPaths).concat([
         process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"
-    ])
-    .some(function (modulePath) {
+    ]).some(function (modulePath) {
         try {
             result = require("path").resolve(
                 process.cwd(),
@@ -912,30 +902,24 @@ local.stringHtmlSafe = function (text) {
  * this function will make the text html-safe
  * https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html
  */
-</span>    return text
-    .replace((
+</span>    return text.replace((
         /&amp;/g
-    ), "&amp;")
-    .replace((
+    ), "&amp;").replace((
         /"/g
-    ), """)
-    .replace((
+    ), """).replace((
         /'/g
-    ), "'")
-    .replace((
+    ), "'").replace((
         /&lt;/g
-    ), "&lt;")
-    .replace((
+    ), "&lt;").replace((
         /&gt;/g
-    ), "&gt;")
-    .replace((
+    ), "&gt;").replace((
         /&amp;(amp;|apos;|gt;|lt;|quot;)/ig
     ), "&amp;$1");
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-)
-    // handle case where module is a function
-    .replace("&gt;.&lt;", "&gt;&lt;");
+    + elem.moduleName + ".&lt;/span&gt;" + key
+// handle case where module is a function
+).replace("&gt;.&lt;", "&gt;&lt;");
 if (elem.typeof !== "function") {
     return elem;
 }
@@ -971,19 +955,19 @@ elem.source = local.<span class="apidocCodeKeywordSpan">stringHtmlSafe</span>(
     var rgx;
     var skip;
     var value;
-    dict = dict || {};
+    if (dict === null || dict === undefined) {
+        dict = {};
+    }
     opt = opt || {};
     getValue = function (key) {
         argList = key.split(" ");
         value = dict;
         if (argList[0] === "#this/") {
-            return;
+            return value;
         }
         // iteratively lookup nested values in the dict
         argList[0].split(".").forEach(function (key) {
-            if (key !== "this") {
-                value = value &amp;&amp; value[key];
-            }
+            value = value &amp;&amp; value[key];
         });
         return value;
     };

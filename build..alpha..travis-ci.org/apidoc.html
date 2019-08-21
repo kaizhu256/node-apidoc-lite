@@ -280,9 +280,8 @@
         elem.name = (
             elem.typeof + &quot; &lt;span class=\&quot;apidocSignatureSpan\&quot;&gt;&quot;
             + elem.moduleName + &quot;.&lt;/span&gt;&quot; + key
-        )
-            // handle case where module is a function
-            .replace(&quot;&gt;.&lt;&quot;, &quot;&gt;&lt;&quot;);
+        // handle case where module is a function
+        ).replace(&quot;&gt;.&lt;&quot;, &quot;&gt;&lt;&quot;);
         if (elem.typeof !== &quot;function&quot;) {
             return elem;
         }
@@ -295,19 +294,15 @@
             // init signature
             elem.signature = match0.replace((
                 /\u0020*?\/\*[\S\s]*?\*\/\u0020*/g
-            ), &quot;&quot;)
-            .replace((
+            ), &quot;&quot;).replace((
                 /,/g
-            ), &quot;, &quot;)
-            .replace((
+            ), &quot;, &quot;).replace((
                 /\s+/g
             ), &quot; &quot;);
             return elem.signature;
-        })
-        .replace((
+        }).replace((
             /(\u0020*?\/\*[\S\s]*?\*\/\n)/
-        ), &quot;&lt;span class=\&quot;apidocCodeCommentSpan\&quot;&gt;$1&lt;/span&gt;&quot;)
-        .replace((
+        ), &quot;&lt;span class=\&quot;apidocCodeCommentSpan\&quot;&gt;$1&lt;/span&gt;&quot;).replace((
             /^function\u0020\(/
         ), key + &quot; = function (&quot;);
         // init example
@@ -362,7 +357,9 @@
     };
     trimLeft = function (text) {
     /*
-     * this function will...</pre></li>
+     * this function will normalize the whitespace around the text
+     */
+        var...</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
 local.cliDict._default = function () {
@@ -666,9 +663,6 @@ if (module === require.main &amp;&amp; !globalThis.utility2_rollup) {
     local.<span class="apidocCodeKeywordSpan">cliRun</span>();
 }
 }());
-
-
-
 }());
 ...</pre></li>
     </ul>
@@ -748,13 +742,9 @@ local.cliDict[&quot;--interactive&quot;] = (
     // search modulePathList
     [
         &quot;node_modules&quot;
-    ]
-    .concat(modulePathList)
-    .concat(require(&quot;module&quot;).globalPaths)
-    .concat([
+    ].concat(modulePathList).concat(require(&quot;module&quot;).globalPaths).concat([
         process.env.HOME + &quot;/node_modules&quot;, &quot;/usr/local/lib/node_modules&quot;
-    ])
-    .some(function (modulePath) {
+    ]).some(function (modulePath) {
         try {
             result = require(&quot;path&quot;).resolve(
                 process.cwd(),
@@ -919,30 +909,24 @@ local.stringHtmlSafe = function (text) {
  * this function will make the text html-safe
  * https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html
  */
-</span>    return text
-    .replace((
+</span>    return text.replace((
         /&amp;/g
-    ), &quot;&amp;&quot;)
-    .replace((
+    ), &quot;&amp;&quot;).replace((
         /&quot;/g
-    ), &quot;&quot;&quot;)
-    .replace((
+    ), &quot;&quot;&quot;).replace((
         /&apos;/g
-    ), &quot;&apos;&quot;)
-    .replace((
+    ), &quot;&apos;&quot;).replace((
         /&lt;/g
-    ), &quot;&lt;&quot;)
-    .replace((
+    ), &quot;&lt;&quot;).replace((
         /&gt;/g
-    ), &quot;&gt;&quot;)
-    .replace((
+    ), &quot;&gt;&quot;).replace((
         /&amp;(amp;|apos;|gt;|lt;|quot;)/ig
     ), &quot;&amp;$1&quot;);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-)
-    // handle case where module is a function
-    .replace(&quot;&gt;.&lt;&quot;, &quot;&gt;&lt;&quot;);
+    + elem.moduleName + &quot;.&lt;/span&gt;&quot; + key
+// handle case where module is a function
+).replace(&quot;&gt;.&lt;&quot;, &quot;&gt;&lt;&quot;);
 if (elem.typeof !== &quot;function&quot;) {
     return elem;
 }
@@ -978,19 +962,19 @@ elem.source = local.<span class="apidocCodeKeywordSpan">stringHtmlSafe</span>(
     var rgx;
     var skip;
     var value;
-    dict = dict || {};
+    if (dict === null || dict === undefined) {
+        dict = {};
+    }
     opt = opt || {};
     getValue = function (key) {
         argList = key.split(&quot; &quot;);
         value = dict;
         if (argList[0] === &quot;#this/&quot;) {
-            return;
+            return value;
         }
         // iteratively lookup nested values in the dict
         argList[0].split(&quot;.&quot;).forEach(function (key) {
-            if (key !== &quot;this&quot;) {
-                value = value &amp;&amp; value[key];
-            }
+            value = value &amp;&amp; value[key];
         });
         return value;
     };
