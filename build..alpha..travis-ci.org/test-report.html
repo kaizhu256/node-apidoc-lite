@@ -84,24 +84,17 @@ pre {
     white-space: pre-wrap;
 }
 .button {
-    background-color: #fff;
-    border: 1px solid;
-    border-bottom-color: rgb(186, 186, 186);
-    border-left-color: rgb(209, 209, 209);
-    border-radius: 4px;
-    border-right-color: rgb(209, 209, 209);
-    border-top-color: rgb(216, 216, 216);
-    color: #00d;
+    background: #ddd;
+    border: 1px solid #999;
+    color: #000;
     cursor: pointer;
     display: inline-block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: normal;
-    margin: 0;
-    padding: 2px 7px 3px 7px;
+    padding: 2px 5px;
     text-align: center;
-    text-decoration: underline;
+    text-decoration: none;
+}
+.button:hover {
+    background: #bbb;
 }
 .colorError {
     color: #d00;
@@ -136,14 +129,14 @@ pre {
 /*csslint
 */
 .testReportDiv img {
-    border: 1px solid black;
+    border: 1px solid #999;
     margin: 5px 0 5px 0;
     max-height: 256px;
     max-width: 512px;
 }
 .testReportDiv pre {
     background: #fdd;
-    border-top: 1px solid black;
+    border-top: 1px solid #999;
     margin-bottom: 0;
     padding: 10px;
 }
@@ -152,7 +145,7 @@ pre {
     width: 120px;
 }
 .testReportDiv table {
-    border-top: 1px solid black;
+    border-top: 1px solid #999;
     text-align: left;
     width: 100%;
 }
@@ -167,7 +160,7 @@ pre {
 }
 .testReportDiv .platform {
     background: #fff;
-    border: 1px solid black;
+    border: 1px solid #999;
     margin-bottom: 20px;
     padding: 0 10px 10px 10px;
     text-align: left;
@@ -275,9 +268,9 @@ pre {
         );
     };
     window.domOnEventDelegateDict.domOnEventResetOutput = function () {
-        Array.from(document.querySelectorAll(
+        document.querySelectorAll(
             ".onevent-reset-output"
-        )).forEach(function (elem) {
+        ).forEach(function (elem) {
             switch (elem.tagName) {
             case "INPUT":
             case "TEXTAREA":
@@ -314,8 +307,8 @@ pre {
  * until webpage has loaded
  */
     "use strict";
+    var ajaxProgressBar;
     var ajaxProgressDiv1;
-    var ajaxProgressState;
     var ajaxProgressUpdate;
     if (
         window.timerIntervalAjaxProgressUpdate
@@ -331,7 +324,7 @@ pre {
     setTimeout(function () {
         ajaxProgressDiv1.style.width = "25%";
     });
-    ajaxProgressState = 0;
+    ajaxProgressBar = 0;
     ajaxProgressUpdate = (
         window.local
         && window.local.ajaxProgressUpdate
@@ -345,9 +338,9 @@ pre {
         }, 1000);
     };
     window.timerIntervalAjaxProgressUpdate = setInterval(function () {
-        ajaxProgressState += 1;
+        ajaxProgressBar += 1;
         ajaxProgressDiv1.style.width = Math.max(
-            100 - 75 * Math.exp(-0.125 * ajaxProgressState),
+            100 - 75 * Math.exp(-0.125 * ajaxProgressBar),
             ajaxProgressDiv1.style.width.slice(0, -1) | 0
         ) + "%";
     }, 1000);
@@ -404,18 +397,18 @@ pre {
         href="https://github.com/kaizhu256/node-apidoc-lite"
         
     >
-        apidoc-lite (2019.8.16)
+        apidoc-lite (2019.8.24)
     </a>
 </h1>
 <div class="platform summary">
 <h2>summary</h2>
 <h4>
     <span>version</span>-
-        2019.8.16<br>
-    <span>test date</span>- 2019-08-21T07:22:58.767Z<br>
+        2019.8.24<br>
+    <span>test date</span>- 2019-08-24T01:32:48.895Z<br>
     <span>commit info</span>-
         
-        23dfc3a8509296b4186eed2faa8d006956f5c969 - <br>
+        8306f642930fbe2d0a5410d874c27e17593f5ecc - <br>
         
 </h4>
 <table>
@@ -428,7 +421,7 @@ pre {
     </tr>
 </thead>
 <tbody><tr>
-    <td>36326 ms</td>
+    <td>36251 ms</td>
     <td class="testPassed">0</td>
     <td>21</td>
     <td>0</td>
@@ -438,10 +431,10 @@ pre {
 
 <div class="platform">
 <h4>
-    1. buildApidoc - node - linux v12.9.0 - 2019-08-21T07:22:52.078Z<br>
+    1. buildApidoc - node - linux v12.9.0 - 2019-08-24T01:32:42.251Z<br>
     
     
-    <span>time-elapsed</span>- 15071 ms<br>
+    <span>time-elapsed</span>- 14980 ms<br>
     <span>tests failed</span>- 0<br>
     <span>tests passed</span>- 1<br>
     <span>tests pending</span>- 0<br>
@@ -457,7 +450,7 @@ pre {
 
 <tr>
     <td>1</td>
-    <td>7247 ms</td>
+    <td>7196 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_buildApp_default</td>
 </tr>
@@ -471,7 +464,7 @@ pre {
 
 <div class="platform">
 <h4>
-    2. npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-21T07:22:44.299Z<br>
+    2. npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-24T01:32:34.398Z<br>
     
     <a href="screenshot.npmTest.browser.%252F.png">
         <img alt="screenshot.npmTest.browser.%252F.png" src="screenshot.npmTest.browser.%252F.png">
@@ -479,7 +472,7 @@ pre {
     <br>
     
     
-    <span>time-elapsed</span>- 22391 ms<br>
+    <span>time-elapsed</span>- 22346 ms<br>
     <span>tests failed</span>- 0<br>
     <span>tests passed</span>- 2<br>
     <span>tests pending</span>- 0<br>
@@ -516,10 +509,10 @@ pre {
 
 <div class="platform">
 <h4>
-    3. npmTest - node - linux v12.9.0 - 2019-08-21T07:22:41.690Z<br>
+    3. npmTest - node - linux v12.9.0 - 2019-08-24T01:32:31.857Z<br>
     
     
-    <span>time-elapsed</span>- 24960 ms<br>
+    <span>time-elapsed</span>- 24888 ms<br>
     <span>tests failed</span>- 0<br>
     <span>tests passed</span>- 8<br>
     <span>tests pending</span>- 0<br>
@@ -535,35 +528,35 @@ pre {
 
 <tr>
     <td>4</td>
-    <td>480 ms</td>
+    <td>492 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_apidocCreate_default</td>
 </tr>
 
 <tr>
     <td>5</td>
-    <td>96 ms</td>
+    <td>91 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_buildApidoc_default</td>
 </tr>
 
 <tr>
     <td>6</td>
-    <td>5473 ms</td>
+    <td>5464 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_buildApp_default</td>
 </tr>
 
 <tr>
     <td>7</td>
-    <td>0 ms</td>
+    <td>1 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_buildLib_default</td>
 </tr>
 
 <tr>
     <td>8</td>
-    <td>9 ms</td>
+    <td>8 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_buildReadme_default</td>
 </tr>
@@ -584,7 +577,7 @@ pre {
 
 <tr>
     <td>11</td>
-    <td>7015 ms</td>
+    <td>7115 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_webpage_default</td>
 </tr>
@@ -598,7 +591,7 @@ pre {
 
 <div class="platform">
 <h4>
-    4. npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-21T07:22:33.352Z<br>
+    4. npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-24T01:32:23.603Z<br>
     
     <a href="screenshot.npmTestPublished.browser.%252F.png">
         <img alt="screenshot.npmTestPublished.browser.%252F.png" src="screenshot.npmTestPublished.browser.%252F.png">
@@ -606,7 +599,7 @@ pre {
     <br>
     
     
-    <span>time-elapsed</span>- 33338 ms<br>
+    <span>time-elapsed</span>- 33157 ms<br>
     <span>tests failed</span>- 0<br>
     <span>tests passed</span>- 2<br>
     <span>tests pending</span>- 0<br>
@@ -643,10 +636,10 @@ pre {
 
 <div class="platform">
 <h4>
-    5. npmTestPublished - node - linux v12.9.0 - 2019-08-21T07:22:30.285Z<br>
+    5. npmTestPublished - node - linux v12.9.0 - 2019-08-24T01:32:20.204Z<br>
     
     
-    <span>time-elapsed</span>- 36326 ms<br>
+    <span>time-elapsed</span>- 36251 ms<br>
     <span>tests failed</span>- 0<br>
     <span>tests passed</span>- 8<br>
     <span>tests pending</span>- 0<br>
@@ -662,21 +655,21 @@ pre {
 
 <tr>
     <td>14</td>
-    <td>515 ms</td>
+    <td>480 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_apidocCreate_default</td>
 </tr>
 
 <tr>
     <td>15</td>
-    <td>97 ms</td>
+    <td>107 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_buildApidoc_default</td>
 </tr>
 
 <tr>
     <td>16</td>
-    <td>5385 ms</td>
+    <td>5371 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_buildApp_default</td>
 </tr>
@@ -697,7 +690,7 @@ pre {
 
 <tr>
     <td>19</td>
-    <td>1 ms</td>
+    <td>0 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_buildTest_default</td>
 </tr>
@@ -711,7 +704,7 @@ pre {
 
 <tr>
     <td>21</td>
-    <td>7490 ms</td>
+    <td>7663 ms</td>
     <td class="testPassed">passed</td>
     <td>testCase_webpage_default</td>
 </tr>

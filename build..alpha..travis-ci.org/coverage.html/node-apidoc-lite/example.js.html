@@ -47,7 +47,7 @@
 .x-istanbul .cover-empty,
 .x-istanbul .cover-fill {
     background: white;
-    border: 1px solid #444;
+    border: 1px solid #999;
     display: inline-block;
     height: 12px;
 }
@@ -57,7 +57,7 @@
 }
 .x-istanbul .cover-fill {
     background: #ccc;
-    border-right: 1px solid #444;
+    border-right: 1px solid #999;
 }
 .x-istanbul .cover-full {
     border-right: none !important;
@@ -97,8 +97,8 @@
     text-decoration: none;
 }
 .x-istanbul .coverage .line-coverage {
-    border-left: 1px solid #666;
-    border-right: 1px solid #666;
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
     color: #777 !important;
     text-align: right;
 }
@@ -113,7 +113,7 @@
     width: 100%
 }
 .x-istanbul .coverage-summary td {
-    border: 1px solid #666;
+    border: 1px solid #999;
     margin: 0;
     padding: 5px;
     white-space: nowrap;
@@ -143,7 +143,7 @@
     padding: 20px;
 }
 .x-istanbul .footer {
-    border-top: 1px solid #666;
+    border-top: 1px solid #999;
 }
 .x-istanbul .fstat-no {
     background: #ffc520;
@@ -154,7 +154,7 @@
     color: #111 !important;
 }
 .x-istanbul .header {
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #999;
     top: 0;
     width: 100%;
 }
@@ -176,7 +176,7 @@
 }
 .x-istanbul .metric {
     background: white;
-    border: 1px solid #333;
+    border: 1px solid #999;
     display: inline-block;
     padding: .3em;
 }
@@ -229,7 +229,7 @@
 }
 .x-istanbul .tableHeader td {
     background: #fff;
-    border: 1px solid #666;
+    border: 1px solid #999;
     padding: 5px;
 }
 .x-istanbul .tableHeader th {
@@ -279,7 +279,7 @@
 </script>
 <div class="header high">
     <h1 style="font-weight: bold;">
-        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2019.8.16)</a>
+        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2019.8.24)</a>
     </h1>
     <h1>Code coverage report for <span class="entity">node-apidoc-lite/example.js</span></h1>
     <table class="tableHeader">
@@ -1058,16 +1058,6 @@
 <a href="#L752" id="L752">752</a>
 <a href="#L753" id="L753">753</a>
 <a href="#L754" id="L754">754</a>
-<a href="#L755" id="L755">755</a>
-<a href="#L756" id="L756">756</a>
-<a href="#L757" id="L757">757</a>
-<a href="#L758" id="L758">758</a>
-<a href="#L759" id="L759">759</a>
-<a href="#L760" id="L760">760</a>
-<a href="#L761" id="L761">761</a>
-<a href="#L762" id="L762">762</a>
-<a href="#L763" id="L763">763</a>
-<a href="#L764" id="L764">764</a>
 </td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1153,7 +1143,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
@@ -1285,8 +1274,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1371,13 +1358,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1901,7 +1881,6 @@ instruction
 <span class="cstat-skip" title="statement not covered" >            return;</span>
         }
 <span class="cstat-skip" title="statement not covered" >        err = (</span>
-            // ternary-operator
             (
                 message
                 &amp;&amp; typeof message.message === "string"
@@ -2045,11 +2024,9 @@ if (!local.isBrowser) {
         elem.scrollTop = elem.scrollHeight;
     };
 });
-Object.assign(local, globalThis.domOnEventDelegateDict);
+local.objectAssignDefault(local, globalThis.domOnEventDelegateDict);
 globalThis.domOnEventDelegateDict = local;
-local.onEventDomDb = (
-    local.db &amp;&amp; <span class="branch-1 cbranch-skip" title="branch not covered" >local.db.onEventDomDb</span>
-);
+local.onEventDomDb = local.db &amp;&amp; <span class="branch-1 cbranch-skip" title="branch not covered" >local.db.onEventDomDb;</span>
 local.testRunBrowser = function (evt) {
 /*
  * this function will run browser-tests
@@ -2220,24 +2197,17 @@ pre {\n\
     white-space: pre-wrap;\n\
 }\n\
 .button {\n\
-    background-color: #fff;\n\
-    border: 1px solid;\n\
-    border-bottom-color: rgb(186, 186, 186);\n\
-    border-left-color: rgb(209, 209, 209);\n\
-    border-radius: 4px;\n\
-    border-right-color: rgb(209, 209, 209);\n\
-    border-top-color: rgb(216, 216, 216);\n\
-    color: #00d;\n\
+    background: #ddd;\n\
+    border: 1px solid #999;\n\
+    color: #000;\n\
     cursor: pointer;\n\
     display: inline-block;\n\
-    font-family: Arial, Helvetica, sans-serif;\n\
-    font-size: 12px;\n\
-    font-style: normal;\n\
-    font-weight: normal;\n\
-    margin: 0;\n\
-    padding: 2px 7px 3px 7px;\n\
+    padding: 2px 5px;\n\
     text-align: center;\n\
-    text-decoration: underline;\n\
+    text-decoration: none;\n\
+}\n\
+.button:hover {\n\
+    background: #bbb;\n\
 }\n\
 .colorError {\n\
     color: #d00;\n\
@@ -2362,9 +2332,9 @@ pre {\n\
         );\n\
     };\n\
     window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n\
-        Array.from(document.querySelectorAll(\n\
+        document.querySelectorAll(\n\
             ".onevent-reset-output"\n\
-        )).forEach(function (elem) {\n\
+        ).forEach(function (elem) {\n\
             switch (elem.tagName) {\n\
             case "INPUT":\n\
             case "TEXTAREA":\n\
@@ -2401,8 +2371,8 @@ pre {\n\
  * until webpage has loaded\n\
  */\n\
     "use strict";\n\
+    var ajaxProgressBar;\n\
     var ajaxProgressDiv1;\n\
-    var ajaxProgressState;\n\
     var ajaxProgressUpdate;\n\
     if (\n\
         window.timerIntervalAjaxProgressUpdate\n\
@@ -2418,7 +2388,7 @@ pre {\n\
     setTimeout(function () {\n\
         ajaxProgressDiv1.style.width = "25%";\n\
     });\n\
-    ajaxProgressState = 0;\n\
+    ajaxProgressBar = 0;\n\
     ajaxProgressUpdate = (\n\
         window.local\n\
         &amp;&amp; window.local.ajaxProgressUpdate\n\
@@ -2432,9 +2402,9 @@ pre {\n\
         }, 1000);\n\
     };\n\
     window.timerIntervalAjaxProgressUpdate = setInterval(function () {\n\
-        ajaxProgressState += 1;\n\
+        ajaxProgressBar += 1;\n\
         ajaxProgressDiv1.style.width = Math.max(\n\
-            100 - 75 * Math.exp(-0.125 * ajaxProgressState),\n\
+            100 - 75 * Math.exp(-0.125 * ajaxProgressBar),\n\
             ajaxProgressDiv1.style.width.slice(0, -1) | 0\n\
         ) + "%";\n\
     }, 1000);\n\
@@ -2501,7 +2471,7 @@ utility2-comment --&gt;\n\
 &lt;h3&gt;{{env.npm_package_description}}&lt;/h3&gt;\n\
 &lt;!-- utility2-comment\n\
 &lt;a class="button" download href="assets.app.js"&gt;download standalone app&lt;/a&gt;&lt;br&gt;\n\
-&lt;button class="button" data-onevent="testRunBrowser" data-onevent-reset-output="1" id="testRunButton1"&gt;run internal test&lt;/button&gt;&lt;br&gt;\n\
+&lt;button class="button" data-onevent="testRunBrowser" id="testRunButton1"&gt;run internal test&lt;/button&gt;&lt;br&gt;\n\
 &lt;div class="uiAnimateSlide" id="testReportDiv1" style="border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;"&gt;&lt;/div&gt;\n\
 utility2-comment --&gt;\n\
 \n\
@@ -2598,7 +2568,7 @@ local.assetsDict["/index.html"] = local.assetsDict["/"];
 </table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed, 21 Aug 2019 07:22:51 GMT</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat, 24 Aug 2019 01:32:41 GMT</div>
 </div>
 </body>
 </html>

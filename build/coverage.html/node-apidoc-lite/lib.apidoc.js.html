@@ -47,7 +47,7 @@
 .x-istanbul .cover-empty,
 .x-istanbul .cover-fill {
     background: white;
-    border: 1px solid #444;
+    border: 1px solid #999;
     display: inline-block;
     height: 12px;
 }
@@ -57,7 +57,7 @@
 }
 .x-istanbul .cover-fill {
     background: #ccc;
-    border-right: 1px solid #444;
+    border-right: 1px solid #999;
 }
 .x-istanbul .cover-full {
     border-right: none !important;
@@ -97,8 +97,8 @@
     text-decoration: none;
 }
 .x-istanbul .coverage .line-coverage {
-    border-left: 1px solid #666;
-    border-right: 1px solid #666;
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
     color: #777 !important;
     text-align: right;
 }
@@ -113,7 +113,7 @@
     width: 100%
 }
 .x-istanbul .coverage-summary td {
-    border: 1px solid #666;
+    border: 1px solid #999;
     margin: 0;
     padding: 5px;
     white-space: nowrap;
@@ -143,7 +143,7 @@
     padding: 20px;
 }
 .x-istanbul .footer {
-    border-top: 1px solid #666;
+    border-top: 1px solid #999;
 }
 .x-istanbul .fstat-no {
     background: #ffc520;
@@ -154,7 +154,7 @@
     color: #111 !important;
 }
 .x-istanbul .header {
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #999;
     top: 0;
     width: 100%;
 }
@@ -176,7 +176,7 @@
 }
 .x-istanbul .metric {
     background: white;
-    border: 1px solid #333;
+    border: 1px solid #999;
     display: inline-block;
     padding: .3em;
 }
@@ -229,7 +229,7 @@
 }
 .x-istanbul .tableHeader td {
     background: #fff;
-    border: 1px solid #666;
+    border: 1px solid #999;
     padding: 5px;
 }
 .x-istanbul .tableHeader th {
@@ -279,7 +279,7 @@
 </script>
 <div class="header high">
     <h1 style="font-weight: bold;">
-        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2019.8.16)</a>
+        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2019.8.24)</a>
     </h1>
     <h1>Code coverage report for <span class="entity">node-apidoc-lite/lib.apidoc.js</span></h1>
     <table class="tableHeader">
@@ -293,7 +293,7 @@
     </tr>
     </thead>
     <tbody>
-        <td>statements: 123<br>branches: 114<br>functions: 16</td>
+        <td>statements: 118<br>branches: 107<br>functions: 14</td>
         <td>98.68%<br>(447 / 453)</td>
         <td>98.55%<br>(271 / 275)</td>
         <td>96.47%<br>(82 / 85)</td>
@@ -1626,7 +1626,6 @@
 <a href="#L1320" id="L1320">1320</a>
 <a href="#L1321" id="L1321">1321</a>
 <a href="#L1322" id="L1322">1322</a>
-<a href="#L1323" id="L1323">1323</a>
 </td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1707,7 +1706,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
@@ -1738,12 +1736,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">9</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">9</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -2951,7 +2949,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js" tabIndex="0">//#!/usr/bin/env node
 /*
- * lib.apidoc.js (2019.8.16)
+ * lib.apidoc.js (2019.8.24)
  * https://github.com/kaizhu256/node-apidoc-lite
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
@@ -3014,7 +3012,6 @@
             return;
         }
 <span class="cstat-skip" title="statement not covered" >        err = (</span>
-            // ternary-operator
             (
                 message
                 &amp;&amp; typeof message.message === "string"
@@ -3052,23 +3049,23 @@
      */
         return;
     };
-    local.objectAssignDefault = <span class="fstat-skip" title="function not covered" >function (target, source) {</span>
+    local.objectAssignDefault = function (target, source) {
     /*
      * this function will if items from &lt;target&gt; are
      * null, undefined, or empty-string,
      * then overwrite them with items from &lt;source&gt;
      */
-<span class="cstat-skip" title="statement not covered" >        target = target || {};</span>
-<span class="cstat-skip" title="statement not covered" >        Object.keys(source || {}).forEach(<span class="fstat-skip" title="function not covered" >function (key) {</span></span>
-<span class="cstat-skip" title="statement not covered" >            if (</span>
+        target = target || <span class="branch-1 cbranch-skip" title="branch not covered" >{};</span>
+        Object.keys(source || <span class="branch-1 cbranch-skip" title="branch not covered" >{})</span>.forEach(function (key) {
+            <span class="skip-if-branch" title="else path not taken" >E</span>if (
                 target[key] === null
                 || target[key] === undefined
-                || target[key] === ""
+                || <span class="branch-2 cbranch-skip" title="branch not covered" >target[key] === ""</span>
             ) {
-<span class="cstat-skip" title="statement not covered" >                target[key] = target[key] || source[key];</span>
+                target[key] = target[key] || source[key];
             }
         });
-<span class="cstat-skip" title="statement not covered" >        return target;</span>
+        return target;
     };
     // require builtin
     if (!local.isBrowser) {
@@ -4275,7 +4272,7 @@ local.cliDict._default = <span class="fstat-skip" title="function not covered" >
 </table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed, 21 Aug 2019 07:22:51 GMT</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat, 24 Aug 2019 01:32:41 GMT</div>
 </div>
 </body>
 </html>

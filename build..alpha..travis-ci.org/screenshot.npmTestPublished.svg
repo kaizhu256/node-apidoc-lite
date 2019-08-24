@@ -1,9 +1,9 @@
-<svg height="6254" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="6254" fill="#555" width="720"></rect>
+<svg height="6510" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="6510" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-21T07:22:30.115Z - npm-testing /tmp/npmTe\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-24T01:32:20.040Z - npm-testing /tmp/npmTe\</tspan>
 <tspan x="10" y="58">stPublished/node_modules/apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -15,724 +15,756 @@
 
 <tspan x="10" y="138">&gt; jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
 
-<tspan x="10" y="154">http-server listening on port 64303</tspan>
+<tspan x="10" y="154">--- /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js.autofix.old	2019-08-24 01:32:20\</tspan>
+<tspan x="10" y="170">.763987438 +0000</tspan>
 
-<tspan x="10" y="170">db - dropping database ...</tspan>
+<tspan x="10" y="186">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js	2019-08-24 01:32:20.763987438 +\</tspan>
+<tspan x="10" y="202">0000</tspan>
 
-<tspan x="10" y="186">--- /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js.autofix.old	2019-08-21 07:22:30\</tspan>
-<tspan x="10" y="202">.923657256 +0000</tspan>
+<tspan x="10" y="218">@@ -63,7 +63,6 @@</tspan>
 
-<tspan x="10" y="218">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js	2019-08-21 07:22:30.923657256 +\</tspan>
-<tspan x="10" y="234">0000</tspan>
+<tspan x="10" y="234">             return;</tspan>
 
-<tspan x="10" y="250">@@ -294,14 +294,12 @@</tspan>
+<tspan x="10" y="250">         }</tspan>
 
-<tspan x="10" y="266">             }</tspan>
+<tspan x="10" y="266">         err = (</tspan>
 
-<tspan x="10" y="282">             return (</tspan>
+<tspan x="10" y="282">-            // ternary-operator</tspan>
 
-<tspan x="10" y="298">                 elem.description + "\n  " + file</tspan>
+<tspan x="10" y="298">             (</tspan>
 
-<tspan x="10" y="314">-                + ("  " + elem.command.sort().join("|") + "  ")</tspan>
+<tspan x="10" y="314">                 message</tspan>
 
-<tspan x="10" y="330">-                    .replace((</tspan>
+<tspan x="10" y="330">                 &amp;&amp; typeof message.message === "string"</tspan>
 
-<tspan x="10" y="346">+                + ("  " + elem.command.sort().join("|") + "  ").replace((</tspan>
+<tspan x="10" y="346">@@ -294,14 +293,12 @@</tspan>
 
-<tspan x="10" y="362">                     /^ {4}$/</tspan>
+<tspan x="10" y="362">             }</tspan>
 
-<tspan x="10" y="378">                 ), "  ")</tspan>
+<tspan x="10" y="378">             return (</tspan>
 
-<tspan x="10" y="394">                 + elem.argList.join("  ")</tspan>
+<tspan x="10" y="394">                 elem.description + "\n  " + file</tspan>
 
-<tspan x="10" y="410">             );</tspan>
+<tspan x="10" y="410">-                + ("  " + elem.command.sort().join("|") + "  ")</tspan>
 
-<tspan x="10" y="426">-        })</tspan>
+<tspan x="10" y="426">-                    .replace((</tspan>
 
-<tspan x="10" y="442">-        .join("\n\n");</tspan>
+<tspan x="10" y="442">+                + ("  " + elem.command.sort().join("|") + "  ").replace((</tspan>
 
-<tspan x="10" y="458">+        }).join("\n\n");</tspan>
+<tspan x="10" y="458">                     /^ {4}$/</tspan>
 
-<tspan x="10" y="474">         console.log(text);</tspan>
+<tspan x="10" y="474">                 ), "  ")</tspan>
 
-<tspan x="10" y="490">     };</tspan>
+<tspan x="10" y="490">                 + elem.argList.join("  ")</tspan>
 
-<tspan x="10" y="506">     local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;</tspan>
+<tspan x="10" y="506">             );</tspan>
 
-<tspan x="10" y="522">@@ -359,13 +357,9 @@</tspan>
+<tspan x="10" y="522">-        })</tspan>
 
-<tspan x="10" y="538">     // search modulePathList</tspan>
+<tspan x="10" y="538">-        .join("\n\n");</tspan>
 
-<tspan x="10" y="554">     [</tspan>
+<tspan x="10" y="554">+        }).join("\n\n");</tspan>
 
-<tspan x="10" y="570">         "node_modules"</tspan>
+<tspan x="10" y="570">         console.log(text);</tspan>
 
-<tspan x="10" y="586">-    ]</tspan>
+<tspan x="10" y="586">     };</tspan>
 
-<tspan x="10" y="602">-    .concat(modulePathList)</tspan>
+<tspan x="10" y="602">     local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;</tspan>
 
-<tspan x="10" y="618">-    .concat(require("module").globalPaths)</tspan>
+<tspan x="10" y="618">@@ -359,13 +356,9 @@</tspan>
 
-<tspan x="10" y="634">-    .concat([</tspan>
+<tspan x="10" y="634">     // search modulePathList</tspan>
 
-<tspan x="10" y="650">+    ].concat(modulePathList).concat(require("module").globalPaths).concat([</tspan>
+<tspan x="10" y="650">     [</tspan>
 
-<tspan x="10" y="666">         process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"</tspan>
+<tspan x="10" y="666">         "node_modules"</tspan>
 
-<tspan x="10" y="682">-    ])</tspan>
+<tspan x="10" y="682">-    ]</tspan>
 
-<tspan x="10" y="698">-    .some(function (modulePath) {</tspan>
+<tspan x="10" y="698">-    .concat(modulePathList)</tspan>
 
-<tspan x="10" y="714">+    ]).some(function (modulePath) {</tspan>
+<tspan x="10" y="714">-    .concat(require("module").globalPaths)</tspan>
 
-<tspan x="10" y="730">         try {</tspan>
+<tspan x="10" y="730">-    .concat([</tspan>
 
-<tspan x="10" y="746">             result = require("path").resolve(</tspan>
+<tspan x="10" y="746">+    ].concat(modulePathList).concat(require("module").globalPaths).concat([</tspan>
 
-<tspan x="10" y="762">                 process.cwd(),</tspan>
+<tspan x="10" y="762">         process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"</tspan>
 
-<tspan x="10" y="778">@@ -428,23 +422,17 @@</tspan>
+<tspan x="10" y="778">-    ])</tspan>
 
-<tspan x="10" y="794">  * this function will make the text html-safe</tspan>
+<tspan x="10" y="794">-    .some(function (modulePath) {</tspan>
 
-<tspan x="10" y="810">  * https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html</tspan>
+<tspan x="10" y="810">+    ]).some(function (modulePath) {</tspan>
 
-<tspan x="10" y="826">  */</tspan>
+<tspan x="10" y="826">         try {</tspan>
 
-<tspan x="10" y="842">-    return text</tspan>
+<tspan x="10" y="842">             result = require("path").resolve(</tspan>
 
-<tspan x="10" y="858">-    .replace((</tspan>
+<tspan x="10" y="858">                 process.cwd(),</tspan>
 
-<tspan x="10" y="874">+    return text.replace((</tspan>
+<tspan x="10" y="874">@@ -428,23 +421,17 @@</tspan>
 
-<tspan x="10" y="890">         /&amp;/g</tspan>
+<tspan x="10" y="890">  * this function will make the text html-safe</tspan>
 
-<tspan x="10" y="906">-    ), "&amp;amp;")</tspan>
+<tspan x="10" y="906">  * https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html</tspan>
 
-<tspan x="10" y="922">-    .replace((</tspan>
+<tspan x="10" y="922">  */</tspan>
 
-<tspan x="10" y="938">+    ), "&amp;amp;").replace((</tspan>
+<tspan x="10" y="938">-    return text</tspan>
 
-<tspan x="10" y="954">         /"/g</tspan>
+<tspan x="10" y="954">-    .replace((</tspan>
 
-<tspan x="10" y="970">-    ), "&amp;quot;")</tspan>
+<tspan x="10" y="970">+    return text.replace((</tspan>
 
-<tspan x="10" y="986">-    .replace((</tspan>
+<tspan x="10" y="986">         /&amp;/g</tspan>
 
-<tspan x="10" y="1002">+    ), "&amp;quot;").replace((</tspan>
+<tspan x="10" y="1002">-    ), "&amp;amp;")</tspan>
 
-<tspan x="10" y="1018">         /'/g</tspan>
+<tspan x="10" y="1018">-    .replace((</tspan>
 
-<tspan x="10" y="1034">-    ), "&amp;apos;")</tspan>
+<tspan x="10" y="1034">+    ), "&amp;amp;").replace((</tspan>
 
-<tspan x="10" y="1050">-    .replace((</tspan>
+<tspan x="10" y="1050">         /"/g</tspan>
 
-<tspan x="10" y="1066">+    ), "&amp;apos;").replace((</tspan>
+<tspan x="10" y="1066">-    ), "&amp;quot;")</tspan>
 
-<tspan x="10" y="1082">         /&lt;/g</tspan>
+<tspan x="10" y="1082">-    .replace((</tspan>
 
-<tspan x="10" y="1098">-    ), "&amp;lt;")</tspan>
+<tspan x="10" y="1098">+    ), "&amp;quot;").replace((</tspan>
 
-<tspan x="10" y="1114">-    .replace((</tspan>
+<tspan x="10" y="1114">         /'/g</tspan>
 
-<tspan x="10" y="1130">+    ), "&amp;lt;").replace((</tspan>
+<tspan x="10" y="1130">-    ), "&amp;apos;")</tspan>
 
-<tspan x="10" y="1146">         /&gt;/g</tspan>
+<tspan x="10" y="1146">-    .replace((</tspan>
 
-<tspan x="10" y="1162">-    ), "&amp;gt;")</tspan>
+<tspan x="10" y="1162">+    ), "&amp;apos;").replace((</tspan>
 
-<tspan x="10" y="1178">-    .replace((</tspan>
+<tspan x="10" y="1178">         /&lt;/g</tspan>
 
-<tspan x="10" y="1194">+    ), "&amp;gt;").replace((</tspan>
+<tspan x="10" y="1194">-    ), "&amp;lt;")</tspan>
 
-<tspan x="10" y="1210">         /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
+<tspan x="10" y="1210">-    .replace((</tspan>
 
-<tspan x="10" y="1226">     ), "&amp;$1");</tspan>
+<tspan x="10" y="1226">+    ), "&amp;lt;").replace((</tspan>
 
-<tspan x="10" y="1242"> };</tspan>
+<tspan x="10" y="1242">         /&gt;/g</tspan>
 
-<tspan x="10" y="1258">@@ -568,19 +556,19 @@</tspan>
+<tspan x="10" y="1258">-    ), "&amp;gt;")</tspan>
 
-<tspan x="10" y="1274">     var rgx;</tspan>
+<tspan x="10" y="1274">-    .replace((</tspan>
 
-<tspan x="10" y="1290">     var skip;</tspan>
+<tspan x="10" y="1290">+    ), "&amp;gt;").replace((</tspan>
 
-<tspan x="10" y="1306">     var value;</tspan>
+<tspan x="10" y="1306">         /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
 
-<tspan x="10" y="1322">-    dict = dict || {};</tspan>
+<tspan x="10" y="1322">     ), "&amp;$1");</tspan>
 
-<tspan x="10" y="1338">+    if (dict === null || dict === undefined) {</tspan>
+<tspan x="10" y="1338"> };</tspan>
 
-<tspan x="10" y="1354">+        dict = {};</tspan>
+<tspan x="10" y="1354">@@ -568,19 +555,19 @@</tspan>
 
-<tspan x="10" y="1370">+    }</tspan>
+<tspan x="10" y="1370">     var rgx;</tspan>
 
-<tspan x="10" y="1386">     opt = opt || {};</tspan>
+<tspan x="10" y="1386">     var skip;</tspan>
 
-<tspan x="10" y="1402">     getValue = function (key) {</tspan>
+<tspan x="10" y="1402">     var value;</tspan>
 
-<tspan x="10" y="1418">         argList = key.split(" ");</tspan>
+<tspan x="10" y="1418">-    dict = dict || {};</tspan>
 
-<tspan x="10" y="1434">         value = dict;</tspan>
+<tspan x="10" y="1434">+    if (dict === null || dict === undefined) {</tspan>
 
-<tspan x="10" y="1450">         if (argList[0] === "#this/") {</tspan>
+<tspan x="10" y="1450">+        dict = {};</tspan>
 
-<tspan x="10" y="1466">-            return;</tspan>
+<tspan x="10" y="1466">+    }</tspan>
 
-<tspan x="10" y="1482">+            return value;</tspan>
+<tspan x="10" y="1482">     opt = opt || {};</tspan>
 
-<tspan x="10" y="1498">         }</tspan>
+<tspan x="10" y="1498">     getValue = function (key) {</tspan>
 
-<tspan x="10" y="1514">         // iteratively lookup nested values in the dict</tspan>
+<tspan x="10" y="1514">         argList = key.split(" ");</tspan>
 
-<tspan x="10" y="1530">         argList[0].split(".").forEach(function (key) {</tspan>
+<tspan x="10" y="1530">         value = dict;</tspan>
 
-<tspan x="10" y="1546">-            if (key !== "this") {</tspan>
+<tspan x="10" y="1546">         if (argList[0] === "#this/") {</tspan>
 
-<tspan x="10" y="1562">-                value = value &amp;&amp; value[key];</tspan>
+<tspan x="10" y="1562">-            return;</tspan>
 
-<tspan x="10" y="1578">-            }</tspan>
+<tspan x="10" y="1578">+            return value;</tspan>
 
-<tspan x="10" y="1594">+            value = value &amp;&amp; value[key];</tspan>
+<tspan x="10" y="1594">         }</tspan>
 
-<tspan x="10" y="1610">         });</tspan>
+<tspan x="10" y="1610">         // iteratively lookup nested values in the dict</tspan>
 
-<tspan x="10" y="1626">         return value;</tspan>
+<tspan x="10" y="1626">         argList[0].split(".").forEach(function (key) {</tspan>
 
-<tspan x="10" y="1642">     };</tspan>
+<tspan x="10" y="1642">-            if (key !== "this") {</tspan>
 
-<tspan x="10" y="1658">@@ -715,23 +703,17 @@</tspan>
+<tspan x="10" y="1658">-                value = value &amp;&amp; value[key];</tspan>
 
-<tspan x="10" y="1674">             value = String(value);</tspan>
+<tspan x="10" y="1674">-            }</tspan>
 
-<tspan x="10" y="1690">             // default to htmlSafe</tspan>
+<tspan x="10" y="1690">+            value = value &amp;&amp; value[key];</tspan>
 
-<tspan x="10" y="1706">             if (!notHtmlSafe) {</tspan>
+<tspan x="10" y="1706">         });</tspan>
 
-<tspan x="10" y="1722">-                value = value</tspan>
+<tspan x="10" y="1722">         return value;</tspan>
 
-<tspan x="10" y="1738">-                .replace((</tspan>
+<tspan x="10" y="1738">     };</tspan>
 
-<tspan x="10" y="1754">+                value = value.replace((</tspan>
+<tspan x="10" y="1754">@@ -715,23 +702,17 @@</tspan>
 
-<tspan x="10" y="1770">                     /&amp;/g</tspan>
+<tspan x="10" y="1770">             value = String(value);</tspan>
 
-<tspan x="10" y="1786">-                ), "&amp;amp;")</tspan>
+<tspan x="10" y="1786">             // default to htmlSafe</tspan>
 
-<tspan x="10" y="1802">-                .replace((</tspan>
+<tspan x="10" y="1802">             if (!notHtmlSafe) {</tspan>
 
-<tspan x="10" y="1818">+                ), "&amp;amp;").replace((</tspan>
+<tspan x="10" y="1818">-                value = value</tspan>
 
-<tspan x="10" y="1834">                     /"/g</tspan>
+<tspan x="10" y="1834">-                .replace((</tspan>
 
-<tspan x="10" y="1850">-                ), "&amp;quot;")</tspan>
+<tspan x="10" y="1850">+                value = value.replace((</tspan>
 
-<tspan x="10" y="1866">-                .replace((</tspan>
+<tspan x="10" y="1866">                     /&amp;/g</tspan>
 
-<tspan x="10" y="1882">+                ), "&amp;quot;").replace((</tspan>
+<tspan x="10" y="1882">-                ), "&amp;amp;")</tspan>
 
-<tspan x="10" y="1898">                     /'/g</tspan>
+<tspan x="10" y="1898">-                .replace((</tspan>
 
-<tspan x="10" y="1914">-                ), "&amp;apos;")</tspan>
+<tspan x="10" y="1914">+                ), "&amp;amp;").replace((</tspan>
 
-<tspan x="10" y="1930">-                .replace((</tspan>
+<tspan x="10" y="1930">                     /"/g</tspan>
 
-<tspan x="10" y="1946">+                ), "&amp;apos;").replace((</tspan>
+<tspan x="10" y="1946">-                ), "&amp;quot;")</tspan>
 
-<tspan x="10" y="1962">                     /&lt;/g</tspan>
+<tspan x="10" y="1962">-                .replace((</tspan>
 
-<tspan x="10" y="1978">-                ), "&amp;lt;")</tspan>
+<tspan x="10" y="1978">+                ), "&amp;quot;").replace((</tspan>
 
-<tspan x="10" y="1994">-                .replace((</tspan>
+<tspan x="10" y="1994">                     /'/g</tspan>
 
-<tspan x="10" y="2010">+                ), "&amp;lt;").replace((</tspan>
+<tspan x="10" y="2010">-                ), "&amp;apos;")</tspan>
 
-<tspan x="10" y="2026">                     /&gt;/g</tspan>
+<tspan x="10" y="2026">-                .replace((</tspan>
 
-<tspan x="10" y="2042">-                ), "&amp;gt;")</tspan>
+<tspan x="10" y="2042">+                ), "&amp;apos;").replace((</tspan>
 
-<tspan x="10" y="2058">-                .replace((</tspan>
+<tspan x="10" y="2058">                     /&lt;/g</tspan>
 
-<tspan x="10" y="2074">+                ), "&amp;gt;").replace((</tspan>
+<tspan x="10" y="2074">-                ), "&amp;lt;")</tspan>
 
-<tspan x="10" y="2090">                     /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
+<tspan x="10" y="2090">-                .replace((</tspan>
 
-<tspan x="10" y="2106">                 ), "&amp;$1");</tspan>
+<tspan x="10" y="2106">+                ), "&amp;lt;").replace((</tspan>
 
-<tspan x="10" y="2122">             }</tspan>
+<tspan x="10" y="2122">                     /&gt;/g</tspan>
 
-<tspan x="10" y="2138">@@ -740,8 +722,7 @@</tspan>
+<tspan x="10" y="2138">-                ), "&amp;gt;")</tspan>
 
-<tspan x="10" y="2154">                 &amp;&amp; (typeof local.marked === "function" &amp;&amp; local.marked)</tspan>
+<tspan x="10" y="2154">-                .replace((</tspan>
 
-<tspan x="10" y="2170">             );</tspan>
+<tspan x="10" y="2170">+                ), "&amp;gt;").replace((</tspan>
 
-<tspan x="10" y="2186">             if (markdownToHtml) {</tspan>
+<tspan x="10" y="2186">                     /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
 
-<tspan x="10" y="2202">-                value = markdownToHtml(value)</tspan>
+<tspan x="10" y="2202">                 ), "&amp;$1");</tspan>
 
-<tspan x="10" y="2218">-                .replace((</tspan>
+<tspan x="10" y="2218">             }</tspan>
 
-<tspan x="10" y="2234">+                value = markdownToHtml(value).replace((</tspan>
+<tspan x="10" y="2234">@@ -740,8 +721,7 @@</tspan>
 
-<tspan x="10" y="2250">                     /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
+<tspan x="10" y="2250">                 &amp;&amp; (typeof local.marked === "function" &amp;&amp; local.marked)</tspan>
 
-<tspan x="10" y="2266">                 ), "&amp;$1");</tspan>
+<tspan x="10" y="2266">             );</tspan>
 
-<tspan x="10" y="2282">             }</tspan>
+<tspan x="10" y="2282">             if (markdownToHtml) {</tspan>
 
-<tspan x="10" y="2298">@@ -814,9 +795,8 @@</tspan>
+<tspan x="10" y="2298">-                value = markdownToHtml(value)</tspan>
 
-<tspan x="10" y="2314">         elem.name = (</tspan>
+<tspan x="10" y="2314">-                .replace((</tspan>
 
-<tspan x="10" y="2330">             elem.typeof + " &lt;span class=\"apidocSignatureSpan\"&gt;"</tspan>
+<tspan x="10" y="2330">+                value = markdownToHtml(value).replace((</tspan>
 
-<tspan x="10" y="2346">             + elem.moduleName + ".&lt;/span&gt;" + key</tspan>
+<tspan x="10" y="2346">                     /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
 
-<tspan x="10" y="2362">-        )</tspan>
+<tspan x="10" y="2362">                 ), "&amp;$1");</tspan>
 
-<tspan x="10" y="2378">-            // handle case where module is a function</tspan>
+<tspan x="10" y="2378">             }</tspan>
 
-<tspan x="10" y="2394">-            .replace("&gt;.&lt;", "&gt;&lt;");</tspan>
+<tspan x="10" y="2394">@@ -814,9 +794,8 @@</tspan>
 
-<tspan x="10" y="2410">+        // handle case where module is a function</tspan>
+<tspan x="10" y="2410">         elem.name = (</tspan>
 
-<tspan x="10" y="2426">+        ).replace("&gt;.&lt;", "&gt;&lt;");</tspan>
+<tspan x="10" y="2426">             elem.typeof + " &lt;span class=\"apidocSignatureSpan\"&gt;"</tspan>
 
-<tspan x="10" y="2442">         if (elem.typeof !== "function") {</tspan>
+<tspan x="10" y="2442">             + elem.moduleName + ".&lt;/span&gt;" + key</tspan>
 
-<tspan x="10" y="2458">             return elem;</tspan>
+<tspan x="10" y="2458">-        )</tspan>
 
-<tspan x="10" y="2474">         }</tspan>
+<tspan x="10" y="2474">-            // handle case where module is a function</tspan>
 
-<tspan x="10" y="2490">@@ -829,19 +809,15 @@</tspan>
+<tspan x="10" y="2490">-            .replace("&gt;.&lt;", "&gt;&lt;");</tspan>
 
-<tspan x="10" y="2506">             // init signature</tspan>
+<tspan x="10" y="2506">+        // handle case where module is a function</tspan>
 
-<tspan x="10" y="2522">             elem.signature = match0.replace((</tspan>
+<tspan x="10" y="2522">+        ).replace("&gt;.&lt;", "&gt;&lt;");</tspan>
 
-<tspan x="10" y="2538">                 / *?\/\*[\S\s]*?\*\/ */g</tspan>
+<tspan x="10" y="2538">         if (elem.typeof !== "function") {</tspan>
 
-<tspan x="10" y="2554">-            ), "")</tspan>
+<tspan x="10" y="2554">             return elem;</tspan>
 
-<tspan x="10" y="2570">-            .replace((</tspan>
+<tspan x="10" y="2570">         }</tspan>
 
-<tspan x="10" y="2586">+            ), "").replace((</tspan>
+<tspan x="10" y="2586">@@ -829,19 +808,15 @@</tspan>
 
-<tspan x="10" y="2602">                 /,/g</tspan>
+<tspan x="10" y="2602">             // init signature</tspan>
 
-<tspan x="10" y="2618">-            ), ", ")</tspan>
+<tspan x="10" y="2618">             elem.signature = match0.replace((</tspan>
 
-<tspan x="10" y="2634">-            .replace((</tspan>
+<tspan x="10" y="2634">                 / *?\/\*[\S\s]*?\*\/ */g</tspan>
 
-<tspan x="10" y="2650">+            ), ", ").replace((</tspan>
+<tspan x="10" y="2650">-            ), "")</tspan>
 
-<tspan x="10" y="2666">                 /\s+/g</tspan>
+<tspan x="10" y="2666">-            .replace((</tspan>
 
-<tspan x="10" y="2682">             ), " ");</tspan>
+<tspan x="10" y="2682">+            ), "").replace((</tspan>
 
-<tspan x="10" y="2698">             return elem.signature;</tspan>
+<tspan x="10" y="2698">                 /,/g</tspan>
 
-<tspan x="10" y="2714">-        })</tspan>
+<tspan x="10" y="2714">-            ), ", ")</tspan>
 
-<tspan x="10" y="2730">-        .replace((</tspan>
+<tspan x="10" y="2730">-            .replace((</tspan>
 
-<tspan x="10" y="2746">+        }).replace((</tspan>
+<tspan x="10" y="2746">+            ), ", ").replace((</tspan>
 
-<tspan x="10" y="2762">             /( *?\/\*[\S\s]*?\*\/\n)/</tspan>
+<tspan x="10" y="2762">                 /\s+/g</tspan>
 
-<tspan x="10" y="2778">-        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;")</tspan>
+<tspan x="10" y="2778">             ), " ");</tspan>
 
-<tspan x="10" y="2794">-        .replace((</tspan>
+<tspan x="10" y="2794">             return elem.signature;</tspan>
 
-<tspan x="10" y="2810">+        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;").replace((</tspan>
+<tspan x="10" y="2810">-        })</tspan>
 
-<tspan x="10" y="2826">             /^function \(/</tspan>
+<tspan x="10" y="2826">-        .replace((</tspan>
 
-<tspan x="10" y="2842">         ), key + " = function (");</tspan>
+<tspan x="10" y="2842">+        }).replace((</tspan>
 
-<tspan x="10" y="2858">         // init example</tspan>
+<tspan x="10" y="2858">             /( *?\/\*[\S\s]*?\*\/\n)/</tspan>
 
-<tspan x="10" y="2874">@@ -1001,8 +977,7 @@</tspan>
+<tspan x="10" y="2874">-        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;")</tspan>
 
-<tspan x="10" y="2890"> " '</tspan>
+<tspan x="10" y="2890">-        .replace((</tspan>
 
-<tspan x="10" y="2906"> /* jslint ignore:end */</tspan>
+<tspan x="10" y="2906">+        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;").replace((</tspan>
 
-<tspan x="10" y="2922">                 + " | sort | head -n 256"</tspan>
+<tspan x="10" y="2922">             /^function \(/</tspan>
 
-<tspan x="10" y="2938">-            ).toString()</tspan>
+<tspan x="10" y="2938">         ), key + " = function (");</tspan>
 
-<tspan x="10" y="2954">-            .split("\n")</tspan>
+<tspan x="10" y="2954">         // init example</tspan>
 
-<tspan x="10" y="2970">+            ).toString().split("\n")</tspan>
+<tspan x="10" y="2970">@@ -1001,8 +976,7 @@</tspan>
 
-<tspan x="10" y="2986">         );</tspan>
+<tspan x="10" y="2986"> " '</tspan>
 
-<tspan x="10" y="3002">     });</tspan>
+<tspan x="10" y="3002"> /* jslint ignore:end */</tspan>
 
-<tspan x="10" y="3018">     opt.exampleList = opt.exampleList.filter(function (file) {</tspan>
+<tspan x="10" y="3018">                 + " | sort | head -n 256"</tspan>
 
-<tspan x="10" y="3034">@@ -1035,7 +1010,7 @@</tspan>
+<tspan x="10" y="3034">-            ).toString()</tspan>
 
-<tspan x="10" y="3050">             tmp = function () {</tspan>
+<tspan x="10" y="3050">-            .split("\n")</tspan>
 
-<tspan x="10" y="3066">                 return;</tspan>
+<tspan x="10" y="3066">+            ).toString().split("\n")</tspan>
 
-<tspan x="10" y="3082">             };</tspan>
+<tspan x="10" y="3082">         );</tspan>
 
-<tspan x="10" y="3098">-            // coverage-hack</tspan>
+<tspan x="10" y="3098">     });</tspan>
 
-<tspan x="10" y="3114">+            // hack-istanbul</tspan>
+<tspan x="10" y="3114">     opt.exampleList = opt.exampleList.filter(function (file) {</tspan>
 
-<tspan x="10" y="3130">             tmp();</tspan>
+<tspan x="10" y="3130">@@ -1035,7 +1009,7 @@</tspan>
 
-<tspan x="10" y="3146">             Object.defineProperties(tmp, {</tspan>
+<tspan x="10" y="3146">             tmp = function () {</tspan>
 
-<tspan x="10" y="3162">                 toString: {</tspan>
+<tspan x="10" y="3162">                 return;</tspan>
 
-<tspan x="10" y="3178">@@ -1147,20 +1122,16 @@</tspan>
+<tspan x="10" y="3178">             };</tspan>
 
-<tspan x="10" y="3194"> " '</tspan>
+<tspan x="10" y="3194">-            // coverage-hack</tspan>
 
-<tspan x="10" y="3210"> /* jslint ignore:end */</tspan>
+<tspan x="10" y="3210">+            // hack-istanbul</tspan>
 
-<tspan x="10" y="3226">                 + " | sort | head -n 256"</tspan>
+<tspan x="10" y="3226">             tmp();</tspan>
 
-<tspan x="10" y="3242">-            ).toString()</tspan>
+<tspan x="10" y="3242">             Object.defineProperties(tmp, {</tspan>
 
-<tspan x="10" y="3258">-            .split("\n")</tspan>
+<tspan x="10" y="3258">                 toString: {</tspan>
 
-<tspan x="10" y="3274">+            ).toString().split("\n")</tspan>
+<tspan x="10" y="3274">@@ -1147,20 +1121,16 @@</tspan>
 
-<tspan x="10" y="3290">         );</tspan>
+<tspan x="10" y="3290"> " '</tspan>
 
-<tspan x="10" y="3306">     });</tspan>
+<tspan x="10" y="3306"> /* jslint ignore:end */</tspan>
 
-<tspan x="10" y="3322">     opt.ii = 256;</tspan>
+<tspan x="10" y="3322">                 + " | sort | head -n 256"</tspan>
 
-<tspan x="10" y="3338">     opt.libFileList.every(function (file) {</tspan>
+<tspan x="10" y="3338">-            ).toString()</tspan>
 
-<tspan x="10" y="3354">         local.tryCatchOnError(function () {</tspan>
+<tspan x="10" y="3354">-            .split("\n")</tspan>
 
-<tspan x="10" y="3370">             tmp = {};</tspan>
+<tspan x="10" y="3370">+            ).toString().split("\n")</tspan>
 
-<tspan x="10" y="3386">-            tmp.name = local.path.basename(file)</tspan>
+<tspan x="10" y="3386">         );</tspan>
 
-<tspan x="10" y="3402">-            .replace("lib.", "")</tspan>
+<tspan x="10" y="3402">     });</tspan>
 
-<tspan x="10" y="3418">-            .replace((</tspan>
+<tspan x="10" y="3418">     opt.ii = 256;</tspan>
 
-<tspan x="10" y="3434">+            tmp.name = local.path.basename(file).replace("lib.", "").replace((</tspan>
+<tspan x="10" y="3434">     opt.libFileList.every(function (file) {</tspan>
 
-<tspan x="10" y="3450">                 /\.[^.]*?$/</tspan>
+<tspan x="10" y="3450">         local.tryCatchOnError(function () {</tspan>
 
-<tspan x="10" y="3466">-            ), "")</tspan>
+<tspan x="10" y="3466">             tmp = {};</tspan>
 
-<tspan x="10" y="3482">-            .replace((</tspan>
+<tspan x="10" y="3482">-            tmp.name = local.path.basename(file)</tspan>
 
-<tspan x="10" y="3498">+            ), "").replace((</tspan>
+<tspan x="10" y="3498">-            .replace("lib.", "")</tspan>
 
-<tspan x="10" y="3514">                 /\W/g</tspan>
+<tspan x="10" y="3514">-            .replace((</tspan>
 
-<tspan x="10" y="3530">             ), "_");</tspan>
+<tspan x="10" y="3530">+            tmp.name = local.path.basename(file).replace("lib.", "").replace((</tspan>
 
-<tspan x="10" y="3546">             ([</tspan>
+<tspan x="10" y="3546">                 /\.[^.]*?$/</tspan>
 
-<tspan x="10" y="3562">@@ -1196,9 +1167,7 @@</tspan>
+<tspan x="10" y="3562">-            ), "")</tspan>
 
-<tspan x="10" y="3578">         moduleMain[tmp] = moduleMain[tmp] || opt.moduleDict[key];</tspan>
+<tspan x="10" y="3578">-            .replace((</tspan>
 
-<tspan x="10" y="3594">     });</tspan>
+<tspan x="10" y="3594">+            ), "").replace((</tspan>
 
-<tspan x="10" y="3610">     // init moduleList</tspan>
+<tspan x="10" y="3610">                 /\W/g</tspan>
 
-<tspan x="10" y="3626">-    opt.moduleList = Object.keys(opt.moduleDict)</tspan>
+<tspan x="10" y="3626">             ), "_");</tspan>
 
-<tspan x="10" y="3642">-    .sort()</tspan>
+<tspan x="10" y="3642">             ([</tspan>
 
-<tspan x="10" y="3658">-    .map(function (prefix) {</tspan>
+<tspan x="10" y="3658">@@ -1196,9 +1166,7 @@</tspan>
 
-<tspan x="10" y="3674">+    opt.moduleList = Object.keys(opt.moduleDict).sort().map(function (prefix) {</tspan>
+<tspan x="10" y="3674">         moduleMain[tmp] = moduleMain[tmp] || opt.moduleDict[key];</tspan>
 
-<tspan x="10" y="3690">         module = opt.moduleDict[prefix];</tspan>
+<tspan x="10" y="3690">     });</tspan>
 
-<tspan x="10" y="3706">         // handle case where module is a function</tspan>
+<tspan x="10" y="3706">     // init moduleList</tspan>
 
-<tspan x="10" y="3722">         if (typeof module === "function") {</tspan>
+<tspan x="10" y="3722">-    opt.moduleList = Object.keys(opt.moduleDict)</tspan>
 
-<tspan x="10" y="3738">@@ -1239,9 +1208,7 @@</tspan>
+<tspan x="10" y="3738">-    .sort()</tspan>
 
-<tspan x="10" y="3754">     // render apidoc</tspan>
+<tspan x="10" y="3754">-    .map(function (prefix) {</tspan>
 
-<tspan x="10" y="3770">     opt.result = local.templateRender(opt.template, opt, {</tspan>
+<tspan x="10" y="3770">+    opt.moduleList = Object.keys(opt.moduleDict).sort().map(function (prefix) {</tspan>
 
-<tspan x="10" y="3786">         notHtmlSafe: true</tspan>
+<tspan x="10" y="3786">         module = opt.moduleDict[prefix];</tspan>
 
-<tspan x="10" y="3802">-    })</tspan>
+<tspan x="10" y="3802">         // handle case where module is a function</tspan>
 
-<tspan x="10" y="3818">-    .trim()</tspan>
+<tspan x="10" y="3818">         if (typeof module === "function") {</tspan>
 
-<tspan x="10" y="3834">-    .replace((</tspan>
+<tspan x="10" y="3834">@@ -1239,9 +1207,7 @@</tspan>
 
-<tspan x="10" y="3850">+    }).trim().replace((</tspan>
+<tspan x="10" y="3850">     // render apidoc</tspan>
 
-<tspan x="10" y="3866">         / +$/gm</tspan>
+<tspan x="10" y="3866">     opt.result = local.templateRender(opt.template, opt, {</tspan>
 
-<tspan x="10" y="3882">     ), "") + "\n";</tspan>
+<tspan x="10" y="3882">         notHtmlSafe: true</tspan>
 
-<tspan x="10" y="3898">     return opt.result;</tspan>
+<tspan x="10" y="3898">-    })</tspan>
 
-<tspan x="10" y="3914">@@ -1351,7 +1318,4 @@</tspan>
+<tspan x="10" y="3914">-    .trim()</tspan>
 
-<tspan x="10" y="3930">     local.cliRun();</tspan>
+<tspan x="10" y="3930">-    .replace((</tspan>
 
-<tspan x="10" y="3946"> }</tspan>
+<tspan x="10" y="3946">+    }).trim().replace((</tspan>
 
-<tspan x="10" y="3962"> }());</tspan>
+<tspan x="10" y="3962">         / +$/gm</tspan>
 
-<tspan x="10" y="3978">-</tspan>
+<tspan x="10" y="3978">     ), "") + "\n";</tspan>
 
-<tspan x="10" y="3994">-</tspan>
+<tspan x="10" y="3994">     return opt.result;</tspan>
 
-<tspan x="10" y="4010">-</tspan>
+<tspan x="10" y="4010">@@ -1351,7 +1317,4 @@</tspan>
 
-<tspan x="10" y="4026"> }());</tspan>
+<tspan x="10" y="4026">     local.cliRun();</tspan>
 
-<tspan x="10" y="4042">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apid\</tspan>
-<tspan x="10" y="4058">oc.js</tspan>
+<tspan x="10" y="4042"> }</tspan>
 
-<tspan x="10" y="4074">jslint - 340ms /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="4058"> }());</tspan>
 
-<tspan x="10" y="4090">jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="4074">-</tspan>
 
-<tspan x="10" y="4106">jslint - 0ms /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="4090">-</tspan>
 
-<tspan x="10" y="4122">--- /tmp/npmTestPublished/node_modules/apidoc-lite/test.js.autofix.old	2019-08-21 07:22:31.03565\</tspan>
-<tspan x="10" y="4138">9001 +0000</tspan>
+<tspan x="10" y="4106">-</tspan>
 
-<tspan x="10" y="4154">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/test.js	2019-08-21 07:22:31.035659001 +0000</tspan>
+<tspan x="10" y="4122"> }());</tspan>
 
-<tspan x="10" y="4170">@@ -245,7 +245,4 @@</tspan>
+<tspan x="10" y="4138">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apid\</tspan>
+<tspan x="10" y="4154">oc.js</tspan>
 
-<tspan x="10" y="4186">     onError(null, options);</tspan>
+<tspan x="10" y="4170">jslint - 311ms /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
 
-<tspan x="10" y="4202"> };</tspan>
+<tspan x="10" y="4186">jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="4218"> }());</tspan>
+<tspan x="10" y="4202">jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
 
-<tspan x="10" y="4234">-</tspan>
+<tspan x="10" y="4218">--- /tmp/npmTestPublished/node_modules/apidoc-lite/test.js.autofix.old	2019-08-24 01:32:20.85998\</tspan>
+<tspan x="10" y="4234">9753 +0000</tspan>
 
-<tspan x="10" y="4250">-</tspan>
+<tspan x="10" y="4250">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/test.js	2019-08-24 01:32:20.859989753 +0000</tspan>
 
-<tspan x="10" y="4266">-</tspan>
+<tspan x="10" y="4266">@@ -53,7 +53,6 @@</tspan>
 
-<tspan x="10" y="4282"> }());</tspan>
+<tspan x="10" y="4282">             return;</tspan>
 
-<tspan x="10" y="4298">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="4298">         }</tspan>
 
-<tspan x="10" y="4314">jslint - 90ms /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="4314">         err = (</tspan>
 
-<tspan x="10" y="4330">testRunDefault - 556 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
+<tspan x="10" y="4330">-            // ternary-operator</tspan>
 
-<tspan x="10" y="4346">testRunDefault - 654 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="4346">             (</tspan>
 
-<tspan x="10" y="4362">testRunDefault - 682 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="4362">                 message</tspan>
 
-<tspan x="10" y="4378">testRunDefault - 691 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="4378">                 &amp;&amp; typeof message.message === "string"</tspan>
 
-<tspan x="10" y="4394">testRunDefault - 692 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="4394">@@ -245,7 +244,4 @@</tspan>
 
-<tspan x="10" y="4410">testRunDefault - 692 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="4410">     onError(null, options);</tspan>
 
-<tspan x="10" y="4426">http-server listening on port 53907</tspan>
+<tspan x="10" y="4426"> };</tspan>
 
-<tspan x="10" y="4442">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
+<tspan x="10" y="4442"> }());</tspan>
 
-<tspan x="10" y="4458">[5909:0821/072232.664884:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
-<tspan x="10" y="4474"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
+<tspan x="10" y="4458">-</tspan>
 
-<tspan x="10" y="4490">[5909:0821/072232.671261:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
-<tspan x="10" y="4506"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
+<tspan x="10" y="4474">-</tspan>
 
-<tspan x="10" y="4522">[5971:0821/072232.850755:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
-<tspan x="10" y="4538">hreads in process gpu-process.</tspan>
+<tspan x="10" y="4490">-</tspan>
 
-<tspan x="10" y="4554">[5909:0821/072233.092941:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="4570">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="4586">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="4506"> }());</tspan>
 
-<tspan x="10" y="4602">[5909:0821/072233.102316:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="4618">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="4634">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="4522">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="4650">[5909:0821/072233.863895:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="4666">:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="4538">jslint - 77ms /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="4682">[5909:0821/072233.889096:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
-<tspan x="10" y="4698">ngs.</tspan>
+<tspan x="10" y="4554">http-server listening on port 57964</tspan>
 
-<tspan x="10" y="4714">[5909:0821/072233.898076:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="4730">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
-<tspan x="10" y="4746">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="4570">db - dropping database ...</tspan>
 
-<tspan x="10" y="4762">[5909:0821/072233.910871:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="4778">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="4794">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="4586">testRunDefault - 487 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
 
-<tspan x="10" y="4810">[5909:0821/072233.919547:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="4826">:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="4602">testRunDefault - 595 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="4842">[5909:0821/072233.943986:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="4858">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
-<tspan x="10" y="4874">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="4618">testRunDefault - 622 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
 
-<tspan x="10" y="4890">[5909:0821/072233.952493:INFO:CONSOLE(8)] "testRunDefault - 8 ms - [browser test-case 1 of 2 pas\</tspan>
-<tspan x="10" y="4906">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="4634">testRunDefault - 631 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="4922">[5909:0821/072233.964868:INFO:CONSOLE(8)] "testRunDefault - 21 ms - [browser test-case 2 of 2 pa\</tspan>
-<tspan x="10" y="4938">ssed] - testCase_nop_default", source: http://127.0.0.1:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="4650">testRunDefault - 631 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
 
-<tspan x="10" y="4954">[5909:0821/072233.972337:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="4970">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="4986">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="4666">testRunDefault - 632 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
 
-<tspan x="10" y="5002">[5909:0821/072233.991728:INFO:CONSOLE(8)] "testRunDefault - 6 ms - [browser test-case 1 of 2 pas\</tspan>
-<tspan x="10" y="5018">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="4682">http-server listening on port 40713</tspan>
 
-<tspan x="10" y="5034">[5909:0821/072234.008404:INFO:CONSOLE(8)] "testRunDefault - 23 ms - [browser test-case 2 of 2 pa\</tspan>
-<tspan x="10" y="5050">ssed] - testCase_nop_default", source: http://127.0.0.1:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="4698">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
 
-<tspan x="10" y="5066">[5909:0821/072234.969382:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
-<tspan x="10" y="5082">-----|</tspan>
+<tspan x="10" y="4714">[5921:0824/013222.850274:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="4730"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="5098">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="4746">[5921:0824/013222.857923:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
+<tspan x="10" y="4762"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
 
-<tspan x="10" y="5114">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="4778">[5983:0824/013223.060909:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
+<tspan x="10" y="4794">hreads in process gpu-process.</tspan>
 
-<tspan x="10" y="5130">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="4810">[5921:0824/013223.299269:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="4826">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
+<tspan x="10" y="4842">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="5146">All files |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="4858">[5921:0824/013223.320562:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="4874">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
+<tspan x="10" y="4890">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="5162">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="4906">[5921:0824/013224.101478:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="4922">:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5178">", source: http://127.0.0.1:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="4938">[5921:0824/013224.141861:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="4954">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
+<tspan x="10" y="4970">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="5194">[5909:0821/072234.977663:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="5210">html", source: http://127.0.0.1:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="4986">[5921:0824/013224.143641:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
+<tspan x="10" y="5002">ngs.</tspan>
 
-<tspan x="10" y="5226">[5909:0821/072235.025357:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
-<tspan x="10" y="5242">-----|</tspan>
+<tspan x="10" y="5018">[5921:0824/013224.159420:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="5034">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
+<tspan x="10" y="5050">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="5258">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="5066">[5921:0824/013224.170969:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
+<tspan x="10" y="5082">:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5274">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5098">[5921:0824/013224.193103:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
+<tspan x="10" y="5114">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
+<tspan x="10" y="5130">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
 
-<tspan x="10" y="5290">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5146">[5921:0824/013224.194981:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
+<tspan x="10" y="5162">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
+<tspan x="10" y="5178">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
 
-<tspan x="10" y="5306">All files |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="5194">[5921:0824/013224.208593:INFO:CONSOLE(8)] "testRunDefault - 9 ms - [browser test-case 1 of 2 pas\</tspan>
+<tspan x="10" y="5210">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5322">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5226">[5921:0824/013224.217096:INFO:CONSOLE(8)] "testRunDefault - 7 ms - [browser test-case 1 of 2 pas\</tspan>
+<tspan x="10" y="5242">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5338">", source: http://127.0.0.1:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="5258">[5921:0824/013224.221682:INFO:CONSOLE(8)] "testRunDefault - 23 ms - [browser test-case 2 of 2 pa\</tspan>
+<tspan x="10" y="5274">ssed] - testCase_nop_default", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5354">[5909:0821/072235.025429:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="5370">html", source: http://127.0.0.1:64303/assets.example.js (8)</tspan>
+<tspan x="10" y="5290">[5921:0824/013224.227436:INFO:CONSOLE(8)] "testRunDefault - 17 ms - [browser test-case 2 of 2 pa\</tspan>
+<tspan x="10" y="5306">ssed] - testCase_nop_default", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5386">testRunDefault - 5045 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defaul\</tspan>
-<tspan x="10" y="5402">t ...</tspan>
+<tspan x="10" y="5322">[5921:0824/013225.227052:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="5338">-----|</tspan>
 
-<tspan x="10" y="5418">testRunDefault - 6042 ms - [node test-case 7 of 8 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="5354">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 
-<tspan x="10" y="5434">[5909:0821/072238.878106:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:64303/assets.example.\</tspan>
-<tspan x="10" y="5450">js (8)</tspan>
+<tspan x="10" y="5370">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="5466">[5909:0821/072239.060475:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/tm\</tspan>
-<tspan x="10" y="5482">p/npmTestPublished/node_modules/apidoc-lite/tmp/electron.16cb30e41620.12f7f95bf141.html' -&gt; '/tm\</tspan>
-<tspan x="10" y="5498">p/npmTestPublished/node_modules/apidoc-lite/tmp/electron.html'", source: http://127.0.0.1:64303/\</tspan>
-<tspan x="10" y="5514">assets.example.js (8)</tspan>
+<tspan x="10" y="5386">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="5530"></tspan>
+<tspan x="10" y="5402">All files |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="5546">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="5562">reenshot.npmTestPublished.browser.%2F.png</tspan>
+<tspan x="10" y="5418">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="5578"></tspan>
+<tspan x="10" y="5434">", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5594">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="5610">reenshot.npmTestPublished.browser.%2F.html</tspan>
+<tspan x="10" y="5450">[5921:0824/013225.233928:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="5466">html", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5626"></tspan>
+<tspan x="10" y="5482">[5921:0824/013225.241375:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
+<tspan x="10" y="5498">-----|</tspan>
 
-<tspan x="10" y="5642">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="5658">reenshot.npmTestPublished.browser.%2F.png</tspan>
+<tspan x="10" y="5514">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 
-<tspan x="10" y="5674"></tspan>
+<tspan x="10" y="5530">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="5690">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="5706">reenshot.npmTestPublished.browser.%2F.html</tspan>
+<tspan x="10" y="5546">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="5722">testRunDefault - 8182 ms - [node test-case 8 of 8 passed] - testCase_webpage_default</tspan>
+<tspan x="10" y="5562">All files |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="5738">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5578">----------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="5754">File                |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="5594">", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5770">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5610">[5921:0824/013225.249334:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
+<tspan x="10" y="5626">html", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5786">   apidoc-lite/     |     99.13 |        99 |     97.48 |     99.13 |</tspan>
+<tspan x="10" y="5642">testRunDefault - 5022 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defaul\</tspan>
+<tspan x="10" y="5658">t ...</tspan>
 
-<tspan x="10" y="5802">      example.js    |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="5674">testRunDefault - 5967 ms - [node test-case 7 of 8 passed] - testCase_buildApp_default</tspan>
 
-<tspan x="10" y="5818">      lib.apidoc.js |     98.68 |     98.55 |     96.47 |     98.68 |</tspan>
+<tspan x="10" y="5690">[5921:0824/013229.132599:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:57964/assets.example.\</tspan>
+<tspan x="10" y="5706">js (8)</tspan>
 
-<tspan x="10" y="5834">      test.js       |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="5722">[5921:0824/013229.316920:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/tm\</tspan>
+<tspan x="10" y="5738">p/npmTestPublished/node_modules/apidoc-lite/tmp/electron.16cc140bf6a0.59162ae260678.html' -&gt; '/t\</tspan>
+<tspan x="10" y="5754">mp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.html'", source: http://127.0.0.1:57964\</tspan>
+<tspan x="10" y="5770">/assets.example.js (8)</tspan>
 
-<tspan x="10" y="5850">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5786"></tspan>
 
-<tspan x="10" y="5866">All files           |     99.13 |        99 |     97.48 |     99.13 |</tspan>
+<tspan x="10" y="5802">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
+<tspan x="10" y="5818">reenshot.npmTestPublished.browser.%2F.png</tspan>
 
-<tspan x="10" y="5882">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5834"></tspan>
 
-<tspan x="10" y="5898"></tspan>
+<tspan x="10" y="5850">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
+<tspan x="10" y="5866">reenshot.npmTestPublished.browser.%2F.html</tspan>
 
-<tspan x="10" y="5914">created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage.html/ind\</tspan>
-<tspan x="10" y="5930">ex.html</tspan>
+<tspan x="10" y="5882"></tspan>
 
-<tspan x="10" y="5946"></tspan>
+<tspan x="10" y="5898">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
+<tspan x="10" y="5914">reenshot.npmTestPublished.browser.%2F.png</tspan>
 
-<tspan x="10" y="5962">-------------------------------------------------------</tspan>
+<tspan x="10" y="5930"></tspan>
 
-<tspan x="10" y="5978">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
-<tspan x="10" y="5994">.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-21T07:22:33\</tspan>
-<tspan x="10" y="6010">.352Z</tspan>
+<tspan x="10" y="5946">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
+<tspan x="10" y="5962">reenshot.npmTestPublished.browser.%2F.html</tspan>
 
-<tspan x="10" y="6026">|    1006 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="5978">testRunDefault - 8295 ms - [node test-case 8 of 8 passed] - testCase_webpage_default</tspan>
 
-<tspan x="10" y="6042">-------------------------------------------------------</tspan>
+<tspan x="10" y="5994">--------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="6058">| test-report - npmTestPublished - node - linux v12.9.0 - 2019-08-21T07:22:30.285Z</tspan>
+<tspan x="10" y="6010">File                |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
 
-<tspan x="10" y="6074">|    8183 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="6026">--------------------|-----------|-----------|-----------|-----------|</tspan>
 
-<tspan x="10" y="6090">-------------------------------------------------------</tspan>
+<tspan x="10" y="6042">   apidoc-lite/     |     99.13 |        99 |     97.48 |     99.13 |</tspan>
 
-<tspan x="10" y="6106"></tspan>
+<tspan x="10" y="6058">      example.js    |       100 |       100 |       100 |       100 |</tspan>
 
-<tspan x="10" y="6122">created test-report file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.ht\</tspan>
-<tspan x="10" y="6138">ml</tspan>
+<tspan x="10" y="6074">      lib.apidoc.js |     98.68 |     98.55 |     96.47 |     98.68 |</tspan>
+
+<tspan x="10" y="6090">      test.js       |       100 |       100 |       100 |       100 |</tspan>
+
+<tspan x="10" y="6106">--------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="6122">All files           |     99.13 |        99 |     97.48 |     99.13 |</tspan>
+
+<tspan x="10" y="6138">--------------------|-----------|-----------|-----------|-----------|</tspan>
 
 <tspan x="10" y="6154"></tspan>
 
-<tspan x="10" y="6170"></tspan>
-
-<tspan x="10" y="6186">npmTestPublished - 0 failed tests</tspan>
+<tspan x="10" y="6170">created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage.html/ind\</tspan>
+<tspan x="10" y="6186">ex.html</tspan>
 
 <tspan x="10" y="6202"></tspan>
 
-<tspan x="10" y="6218"></tspan>
+<tspan x="10" y="6218">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="6234">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-21T07:22:40.365Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="6234">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
+<tspan x="10" y="6250">.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-24T01:32:23\</tspan>
+<tspan x="10" y="6266">.603Z</tspan>
+
+<tspan x="10" y="6282">|    1008 ms            0 failed        2 passed      |</tspan>
+
+<tspan x="10" y="6298">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="6314">| test-report - npmTestPublished - node - linux v12.9.0 - 2019-08-24T01:32:20.204Z</tspan>
+
+<tspan x="10" y="6330">|    8296 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="6346">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="6362"></tspan>
+
+<tspan x="10" y="6378">created test-report file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.ht\</tspan>
+<tspan x="10" y="6394">ml</tspan>
+
+<tspan x="10" y="6410"></tspan>
+
+<tspan x="10" y="6426"></tspan>
+
+<tspan x="10" y="6442">npmTestPublished - 0 failed tests</tspan>
+
+<tspan x="10" y="6458"></tspan>
+
+<tspan x="10" y="6474"></tspan>
+
+<tspan x="10" y="6490">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-24T01:32:30.713Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>

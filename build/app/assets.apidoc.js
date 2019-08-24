@@ -1,6 +1,6 @@
 // usr/bin/env node
 /*
- * lib.apidoc.js (2019.8.16)
+ * lib.apidoc.js (2019.8.24)
  * https://github.com/kaizhu256/node-apidoc-lite
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
@@ -63,7 +63,6 @@
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"

@@ -60,7 +60,6 @@
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -230,7 +229,6 @@
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -1493,7 +1491,7 @@ if (module === require.main && !globalThis.utility2_rollup) {
 /* script-begin /assets.utility2.lib.db.js */
 // usr/bin/env node
 /*
- * lib.db.js (2018.12.31)
+ * lib.db.js (2019.8.21)
  * https://github.com/kaizhu256/node-db-lite
  * this zero-dependency package will provide a persistent, in-browser database, with a working web-demo
  *
@@ -1587,7 +1585,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -2189,7 +2186,7 @@ local.replStart = function () {
                     "find . -type f | grep -v -E "
 /* jslint ignore:start */
 + '"\
-/\\.|(\\b|_)(\\.\\d|\
+/\\.|~\$|(\\b|_)(\\.\\d|\
 archive|artifact|\
 bower_component|build|\
 coverage|\
@@ -4113,7 +4110,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -4327,7 +4323,6 @@ local.ajax = function (opt, onError) {
                 xhr.statusCode = xhr.statusCode || 500;
                 xhr.err.statusCode = xhr.statusCode;
                 tmp = (
-                    // ternary-operator
                     (
                         local.isBrowser
                         ? "browser"
@@ -5211,7 +5206,6 @@ local.githubCrudContentPutFile = function (opt, onError) {
                 message: opt.message,
                 // resolve file in url
                 url: (
-                    // ternary-operator
                     (
                         /\/$/
                     ).test(opt.url)
@@ -5524,7 +5518,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -6006,7 +5999,7 @@ local.coverageReportCreate = function () {
         "<div class=\"coverageReportDiv\">\n"
         + "<h1>coverage-report</h1>\n"
         + "<div style=\""
-        + "background: #fff; border: 1px solid #000; margin 0; padding: 0;"
+        + "background: #fff; border: 1px solid #999; margin 0; padding: 0;"
         + "\">\n"
     );
     local.writerData = "";
@@ -6066,7 +6059,6 @@ local.instrumentInPackage = function (code, file) {
  * exists in the code
  */
     return (
-        // ternary-operator
         (
             process.env.npm_config_mode_coverage
             && code.indexOf("/* istanbul ignore all */\n") < 0 && (
@@ -16570,7 +16562,7 @@ local["head.txt"] = '\
 .x-istanbul .cover-empty,\n\
 .x-istanbul .cover-fill {\n\
     background: white;\n\
-    border: 1px solid #444;\n\
+    border: 1px solid #999;\n\
     display: inline-block;\n\
     height: 12px;\n\
 }\n\
@@ -16580,7 +16572,7 @@ local["head.txt"] = '\
 }\n\
 .x-istanbul .cover-fill {\n\
     background: #ccc;\n\
-    border-right: 1px solid #444;\n\
+    border-right: 1px solid #999;\n\
 }\n\
 .x-istanbul .cover-full {\n\
     border-right: none !important;\n\
@@ -16620,8 +16612,8 @@ local["head.txt"] = '\
     text-decoration: none;\n\
 }\n\
 .x-istanbul .coverage .line-coverage {\n\
-    border-left: 1px solid #666;\n\
-    border-right: 1px solid #666;\n\
+    border-left: 1px solid #999;\n\
+    border-right: 1px solid #999;\n\
     color: #777 !important;\n\
     text-align: right;\n\
 }\n\
@@ -16636,7 +16628,7 @@ local["head.txt"] = '\
     width: 100%\n\
 }\n\
 .x-istanbul .coverage-summary td {\n\
-    border: 1px solid #666;\n\
+    border: 1px solid #999;\n\
     margin: 0;\n\
     padding: 5px;\n\
     white-space: nowrap;\n\
@@ -16666,7 +16658,7 @@ local["head.txt"] = '\
     padding: 20px;\n\
 }\n\
 .x-istanbul .footer {\n\
-    border-top: 1px solid #666;\n\
+    border-top: 1px solid #999;\n\
 }\n\
 .x-istanbul .fstat-no {\n\
     background: #ffc520;\n\
@@ -16677,7 +16669,7 @@ local["head.txt"] = '\
     color: #111 !important;\n\
 }\n\
 .x-istanbul .header {\n\
-    border-bottom: 1px solid #666;\n\
+    border-bottom: 1px solid #999;\n\
     top: 0;\n\
     width: 100%;\n\
 }\n\
@@ -16699,7 +16691,7 @@ local["head.txt"] = '\
 }\n\
 .x-istanbul .metric {\n\
     background: white;\n\
-    border: 1px solid #333;\n\
+    border: 1px solid #999;\n\
     display: inline-block;\n\
     padding: .3em;\n\
 }\n\
@@ -16752,7 +16744,7 @@ local["head.txt"] = '\
 }\n\
 .x-istanbul .tableHeader td {\n\
     background: #fff;\n\
-    border: 1px solid #666;\n\
+    border: 1px solid #999;\n\
     padding: 5px;\n\
 }\n\
 .x-istanbul .tableHeader th {\n\
@@ -18044,7 +18036,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -29807,11 +29798,17 @@ function tokenize(source) {
 // matched an expected value.
 
         if (match !== undefined && char !== match) {
-            return stop_at((
-                char === ""
-                ? "expected_a"
-                : "expected_a_b"
-            ), line, column - 1, match, char);
+            return stop_at(
+                (
+                    char === ""
+                    ? "expected_a"
+                    : "expected_a_b"
+                ),
+                line,
+                column - 1,
+                match,
+                char
+            );
         }
         if (source_line) {
             char = source_line[0];
@@ -30934,10 +30931,14 @@ function enroll(name, role, readonly) {
                         warn("unexpected_a", name);
                     }
                 } else {
-                    if ((
-                        role !== "exception"
-                        || earlier.role !== "exception"
-                    ) && role !== "parameter" && role !== "function") {
+                    if (
+                        (
+                            role !== "exception"
+                            || earlier.role !== "exception"
+                        )
+                        && role !== "parameter"
+                        && role !== "function"
+                    ) {
                         warn(
                             "redefinition_a_b",
                             name,
@@ -31670,21 +31671,26 @@ infix("(", 160, function (left) {
 infix(".", 170, function (left) {
     const the_token = token;
     const name = next_token;
-    if ((
-        left.id !== "(string)"
-        || (name.id !== "indexOf" && name.id !== "repeat")
-    ) && (
-        left.id !== "["
-        || (
-            name.id !== "concat"
-            && name.id !== "forEach"
-            && name.id !== "join"
-            && name.id !== "map"
+    if (
+        (
+            left.id !== "(string)"
+            || (name.id !== "indexOf" && name.id !== "repeat")
         )
-    ) && (left.id !== "+" || name.id !== "slice") && (
-        left.id !== "(regexp)"
-        || (name.id !== "exec" && name.id !== "test")
-    )) {
+        && (
+            left.id !== "["
+            || (
+                name.id !== "concat"
+                && name.id !== "forEach"
+                && name.id !== "join"
+                && name.id !== "map"
+            )
+        )
+        && (left.id !== "+" || name.id !== "slice")
+        && (
+            left.id !== "(regexp)"
+            || (name.id !== "exec" && name.id !== "test")
+        )
+    ) {
         left_check(left, the_token);
     }
     if (!name.identifier) {
@@ -31702,21 +31708,26 @@ infix(".", 170, function (left) {
 infix("?.", 170, function (left) {
     const the_token = token;
     const name = next_token;
-    if ((
-        left.id !== "(string)"
-        || (name.id !== "indexOf" && name.id !== "repeat")
-    ) && (
-        left.id !== "["
-        || (
-            name.id !== "concat"
-            && name.id !== "forEach"
-            && name.id !== "join"
-            && name.id !== "map"
+    if (
+        (
+            left.id !== "(string)"
+            || (name.id !== "indexOf" && name.id !== "repeat")
         )
-    ) && (left.id !== "+" || name.id !== "slice") && (
-        left.id !== "(regexp)"
-        || (name.id !== "exec" && name.id !== "test")
-    )) {
+        && (
+            left.id !== "["
+            || (
+                name.id !== "concat"
+                && name.id !== "forEach"
+                && name.id !== "join"
+                && name.id !== "map"
+            )
+        )
+        && (left.id !== "+" || name.id !== "slice")
+        && (
+            left.id !== "(regexp)"
+            || (name.id !== "exec" && name.id !== "test")
+        )
+    ) {
         left_check(left, the_token);
     }
     if (!name.identifier) {
@@ -33689,9 +33700,7 @@ function whitage() {
             right,
             artifact(right),
             fudge + at,
-            // hack-jslint
-            artifact_column(right),
-            left.line
+            artifact_column(right)
         );
     }
 
@@ -33917,14 +33926,7 @@ function whitage() {
                     ) {
                         no_space_only();
                     } else if (right.id === "." || right.id === "?.") {
-                        no_space();
-                        //!! // hack-jslint - method-chain
-                        //!! // https://github.com/douglascrockford/JSLint/commit/752c82d860ac14d35d492dc5c6ad0a0ed8227e76#diff-01d3d81a6eb6d82af3c377b55dc4fa28L4692
-                        //!! if (left.line === right.line) {
-                            //!! no_space();
-                        //!! } else {
-                            //!! at_margin(0);
-                        //!! }
+                        no_space_only();
                     } else if (left.id === ";") {
                         if (open) {
                             at_margin(0);
@@ -33976,15 +33978,18 @@ function whitage() {
                         )
                         || left.id === "function"
                         || left.id === ":"
-                        || ((
-                            left.identifier
-                            || left.id === "(string)"
-                            || left.id === "(number)"
-                        ) && (
-                            right.identifier
-                            || right.id === "(string)"
-                            || right.id === "(number)"
-                        ))
+                        || (
+                            (
+                                left.identifier
+                                || left.id === "(string)"
+                                || left.id === "(number)"
+                            )
+                            && (
+                                right.identifier
+                                || right.id === "(string)"
+                                || right.id === "(number)"
+                            )
+                        )
                         || (left.arity === "statement" && right.id !== ";")
                     ) {
                         one_space();
@@ -34159,7 +34164,6 @@ jslint_extra = function (source, opt, global_array) {
     // init
     line_ignore = null;
     lines = (
-        // ternary-operator
         Array.isArray(source)
         ? source
         : source.split(rx_crlf)
@@ -34292,9 +34296,6 @@ warn_at_extra = function (warning, warnings) {
     switch (option.autofix && warning.code) {
     // expected_a_at_b_c: "Expected '{a}' at column {b}, not column {c}.",
     case "expected_a_at_b_c":
-        if (warning.a === ".") {
-            break;
-        }
         // autofix indent - increment
         tmp = warning.b - warning.c;
         if (tmp >= 0) {
@@ -34322,7 +34323,6 @@ warn_at_extra = function (warning, warnings) {
     // expected_identifier_a: "Expected an identifier and instead saw '{a}'.",
     case "expected_identifier_a":
         if (!(
-            // newline
             (
                 /^\d+$/m
             ).test(warning.a)
@@ -35569,7 +35569,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -35961,7 +35960,6 @@ if (local.isBrowser) {
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -36695,7 +36693,7 @@ if (local.isBrowser) {
 /* script-begin /assets.utility2.js */
 // usr/bin/env node
 /*
- * lib.utility2.js (2019.8.17)
+ * lib.utility2.js (2019.8.22)
  * https://github.com/kaizhu256/node-utility2
  * this zero-dependency package will provide a collection of high-level functions to to build, test, and deploy webapps
  *
@@ -36758,7 +36756,6 @@ if (local.isBrowser) {
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -36993,24 +36990,17 @@ pre {\n\
     white-space: pre-wrap;\n\
 }\n\
 .button {\n\
-    background-color: #fff;\n\
-    border: 1px solid;\n\
-    border-bottom-color: rgb(186, 186, 186);\n\
-    border-left-color: rgb(209, 209, 209);\n\
-    border-radius: 4px;\n\
-    border-right-color: rgb(209, 209, 209);\n\
-    border-top-color: rgb(216, 216, 216);\n\
-    color: #00d;\n\
+    background: #ddd;\n\
+    border: 1px solid #999;\n\
+    color: #000;\n\
     cursor: pointer;\n\
     display: inline-block;\n\
-    font-family: Arial, Helvetica, sans-serif;\n\
-    font-size: 12px;\n\
-    font-style: normal;\n\
-    font-weight: normal;\n\
-    margin: 0;\n\
-    padding: 2px 7px 3px 7px;\n\
+    padding: 2px 5px;\n\
     text-align: center;\n\
-    text-decoration: underline;\n\
+    text-decoration: none;\n\
+}\n\
+.button:hover {\n\
+    background: #bbb;\n\
 }\n\
 .colorError {\n\
     color: #d00;\n\
@@ -37135,9 +37125,9 @@ pre {\n\
         );\n\
     };\n\
     window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n\
-        Array.from(document.querySelectorAll(\n\
+        document.querySelectorAll(\n\
             ".onevent-reset-output"\n\
-        )).forEach(function (elem) {\n\
+        ).forEach(function (elem) {\n\
             switch (elem.tagName) {\n\
             case "INPUT":\n\
             case "TEXTAREA":\n\
@@ -37174,8 +37164,8 @@ pre {\n\
  * until webpage has loaded\n\
  */\n\
     "use strict";\n\
+    var ajaxProgressBar;\n\
     var ajaxProgressDiv1;\n\
-    var ajaxProgressState;\n\
     var ajaxProgressUpdate;\n\
     if (\n\
         window.timerIntervalAjaxProgressUpdate\n\
@@ -37191,7 +37181,7 @@ pre {\n\
     setTimeout(function () {\n\
         ajaxProgressDiv1.style.width = "25%";\n\
     });\n\
-    ajaxProgressState = 0;\n\
+    ajaxProgressBar = 0;\n\
     ajaxProgressUpdate = (\n\
         window.local\n\
         && window.local.ajaxProgressUpdate\n\
@@ -37205,9 +37195,9 @@ pre {\n\
         }, 1000);\n\
     };\n\
     window.timerIntervalAjaxProgressUpdate = setInterval(function () {\n\
-        ajaxProgressState += 1;\n\
+        ajaxProgressBar += 1;\n\
         ajaxProgressDiv1.style.width = Math.max(\n\
-            100 - 75 * Math.exp(-0.125 * ajaxProgressState),\n\
+            100 - 75 * Math.exp(-0.125 * ajaxProgressBar),\n\
             ajaxProgressDiv1.style.width.slice(0, -1) | 0\n\
         ) + "%";\n\
     }, 1000);\n\
@@ -37274,7 +37264,7 @@ utility2-comment -->\n\
 <h3>{{env.npm_package_description}}</h3>\n\
 <!-- utility2-comment\n\
 <a class="button" download href="assets.app.js">download standalone app</a><br>\n\
-<button class="button" data-onevent="testRunBrowser" data-onevent-reset-output="1" id="testRunButton1">run internal test</button><br>\n\
+<button class="button" data-onevent="testRunBrowser" id="testRunButton1">run internal test</button><br>\n\
 <div class="uiAnimateSlide" id="testReportDiv1" style="border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;"></div>\n\
 utility2-comment -->\n\
 \n\
@@ -37368,7 +37358,6 @@ local.assetsDict["/assets.example.begin.js"] = '\
             return;\n\
         }\n\
         err = (\n\
-            // ternary-operator\n\
             (\n\
                 message\n\
                 && typeof message.message === "string"\n\
@@ -37540,11 +37529,9 @@ if (!local.isBrowser) {\n\
         elem.scrollTop = elem.scrollHeight;\n\
     };\n\
 });\n\
-Object.assign(local, globalThis.domOnEventDelegateDict);\n\
+local.objectAssignDefault(local, globalThis.domOnEventDelegateDict);\n\
 globalThis.domOnEventDelegateDict = local;\n\
-local.onEventDomDb = (\n\
-    local.db && local.db.onEventDomDb\n\
-);\n\
+local.onEventDomDb = local.db && local.db.onEventDomDb;\n\
 local.testRunBrowser = function (evt) {\n\
 /*\n\
  * this function will run browser-tests\n\
@@ -38017,14 +38004,14 @@ local.assetsDict["/assets.testReport.template.html"] =
 /*csslint\n\
 */\n\
 .testReportDiv img {\n\
-    border: 1px solid black;\n\
+    border: 1px solid #999;\n\
     margin: 5px 0 5px 0;\n\
     max-height: 256px;\n\
     max-width: 512px;\n\
 }\n\
 .testReportDiv pre {\n\
     background: #fdd;\n\
-    border-top: 1px solid black;\n\
+    border-top: 1px solid #999;\n\
     margin-bottom: 0;\n\
     padding: 10px;\n\
 }\n\
@@ -38033,7 +38020,7 @@ local.assetsDict["/assets.testReport.template.html"] =
     width: 120px;\n\
 }\n\
 .testReportDiv table {\n\
-    border-top: 1px solid black;\n\
+    border-top: 1px solid #999;\n\
     text-align: left;\n\
     width: 100%;\n\
 }\n\
@@ -38048,7 +38035,7 @@ local.assetsDict["/assets.testReport.template.html"] =
 }\n\
 .testReportDiv .platform {\n\
     background: #fff;\n\
-    border: 1px solid black;\n\
+    border: 1px solid #999;\n\
     margin-bottom: 20px;\n\
     padding: 0 10px 10px 10px;\n\
     text-align: left;\n\
@@ -38527,7 +38514,6 @@ local.Blob = (
          */
         this.bff = local.bufferConcat(array.map(function (elem) {
             return (
-                // ternary-operator
                 (
                     typeof elem === "string"
                     || Object.prototype.toString.call(elem)
@@ -39121,7 +39107,6 @@ local.ajax = function (opt, onError) {
                 xhr.statusCode = xhr.statusCode || 500;
                 xhr.err.statusCode = xhr.statusCode;
                 tmp = (
-                    // ternary-operator
                     (
                         local.isBrowser
                         ? "browser"
@@ -39386,7 +39371,7 @@ local.ajaxProgressUpdate = function () {
     var ajaxProgressDiv1;
     // init state
     local.ajaxProgressCounter = local.ajaxProgressCounter || 0;
-    local.ajaxProgressState = local.ajaxProgressState || 0;
+    local.ajaxProgressBar = local.ajaxProgressBar || 0;
     ajaxProgressDiv1 = (local.isBrowser && document.querySelector(
         "#ajaxProgressDiv1"
     )) || {
@@ -39411,11 +39396,11 @@ local.ajaxProgressUpdate = function () {
         // with successively smaller increments without ever reaching 100%
         if ((ajaxProgressDiv1.style.width.slice(0, -1) | 0) > 95) {
             ajaxProgressDiv1.style.width = "0%";
-            local.ajaxProgressState = 0;
+            local.ajaxProgressBar = 0;
         }
-        local.ajaxProgressState += 1;
+        local.ajaxProgressBar += 1;
         ajaxProgressDiv1.style.width = Math.max(
-            100 - 75 * Math.exp(-0.125 * local.ajaxProgressState),
+            100 - 75 * Math.exp(-0.125 * local.ajaxProgressBar),
             ajaxProgressDiv1.style.width.slice(0, -1) | 0
         ) + "%";
     } else {
@@ -39428,12 +39413,12 @@ local.ajaxProgressUpdate = function () {
     local.timerTimeoutAjaxProgressHide = setTimeout(function () {
         ajaxProgressDiv1.style.background = "transparent";
         local.ajaxProgressCounter = 0;
-        local.ajaxProgressState = 0;
+        local.ajaxProgressBar = 0;
         // reset ajaxProgress
         clearInterval(local.timerIntervalAjaxProgressHide);
         local.timerIntervalAjaxProgressHide = null;
         setTimeout(function () {
-            if (!local.ajaxProgressState) {
+            if (!local.ajaxProgressBar) {
                 ajaxProgressDiv1.style.width = "0%";
             }
         }, 500);
@@ -40126,7 +40111,6 @@ local.bufferRandomBytes = function (length) {
  * filled with cryptographically-strong random-values
  */
     return (
-        // ternary-operator
         (
             typeof window === "object"
             && window.crypto
@@ -41254,9 +41238,7 @@ local.domQuerySelectorAllTagName = function (selector) {
  */
     var set;
     set = new Set();
-    Array.from(document.querySelectorAll(
-        selector
-    )).forEach(function (elem) {
+    document.querySelectorAll(selector).forEach(function (elem) {
         set.add(elem.tagName);
     });
     return Array.from(set).sort();
@@ -41281,7 +41263,6 @@ local.domStyleValidate = function () {
     );
     tmp = [];
     Array.from(
-        // ternary-operator
         (
             typeof document === "object"
             && document
@@ -42721,7 +42702,7 @@ local.replStart = function () {
                     "find . -type f | grep -v -E "
 /* jslint ignore:start */
 + '"\
-/\\.|(\\b|_)(\\.\\d|\
+/\\.|~\$|(\\b|_)(\\.\\d|\
 archive|artifact|\
 bower_component|build|\
 coverage|\
@@ -43976,7 +43957,6 @@ local.testMock = function (mockList, onTestCase, onError) {
         // backup mock[0] into mock[2]
         Object.keys(mock[1]).forEach(function (key) {
             mock[2][key] = (
-                // ternary-operator
                 (
                     typeof process === "object"
                     && process.env === mock[0]
@@ -45392,7 +45372,6 @@ local.assetsDict["/assets.utility2.rollup.js"] = [
             return;
         }
         err = (
-            // ternary-operator
             (
                 message
                 && typeof message.message === "string"
@@ -47050,9 +47029,9 @@ local.assetsDict["/assets.swgg.html"] = local.assetsDict["/assets.utility2.templ
     window.domOnEventMediaHotkeys = function (evt) {\n\
         var media;\n\
         if (evt === "init") {\n\
-            Array.from(document.querySelectorAll(\n\
+            document.querySelectorAll(\n\
                 ".domOnEventMediaHotkeysInit"\n\
-            )).forEach(function (media) {\n\
+            ).forEach(function (media) {\n\
                 media.classList.remove("domOnEventMediaHotkeysInit");\n\
                 media.classList.add("domOnEventMediaHotkeys");\n\
                 [\n\
@@ -47208,7 +47187,6 @@ local.apiAjax = function (that, opt, onError) {
     // init default
     local.objectSetDefault(opt, {
         inForm: (
-            // ternary-operator
             that._consumes0 === "multipart/form-data"
             ? new local.FormData()
             : ""
@@ -47221,7 +47199,6 @@ local.apiAjax = function (that, opt, onError) {
         headers: {},
         method: that._method,
         responseType: (
-            // ternary-operator
             that._consumes0.indexOf("application/octet-stream") === 0
             ? "arraybuffer"
             : ""
@@ -47244,7 +47221,6 @@ local.apiAjax = function (that, opt, onError) {
             case "multi":
                 tmp.forEach(function (value) {
                     opt[(
-                        // ternary-operator
                         schemaP.in === "formData"
                         ? "inForm"
                         : "inQuery"
@@ -49312,7 +49288,6 @@ local.swaggerJsonFromAjax = function (swaggerJson, opt) {
     isArray = Array.isArray(data);
     type = local.swaggerJsonFromPostBody(swaggerJson, {
         data: (
-            // ternary-operator
             isArray
             ? data[0]
             : data
@@ -49326,7 +49301,6 @@ local.swaggerJsonFromAjax = function (swaggerJson, opt) {
         in: "body",
         name: "body",
         schema: (
-            // ternary-operator
             isArray
             ? {
                 items: type,
@@ -50175,7 +50149,6 @@ local.swaggerValidateDataSchema = function (opt) {
         local.throwSwaggerError(!test && {
             data,
             errorType: (
-                // ternary-operator
                 schema.exclusiveMaximum
                 ? "numberExclusiveMaximum"
                 : "numberMaximum"
@@ -50192,7 +50165,6 @@ local.swaggerValidateDataSchema = function (opt) {
         local.throwSwaggerError(!test && {
             data,
             errorType: (
-                // ternary-operator
                 schema.exclusiveMinimum
                 ? "numberExclusiveMinimum"
                 : "numberMinimum"
@@ -50843,9 +50815,7 @@ local.uiEventListenerDict.onEventOperationAjax = function (opt) {
  */
     // ensure opt is stateless
     opt = {
-        targetOnEvent: opt.targetOnEvent.closest(
-            ".operation"
-        )
+        targetOnEvent: opt.targetOnEvent.closest(".operation")
     };
     local.gotoNext(opt, function (err, data) {
         switch (opt.gotoState) {
@@ -51128,9 +51098,9 @@ local.uiEventListenerDict.onEventUiReload = function (opt, onError) {
             document.querySelector(
                 "#swggUiReloadErrorDiv1"
             ).textContent = "";
-            Array.from(document.querySelectorAll(
+            document.querySelectorAll(
                 ".swggUiContainer > .reset"
-            )).forEach(function (element) {
+            ).forEach(function (element) {
                 element.remove();
             });
             // normalize swaggerJsonUrl
@@ -51326,9 +51296,9 @@ local.uiEventListenerDict.onEventUiReload = function (opt, onError) {
     ).appendChild(
         swaggerJson.uiFragment
     );
-    Array.from(document.querySelectorAll(
+    document.querySelectorAll(
         ".swggUiContainer [data-value-text]"
-    )).forEach(function (element) {
+    ).forEach(function (element) {
         // render valueText
         element.value = decodeURIComponent(element.dataset.valueText);
         delete element.dataset.valueText;
@@ -51343,9 +51313,9 @@ local.uiEventListenerDict.onEventUiReload = function (opt, onError) {
     [
         "Change", "Click", "Keyup", "Submit"
     ].forEach(function (eventType) {
-        Array.from(document.querySelectorAll(
+        document.querySelectorAll(
             ".eventDelegate" + eventType
-        )).forEach(function (element) {
+        ).forEach(function (element) {
             element.addEventListener(
                 eventType.toLowerCase(),
                 local.uiEventDelegate
@@ -51409,7 +51379,6 @@ local.uiRenderSchemaP = function (schemaP) {
             return {
                 id: local.idDomElementCreate("swgg_id_" + schemaP.name),
                 selected: (
-                    // ternary-operator
                     schemaP.enumDefault.indexOf(element) >= 0
                     ? "selected"
                     : ""
@@ -51419,7 +51388,6 @@ local.uiRenderSchemaP = function (schemaP) {
                     || local.schemaPType(schemaP)
                 ),
                 placeholder: (
-                    // ternary-operator
                     typeof element === "string"
                     ? element
                     : JSON.stringify(element)
@@ -51492,7 +51460,6 @@ local.uiRenderSchemaP = function (schemaP) {
     });
     if (schemaP.schema2.properties) {
         schemaP.schemaText = JSON.stringify((
-            // ternary-operator
             schemaP.type2 === "array"
             ? [
                 schemaP.schema2.properties
@@ -51627,7 +51594,7 @@ this script will demo automated browser-tests with coverage\n\
 instruction\n\
     1. save this script as example.js\n\
     2. run the shell-command:\n\
-        $ npm install kaizhu256/node-utility2#alpha electron-lite && \\\n\
+        $ npm install utility2 electron-lite && \\\n\
             PATH=\"$(pwd)/node_modules/.bin:$PATH\" \\\n\
             PORT=8081 \\\n\
             npm_config_mode_coverage=utility2 \\\n\
@@ -51693,7 +51660,6 @@ instruction\n\
             return;\n\
         }\n\
         err = (\n\
-            // ternary-operator\n\
             (\n\
                 message\n\
                 && typeof message.message === \"string\"\n\
@@ -51913,11 +51879,9 @@ if (!local.isBrowser) {\n\
         elem.scrollTop = elem.scrollHeight;\n\
     };\n\
 });\n\
-Object.assign(local, globalThis.domOnEventDelegateDict);\n\
+local.objectAssignDefault(local, globalThis.domOnEventDelegateDict);\n\
 globalThis.domOnEventDelegateDict = local;\n\
-local.onEventDomDb = (\n\
-    local.db && local.db.onEventDomDb\n\
-);\n\
+local.onEventDomDb = local.db && local.db.onEventDomDb;\n\
 local.testRunBrowser = function (evt) {\n\
 /*\n\
  * this function will run browser-tests\n\
@@ -51932,15 +51896,13 @@ local.testRunBrowser = function (evt) {\n\
     ) {\n\
     // custom-case\n\
     case \"click.jslintAutofixButton1\":\n\
-    case \"keydown.inputEval1\":\n\
+    case \"keydown.inputTextarea1\":\n\
     case true:\n\
         globalThis.domOnEventDelegateDict.domOnEventResetOutput();\n\
-        // jslint #inputEval1\n\
+        // jslint #inputTextarea1\n\
         local.jslint.jslintAndPrint(\n\
-            document.querySelector(\n\
-                \"#inputEval1\"\n\
-            ).value,\n\
-            \"inputEval1.js\",\n\
+            document.querySelector(\"#inputTextarea1\").value,\n\
+            \"inputTextarea1.js\",\n\
             {\n\
                 autofix: (\n\
                     evt\n\
@@ -51951,51 +51913,37 @@ local.testRunBrowser = function (evt) {\n\
             }\n\
         );\n\
         if (local.jslint.jslintResult.autofix) {\n\
-            document.querySelector(\n\
-                \"#inputEval1\"\n\
-            ).value = (\n\
+            document.querySelector(\"#inputTextarea1\").value = (\n\
                 local.jslint.jslintResult.code\n\
             );\n\
         }\n\
-        document.querySelector(\n\
-            \"#outputJslintPre1\"\n\
-        ).textContent = (\n\
+        document.querySelector(\"#outputJslintPre1\").textContent = (\n\
             local.jslint.jslintResult.errText\n\
         ).replace((\n\
             /\\u001b\\[\\d*m/g\n\
         ), \"\").trim();\n\
         // try to cleanup __coverage__\n\
         try {\n\
-            delete globalThis.__coverage__[\"/inputEval1.js\"];\n\
+            delete globalThis.__coverage__[\"/inputTextarea1.js\"];\n\
         } catch (ignore) {}\n\
-        // try to cover and eval input-code\n\
+        // try to cover and eval #inputTextarea1\n\
         try {\n\
-            document.querySelector(\n\
-                \"#outputCode1\"\n\
-            ).textContent = (\n\
+            document.querySelector(\"#outputCode1\").textContent = (\n\
                 local.istanbul.instrumentSync(\n\
-                    document.querySelector(\n\
-                        \"#inputEval1\"\n\
-                    ).value,\n\
-                    \"/inputEval1.js\"\n\
+                    document.querySelector(\"#inputTextarea1\").value,\n\
+                    \"/inputTextarea1.js\"\n\
                 )\n\
             );\n\
             eval( // jslint ignore:line\n\
-                document.querySelector(\n\
-                    \"#outputCode1\"\n\
-                ).textContent.replace((\n\
-                    /^#!\\//\n\
-                ), \"// \")\n\
+                document.querySelector(\"#outputCode1\").textContent\n\
             );\n\
-            document.querySelector(\n\
-                \"#coverageReportDiv1\"\n\
-            ).innerHTML = (\n\
+            document.querySelector(\"#coverageReportDiv1\").innerHTML = (\n\
                 local.istanbul.coverageReportCreate({\n\
-                    coverage: window.__coverage__\n\
+                    coverage: globalThis.__coverage__\n\
                 })\n\
             );\n\
-        } catch (errorCaught2) {\n\
-            console.error(errorCaught2);\n\
+        } catch (errCaught) {\n\
+            console.error(errCaught);\n\
         }\n\
         return;\n\
     case \"click.testRunButton1\":\n\
@@ -52157,24 +52105,17 @@ pre {\\n\\\n\
     white-space: pre-wrap;\\n\\\n\
 }\\n\\\n\
 .button {\\n\\\n\
-    background-color: #fff;\\n\\\n\
-    border: 1px solid;\\n\\\n\
-    border-bottom-color: rgb(186, 186, 186);\\n\\\n\
-    border-left-color: rgb(209, 209, 209);\\n\\\n\
-    border-radius: 4px;\\n\\\n\
-    border-right-color: rgb(209, 209, 209);\\n\\\n\
-    border-top-color: rgb(216, 216, 216);\\n\\\n\
-    color: #00d;\\n\\\n\
+    background: #ddd;\\n\\\n\
+    border: 1px solid #999;\\n\\\n\
+    color: #000;\\n\\\n\
     cursor: pointer;\\n\\\n\
     display: inline-block;\\n\\\n\
-    font-family: Arial, Helvetica, sans-serif;\\n\\\n\
-    font-size: 12px;\\n\\\n\
-    font-style: normal;\\n\\\n\
-    font-weight: normal;\\n\\\n\
-    margin: 0;\\n\\\n\
-    padding: 2px 7px 3px 7px;\\n\\\n\
+    padding: 2px 5px;\\n\\\n\
     text-align: center;\\n\\\n\
-    text-decoration: underline;\\n\\\n\
+    text-decoration: none;\\n\\\n\
+}\\n\\\n\
+.button:hover {\\n\\\n\
+    background: #bbb;\\n\\\n\
 }\\n\\\n\
 .colorError {\\n\\\n\
     color: #d00;\\n\\\n\
@@ -52299,9 +52240,9 @@ pre {\\n\\\n\
         );\\n\\\n\
     };\\n\\\n\
     window.domOnEventDelegateDict.domOnEventResetOutput = function () {\\n\\\n\
-        Array.from(document.querySelectorAll(\\n\\\n\
+        document.querySelectorAll(\\n\\\n\
             \".onevent-reset-output\"\\n\\\n\
-        )).forEach(function (elem) {\\n\\\n\
+        ).forEach(function (elem) {\\n\\\n\
             switch (elem.tagName) {\\n\\\n\
             case \"INPUT\":\\n\\\n\
             case \"TEXTAREA\":\\n\\\n\
@@ -52338,8 +52279,8 @@ pre {\\n\\\n\
  * until webpage has loaded\\n\\\n\
  */\\n\\\n\
     \"use strict\";\\n\\\n\
+    var ajaxProgressBar;\\n\\\n\
     var ajaxProgressDiv1;\\n\\\n\
-    var ajaxProgressState;\\n\\\n\
     var ajaxProgressUpdate;\\n\\\n\
     if (\\n\\\n\
         window.timerIntervalAjaxProgressUpdate\\n\\\n\
@@ -52355,7 +52296,7 @@ pre {\\n\\\n\
     setTimeout(function () {\\n\\\n\
         ajaxProgressDiv1.style.width = \"25%\";\\n\\\n\
     });\\n\\\n\
-    ajaxProgressState = 0;\\n\\\n\
+    ajaxProgressBar = 0;\\n\\\n\
     ajaxProgressUpdate = (\\n\\\n\
         window.local\\n\\\n\
         && window.local.ajaxProgressUpdate\\n\\\n\
@@ -52369,9 +52310,9 @@ pre {\\n\\\n\
         }, 1000);\\n\\\n\
     };\\n\\\n\
     window.timerIntervalAjaxProgressUpdate = setInterval(function () {\\n\\\n\
-        ajaxProgressState += 1;\\n\\\n\
+        ajaxProgressBar += 1;\\n\\\n\
         ajaxProgressDiv1.style.width = Math.max(\\n\\\n\
-            100 - 75 * Math.exp(-0.125 * ajaxProgressState),\\n\\\n\
+            100 - 75 * Math.exp(-0.125 * ajaxProgressBar),\\n\\\n\
             ajaxProgressDiv1.style.width.slice(0, -1) | 0\\n\\\n\
         ) + \"%\";\\n\\\n\
     }, 1000);\\n\\\n\
@@ -52444,7 +52385,7 @@ utility2-comment -->\\n\\\n\
 \\n\\\n\
 \\n\\\n\
 <label>edit or paste script below to cover and test</label>\\n\\\n\
-<textarea class=\"textarea\" data-onevent=\"testRunBrowser\" id=\"inputEval1\">\\n\\\n\
+<textarea class=\"textarea\" data-onevent=\"testRunBrowser\" id=\"inputTextarea1\">\\n\\\n\
 // remove comment below to disable jslint\\n\\\n\
 /*jslint browser, devel*/\\n\\\n\
 /*global window*/\\n\\\n\
@@ -52481,8 +52422,8 @@ utility2-comment -->\\n\\\n\
                 data = xhr.responseText;\\n\\\n\
                 console.assert(data && data.length > 0, data);\\n\\\n\
                 onError();\\n\\\n\
-            } catch (errorCaught) {\\n\\\n\
-                onError(errorCaught);\\n\\\n\
+            } catch (errCaught) {\\n\\\n\
+                onError(errCaught);\\n\\\n\
             }\\n\\\n\
         });\\n\\\n\
     };\\n\\\n\
@@ -52684,24 +52625,17 @@ pre {\n\
     white-space: pre-wrap;\n\
 }\n\
 .button {\n\
-    background-color: #fff;\n\
-    border: 1px solid;\n\
-    border-bottom-color: rgb(186, 186, 186);\n\
-    border-left-color: rgb(209, 209, 209);\n\
-    border-radius: 4px;\n\
-    border-right-color: rgb(209, 209, 209);\n\
-    border-top-color: rgb(216, 216, 216);\n\
-    color: #00d;\n\
+    background: #ddd;\n\
+    border: 1px solid #999;\n\
+    color: #000;\n\
     cursor: pointer;\n\
     display: inline-block;\n\
-    font-family: Arial, Helvetica, sans-serif;\n\
-    font-size: 12px;\n\
-    font-style: normal;\n\
-    font-weight: normal;\n\
-    margin: 0;\n\
-    padding: 2px 7px 3px 7px;\n\
+    padding: 2px 5px;\n\
     text-align: center;\n\
-    text-decoration: underline;\n\
+    text-decoration: none;\n\
+}\n\
+.button:hover {\n\
+    background: #bbb;\n\
 }\n\
 .colorError {\n\
     color: #d00;\n\
@@ -52826,9 +52760,9 @@ pre {\n\
         );\n\
     };\n\
     window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n\
-        Array.from(document.querySelectorAll(\n\
+        document.querySelectorAll(\n\
             \".onevent-reset-output\"\n\
-        )).forEach(function (elem) {\n\
+        ).forEach(function (elem) {\n\
             switch (elem.tagName) {\n\
             case \"INPUT\":\n\
             case \"TEXTAREA\":\n\
@@ -52865,8 +52799,8 @@ pre {\n\
  * until webpage has loaded\n\
  */\n\
     \"use strict\";\n\
+    var ajaxProgressBar;\n\
     var ajaxProgressDiv1;\n\
-    var ajaxProgressState;\n\
     var ajaxProgressUpdate;\n\
     if (\n\
         window.timerIntervalAjaxProgressUpdate\n\
@@ -52882,7 +52816,7 @@ pre {\n\
     setTimeout(function () {\n\
         ajaxProgressDiv1.style.width = \"25%\";\n\
     });\n\
-    ajaxProgressState = 0;\n\
+    ajaxProgressBar = 0;\n\
     ajaxProgressUpdate = (\n\
         window.local\n\
         && window.local.ajaxProgressUpdate\n\
@@ -52896,9 +52830,9 @@ pre {\n\
         }, 1000);\n\
     };\n\
     window.timerIntervalAjaxProgressUpdate = setInterval(function () {\n\
-        ajaxProgressState += 1;\n\
+        ajaxProgressBar += 1;\n\
         ajaxProgressDiv1.style.width = Math.max(\n\
-            100 - 75 * Math.exp(-0.125 * ajaxProgressState),\n\
+            100 - 75 * Math.exp(-0.125 * ajaxProgressBar),\n\
             ajaxProgressDiv1.style.width.slice(0, -1) | 0\n\
         ) + \"%\";\n\
     }, 1000);\n\
@@ -52971,7 +52905,7 @@ pre {\n\
 \n\
 \n\
 <label>edit or paste script below to cover and test</label>\n\
-<textarea class=\"textarea\" data-onevent=\"testRunBrowser\" id=\"inputEval1\">\n\
+<textarea class=\"textarea\" data-onevent=\"testRunBrowser\" id=\"inputTextarea1\">\n\
 // remove comment below to disable jslint\n\
 /*jslint browser, devel*/\n\
 /*global window*/\n\
@@ -53008,8 +52942,8 @@ pre {\n\
                 data = xhr.responseText;\n\
                 console.assert(data && data.length > 0, data);\n\
                 onError();\n\
-            } catch (errorCaught) {\n\
-                onError(errorCaught);\n\
+            } catch (errCaught) {\n\
+                onError(errCaught);\n\
             }\n\
         });\n\
     };\n\
@@ -53106,7 +53040,6 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
             return;\n\
         }\n\
         err = (\n\
-            // ternary-operator\n\
             (\n\
                 message\n\
                 && typeof message.message === \"string\"\n\
@@ -53340,13 +53273,13 @@ local.testCase_ajaxProgressUpdate_default = function (opt, onError) {\n\
         [\n\
             local, {\n\
                 ajaxProgressCounter: 0,\n\
-                ajaxProgressState: 0\n\
+                ajaxProgressBar: 0\n\
             }\n\
         ], [\n\
             globalThis, {\n\
                 setTimeout: function (fnc) {\n\
                     opt += 1;\n\
-                    local.ajaxProgressState = opt % 3;\n\
+                    local.ajaxProgressBar = opt % 3;\n\
                     fnc();\n\
                 }\n\
             }\n\
@@ -53356,17 +53289,17 @@ local.testCase_ajaxProgressUpdate_default = function (opt, onError) {\n\
         local.ajaxProgressUpdate();\n\
         // validate data\n\
         local.assertJsonEqual(local.ajaxProgressCounter, 0);\n\
-        local.assertJsonEqual(local.ajaxProgressState, 2);\n\
+        local.assertJsonEqual(local.ajaxProgressBar, 2);\n\
         // update ajax-progress\n\
         local.ajaxProgressUpdate();\n\
         // validate data\n\
         local.assertJsonEqual(local.ajaxProgressCounter, 0);\n\
-        local.assertJsonEqual(local.ajaxProgressState, 1);\n\
+        local.assertJsonEqual(local.ajaxProgressBar, 1);\n\
         // update ajax-progress\n\
         local.ajaxProgressUpdate();\n\
         // validate data\n\
         local.assertJsonEqual(local.ajaxProgressCounter, 0);\n\
-        local.assertJsonEqual(local.ajaxProgressState, 0);\n\
+        local.assertJsonEqual(local.ajaxProgressBar, 0);\n\
         onError(null, opt);\n\
     }, onError);\n\
 };\n\
