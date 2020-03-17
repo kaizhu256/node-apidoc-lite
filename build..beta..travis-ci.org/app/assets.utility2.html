@@ -15,20 +15,11 @@
 *:before {
     box-sizing: border-box;
 }
+.uiAnimateSlide {
+    overflow-y: hidden;
+    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;
+}
 /* csslint ignore:end */
-@keyframes uiAnimateShake {
-0%,
-50% {
-    transform: translateX(10px);
-}
-100% {
-    transform: translateX(0);
-}
-25%,
-75% {
-    transform: translateX(-10px);
-}
-}
 @keyframes uiAnimateSpin {
 0% {
     transform: rotate(0deg);
@@ -41,17 +32,12 @@ a {
     overflow-wrap: break-word;
 }
 body {
-    background: #eef;
+    background: #f7f7f7;
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
     margin: 0 40px;
 }
 body > div,
-body > form > div,
-body > form > input,
-body > form > pre,
-body > form > .button,
-body > form > .textarea,
 body > input,
 body > pre,
 body > .button,
@@ -59,19 +45,17 @@ body > .textarea {
     margin-bottom: 20px;
     margin-top: 0;
 }
-body > form > input,
-body > form > .button,
 body > input,
 body > .button {
     width: 20rem;
 }
-body > form > .textarea,
-body > .textarea {
-    height: 10rem;
-    width: 100%;
-}
 body > .readonly {
     background: #ddd;
+}
+body > .textarea {
+    height: 10rem;
+    resize: vertical;
+    width: 100%;
 }
 code,
 pre,
@@ -84,24 +68,17 @@ pre {
     white-space: pre-wrap;
 }
 .button {
-    background-color: #fff;
-    border: 1px solid;
-    border-bottom-color: rgb(186, 186, 186);
-    border-left-color: rgb(209, 209, 209);
-    border-radius: 4px;
-    border-right-color: rgb(209, 209, 209);
-    border-top-color: rgb(216, 216, 216);
-    color: #00d;
+    background: #ddd;
+    border: 1px solid #999;
+    color: #000;
     cursor: pointer;
     display: inline-block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: normal;
-    margin: 0;
-    padding: 2px 7px 3px 7px;
+    padding: 2px 5px;
     text-align: center;
-    text-decoration: underline;
+    text-decoration: none;
+}
+.button:hover {
+    background: #bbb;
 }
 .colorError {
     color: #d00;
@@ -114,17 +91,6 @@ pre {
     overflow: auto;
     padding: 2px;
 }
-.uiAnimateShake {
-    animation-duration: 500ms;
-    animation-name: uiAnimateShake;
-}
-.uiAnimateSlide {
-    overflow-y: hidden;
-    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;
-}
-.utility2FooterDiv {
-    text-align: center;
-}
 .zeroPixel {
     border: 0;
     height: 0;
@@ -135,10 +101,7 @@ pre {
 </style>
 </head>
 <body>
-<div id="ajaxProgressDiv1" style="background: #d00; height: 2px; left: 0; margin: 0; padding: 0; position: fixed; top: 0; transition: background 500ms, width 1500ms; width: 0%; z-index: 1;"></div>
 <div class="uiAnimateSpin" style="animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;"></div>
-<a class="zeroPixel" download="db.persistence.json" href="" id="dbExportA1"></a>
-<input class="zeroPixel" data-onevent="onEventDomDb" data-onevent-db="dbImportInput" type="file">
 <script>
 /* jslint utility2:true */
 // init domOnEventWindowOnloadTimeElapsed
@@ -147,7 +110,10 @@ pre {
  * this function will measure and print time-elapsed for window.onload
  */
     "use strict";
-    if (window.domOnEventWindowOnloadTimeElapsed) {
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventWindowOnloadTimeElapsed) {
         return;
     }
     window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;
@@ -167,52 +133,212 @@ pre {
 
 
 
-// init domOnEventDelegateDict
+// init domOnEventAjaxProgressUpdate
 (function () {
 /*
- * this function will handle delegated dom-event
+ * this function will display incrementing ajax-progress-bar
  */
     "use strict";
-    var timerTimeoutDict;
-    if (window.domOnEventDelegateDict) {
-        return;
-    }
-    window.domOnEventDelegateDict = {};
-    timerTimeoutDict = {};
-    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {
-        evt.targetOnEvent = evt.target.closest(
-            "[data-onevent]"
-        );
+    let opt;
+    let styleBar0;
+    let styleBar;
+    let styleModal0;
+    let styleModal;
+    let timeStart;
+    let timerInterval;
+    let timerTimeout;
+    let tmp;
+    let width;
+    try {
         if (
-            !evt.targetOnEvent
-            || evt.targetOnEvent.dataset.onevent === "domOnEventNop"
-            || evt.target.closest(
-                ".disabled, .readonly"
-            )
+            window.domOnEventAjaxProgressUpdate
+            || !document.getElementById("domElementAjaxProgressBar1").style
         ) {
             return;
         }
-        // rate-limit high-frequency-event
-        switch (evt.type) {
-        case "keydown":
-        case "keyup":
-            // filter non-input keyboard-event
-            if (!evt.target.closest(
-                "input, option, select, textarea"
-            )) {
-                return;
+    } catch (ignore) {
+        return;
+    }
+    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {
+        gotoState = (gotoState | 0) + 1;
+        switch (gotoState) {
+        // ajaxProgress - show
+        case 1:
+            // init <timerInterval> and <timerTimeout>
+            if (!timerTimeout) {
+                timeStart = Date.now();
+                timerInterval = setInterval(opt, 2000, 1, onError);
+                timerTimeout = setTimeout(opt, opt.timeout, 2, onError);
             }
-            if (timerTimeoutDict[evt.type] !== true) {
-                timerTimeoutDict[evt.type] = timerTimeoutDict[
-                    evt.type
-                ] || setTimeout(function () {
-                    timerTimeoutDict[evt.type] = true;
-                    window.domOnEventDelegateDict.domOnEventDelegate(evt);
-                }, 50);
-                return;
+            // show ajaxProgressBar
+            if (width !== -1) {
+                styleBar.background = styleBar0.background;
             }
-            timerTimeoutDict[evt.type] = null;
+            setTimeout(opt, 50, gotoState, onError);
             break;
+        // ajaxProgress - increment
+        case 2:
+            // show ajaxProgressBar
+            if (width === -1) {
+                break;
+            }
+            styleBar.background = styleBar0.background;
+            // reset ajaxProgress if it reaches end
+            if ((styleBar.width.slice(0, -1) | 0) > 95) {
+                width = 0;
+            }
+            // this algorithm will indefinitely increment ajaxProgress
+            // with successively smaller increments without reaching 100%
+            width += 1;
+            styleBar.width = Math.max(
+                100 - 75 * Math.exp(-0.125 * width),
+                styleBar.width.slice(0, -1) | 0
+            ) + "%";
+            // show ajaxProgressModal
+            styleModal.height = "100%";
+            styleModal.opacity = styleModal0.opacity;
+            if (!opt.cnt) {
+                setTimeout(opt, 0, gotoState, onError);
+            }
+            break;
+        // ajaxProgress - 100%
+        case 3:
+            width = -1;
+            styleBar.width = "100%";
+            setTimeout(opt, 1000, gotoState, onError);
+            break;
+        // ajaxProgress - hide
+        case 4:
+            // debug timeElapsed
+            tmp = Date.now();
+            console.error(
+                "domOnEventAjaxProgressUpdate - timeElapsed - "
+                + (tmp - timeStart)
+                + " ms"
+            );
+            // cleanup <timerInterval> and <timerTimeout>
+            timeStart = tmp;
+            clearInterval(timerInterval);
+            timerInterval = null;
+            clearTimeout(timerTimeout);
+            timerTimeout = null;
+            // hide ajaxProgressBar
+            styleBar.background = "transparent";
+            // hide ajaxProgressModal
+            styleModal.opacity = "0";
+            if (onError) {
+                onError();
+            }
+            setTimeout(opt, 250, gotoState);
+            break;
+        // ajaxProgress - reset
+        default:
+            opt.cnt = 0;
+            width = 0;
+            styleBar.width = "0%";
+            styleModal.height = "0";
+        }
+    };
+    opt = window.domOnEventAjaxProgressUpdate;
+    opt.end = function (onError) {
+        opt.cnt = 0;
+        window.domOnEventAjaxProgressUpdate(2, onError);
+    };
+    // init <styleBar>
+    styleBar = document.getElementById("domElementAjaxProgressBar1").style;
+    styleBar0 = Object.assign({}, styleBar);
+    Object.entries({
+        background: "#d00",
+        height: "2px",
+        left: "0",
+        margin: "0",
+        padding: "0",
+        position: "fixed",
+        top: "0",
+        transition: "background 250ms, width 750ms",
+        width: "0%",
+        "z-index": "1"
+    }).forEach(function (entry) {
+        styleBar[entry[0]] = styleBar[entry[0]] || entry[1];
+    });
+    // init <styleModal>
+    styleModal = document.getElementById("domElementAjaxProgressModal1") || {};
+    styleModal = styleModal.style || {};
+    styleModal0 = Object.assign({}, styleModal);
+    Object.entries({
+        height: "0",
+        left: "0",
+        margin: "0",
+        padding: "0",
+        position: "fixed",
+        top: "0",
+        transition: "opacity 125ms",
+        width: "100%",
+        "z-index": "1"
+    }).forEach(function (entry) {
+        styleModal[entry[0]] = styleModal[entry[0]] || entry[1];
+    });
+    // init state
+    width = 0;
+    opt.cnt = 0;
+    opt.timeout = 30000;
+    // init ajaxProgress
+    window.domOnEventAjaxProgressUpdate();
+}());
+
+
+
+// init domOnEventDelegateDict
+(function () {
+/*
+ * this function will handle delegated dom-evt
+ */
+    "use strict";
+    let debounce;
+    let timerTimeout;
+    debounce = function () {
+        return setTimeout(function () {
+            timerTimeout = undefined;
+        }, 30);
+    };
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventDelegateDict) {
+        return;
+    }
+    window.domOnEventDelegateDict = {};
+    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {
+        evt.targetOnEvent = evt.target.closest("[data-onevent]");
+        if (
+            !evt.targetOnEvent
+            || evt.targetOnEvent.dataset.onevent === "domOnEventNop"
+            || evt.target.closest(".disabled,.readonly")
+        ) {
+            return;
+        }
+        // filter evt-change
+        switch (evt.type !== "change" && evt.target.type) {
+        case "checkbox":
+        case "file":
+        case "select-one":
+        case "radio":
+            return;
+        }
+        // filter evt-keyup
+        switch (evt.type) {
+        case "keyup":
+            if (!timerTimeout && (
+                evt.target.tagName === "INPUT"
+                || evt.target.tagName === "TEXTAREA"
+            )) {
+                timerTimeout = debounce();
+                if (evt.target.dataset.valueOld !== evt.target.value) {
+                    evt.target.dataset.valueOld = evt.target.value;
+                    break;
+                }
+            }
+            return;
         }
         switch (evt.targetOnEvent.tagName) {
         case "BUTTON":
@@ -221,32 +347,20 @@ pre {
             break;
         }
         evt.stopPropagation();
-        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](
-            evt
-        );
+        // handle domOnEventClickTarget
+        if (evt.targetOnEvent.dataset.onevent === "domOnEventClickTarget") {
+            document.querySelector(
+                evt.targetOnEvent.dataset.clickTarget
+            ).click();
+            return;
+        }
+        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);
     };
-    window.domOnEventDelegateDict.domOnEventResetOutput = function () {
-        Array.from(document.querySelectorAll(
-            ".onevent-reset-output"
-        )).forEach(function (elem) {
-            switch (elem.tagName) {
-            case "INPUT":
-            case "TEXTAREA":
-                elem.value = "";
-                break;
-            case "PRE":
-                elem.textContent = "";
-                break;
-            default:
-                elem.innerHTML = "";
-            }
-        });
-    };
-    // init event-handling
+    // handle evt
     [
         "change",
         "click",
-        "keydown",
+        "keyup",
         "submit"
     ].forEach(function (eventType) {
         document.addEventListener(
@@ -258,90 +372,35 @@ pre {
 
 
 
-// init timerIntervalAjaxProgressUpdate
-(function () {
-/*
- * this function will increment ajax-progress-bar
- * until webpage has loaded
- */
-    "use strict";
-    var ajaxProgressDiv1;
-    var ajaxProgressState;
-    var ajaxProgressUpdate;
-    if (
-        window.timerIntervalAjaxProgressUpdate
-        || !document.querySelector(
-            "#ajaxProgressDiv1"
-        )
-    ) {
-        return;
-    }
-    ajaxProgressDiv1 = document.querySelector(
-        "#ajaxProgressDiv1"
-    );
-    setTimeout(function () {
-        ajaxProgressDiv1.style.width = "25%";
-    });
-    ajaxProgressState = 0;
-    ajaxProgressUpdate = (
-        window.local
-        && window.local.ajaxProgressUpdate
-    ) || function () {
-        ajaxProgressDiv1.style.width = "100%";
-        setTimeout(function () {
-            ajaxProgressDiv1.style.background = "transparent";
-            setTimeout(function () {
-                ajaxProgressDiv1.style.width = "0%";
-            }, 500);
-        }, 1000);
-    };
-    window.timerIntervalAjaxProgressUpdate = setInterval(function () {
-        ajaxProgressState += 1;
-        ajaxProgressDiv1.style.width = Math.max(
-            100 - 75 * Math.exp(-0.125 * ajaxProgressState),
-            ajaxProgressDiv1.style.width.slice(0, -1) | 0
-        ) + "%";
-    }, 1000);
-    window.addEventListener("load", function () {
-        clearInterval(window.timerIntervalAjaxProgressUpdate);
-        ajaxProgressUpdate();
-    });
-}());
-
-
-
 // init domOnEventSelectAllWithinPre
 (function () {
 /*
- * this function will limit select-all within <pre tabIndex="0"> elements
+ * this function will limit select-all within <pre tabIndex="0"> elem
  * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
  */
     "use strict";
-    if (window.domOnEventSelectAllWithinPre) {
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventSelectAllWithinPre) {
         return;
     }
     window.domOnEventSelectAllWithinPre = function (evt) {
-        var range;
-        var selection;
+        let range;
+        let selection;
         if (
-            evt
-            && evt.key === "a"
-            && (evt.ctrlKey || evt.metaKey)
-            && evt.target.closest(
-                "pre"
-            )
+            evt && (evt.ctrlKey || evt.metaKey) && evt.key === "a"
+            && evt.target.closest("pre")
         ) {
             range = document.createRange();
-            range.selectNodeContents(evt.target.closest(
-                "pre"
-            ));
+            range.selectNodeContents(evt.target.closest("pre"));
             selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
             evt.preventDefault();
         }
     };
-    // init event-handling
+    // handle evt
     document.addEventListener(
         "keydown",
         window.domOnEventSelectAllWithinPre
@@ -350,28 +409,30 @@ pre {
 </script>
 <h1>
 
-    <a
-        
-        href="https://github.com/kaizhu256/node-utility2"
-        
-        target="_blank"
-    >
+<a
+    
+    href="https://github.com/kaizhu256/node-utility2"
+    
+    target="_blank"
+>
 
-        utility2 (0.0.1)
+    utility2 (0.0.1)
 
-    </a>
+</a>
 
 </h1>
-<h3>this zero-dependency package will provide a collection of high-level functions to to build, test, and deploy webapps</h3>
+<h3>this zero-dependency package will provide high-level functions to to build, test, and deploy webapps</h3>
 
 <a class="button" download href="assets.app.js">download standalone app</a><br>
-<button class="button" data-onevent="testRunBrowser" id="testRunButton1">run internal test</button><br>
+<button class="button" data-onevent="testRunBrowser" id="buttonTestRun1">run browser-tests</button><br>
+<div class="uiAnimateSlide" id="htmlTestReport1" style="border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;"></div>
 
 
 
 
+<!-- custom-html-start -->
 <label>edit or paste script below to cover and test</label>
-<textarea class="textarea" data-onevent="testRunBrowser" id="inputEval1">
+<textarea class="textarea" data-onevent="domOnEventInputChange" id="inputTextarea1">
 // remove comment below to disable jslint
 /*jslint browser, devel*/
 /*global window*/
@@ -386,7 +447,7 @@ pre {
     /*
      * this function will run a failed error demo
      */
-        // jslint-hack
+        // hack-jslint
         window.utility2.nop(opt);
         onError(new Error("this is a failed error demo"));
     };
@@ -400,7 +461,7 @@ pre {
         // test ajax-req for main-page "/"
         window.utility2.ajax(opt, function (err, xhr) {
             try {
-                // validate no err occurred
+                // handle err
                 console.assert(!err, err);
                 // validate "200 ok" status
                 console.assert(xhr.statusCode === 200, xhr.statusCode);
@@ -408,8 +469,8 @@ pre {
                 data = xhr.responseText;
                 console.assert(data && data.length > 0, data);
                 onError();
-            } catch (errorCaught) {
-                onError(errorCaught);
+            } catch (errCaught) {
+                onError(errCaught);
             }
         });
     };
@@ -417,14 +478,91 @@ pre {
     window.utility2.testRunDefault(testCaseDict);
 }());
 </textarea>
-<button class="button" data-onevent="testRunBrowser" id="jslintAutofixButton1">jslint autofix</button><br>
+<button class="button" data-onevent="domOnEventInputChange" id="buttonJslintAutofix1">jslint autofix</button><br>
 <pre class= "colorError" id="outputJslintPre1" tabindex="0"></pre>
 <label>instrumented-code</label>
-<pre class="readonly textarea" id="outputCode1" tabindex="0"></pre>
+<textarea class="readonly textarea" id="outputTextarea1" readonly tabindex="0"></textarea>
 <label>stderr and stdout</label>
-<pre class="onevent-reset-output readonly textarea" id="outputStdout1" tabindex="0"></pre>
-<div id="testReportDiv1"></div>
-<div id="coverageReportDiv1"></div>
+<textarea class="onevent-reset-output readonly textarea" id="outputStdout1" readonly></textarea>
+<div id="htmlTestReport2"></div>
+<div id="htmlCoverageReport1"></div>
+<script>
+/* jslint utility2:true */
+window.addEventListener("load", function (local) {
+"use strict";
+local = window.utility2;
+local.querySelectorAll(
+    "#buttonTestRun1, #htmlTestReport1"
+).forEach(function (elem) {
+    elem.style.display = "none";
+});
+local.domOnEventInputChange = function (evt) {
+    switch (evt.type + "." + evt.target.id) {
+    case "click.buttonJslintAutofix1":
+    case "keyup.inputTextarea1":
+        // jslint #inputTextarea1
+        local.jslintAndPrint(local.querySelector(
+            "#inputTextarea1"
+        ).value, "inputTextarea1.js", {
+            autofix: evt.target.id === "buttonJslintAutofix1",
+            conditional: evt.target.id !== "buttonJslintAutofix1"
+        });
+        if (local.jslint.jslintResult.autofix) {
+            local.querySelector(
+                "#inputTextarea1"
+            ).value = local.jslint.jslintResult.code;
+        }
+        local.querySelector(
+            "#outputJslintPre1"
+        ).textContent = local.jslint.jslintResult.errMsg.replace((
+            /\\u001b\\[\\d*m/g
+        ), "").trim();
+        // try to cleanup __coverage__
+        try {
+            delete globalThis.__coverage__["/inputTextarea1.js"];
+        } catch (ignore) {}
+        // try to cover and eval #inputTextarea1
+        try {
+            local.querySelector(
+                "#outputTextarea1"
+            ).value = local.istanbul.instrumentSync(
+                local.querySelector("#inputTextarea1").value,
+                "/inputTextarea1.js"
+            );
+            eval( // jslint ignore:line
+                local.querySelector("#outputTextarea1").value
+            );
+        } catch (errCaught) {
+            console.error(errCaught);
+        }
+        break;
+    }
+};
+// handle evt
+local.on("utility2.testRunEnd", function () {
+    local.querySelector(
+        "#htmlCoverageReport1"
+    ).innerHTML = local.istanbul.coverageReportCreate({
+        coverage: globalThis.__coverage__
+    });
+});
+local.on("utility2.testRunProgressUpdate", function (testReport) {
+    local.querySelector(
+        "#htmlTestReport2"
+    ).innerHTML = local.testReportMerge(testReport, {});
+});
+local.domOnEventInputChange({
+    target: {
+        id: "inputTextarea1"
+    },
+    type: "keyup"
+});
+});
+</script>
+<!-- custom-html-end -->
+
+
+
 
 
 <script src="assets.utility2.rollup.js"></script>
@@ -432,9 +570,12 @@ pre {
 <script src="assets.utility2.test.js"></script>
 
 
-<div class="utility2FooterDiv">
-    [ this app was created with
-    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+<div style="text-align: center;">
+    [
+    this app was created with
+    <a
+        href="https://github.com/kaizhu256/node-utility2" target="_blank"
+    >utility2</a>
     ]
 </div>
 </body>
