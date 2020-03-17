@@ -1,0 +1,416 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    overflow-wrap: break-word;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/mysqljs/mysql#readme"
+
+    >mysql (2.17.1)</a>
+</h1>
+<h4>A node.js driver for mysql. It is written in JavaScript, does not require compiling, and is 100% MIT licensed.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mysql">module mysql</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.mysql.createConnection">
+            function <span class="apidocSignatureSpan">mysql.</span>createConnection
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.mysql.createPool">
+            function <span class="apidocSignatureSpan">mysql.</span>createPool
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.mysql.createPoolCluster">
+            function <span class="apidocSignatureSpan">mysql.</span>createPoolCluster
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.mysql.createQuery">
+            function <span class="apidocSignatureSpan">mysql.</span>createQuery
+            <span class="apidocSignatureSpan">(sql, values, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.mysql.escape">
+            function <span class="apidocSignatureSpan">mysql.</span>escape
+            <span class="apidocSignatureSpan">(value, stringifyObjects, timeZone)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.mysql.escapeId">
+            function <span class="apidocSignatureSpan">mysql.</span>escapeId
+            <span class="apidocSignatureSpan">(value, forbidQualified)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.mysql.format">
+            function <span class="apidocSignatureSpan">mysql.</span>format
+            <span class="apidocSignatureSpan">(sql, values, stringifyObjects, timeZone)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.mysql.raw">
+            function <span class="apidocSignatureSpan">mysql.</span>raw
+            <span class="apidocSignatureSpan">(sql)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mysql" id="apidoc.module.mysql">module mysql</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.elem.mysql.createConnection" id="apidoc.elem.mysql.createConnection">
+        function <span class="apidocSignatureSpan">mysql.</span>createConnection
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createConnection(config) {
+  var Connection       = loadClass(&apos;Connection&apos;);
+  var ConnectionConfig = loadClass(&apos;ConnectionConfig&apos;);
+
+  return new Connection({config: new ConnectionConfig(config)});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+The first thing you will run into is that the old `Client` class is gone and
+has been replaced with a less ambitious `Connection` class. So instead of
+`mysql.createClient()`, you now have to:
+
+```js
+var mysql      = require(&apos;mysql&apos;);
+var connection = mysql.<span class="apidocCodeKeywordSpan">createConnection</span>({
+host     : &apos;localhost&apos;,
+user     : &apos;me&apos;,
+password : &apos;secret&apos;,
+});
+
+connection.query(&apos;SELECT 1&apos;, function(err, rows) {
+if (err) throw err;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.mysql.createPool" id="apidoc.elem.mysql.createPool">
+        function <span class="apidocSignatureSpan">mysql.</span>createPool
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPool(config) {
+  var Pool       = loadClass(&apos;Pool&apos;);
+  var PoolConfig = loadClass(&apos;PoolConfig&apos;);
+
+  return new Pool({config: new PoolConfig(config)});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Unlike `end()` the `destroy()` method does not take a callback argument.
+
+## Pooling connections
+
+Rather than creating and managing connections one-by-one, this module also
+provides built-in connection pooling using `mysql.<span class="apidocCodeKeywordSpan">createPool</span>(config)`.
+[Read more about connection pooling](https://en.wikipedia.org/wiki/Connection_pool).
+
+Create a pool and use it directly:
+
+```js
+var mysql = require(&apos;mysql&apos;);
+var pool  = mysql.createPool({
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.mysql.createPoolCluster" id="apidoc.elem.mysql.createPoolCluster">
+        function <span class="apidocSignatureSpan">mysql.</span>createPoolCluster
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createPoolCluster(config) {
+  var PoolCluster = loadClass(&apos;PoolCluster&apos;);
+
+  return new PoolCluster(config);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## PoolCluster
+
+PoolCluster provides multiple hosts connection. (group &amp; retry &amp; selector)
+
+```js
+// create
+var poolCluster = mysql.<span class="apidocCodeKeywordSpan">createPoolCluster</span>();
+
+// add configurations (the config is a pool config object)
+poolCluster.add(config); // add configuration with automatic name
+poolCluster.add(&apos;MASTER&apos;, masterConfig); // add a named configuration
+poolCluster.add(&apos;SLAVE1&apos;, slave1Config);
+poolCluster.add(&apos;SLAVE2&apos;, slave2Config);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.mysql.createQuery" id="apidoc.elem.mysql.createQuery">
+        function <span class="apidocSignatureSpan">mysql.</span>createQuery
+        <span class="apidocSignatureSpan">(sql, values, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createQuery(sql, values, callback) {
+  var Connection = loadClass(&apos;Connection&apos;);
+
+  return Connection.createQuery(sql, values, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param {function} [callback] The callback to use when query is complete
+* @return {Query} New query object
+* @public
+*/
+exports.createQuery = function createQuery(sql, values, callback) {
+ var Connection = loadClass(&apos;Connection&apos;);
+
+ return Connection.<span class="apidocCodeKeywordSpan">createQuery</span>(sql, values, callback);
+};
+
+/**
+* Escape a value for SQL.
+* @param {*} value The value to escape
+* @param {boolean} [stringifyObjects=false] Setting if objects should be stringified
+* @param {string} [timeZone=local] Setting for time zone to use for Date conversion
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.mysql.escape" id="apidoc.elem.mysql.escape">
+        function <span class="apidocSignatureSpan">mysql.</span>escape
+        <span class="apidocSignatureSpan">(value, stringifyObjects, timeZone)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function escape(value, stringifyObjects, timeZone) {
+  var SqlString = loadClass(&apos;SqlString&apos;);
+
+  return SqlString.escape(value, stringifyObjects, timeZone);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## v2.0.0-alpha5 (2012-12-03)
+
+* Add mysql.escapeId to escape identifiers (closes #342)
+* Allow custom escaping mode (config.queryFormat)
+* Convert DATE columns to configured timezone instead of UTC (#332)
+* Convert LONGLONG and NEWDECIMAL to numbers (#333)
+* Fix Connection.<span class="apidocCodeKeywordSpan">escape</span>() (fixes #330)
+* Changed Readme ambiguity about custom type cast fallback
+* Change typeCast to receive Connection instead of Connection.config.timezone
+* Fix drain event having useless err parameter
+* Add Connection.statistics() back from v0.9
+* Add Connection.ping() back from v0.9
+
+## v2.0.0-alpha4 (2012-10-03)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.mysql.escapeId" id="apidoc.elem.mysql.escapeId">
+        function <span class="apidocSignatureSpan">mysql.</span>escapeId
+        <span class="apidocSignatureSpan">(value, forbidQualified)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function escapeId(value, forbidQualified) {
+  var SqlString = loadClass(&apos;SqlString&apos;);
+
+  return SqlString.escapeId(value, forbidQualified);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param {boolean} [forbidQualified=false] Setting to treat &apos;.&apos; as part of identifier
+* @return {string} Escaped string value
+* @public
+*/
+exports.escapeId = function escapeId(value, forbidQualified) {
+ var SqlString = loadClass(&apos;SqlString&apos;);
+
+ return SqlString.<span class="apidocCodeKeywordSpan">escapeId</span>(value, forbidQualified);
+};
+
+/**
+* Format SQL and replacement values into a SQL string.
+* @param {string} sql The SQL for the query
+* @param {array} [values] Any values to insert into placeholders in sql
+* @param {boolean} [stringifyObjects=false] Setting if objects should be stringified
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.mysql.format" id="apidoc.elem.mysql.format">
+        function <span class="apidocSignatureSpan">mysql.</span>format
+        <span class="apidocSignatureSpan">(sql, values, stringifyObjects, timeZone)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function format(sql, values, stringifyObjects, timeZone) {
+  var SqlString = loadClass(&apos;SqlString&apos;);
+
+  return SqlString.format(sql, values, stringifyObjects, timeZone);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+* Streaming LOAD DATA LOCAL INFILE #668
+* Doc improvements
+
+## v2.0.0-rc1 (2013-11-30)
+
+* Transaction support
+* Expose SqlString.format as mysql.<span class="apidocCodeKeywordSpan">format</span>()
+* Many bug fixes
+* Better support for dates in local time zone
+* Doc improvements
+
+## v2.0.0-alpha9 (2013-08-27)
+
+* Add query to pool to execute queries directly using the pool
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.mysql.raw" id="apidoc.elem.mysql.raw">
+        function <span class="apidocSignatureSpan">mysql.</span>raw
+        <span class="apidocSignatureSpan">(sql)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function raw(sql) {
+  var SqlString = loadClass(&apos;SqlString&apos;);
+
+  return SqlString.raw(sql);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Update `sqlstring` to 2.3.1
+- Fix incorrectly replacing non-placeholders in SQL
+
+## v2.15.0 (2017-10-05)
+
+* Add new Amazon RDS ca-central-1 certificate CA to Amazon RDS SSL profile #1809
+* Add new error codes up to MySQL 5.7.19
+* Add `mysql.<span class="apidocCodeKeywordSpan">raw</span>()` to generate pre-escaped values #877 #1821
+* Fix &quot;changedRows&quot; to work on non-English servers #1819
+* Fix error when server sends RST on `QUIT` #1811
+* Fix typo in insecure auth error message
+* Support `mysql_native_password` auth switch request for Azure #1396 #1729 #1730
+* Update `sqlstring` to 2.3.0
+- Add `.toSqlString()` escape overriding
+- Small performance improvement on `escapeId`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
