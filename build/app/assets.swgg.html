@@ -15,20 +15,11 @@
 *:before {
     box-sizing: border-box;
 }
+.uiAnimateSlide {
+    overflow-y: hidden;
+    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;
+}
 /* csslint ignore:end */
-@keyframes uiAnimateShake {
-0%,
-50% {
-    transform: translateX(10px);
-}
-100% {
-    transform: translateX(0);
-}
-25%,
-75% {
-    transform: translateX(-10px);
-}
-}
 @keyframes uiAnimateSpin {
 0% {
     transform: rotate(0deg);
@@ -41,17 +32,12 @@ a {
     overflow-wrap: break-word;
 }
 body {
-    background: #eef;
+    background: #f7f7f7;
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
     margin: 0 40px;
 }
 body > div,
-body > form > div,
-body > form > input,
-body > form > pre,
-body > form > .button,
-body > form > .textarea,
 body > input,
 body > pre,
 body > .button,
@@ -59,19 +45,17 @@ body > .textarea {
     margin-bottom: 20px;
     margin-top: 0;
 }
-body > form > input,
-body > form > .button,
 body > input,
 body > .button {
     width: 20rem;
 }
-body > form > .textarea,
-body > .textarea {
-    height: 10rem;
-    width: 100%;
-}
 body > .readonly {
     background: #ddd;
+}
+body > .textarea {
+    height: 10rem;
+    resize: vertical;
+    width: 100%;
 }
 code,
 pre,
@@ -106,17 +90,6 @@ pre {
     cursor: auto;
     overflow: auto;
     padding: 2px;
-}
-.uiAnimateShake {
-    animation-duration: 500ms;
-    animation-name: uiAnimateShake;
-}
-.uiAnimateSlide {
-    overflow-y: hidden;
-    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;
-}
-.utility2FooterDiv {
-    text-align: center;
 }
 .zeroPixel {
     border: 0;
@@ -490,10 +463,7 @@ pre {
 </style>
 </head>
 <body>
-<div id="ajaxProgressDiv1" style="background: #d00; height: 2px; left: 0; margin: 0; padding: 0; position: fixed; top: 0; transition: background 500ms, width 1500ms; width: 0%; z-index: 1;"></div>
 <div class="uiAnimateSpin" style="animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;"></div>
-<a class="zeroPixel" download="db.persistence.json" href="" id="dbExportA1"></a>
-<input class="zeroPixel" data-onevent="onEventDomDb" data-onevent-db="dbImportInput" type="file">
 <script>
 /* jslint utility2:true */
 // init domOnEventWindowOnloadTimeElapsed
@@ -502,7 +472,10 @@ pre {
  * this function will measure and print time-elapsed for window.onload
  */
     "use strict";
-    if (window.domOnEventWindowOnloadTimeElapsed) {
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventWindowOnloadTimeElapsed) {
         return;
     }
     window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;
@@ -522,52 +495,212 @@ pre {
 
 
 
-// init domOnEventDelegateDict
+// init domOnEventAjaxProgressUpdate
 (function () {
 /*
- * this function will handle delegated dom-event
+ * this function will display incrementing ajax-progress-bar
  */
     "use strict";
-    var timerTimeoutDict;
-    if (window.domOnEventDelegateDict) {
-        return;
-    }
-    window.domOnEventDelegateDict = {};
-    timerTimeoutDict = {};
-    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {
-        evt.targetOnEvent = evt.target.closest(
-            "[data-onevent]"
-        );
+    let opt;
+    let styleBar0;
+    let styleBar;
+    let styleModal0;
+    let styleModal;
+    let timeStart;
+    let timerInterval;
+    let timerTimeout;
+    let tmp;
+    let width;
+    try {
         if (
-            !evt.targetOnEvent
-            || evt.targetOnEvent.dataset.onevent === "domOnEventNop"
-            || evt.target.closest(
-                ".disabled, .readonly"
-            )
+            window.domOnEventAjaxProgressUpdate
+            || !document.getElementById("domElementAjaxProgressBar1").style
         ) {
             return;
         }
-        // rate-limit high-frequency-event
-        switch (evt.type) {
-        case "keydown":
-        case "keyup":
-            // filter non-input keyboard-event
-            if (!evt.target.closest(
-                "input, option, select, textarea"
-            )) {
-                return;
+    } catch (ignore) {
+        return;
+    }
+    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {
+        gotoState = (gotoState | 0) + 1;
+        switch (gotoState) {
+        // ajaxProgress - show
+        case 1:
+            // init <timerInterval> and <timerTimeout>
+            if (!timerTimeout) {
+                timeStart = Date.now();
+                timerInterval = setInterval(opt, 2000, 1, onError);
+                timerTimeout = setTimeout(opt, opt.timeout, 2, onError);
             }
-            if (timerTimeoutDict[evt.type] !== true) {
-                timerTimeoutDict[evt.type] = timerTimeoutDict[
-                    evt.type
-                ] || setTimeout(function () {
-                    timerTimeoutDict[evt.type] = true;
-                    window.domOnEventDelegateDict.domOnEventDelegate(evt);
-                }, 50);
-                return;
+            // show ajaxProgressBar
+            if (width !== -1) {
+                styleBar.background = styleBar0.background;
             }
-            timerTimeoutDict[evt.type] = null;
+            setTimeout(opt, 50, gotoState, onError);
             break;
+        // ajaxProgress - increment
+        case 2:
+            // show ajaxProgressBar
+            if (width === -1) {
+                break;
+            }
+            styleBar.background = styleBar0.background;
+            // reset ajaxProgress if it reaches end
+            if ((styleBar.width.slice(0, -1) | 0) > 95) {
+                width = 0;
+            }
+            // this algorithm will indefinitely increment ajaxProgress
+            // with successively smaller increments without reaching 100%
+            width += 1;
+            styleBar.width = Math.max(
+                100 - 75 * Math.exp(-0.125 * width),
+                styleBar.width.slice(0, -1) | 0
+            ) + "%";
+            // show ajaxProgressModal
+            styleModal.height = "100%";
+            styleModal.opacity = styleModal0.opacity;
+            if (!opt.cnt) {
+                setTimeout(opt, 0, gotoState, onError);
+            }
+            break;
+        // ajaxProgress - 100%
+        case 3:
+            width = -1;
+            styleBar.width = "100%";
+            setTimeout(opt, 1000, gotoState, onError);
+            break;
+        // ajaxProgress - hide
+        case 4:
+            // debug timeElapsed
+            tmp = Date.now();
+            console.error(
+                "domOnEventAjaxProgressUpdate - timeElapsed - "
+                + (tmp - timeStart)
+                + " ms"
+            );
+            // cleanup <timerInterval> and <timerTimeout>
+            timeStart = tmp;
+            clearInterval(timerInterval);
+            timerInterval = null;
+            clearTimeout(timerTimeout);
+            timerTimeout = null;
+            // hide ajaxProgressBar
+            styleBar.background = "transparent";
+            // hide ajaxProgressModal
+            styleModal.opacity = "0";
+            if (onError) {
+                onError();
+            }
+            setTimeout(opt, 250, gotoState);
+            break;
+        // ajaxProgress - reset
+        default:
+            opt.cnt = 0;
+            width = 0;
+            styleBar.width = "0%";
+            styleModal.height = "0";
+        }
+    };
+    opt = window.domOnEventAjaxProgressUpdate;
+    opt.end = function (onError) {
+        opt.cnt = 0;
+        window.domOnEventAjaxProgressUpdate(2, onError);
+    };
+    // init <styleBar>
+    styleBar = document.getElementById("domElementAjaxProgressBar1").style;
+    styleBar0 = Object.assign({}, styleBar);
+    Object.entries({
+        background: "#d00",
+        height: "2px",
+        left: "0",
+        margin: "0",
+        padding: "0",
+        position: "fixed",
+        top: "0",
+        transition: "background 250ms, width 750ms",
+        width: "0%",
+        "z-index": "1"
+    }).forEach(function (entry) {
+        styleBar[entry[0]] = styleBar[entry[0]] || entry[1];
+    });
+    // init <styleModal>
+    styleModal = document.getElementById("domElementAjaxProgressModal1") || {};
+    styleModal = styleModal.style || {};
+    styleModal0 = Object.assign({}, styleModal);
+    Object.entries({
+        height: "0",
+        left: "0",
+        margin: "0",
+        padding: "0",
+        position: "fixed",
+        top: "0",
+        transition: "opacity 125ms",
+        width: "100%",
+        "z-index": "1"
+    }).forEach(function (entry) {
+        styleModal[entry[0]] = styleModal[entry[0]] || entry[1];
+    });
+    // init state
+    width = 0;
+    opt.cnt = 0;
+    opt.timeout = 30000;
+    // init ajaxProgress
+    window.domOnEventAjaxProgressUpdate();
+}());
+
+
+
+// init domOnEventDelegateDict
+(function () {
+/*
+ * this function will handle delegated dom-evt
+ */
+    "use strict";
+    let debounce;
+    let timerTimeout;
+    debounce = function () {
+        return setTimeout(function () {
+            timerTimeout = undefined;
+        }, 30);
+    };
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventDelegateDict) {
+        return;
+    }
+    window.domOnEventDelegateDict = {};
+    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {
+        evt.targetOnEvent = evt.target.closest("[data-onevent]");
+        if (
+            !evt.targetOnEvent
+            || evt.targetOnEvent.dataset.onevent === "domOnEventNop"
+            || evt.target.closest(".disabled,.readonly")
+        ) {
+            return;
+        }
+        // filter evt-change
+        switch (evt.type !== "change" && evt.target.type) {
+        case "checkbox":
+        case "file":
+        case "select-one":
+        case "radio":
+            return;
+        }
+        // filter evt-keyup
+        switch (evt.type) {
+        case "keyup":
+            if (!timerTimeout && (
+                evt.target.tagName === "INPUT"
+                || evt.target.tagName === "TEXTAREA"
+            )) {
+                timerTimeout = debounce();
+                if (evt.target.dataset.valueOld !== evt.target.value) {
+                    evt.target.dataset.valueOld = evt.target.value;
+                    break;
+                }
+            }
+            return;
         }
         switch (evt.targetOnEvent.tagName) {
         case "BUTTON":
@@ -576,32 +709,20 @@ pre {
             break;
         }
         evt.stopPropagation();
-        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](
-            evt
-        );
+        // handle domOnEventClickTarget
+        if (evt.targetOnEvent.dataset.onevent === "domOnEventClickTarget") {
+            document.querySelector(
+                evt.targetOnEvent.dataset.clickTarget
+            ).click();
+            return;
+        }
+        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);
     };
-    window.domOnEventDelegateDict.domOnEventResetOutput = function () {
-        document.querySelectorAll(
-            ".onevent-reset-output"
-        ).forEach(function (elem) {
-            switch (elem.tagName) {
-            case "INPUT":
-            case "TEXTAREA":
-                elem.value = "";
-                break;
-            case "PRE":
-                elem.textContent = "";
-                break;
-            default:
-                elem.innerHTML = "";
-            }
-        });
-    };
-    // init event-handling
+    // handle evt
     [
         "change",
         "click",
-        "keydown",
+        "keyup",
         "submit"
     ].forEach(function (eventType) {
         document.addEventListener(
@@ -613,90 +734,35 @@ pre {
 
 
 
-// init timerIntervalAjaxProgressUpdate
-(function () {
-/*
- * this function will increment ajax-progress-bar
- * until webpage has loaded
- */
-    "use strict";
-    var ajaxProgressBar;
-    var ajaxProgressDiv1;
-    var ajaxProgressUpdate;
-    if (
-        window.timerIntervalAjaxProgressUpdate
-        || !document.querySelector(
-            "#ajaxProgressDiv1"
-        )
-    ) {
-        return;
-    }
-    ajaxProgressDiv1 = document.querySelector(
-        "#ajaxProgressDiv1"
-    );
-    setTimeout(function () {
-        ajaxProgressDiv1.style.width = "25%";
-    });
-    ajaxProgressBar = 0;
-    ajaxProgressUpdate = (
-        window.local
-        && window.local.ajaxProgressUpdate
-    ) || function () {
-        ajaxProgressDiv1.style.width = "100%";
-        setTimeout(function () {
-            ajaxProgressDiv1.style.background = "transparent";
-            setTimeout(function () {
-                ajaxProgressDiv1.style.width = "0%";
-            }, 500);
-        }, 1000);
-    };
-    window.timerIntervalAjaxProgressUpdate = setInterval(function () {
-        ajaxProgressBar += 1;
-        ajaxProgressDiv1.style.width = Math.max(
-            100 - 75 * Math.exp(-0.125 * ajaxProgressBar),
-            ajaxProgressDiv1.style.width.slice(0, -1) | 0
-        ) + "%";
-    }, 1000);
-    window.addEventListener("load", function () {
-        clearInterval(window.timerIntervalAjaxProgressUpdate);
-        ajaxProgressUpdate();
-    });
-}());
-
-
-
 // init domOnEventSelectAllWithinPre
 (function () {
 /*
- * this function will limit select-all within <pre tabIndex="0"> elements
+ * this function will limit select-all within <pre tabIndex="0"> elem
  * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
  */
     "use strict";
-    if (window.domOnEventSelectAllWithinPre) {
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventSelectAllWithinPre) {
         return;
     }
     window.domOnEventSelectAllWithinPre = function (evt) {
-        var range;
-        var selection;
+        let range;
+        let selection;
         if (
-            evt
-            && evt.key === "a"
-            && (evt.ctrlKey || evt.metaKey)
-            && evt.target.closest(
-                "pre"
-            )
+            evt && (evt.ctrlKey || evt.metaKey) && evt.key === "a"
+            && evt.target.closest("pre")
         ) {
             range = document.createRange();
-            range.selectNodeContents(evt.target.closest(
-                "pre"
-            ));
+            range.selectNodeContents(evt.target.closest("pre"));
             selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
             evt.preventDefault();
         }
     };
-    // init event-handling
+    // handle evt
     document.addEventListener(
         "keydown",
         window.domOnEventSelectAllWithinPre
@@ -723,7 +789,7 @@ pre {
     <button class="button eventDelegateClick td td4" data-onevent="onEventUiReload">explore</button>
     <button
         class="button eventDelegateClick td td5" data-onevent="onEventUiReload"
-        id="swggApiKeyClearButton1"
+        id="buttonSwggApiKeyClear1"
     >
         clear api-keys
     </button>
@@ -742,9 +808,12 @@ pre {
     <div class="uiAnimateSpin" style="animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: inline-block; height: 25px; vertical-align: middle; width: 25px;"></div>
 </div>
 <ol class="reset resourceList" style="list-style-type: upper-roman;"></ol>
-<div class="utility2FooterDiv">
-    [ this document was created with
-    <a href="https://github.com/kaizhu256/node-swgg" target="_blank">swgg</a>
+<div style="text-align: center;">
+    [
+    this document was created with
+    <a
+        href="https://github.com/kaizhu256/node-swgg" target="_blank"
+    >swgg</a>
     ]
 </div>
 <!-- </div> -->
@@ -758,10 +827,10 @@ pre {
  * with class=".domOnEventMediaHotkeysInit"
  */
     "use strict";
-    var currentTarget;
-    var identity;
-    var input;
-    var onEvent;
+    let currentTarget;
+    let identity;
+    let input;
+    let onEvent;
     if (window.domOnEventMediaHotkeys) {
         return;
     }
@@ -772,7 +841,7 @@ pre {
         return value;
     };
     window.domOnEventMediaHotkeys = function (evt) {
-        var media;
+        let media;
         if (evt === "init") {
             document.querySelectorAll(
                 ".domOnEventMediaHotkeysInit"

@@ -1,770 +1,2601 @@
-<svg height="6510" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="6510" fill="#555" width="720"></rect>
+<svg height="21086" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="21086" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-24T01:32:20.040Z - npm-testing /tmp/npmTe\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-03-17T06:38:08.176Z - npm-testing /tmp/npmTe\</tspan>
 <tspan x="10" y="58">stPublished/node_modules/apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
 
 <tspan x="10" y="90"></tspan>
 
-<tspan x="10" y="106">covering $ /home/travis/.nvm/versions/node/v12.9.0/bin/node /tmp/npmTestPublished/node_modules/a\</tspan>
-<tspan x="10" y="122">pidoc-lite/test.js</tspan>
+<tspan x="10" y="106">covering $ /home/travis/.nvm/versions/node/v13.11.0/bin/node /tmp/npmTestPublished/node_modules/\</tspan>
+<tspan x="10" y="122">apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="138">&gt; jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
+<tspan x="10" y="138">&gt; jslint - 0ms /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
 
-<tspan x="10" y="154">--- /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js.autofix.old	2019-08-24 01:32:20\</tspan>
-<tspan x="10" y="170">.763987438 +0000</tspan>
+<tspan x="10" y="154">http-server listening on port 40432</tspan>
 
-<tspan x="10" y="186">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js	2019-08-24 01:32:20.763987438 +\</tspan>
-<tspan x="10" y="202">0000</tspan>
+<tspan x="10" y="170">--- /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js.autofix.old	2020-03-17 06:38:08\</tspan>
+<tspan x="10" y="186">.891904695 +0000</tspan>
 
-<tspan x="10" y="218">@@ -63,7 +63,6 @@</tspan>
+<tspan x="10" y="202">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js	2020-03-17 06:38:08.891904695 +\</tspan>
+<tspan x="10" y="218">0000</tspan>
 
-<tspan x="10" y="234">             return;</tspan>
+<tspan x="10" y="234">@@ -9,91 +9,155 @@</tspan>
 
-<tspan x="10" y="250">         }</tspan>
+<tspan x="10" y="250"> </tspan>
 
-<tspan x="10" y="266">         err = (</tspan>
+<tspan x="10" y="266"> </tspan>
 
-<tspan x="10" y="282">-            // ternary-operator</tspan>
+<tspan x="10" y="282"> /* istanbul instrument in package apidoc */</tspan>
 
-<tspan x="10" y="298">             (</tspan>
+<tspan x="10" y="298">+// assets.utility2.header.js - start</tspan>
 
-<tspan x="10" y="314">                 message</tspan>
+<tspan x="10" y="314"> /* istanbul ignore next */</tspan>
 
-<tspan x="10" y="330">                 &amp;&amp; typeof message.message === "string"</tspan>
+<tspan x="10" y="330"> /* jslint utility2:true */</tspan>
 
-<tspan x="10" y="346">@@ -294,14 +293,12 @@</tspan>
+<tspan x="10" y="346"> (function (globalThis) {</tspan>
 
-<tspan x="10" y="362">             }</tspan>
+<tspan x="10" y="362">     "use strict";</tspan>
 
-<tspan x="10" y="378">             return (</tspan>
+<tspan x="10" y="378">-    var consoleError;</tspan>
 
-<tspan x="10" y="394">                 elem.description + "\n  " + file</tspan>
+<tspan x="10" y="394">-    var local;</tspan>
 
-<tspan x="10" y="410">-                + ("  " + elem.command.sort().join("|") + "  ")</tspan>
+<tspan x="10" y="410">+    let consoleError;</tspan>
 
-<tspan x="10" y="426">-                    .replace((</tspan>
+<tspan x="10" y="426">+    let debugName;</tspan>
 
-<tspan x="10" y="442">+                + ("  " + elem.command.sort().join("|") + "  ").replace((</tspan>
+<tspan x="10" y="442">+    let local;</tspan>
 
-<tspan x="10" y="458">                     /^ {4}$/</tspan>
+<tspan x="10" y="458">+    debugName = "debug" + String("Inline");</tspan>
 
-<tspan x="10" y="474">                 ), "  ")</tspan>
+<tspan x="10" y="474">     // init globalThis</tspan>
 
-<tspan x="10" y="490">                 + elem.argList.join("  ")</tspan>
+<tspan x="10" y="490">-    (function () {</tspan>
 
-<tspan x="10" y="506">             );</tspan>
+<tspan x="10" y="506">-        try {</tspan>
 
-<tspan x="10" y="522">-        })</tspan>
+<tspan x="10" y="522">-            globalThis = Function("return this")(); // jslint ignore:line</tspan>
 
-<tspan x="10" y="538">-        .join("\n\n");</tspan>
+<tspan x="10" y="538">-        } catch (ignore) {}</tspan>
 
-<tspan x="10" y="554">+        }).join("\n\n");</tspan>
+<tspan x="10" y="554">-    }());</tspan>
 
-<tspan x="10" y="570">         console.log(text);</tspan>
+<tspan x="10" y="570">-    globalThis.globalThis = globalThis;</tspan>
 
-<tspan x="10" y="586">     };</tspan>
+<tspan x="10" y="586">+    globalThis.globalThis = globalThis.globalThis || globalThis;</tspan>
 
-<tspan x="10" y="602">     local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;</tspan>
+<tspan x="10" y="602">     // init debug_inline</tspan>
 
-<tspan x="10" y="618">@@ -359,13 +356,9 @@</tspan>
+<tspan x="10" y="618">-    if (!globalThis["debugInline"]) {</tspan>
 
-<tspan x="10" y="634">     // search modulePathList</tspan>
+<tspan x="10" y="634">+    if (!globalThis[debugName]) {</tspan>
 
-<tspan x="10" y="650">     [</tspan>
+<tspan x="10" y="650">         consoleError = console.error;</tspan>
 
-<tspan x="10" y="666">         "node_modules"</tspan>
+<tspan x="10" y="666">-        globalThis["debugInline"] = function () {</tspan>
 
-<tspan x="10" y="682">-    ]</tspan>
+<tspan x="10" y="682">+        globalThis[debugName] = function (...argList) {</tspan>
 
-<tspan x="10" y="698">-    .concat(modulePathList)</tspan>
+<tspan x="10" y="698">         /*</tspan>
 
-<tspan x="10" y="714">-    .concat(require("module").globalPaths)</tspan>
+<tspan x="10" y="714">-         * this function will both print &lt;arguments&gt; to stderr</tspan>
 
-<tspan x="10" y="730">-    .concat([</tspan>
+<tspan x="10" y="730">-         * and return &lt;arguments&gt;[0]</tspan>
 
-<tspan x="10" y="746">+    ].concat(modulePathList).concat(require("module").globalPaths).concat([</tspan>
+<tspan x="10" y="746">+         * this function will both print &lt;argList&gt; to stderr</tspan>
 
-<tspan x="10" y="762">         process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"</tspan>
+<tspan x="10" y="762">+         * and return &lt;argList&gt;[0]</tspan>
 
-<tspan x="10" y="778">-    ])</tspan>
+<tspan x="10" y="778">          */</tspan>
 
-<tspan x="10" y="794">-    .some(function (modulePath) {</tspan>
+<tspan x="10" y="794">-            var argList;</tspan>
 
-<tspan x="10" y="810">+    ]).some(function (modulePath) {</tspan>
+<tspan x="10" y="810">-            argList = Array.from(arguments); // jslint ignore:line</tspan>
 
-<tspan x="10" y="826">         try {</tspan>
+<tspan x="10" y="826">-            // debug arguments</tspan>
 
-<tspan x="10" y="842">             result = require("path").resolve(</tspan>
+<tspan x="10" y="842">-            globalThis["debugInlineArguments"] = argList;</tspan>
 
-<tspan x="10" y="858">                 process.cwd(),</tspan>
+<tspan x="10" y="858">-            consoleError("\n\ndebugInline");</tspan>
 
-<tspan x="10" y="874">@@ -428,23 +421,17 @@</tspan>
+<tspan x="10" y="874">-            consoleError.apply(console, argList);</tspan>
 
-<tspan x="10" y="890">  * this function will make the text html-safe</tspan>
+<tspan x="10" y="890">+            consoleError("\n\n" + debugName);</tspan>
 
-<tspan x="10" y="906">  * https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html</tspan>
+<tspan x="10" y="906">+            consoleError(...argList);</tspan>
 
-<tspan x="10" y="922">  */</tspan>
+<tspan x="10" y="922">             consoleError("\n");</tspan>
 
-<tspan x="10" y="938">-    return text</tspan>
+<tspan x="10" y="938">-            // return arg0 for inspection</tspan>
 
-<tspan x="10" y="954">-    .replace((</tspan>
+<tspan x="10" y="954">             return argList[0];</tspan>
 
-<tspan x="10" y="970">+    return text.replace((</tspan>
+<tspan x="10" y="970">         };</tspan>
 
-<tspan x="10" y="986">         /&amp;/g</tspan>
+<tspan x="10" y="986">     }</tspan>
 
-<tspan x="10" y="1002">-    ), "&amp;amp;")</tspan>
+<tspan x="10" y="1002">+    String.prototype.trimEnd = (</tspan>
 
-<tspan x="10" y="1018">-    .replace((</tspan>
+<tspan x="10" y="1018">+        String.prototype.trimEnd || String.prototype.trimRight</tspan>
 
-<tspan x="10" y="1034">+    ), "&amp;amp;").replace((</tspan>
+<tspan x="10" y="1034">+    );</tspan>
 
-<tspan x="10" y="1050">         /"/g</tspan>
+<tspan x="10" y="1050">+    String.prototype.trimStart = (</tspan>
 
-<tspan x="10" y="1066">-    ), "&amp;quot;")</tspan>
+<tspan x="10" y="1066">+        String.prototype.trimStart || String.prototype.trimLeft</tspan>
 
-<tspan x="10" y="1082">-    .replace((</tspan>
+<tspan x="10" y="1082">+    );</tspan>
 
-<tspan x="10" y="1098">+    ), "&amp;quot;").replace((</tspan>
+<tspan x="10" y="1098">     // init local</tspan>
 
-<tspan x="10" y="1114">         /'/g</tspan>
+<tspan x="10" y="1114">     local = {};</tspan>
 
-<tspan x="10" y="1130">-    ), "&amp;apos;")</tspan>
+<tspan x="10" y="1130">     local.local = local;</tspan>
 
-<tspan x="10" y="1146">-    .replace((</tspan>
+<tspan x="10" y="1146">     globalThis.globalLocal = local;</tspan>
 
-<tspan x="10" y="1162">+    ), "&amp;apos;").replace((</tspan>
+<tspan x="10" y="1162">     // init isBrowser</tspan>
 
-<tspan x="10" y="1178">         /&lt;/g</tspan>
+<tspan x="10" y="1178">     local.isBrowser = (</tspan>
 
-<tspan x="10" y="1194">-    ), "&amp;lt;")</tspan>
+<tspan x="10" y="1194">-        typeof window === "object"</tspan>
 
-<tspan x="10" y="1210">-    .replace((</tspan>
+<tspan x="10" y="1210">-        &amp;&amp; window === globalThis</tspan>
 
-<tspan x="10" y="1226">+    ), "&amp;lt;").replace((</tspan>
+<tspan x="10" y="1226">-        &amp;&amp; typeof window.XMLHttpRequest === "function"</tspan>
 
-<tspan x="10" y="1242">         /&gt;/g</tspan>
+<tspan x="10" y="1242">-        &amp;&amp; window.document</tspan>
 
-<tspan x="10" y="1258">-    ), "&amp;gt;")</tspan>
+<tspan x="10" y="1258">-        &amp;&amp; typeof window.document.querySelector === "function"</tspan>
 
-<tspan x="10" y="1274">-    .replace((</tspan>
+<tspan x="10" y="1274">+        typeof globalThis.XMLHttpRequest === "function"</tspan>
 
-<tspan x="10" y="1290">+    ), "&amp;gt;").replace((</tspan>
+<tspan x="10" y="1290">+        &amp;&amp; globalThis.navigator</tspan>
 
-<tspan x="10" y="1306">         /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
+<tspan x="10" y="1306">+        &amp;&amp; typeof globalThis.navigator.userAgent === "string"</tspan>
 
-<tspan x="10" y="1322">     ), "&amp;$1");</tspan>
+<tspan x="10" y="1322">+    );</tspan>
 
-<tspan x="10" y="1338"> };</tspan>
+<tspan x="10" y="1338">+    // init isWebWorker</tspan>
 
-<tspan x="10" y="1354">@@ -568,19 +555,19 @@</tspan>
+<tspan x="10" y="1354">+    local.isWebWorker = (</tspan>
 
-<tspan x="10" y="1370">     var rgx;</tspan>
+<tspan x="10" y="1370">+        local.isBrowser &amp;&amp; typeof globalThis.importScripts === "function"</tspan>
 
-<tspan x="10" y="1386">     var skip;</tspan>
+<tspan x="10" y="1386">     );</tspan>
 
-<tspan x="10" y="1402">     var value;</tspan>
+<tspan x="10" y="1402">     // init function</tspan>
 
-<tspan x="10" y="1418">-    dict = dict || {};</tspan>
+<tspan x="10" y="1418">-    local.assertThrow = function (passed, message) {</tspan>
 
-<tspan x="10" y="1434">+    if (dict === null || dict === undefined) {</tspan>
+<tspan x="10" y="1434">+    local.assertOrThrow = function (passed, msg) {</tspan>
 
-<tspan x="10" y="1450">+        dict = {};</tspan>
+<tspan x="10" y="1450">     /*</tspan>
 
-<tspan x="10" y="1466">+    }</tspan>
+<tspan x="10" y="1466">-     * this function will throw err.&lt;message&gt; if &lt;passed&gt; is falsy</tspan>
 
-<tspan x="10" y="1482">     opt = opt || {};</tspan>
+<tspan x="10" y="1482">+     * this function will throw err.&lt;msg&gt; if &lt;passed&gt; is falsy</tspan>
 
-<tspan x="10" y="1498">     getValue = function (key) {</tspan>
+<tspan x="10" y="1498">      */</tspan>
 
-<tspan x="10" y="1514">         argList = key.split(" ");</tspan>
+<tspan x="10" y="1514">-        var err;</tspan>
 
-<tspan x="10" y="1530">         value = dict;</tspan>
+<tspan x="10" y="1530">         if (passed) {</tspan>
 
-<tspan x="10" y="1546">         if (argList[0] === "#this/") {</tspan>
+<tspan x="10" y="1546">             return;</tspan>
 
-<tspan x="10" y="1562">-            return;</tspan>
+<tspan x="10" y="1562">         }</tspan>
 
-<tspan x="10" y="1578">+            return value;</tspan>
+<tspan x="10" y="1578">-        err = (</tspan>
 
-<tspan x="10" y="1594">         }</tspan>
+<tspan x="10" y="1594">-            // ternary-operator</tspan>
 
-<tspan x="10" y="1610">         // iteratively lookup nested values in the dict</tspan>
+<tspan x="10" y="1610">+        throw (</tspan>
 
-<tspan x="10" y="1626">         argList[0].split(".").forEach(function (key) {</tspan>
+<tspan x="10" y="1626">             (</tspan>
 
-<tspan x="10" y="1642">-            if (key !== "this") {</tspan>
+<tspan x="10" y="1642">-                message</tspan>
 
-<tspan x="10" y="1658">-                value = value &amp;&amp; value[key];</tspan>
+<tspan x="10" y="1658">-                &amp;&amp; typeof message.message === "string"</tspan>
 
-<tspan x="10" y="1674">-            }</tspan>
+<tspan x="10" y="1674">-                &amp;&amp; typeof message.stack === "string"</tspan>
 
-<tspan x="10" y="1690">+            value = value &amp;&amp; value[key];</tspan>
+<tspan x="10" y="1690">+                msg</tspan>
 
-<tspan x="10" y="1706">         });</tspan>
+<tspan x="10" y="1706">+                &amp;&amp; typeof msg.message === "string"</tspan>
 
-<tspan x="10" y="1722">         return value;</tspan>
+<tspan x="10" y="1722">+                &amp;&amp; typeof msg.stack === "string"</tspan>
 
-<tspan x="10" y="1738">     };</tspan>
+<tspan x="10" y="1738">             )</tspan>
 
-<tspan x="10" y="1754">@@ -715,23 +702,17 @@</tspan>
+<tspan x="10" y="1754">-            // if message is errObj, then leave as is</tspan>
 
-<tspan x="10" y="1770">             value = String(value);</tspan>
+<tspan x="10" y="1770">-            ? message</tspan>
 
-<tspan x="10" y="1786">             // default to htmlSafe</tspan>
+<tspan x="10" y="1786">+            // if msg is err, then leave as is</tspan>
 
-<tspan x="10" y="1802">             if (!notHtmlSafe) {</tspan>
+<tspan x="10" y="1802">+            ? msg</tspan>
 
-<tspan x="10" y="1818">-                value = value</tspan>
+<tspan x="10" y="1818">             : new Error(</tspan>
 
-<tspan x="10" y="1834">-                .replace((</tspan>
+<tspan x="10" y="1834">-                typeof message === "string"</tspan>
 
-<tspan x="10" y="1850">+                value = value.replace((</tspan>
+<tspan x="10" y="1850">-                // if message is a string, then leave as is</tspan>
 
-<tspan x="10" y="1866">                     /&amp;/g</tspan>
+<tspan x="10" y="1866">-                ? message</tspan>
 
-<tspan x="10" y="1882">-                ), "&amp;amp;")</tspan>
+<tspan x="10" y="1882">-                // else JSON.stringify message</tspan>
 
-<tspan x="10" y="1898">-                .replace((</tspan>
+<tspan x="10" y="1898">-                : JSON.stringify(message, null, 4)</tspan>
 
-<tspan x="10" y="1914">+                ), "&amp;amp;").replace((</tspan>
+<tspan x="10" y="1914">+                typeof msg === "string"</tspan>
 
-<tspan x="10" y="1930">                     /"/g</tspan>
+<tspan x="10" y="1930">+                // if msg is a string, then leave as is</tspan>
 
-<tspan x="10" y="1946">-                ), "&amp;quot;")</tspan>
+<tspan x="10" y="1946">+                ? msg</tspan>
 
-<tspan x="10" y="1962">-                .replace((</tspan>
+<tspan x="10" y="1962">+                // else JSON.stringify msg</tspan>
 
-<tspan x="10" y="1978">+                ), "&amp;quot;").replace((</tspan>
+<tspan x="10" y="1978">+                : JSON.stringify(msg, undefined, 4)</tspan>
 
-<tspan x="10" y="1994">                     /'/g</tspan>
+<tspan x="10" y="1994">             )</tspan>
 
-<tspan x="10" y="2010">-                ), "&amp;apos;")</tspan>
+<tspan x="10" y="2010">         );</tspan>
 
-<tspan x="10" y="2026">-                .replace((</tspan>
+<tspan x="10" y="2026">-        throw err;</tspan>
 
-<tspan x="10" y="2042">+                ), "&amp;apos;").replace((</tspan>
+<tspan x="10" y="2042">+    };</tspan>
 
-<tspan x="10" y="2058">                     /&lt;/g</tspan>
+<tspan x="10" y="2058">+    local.coalesce = function (...argList) {</tspan>
 
-<tspan x="10" y="2074">-                ), "&amp;lt;")</tspan>
+<tspan x="10" y="2074">+    /*</tspan>
 
-<tspan x="10" y="2090">-                .replace((</tspan>
+<tspan x="10" y="2090">+     * this function will coalesce null, undefined, or "" in &lt;argList&gt;</tspan>
 
-<tspan x="10" y="2106">+                ), "&amp;lt;").replace((</tspan>
+<tspan x="10" y="2106">+     */</tspan>
 
-<tspan x="10" y="2122">                     /&gt;/g</tspan>
+<tspan x="10" y="2122">+        let arg;</tspan>
 
-<tspan x="10" y="2138">-                ), "&amp;gt;")</tspan>
+<tspan x="10" y="2138">+        let ii;</tspan>
 
-<tspan x="10" y="2154">-                .replace((</tspan>
+<tspan x="10" y="2154">+        ii = 0;</tspan>
 
-<tspan x="10" y="2170">+                ), "&amp;gt;").replace((</tspan>
+<tspan x="10" y="2170">+        while (ii &lt; argList.length) {</tspan>
 
-<tspan x="10" y="2186">                     /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
+<tspan x="10" y="2186">+            arg = argList[ii];</tspan>
 
-<tspan x="10" y="2202">                 ), "&amp;$1");</tspan>
+<tspan x="10" y="2202">+            if (arg !== null &amp;&amp; arg !== undefined &amp;&amp; arg !== "") {</tspan>
 
-<tspan x="10" y="2218">             }</tspan>
+<tspan x="10" y="2218">+                break;</tspan>
 
-<tspan x="10" y="2234">@@ -740,8 +721,7 @@</tspan>
+<tspan x="10" y="2234">+            }</tspan>
 
-<tspan x="10" y="2250">                 &amp;&amp; (typeof local.marked === "function" &amp;&amp; local.marked)</tspan>
+<tspan x="10" y="2250">+            ii += 1;</tspan>
 
-<tspan x="10" y="2266">             );</tspan>
+<tspan x="10" y="2266">+        }</tspan>
 
-<tspan x="10" y="2282">             if (markdownToHtml) {</tspan>
+<tspan x="10" y="2282">+        return arg;</tspan>
 
-<tspan x="10" y="2298">-                value = markdownToHtml(value)</tspan>
+<tspan x="10" y="2298">+    };</tspan>
 
-<tspan x="10" y="2314">-                .replace((</tspan>
+<tspan x="10" y="2314">+    local.fsRmrfSync = function (dir) {</tspan>
 
-<tspan x="10" y="2330">+                value = markdownToHtml(value).replace((</tspan>
+<tspan x="10" y="2330">+    /*</tspan>
 
-<tspan x="10" y="2346">                     /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
+<tspan x="10" y="2346">+     * this function will sync "rm -rf" &lt;dir&gt;</tspan>
 
-<tspan x="10" y="2362">                 ), "&amp;$1");</tspan>
+<tspan x="10" y="2362">+     */</tspan>
 
-<tspan x="10" y="2378">             }</tspan>
+<tspan x="10" y="2378">+        let child_process;</tspan>
 
-<tspan x="10" y="2394">@@ -814,9 +794,8 @@</tspan>
+<tspan x="10" y="2394">+        // do nothing if module does not exist</tspan>
 
-<tspan x="10" y="2410">         elem.name = (</tspan>
+<tspan x="10" y="2410">+        try {</tspan>
 
-<tspan x="10" y="2426">             elem.typeof + " &lt;span class=\"apidocSignatureSpan\"&gt;"</tspan>
+<tspan x="10" y="2426">+            child_process = require("child_process");</tspan>
 
-<tspan x="10" y="2442">             + elem.moduleName + ".&lt;/span&gt;" + key</tspan>
+<tspan x="10" y="2442">+        } catch (ignore) {</tspan>
 
-<tspan x="10" y="2458">-        )</tspan>
+<tspan x="10" y="2458">+            return;</tspan>
 
-<tspan x="10" y="2474">-            // handle case where module is a function</tspan>
+<tspan x="10" y="2474">+        }</tspan>
 
-<tspan x="10" y="2490">-            .replace("&gt;.&lt;", "&gt;&lt;");</tspan>
+<tspan x="10" y="2490">+        child_process.spawnSync("rm", [</tspan>
 
-<tspan x="10" y="2506">+        // handle case where module is a function</tspan>
+<tspan x="10" y="2506">+            "-rf", dir</tspan>
 
-<tspan x="10" y="2522">+        ).replace("&gt;.&lt;", "&gt;&lt;");</tspan>
+<tspan x="10" y="2522">+        ], {</tspan>
 
-<tspan x="10" y="2538">         if (elem.typeof !== "function") {</tspan>
+<tspan x="10" y="2538">+            stdio: [</tspan>
 
-<tspan x="10" y="2554">             return elem;</tspan>
+<tspan x="10" y="2554">+                "ignore", 1, 2</tspan>
 
-<tspan x="10" y="2570">         }</tspan>
+<tspan x="10" y="2570">+            ]</tspan>
 
-<tspan x="10" y="2586">@@ -829,19 +808,15 @@</tspan>
+<tspan x="10" y="2586">+        });</tspan>
 
-<tspan x="10" y="2602">             // init signature</tspan>
+<tspan x="10" y="2602">+    };</tspan>
 
-<tspan x="10" y="2618">             elem.signature = match0.replace((</tspan>
+<tspan x="10" y="2618">+    local.fsWriteFileWithMkdirpSync = function (file, data) {</tspan>
 
-<tspan x="10" y="2634">                 / *?\/\*[\S\s]*?\*\/ */g</tspan>
+<tspan x="10" y="2634">+    /*</tspan>
 
-<tspan x="10" y="2650">-            ), "")</tspan>
+<tspan x="10" y="2650">+     * this function will sync write &lt;data&gt; to &lt;file&gt; with "mkdir -p"</tspan>
 
-<tspan x="10" y="2666">-            .replace((</tspan>
+<tspan x="10" y="2666">+     */</tspan>
 
-<tspan x="10" y="2682">+            ), "").replace((</tspan>
+<tspan x="10" y="2682">+        let fs;</tspan>
 
-<tspan x="10" y="2698">                 /,/g</tspan>
+<tspan x="10" y="2698">+        // do nothing if module does not exist</tspan>
 
-<tspan x="10" y="2714">-            ), ", ")</tspan>
+<tspan x="10" y="2714">+        try {</tspan>
 
-<tspan x="10" y="2730">-            .replace((</tspan>
+<tspan x="10" y="2730">+            fs = require("fs");</tspan>
 
-<tspan x="10" y="2746">+            ), ", ").replace((</tspan>
+<tspan x="10" y="2746">+        } catch (ignore) {</tspan>
 
-<tspan x="10" y="2762">                 /\s+/g</tspan>
+<tspan x="10" y="2762">+            return;</tspan>
 
-<tspan x="10" y="2778">             ), " ");</tspan>
+<tspan x="10" y="2778">+        }</tspan>
 
-<tspan x="10" y="2794">             return elem.signature;</tspan>
+<tspan x="10" y="2794">+        // try to write file</tspan>
 
-<tspan x="10" y="2810">-        })</tspan>
+<tspan x="10" y="2810">+        try {</tspan>
 
-<tspan x="10" y="2826">-        .replace((</tspan>
+<tspan x="10" y="2826">+            fs.writeFileSync(file, data);</tspan>
 
-<tspan x="10" y="2842">+        }).replace((</tspan>
+<tspan x="10" y="2842">+        } catch (ignore) {</tspan>
 
-<tspan x="10" y="2858">             /( *?\/\*[\S\s]*?\*\/\n)/</tspan>
+<tspan x="10" y="2858">+            // mkdir -p</tspan>
 
-<tspan x="10" y="2874">-        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;")</tspan>
+<tspan x="10" y="2874">+            require("child_process").spawnSync(</tspan>
 
-<tspan x="10" y="2890">-        .replace((</tspan>
+<tspan x="10" y="2890">+                "mkdir",</tspan>
 
-<tspan x="10" y="2906">+        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;").replace((</tspan>
+<tspan x="10" y="2906">+                [</tspan>
 
-<tspan x="10" y="2922">             /^function \(/</tspan>
+<tspan x="10" y="2922">+                    "-p", require("path").dirname(file)</tspan>
 
-<tspan x="10" y="2938">         ), key + " = function (");</tspan>
+<tspan x="10" y="2938">+                ],</tspan>
 
-<tspan x="10" y="2954">         // init example</tspan>
+<tspan x="10" y="2954">+                {</tspan>
 
-<tspan x="10" y="2970">@@ -1001,8 +976,7 @@</tspan>
+<tspan x="10" y="2970">+                    stdio: [</tspan>
 
-<tspan x="10" y="2986"> " '</tspan>
+<tspan x="10" y="2986">+                        "ignore", 1, 2</tspan>
 
-<tspan x="10" y="3002"> /* jslint ignore:end */</tspan>
+<tspan x="10" y="3002">+                    ]</tspan>
 
-<tspan x="10" y="3018">                 + " | sort | head -n 256"</tspan>
+<tspan x="10" y="3018">+                }</tspan>
 
-<tspan x="10" y="3034">-            ).toString()</tspan>
+<tspan x="10" y="3034">+            );</tspan>
 
-<tspan x="10" y="3050">-            .split("\n")</tspan>
+<tspan x="10" y="3050">+            // rewrite file</tspan>
 
-<tspan x="10" y="3066">+            ).toString().split("\n")</tspan>
+<tspan x="10" y="3066">+            fs.writeFileSync(file, data);</tspan>
 
-<tspan x="10" y="3082">         );</tspan>
+<tspan x="10" y="3082">+        }</tspan>
 
-<tspan x="10" y="3098">     });</tspan>
+<tspan x="10" y="3098">     };</tspan>
 
-<tspan x="10" y="3114">     opt.exampleList = opt.exampleList.filter(function (file) {</tspan>
+<tspan x="10" y="3114">     local.functionOrNop = function (fnc) {</tspan>
 
-<tspan x="10" y="3130">@@ -1035,7 +1009,7 @@</tspan>
+<tspan x="10" y="3130">     /*</tspan>
 
-<tspan x="10" y="3146">             tmp = function () {</tspan>
+<tspan x="10" y="3146">      * this function will if &lt;fnc&gt; exists,</tspan>
 
-<tspan x="10" y="3162">                 return;</tspan>
+<tspan x="10" y="3162">-     * them return &lt;fnc&gt;,</tspan>
 
-<tspan x="10" y="3178">             };</tspan>
+<tspan x="10" y="3178">+     * return &lt;fnc&gt;,</tspan>
 
-<tspan x="10" y="3194">-            // coverage-hack</tspan>
+<tspan x="10" y="3194">      * else return &lt;nop&gt;</tspan>
 
-<tspan x="10" y="3210">+            // hack-istanbul</tspan>
+<tspan x="10" y="3210">      */</tspan>
 
-<tspan x="10" y="3226">             tmp();</tspan>
+<tspan x="10" y="3226">         return fnc || local.nop;</tspan>
 
-<tspan x="10" y="3242">             Object.defineProperties(tmp, {</tspan>
+<tspan x="10" y="3242">     };</tspan>
 
-<tspan x="10" y="3258">                 toString: {</tspan>
+<tspan x="10" y="3258">-    local.identity = function (value) {</tspan>
 
-<tspan x="10" y="3274">@@ -1147,20 +1121,16 @@</tspan>
+<tspan x="10" y="3274">+    local.identity = function (val) {</tspan>
 
-<tspan x="10" y="3290"> " '</tspan>
+<tspan x="10" y="3290">     /*</tspan>
 
-<tspan x="10" y="3306"> /* jslint ignore:end */</tspan>
+<tspan x="10" y="3306">-     * this function will return &lt;value&gt;</tspan>
 
-<tspan x="10" y="3322">                 + " | sort | head -n 256"</tspan>
+<tspan x="10" y="3322">+     * this function will return &lt;val&gt;</tspan>
 
-<tspan x="10" y="3338">-            ).toString()</tspan>
+<tspan x="10" y="3338">      */</tspan>
 
-<tspan x="10" y="3354">-            .split("\n")</tspan>
+<tspan x="10" y="3354">-        return value;</tspan>
 
-<tspan x="10" y="3370">+            ).toString().split("\n")</tspan>
+<tspan x="10" y="3370">+        return val;</tspan>
 
-<tspan x="10" y="3386">         );</tspan>
+<tspan x="10" y="3386">     };</tspan>
 
-<tspan x="10" y="3402">     });</tspan>
+<tspan x="10" y="3402">     local.nop = function () {</tspan>
 
-<tspan x="10" y="3418">     opt.ii = 256;</tspan>
+<tspan x="10" y="3418">     /*</tspan>
 
-<tspan x="10" y="3434">     opt.libFileList.every(function (file) {</tspan>
+<tspan x="10" y="3434">@@ -103,8 +167,7 @@</tspan>
 
-<tspan x="10" y="3450">         local.tryCatchOnError(function () {</tspan>
+<tspan x="10" y="3450">     };</tspan>
 
-<tspan x="10" y="3466">             tmp = {};</tspan>
+<tspan x="10" y="3466">     local.objectAssignDefault = function (target, source) {</tspan>
 
-<tspan x="10" y="3482">-            tmp.name = local.path.basename(file)</tspan>
+<tspan x="10" y="3482">     /*</tspan>
 
-<tspan x="10" y="3498">-            .replace("lib.", "")</tspan>
+<tspan x="10" y="3498">-     * this function will if items from &lt;target&gt; are</tspan>
 
-<tspan x="10" y="3514">-            .replace((</tspan>
+<tspan x="10" y="3514">-     * null, undefined, or empty-string,</tspan>
 
-<tspan x="10" y="3530">+            tmp.name = local.path.basename(file).replace("lib.", "").replace((</tspan>
+<tspan x="10" y="3530">+     * this function will if items from &lt;target&gt; are null, undefined, or "",</tspan>
 
-<tspan x="10" y="3546">                 /\.[^.]*?$/</tspan>
+<tspan x="10" y="3546">      * then overwrite them with items from &lt;source&gt;</tspan>
 
-<tspan x="10" y="3562">-            ), "")</tspan>
+<tspan x="10" y="3562">      */</tspan>
 
-<tspan x="10" y="3578">-            .replace((</tspan>
+<tspan x="10" y="3578">         target = target || {};</tspan>
 
-<tspan x="10" y="3594">+            ), "").replace((</tspan>
+<tspan x="10" y="3594">@@ -119,6 +182,26 @@</tspan>
 
-<tspan x="10" y="3610">                 /\W/g</tspan>
+<tspan x="10" y="3610">         });</tspan>
 
-<tspan x="10" y="3626">             ), "_");</tspan>
+<tspan x="10" y="3626">         return target;</tspan>
 
-<tspan x="10" y="3642">             ([</tspan>
+<tspan x="10" y="3642">     };</tspan>
 
-<tspan x="10" y="3658">@@ -1196,9 +1166,7 @@</tspan>
+<tspan x="10" y="3658">+    local.querySelector = function (selectors) {</tspan>
 
-<tspan x="10" y="3674">         moduleMain[tmp] = moduleMain[tmp] || opt.moduleDict[key];</tspan>
+<tspan x="10" y="3674">+    /*</tspan>
 
-<tspan x="10" y="3690">     });</tspan>
+<tspan x="10" y="3690">+     * this function will return first dom-elem that match &lt;selectors&gt;</tspan>
 
-<tspan x="10" y="3706">     // init moduleList</tspan>
+<tspan x="10" y="3706">+     */</tspan>
 
-<tspan x="10" y="3722">-    opt.moduleList = Object.keys(opt.moduleDict)</tspan>
+<tspan x="10" y="3722">+        return (</tspan>
 
-<tspan x="10" y="3738">-    .sort()</tspan>
+<tspan x="10" y="3738">+            typeof document === "object" &amp;&amp; document</tspan>
 
-<tspan x="10" y="3754">-    .map(function (prefix) {</tspan>
+<tspan x="10" y="3754">+            &amp;&amp; typeof document.querySelector === "function"</tspan>
 
-<tspan x="10" y="3770">+    opt.moduleList = Object.keys(opt.moduleDict).sort().map(function (prefix) {</tspan>
+<tspan x="10" y="3770">+            &amp;&amp; document.querySelector(selectors)</tspan>
 
-<tspan x="10" y="3786">         module = opt.moduleDict[prefix];</tspan>
+<tspan x="10" y="3786">+        ) || {};</tspan>
 
-<tspan x="10" y="3802">         // handle case where module is a function</tspan>
+<tspan x="10" y="3802">+    };</tspan>
 
-<tspan x="10" y="3818">         if (typeof module === "function") {</tspan>
+<tspan x="10" y="3818">+    local.querySelectorAll = function (selectors) {</tspan>
 
-<tspan x="10" y="3834">@@ -1239,9 +1207,7 @@</tspan>
+<tspan x="10" y="3834">+    /*</tspan>
 
-<tspan x="10" y="3850">     // render apidoc</tspan>
+<tspan x="10" y="3850">+     * this function will return dom-elem-list that match &lt;selectors&gt;</tspan>
 
-<tspan x="10" y="3866">     opt.result = local.templateRender(opt.template, opt, {</tspan>
+<tspan x="10" y="3866">+     */</tspan>
 
-<tspan x="10" y="3882">         notHtmlSafe: true</tspan>
+<tspan x="10" y="3882">+        return (</tspan>
 
-<tspan x="10" y="3898">-    })</tspan>
+<tspan x="10" y="3898">+            typeof document === "object" &amp;&amp; document</tspan>
 
-<tspan x="10" y="3914">-    .trim()</tspan>
+<tspan x="10" y="3914">+            &amp;&amp; typeof document.querySelectorAll === "function"</tspan>
 
-<tspan x="10" y="3930">-    .replace((</tspan>
+<tspan x="10" y="3930">+            &amp;&amp; Array.from(document.querySelectorAll(selectors))</tspan>
 
-<tspan x="10" y="3946">+    }).trim().replace((</tspan>
+<tspan x="10" y="3946">+        ) || [];</tspan>
 
-<tspan x="10" y="3962">         / +$/gm</tspan>
+<tspan x="10" y="3962">+    };</tspan>
 
-<tspan x="10" y="3978">     ), "") + "\n";</tspan>
+<tspan x="10" y="3978">     // require builtin</tspan>
 
-<tspan x="10" y="3994">     return opt.result;</tspan>
+<tspan x="10" y="3994">     if (!local.isBrowser) {</tspan>
 
-<tspan x="10" y="4010">@@ -1351,7 +1317,4 @@</tspan>
+<tspan x="10" y="4010">         local.assert = require("assert");</tspan>
 
-<tspan x="10" y="4026">     local.cliRun();</tspan>
+<tspan x="10" y="4026">@@ -149,7 +232,8 @@</tspan>
 
-<tspan x="10" y="4042"> }</tspan>
+<tspan x="10" y="4042">         local.vm = require("vm");</tspan>
 
-<tspan x="10" y="4058"> }());</tspan>
+<tspan x="10" y="4058">         local.zlib = require("zlib");</tspan>
 
-<tspan x="10" y="4074">-</tspan>
+<tspan x="10" y="4074">     }</tspan>
 
-<tspan x="10" y="4090">-</tspan>
+<tspan x="10" y="4090">-}(this));</tspan>
 
-<tspan x="10" y="4106">-</tspan>
+<tspan x="10" y="4106">+}((typeof globalThis === "object" &amp;&amp; globalThis) || window));</tspan>
 
-<tspan x="10" y="4122"> }());</tspan>
+<tspan x="10" y="4122">+// assets.utility2.header.js - end</tspan>
 
-<tspan x="10" y="4138">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apid\</tspan>
-<tspan x="10" y="4154">oc.js</tspan>
+<tspan x="10" y="4138"> </tspan>
 
-<tspan x="10" y="4170">jslint - 311ms /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="4154"> </tspan>
 
-<tspan x="10" y="4186">jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="4170"> </tspan>
 
-<tspan x="10" y="4202">jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="4186">@@ -183,7 +267,7 @@</tspan>
 
-<tspan x="10" y="4218">--- /tmp/npmTestPublished/node_modules/apidoc-lite/test.js.autofix.old	2019-08-24 01:32:20.85998\</tspan>
-<tspan x="10" y="4234">9753 +0000</tspan>
+<tspan x="10" y="4202"> /* validateLineSortedReset */</tspan>
 
-<tspan x="10" y="4250">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/test.js	2019-08-24 01:32:20.859989753 +0000</tspan>
+<tspan x="10" y="4218"> local.cliRun = function (opt) {</tspan>
 
-<tspan x="10" y="4266">@@ -53,7 +53,6 @@</tspan>
+<tspan x="10" y="4234"> /*</tspan>
 
-<tspan x="10" y="4282">             return;</tspan>
+<tspan x="10" y="4250">- * this function will run the cli with given &lt;opt&gt;</tspan>
 
-<tspan x="10" y="4298">         }</tspan>
+<tspan x="10" y="4266">+ * this function will run cli with given &lt;opt&gt;</tspan>
 
-<tspan x="10" y="4314">         err = (</tspan>
+<tspan x="10" y="4282">  */</tspan>
 
-<tspan x="10" y="4330">-            // ternary-operator</tspan>
+<tspan x="10" y="4298">     local.cliDict._eval = local.cliDict._eval || function () {</tspan>
 
-<tspan x="10" y="4346">             (</tspan>
+<tspan x="10" y="4314">     /*</tspan>
 
-<tspan x="10" y="4362">                 message</tspan>
+<tspan x="10" y="4330">@@ -193,18 +277,16 @@</tspan>
 
-<tspan x="10" y="4378">                 &amp;&amp; typeof message.message === "string"</tspan>
+<tspan x="10" y="4346">         globalThis.local = local;</tspan>
 
-<tspan x="10" y="4394">@@ -245,7 +244,4 @@</tspan>
+<tspan x="10" y="4362">         local.vm.runInThisContext(process.argv[3]);</tspan>
 
-<tspan x="10" y="4410">     onError(null, options);</tspan>
+<tspan x="10" y="4378">     };</tspan>
 
-<tspan x="10" y="4426"> };</tspan>
+<tspan x="10" y="4394">-    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;</tspan>
 
-<tspan x="10" y="4442"> }());</tspan>
+<tspan x="10" y="4410">-    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;</tspan>
 
-<tspan x="10" y="4458">-</tspan>
+<tspan x="10" y="4426">     local.cliDict._help = local.cliDict._help || function () {</tspan>
 
-<tspan x="10" y="4474">-</tspan>
+<tspan x="10" y="4442">     /*</tspan>
 
-<tspan x="10" y="4490">-</tspan>
+<tspan x="10" y="4458">      *</tspan>
 
-<tspan x="10" y="4506"> }());</tspan>
+<tspan x="10" y="4474">      * will print help</tspan>
 
-<tspan x="10" y="4522">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="4490">      */</tspan>
 
-<tspan x="10" y="4538">jslint - 77ms /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="4506">-        var commandList;</tspan>
 
-<tspan x="10" y="4554">http-server listening on port 57964</tspan>
+<tspan x="10" y="4522">-        var file;</tspan>
 
-<tspan x="10" y="4570">db - dropping database ...</tspan>
+<tspan x="10" y="4538">-        var packageJson;</tspan>
 
-<tspan x="10" y="4586">testRunDefault - 487 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
+<tspan x="10" y="4554">-        var text;</tspan>
 
-<tspan x="10" y="4602">testRunDefault - 595 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="4570">-        var textDict;</tspan>
 
-<tspan x="10" y="4618">testRunDefault - 622 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="4586">+        let commandList;</tspan>
 
-<tspan x="10" y="4634">testRunDefault - 631 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="4602">+        let file;</tspan>
 
-<tspan x="10" y="4650">testRunDefault - 631 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="4618">+        let packageJson;</tspan>
 
-<tspan x="10" y="4666">testRunDefault - 632 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="4634">+        let str;</tspan>
 
-<tspan x="10" y="4682">http-server listening on port 40713</tspan>
+<tspan x="10" y="4650">+        let strDict;</tspan>
 
-<tspan x="10" y="4698">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
+<tspan x="10" y="4666">         commandList = [</tspan>
 
-<tspan x="10" y="4714">[5921:0824/013222.850274:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
-<tspan x="10" y="4730"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
+<tspan x="10" y="4682">             {</tspan>
 
-<tspan x="10" y="4746">[5921:0824/013222.857923:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
-<tspan x="10" y="4762"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
+<tspan x="10" y="4698">                 argList: "&lt;arg2&gt;  ...",</tspan>
 
-<tspan x="10" y="4778">[5983:0824/013223.060909:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
-<tspan x="10" y="4794">hreads in process gpu-process.</tspan>
+<tspan x="10" y="4714">@@ -229,37 +311,37 @@</tspan>
 
-<tspan x="10" y="4810">[5921:0824/013223.299269:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="4826">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="4842">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="4730">         opt.rgxComment = opt.rgxComment || (</tspan>
 
-<tspan x="10" y="4858">[5921:0824/013223.320562:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="4874">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="4890">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="4746">             /\) \{\n(?:| {4})\/\*\n(?: | {5})\*((?: &lt;[^&gt;]*?&gt;| \.\.\.)*?)\n(?: | {5})\* (will .*\</tspan>
+<tspan x="10" y="4762">?\S)\n(?: | {5})\*\/\n(?: {4}| {8})\S/</tspan>
 
-<tspan x="10" y="4906">[5921:0824/013224.101478:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="4922">:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="4778">         );</tspan>
 
-<tspan x="10" y="4938">[5921:0824/013224.141861:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="4954">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
-<tspan x="10" y="4970">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="4794">-        textDict = {};</tspan>
 
-<tspan x="10" y="4986">[5921:0824/013224.143641:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
-<tspan x="10" y="5002">ngs.</tspan>
+<tspan x="10" y="4810">+        strDict = {};</tspan>
 
-<tspan x="10" y="5018">[5921:0824/013224.159420:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="5034">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="5050">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="4826">         Object.keys(local.cliDict).sort().forEach(function (key, ii) {</tspan>
 
-<tspan x="10" y="5066">[5921:0824/013224.170969:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="5082">:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="4842">             if (key[0] === "_" &amp;&amp; key !== "_default") {</tspan>
 
-<tspan x="10" y="5098">[5921:0824/013224.193103:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="5114">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
-<tspan x="10" y="5130">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="4858">                 return;</tspan>
 
-<tspan x="10" y="5146">[5921:0824/013224.194981:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="5162">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="5178">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="4874">             }</tspan>
 
-<tspan x="10" y="5194">[5921:0824/013224.208593:INFO:CONSOLE(8)] "testRunDefault - 9 ms - [browser test-case 1 of 2 pas\</tspan>
-<tspan x="10" y="5210">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="4890">-            text = String(local.cliDict[key]);</tspan>
 
-<tspan x="10" y="5226">[5921:0824/013224.217096:INFO:CONSOLE(8)] "testRunDefault - 7 ms - [browser test-case 1 of 2 pas\</tspan>
-<tspan x="10" y="5242">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="4906">+            str = String(local.cliDict[key]);</tspan>
 
-<tspan x="10" y="5258">[5921:0824/013224.221682:INFO:CONSOLE(8)] "testRunDefault - 23 ms - [browser test-case 2 of 2 pa\</tspan>
-<tspan x="10" y="5274">ssed] - testCase_nop_default", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="4922">             if (key === "_default") {</tspan>
 
-<tspan x="10" y="5290">[5921:0824/013224.227436:INFO:CONSOLE(8)] "testRunDefault - 17 ms - [browser test-case 2 of 2 pa\</tspan>
-<tspan x="10" y="5306">ssed] - testCase_nop_default", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="4938">                 key = "";</tspan>
 
-<tspan x="10" y="5322">[5921:0824/013225.227052:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
-<tspan x="10" y="5338">-----|</tspan>
+<tspan x="10" y="4954">             }</tspan>
 
-<tspan x="10" y="5354">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="4970">-            textDict[text] = textDict[text] || (ii + 2);</tspan>
 
-<tspan x="10" y="5370">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="4986">-            ii = textDict[text];</tspan>
 
-<tspan x="10" y="5386">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5002">+            strDict[str] = strDict[str] || (ii + 2);</tspan>
 
-<tspan x="10" y="5402">All files |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="5018">+            ii = strDict[str];</tspan>
 
-<tspan x="10" y="5418">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5034">             if (commandList[ii]) {</tspan>
 
-<tspan x="10" y="5434">", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="5050">                 commandList[ii].command.push(key);</tspan>
 
-<tspan x="10" y="5450">[5921:0824/013225.233928:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="5466">html", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="5066">                 return;</tspan>
 
-<tspan x="10" y="5482">[5921:0824/013225.241375:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
-<tspan x="10" y="5498">-----|</tspan>
+<tspan x="10" y="5082">             }</tspan>
 
-<tspan x="10" y="5514">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="5098">             try {</tspan>
 
-<tspan x="10" y="5530">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5114">-                commandList[ii] = opt.rgxComment.exec(text);</tspan>
 
-<tspan x="10" y="5546">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5130">+                commandList[ii] = opt.rgxComment.exec(str);</tspan>
 
-<tspan x="10" y="5562">All files |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="5146">                 commandList[ii] = {</tspan>
 
-<tspan x="10" y="5578">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5162">-                    argList: (commandList[ii][1] || "").trim(),</tspan>
 
-<tspan x="10" y="5594">", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="5178">+                    argList: local.coalesce(commandList[ii][1], "").trim(),</tspan>
 
-<tspan x="10" y="5610">[5921:0824/013225.249334:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="5626">html", source: http://127.0.0.1:57964/assets.example.js (8)</tspan>
+<tspan x="10" y="5194">                     command: [</tspan>
 
-<tspan x="10" y="5642">testRunDefault - 5022 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defaul\</tspan>
-<tspan x="10" y="5658">t ...</tspan>
+<tspan x="10" y="5210">                         key</tspan>
 
-<tspan x="10" y="5674">testRunDefault - 5967 ms - [node test-case 7 of 8 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="5226">                     ],</tspan>
 
-<tspan x="10" y="5690">[5921:0824/013229.132599:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:57964/assets.example.\</tspan>
-<tspan x="10" y="5706">js (8)</tspan>
+<tspan x="10" y="5242">                     description: commandList[ii][2]</tspan>
 
-<tspan x="10" y="5722">[5921:0824/013229.316920:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/tm\</tspan>
-<tspan x="10" y="5738">p/npmTestPublished/node_modules/apidoc-lite/tmp/electron.16cc140bf6a0.59162ae260678.html' -&gt; '/t\</tspan>
-<tspan x="10" y="5754">mp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.html'", source: http://127.0.0.1:57964\</tspan>
-<tspan x="10" y="5770">/assets.example.js (8)</tspan>
+<tspan x="10" y="5258">                 };</tspan>
 
-<tspan x="10" y="5786"></tspan>
+<tspan x="10" y="5274">             } catch (ignore) {</tspan>
 
-<tspan x="10" y="5802">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="5818">reenshot.npmTestPublished.browser.%2F.png</tspan>
+<tspan x="10" y="5290">-                local.assertThrow(null, new Error(</tspan>
 
-<tspan x="10" y="5834"></tspan>
+<tspan x="10" y="5306">+                local.assertOrThrow(undefined, new Error(</tspan>
 
-<tspan x="10" y="5850">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="5866">reenshot.npmTestPublished.browser.%2F.html</tspan>
+<tspan x="10" y="5322">                     "cliRun - cannot parse comment in COMMAND "</tspan>
 
-<tspan x="10" y="5882"></tspan>
+<tspan x="10" y="5338">                     + key</tspan>
 
-<tspan x="10" y="5898">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="5914">reenshot.npmTestPublished.browser.%2F.png</tspan>
+<tspan x="10" y="5354">                     + ":\nnew RegExp("</tspan>
 
-<tspan x="10" y="5930"></tspan>
+<tspan x="10" y="5370">                     + JSON.stringify(opt.rgxComment.source)</tspan>
 
-<tspan x="10" y="5946">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="5962">reenshot.npmTestPublished.browser.%2F.html</tspan>
+<tspan x="10" y="5386">-                    + ").exec(" + JSON.stringify(text).replace((</tspan>
 
-<tspan x="10" y="5978">testRunDefault - 8295 ms - [node test-case 8 of 8 passed] - testCase_webpage_default</tspan>
+<tspan x="10" y="5402">+                    + ").exec(" + JSON.stringify(str).replace((</tspan>
 
-<tspan x="10" y="5994">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5418">                         /\\\\/g</tspan>
 
-<tspan x="10" y="6010">File                |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="5434">                     ), " ").replace((</tspan>
 
-<tspan x="10" y="6026">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5450">                         /\\n/g</tspan>
 
-<tspan x="10" y="6042">   apidoc-lite/     |     99.13 |        99 |     97.48 |     99.13 |</tspan>
+<tspan x="10" y="5466">@@ -269,9 +351,9 @@</tspan>
 
-<tspan x="10" y="6058">      example.js    |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="5482">                 ));</tspan>
 
-<tspan x="10" y="6074">      lib.apidoc.js |     98.68 |     98.55 |     96.47 |     98.68 |</tspan>
+<tspan x="10" y="5498">             }</tspan>
 
-<tspan x="10" y="6090">      test.js       |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="5514">         });</tspan>
 
-<tspan x="10" y="6106">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5530">-        text = "";</tspan>
 
-<tspan x="10" y="6122">All files           |     99.13 |        99 |     97.48 |     99.13 |</tspan>
+<tspan x="10" y="5546">-        text += packageJson.name + " (" + packageJson.version + ")\n\n";</tspan>
 
-<tspan x="10" y="6138">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="5562">-        text += commandList.filter(function (elem) {</tspan>
 
-<tspan x="10" y="6154"></tspan>
+<tspan x="10" y="5578">+        str = "";</tspan>
 
-<tspan x="10" y="6170">created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage.html/ind\</tspan>
-<tspan x="10" y="6186">ex.html</tspan>
+<tspan x="10" y="5594">+        str += packageJson.name + " (" + packageJson.version + ")\n\n";</tspan>
 
-<tspan x="10" y="6202"></tspan>
+<tspan x="10" y="5610">+        str += commandList.filter(function (elem) {</tspan>
 
-<tspan x="10" y="6218">-------------------------------------------------------</tspan>
+<tspan x="10" y="5626">             return elem;</tspan>
 
-<tspan x="10" y="6234">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
-<tspan x="10" y="6250">.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-24T01:32:23\</tspan>
-<tspan x="10" y="6266">.603Z</tspan>
+<tspan x="10" y="5642">         }).map(function (elem, ii) {</tspan>
 
-<tspan x="10" y="6282">|    1008 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="5658">             elem.command = elem.command.filter(function (elem) {</tspan>
 
-<tspan x="10" y="6298">-------------------------------------------------------</tspan>
+<tspan x="10" y="5674">@@ -294,17 +376,15 @@</tspan>
 
-<tspan x="10" y="6314">| test-report - npmTestPublished - node - linux v12.9.0 - 2019-08-24T01:32:20.204Z</tspan>
+<tspan x="10" y="5690">             }</tspan>
 
-<tspan x="10" y="6330">|    8296 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="5706">             return (</tspan>
 
-<tspan x="10" y="6346">-------------------------------------------------------</tspan>
+<tspan x="10" y="5722">                 elem.description + "\n  " + file</tspan>
 
-<tspan x="10" y="6362"></tspan>
+<tspan x="10" y="5738">-                + ("  " + elem.command.sort().join("|") + "  ")</tspan>
 
-<tspan x="10" y="6378">created test-report file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.ht\</tspan>
-<tspan x="10" y="6394">ml</tspan>
+<tspan x="10" y="5754">-                    .replace((</tspan>
 
-<tspan x="10" y="6410"></tspan>
+<tspan x="10" y="5770">-                    /^ {4}$/</tspan>
 
-<tspan x="10" y="6426"></tspan>
+<tspan x="10" y="5786">-                ), "  ")</tspan>
 
-<tspan x="10" y="6442">npmTestPublished - 0 failed tests</tspan>
+<tspan x="10" y="5802">+                + "  " + elem.command.sort().join("|") + "  "</tspan>
 
-<tspan x="10" y="6458"></tspan>
+<tspan x="10" y="5818">                 + elem.argList.join("  ")</tspan>
 
-<tspan x="10" y="6474"></tspan>
+<tspan x="10" y="5834">             );</tspan>
 
-<tspan x="10" y="6490">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-24T01:32:30.713Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="5850">-        })</tspan>
+
+<tspan x="10" y="5866">-        .join("\n\n");</tspan>
+
+<tspan x="10" y="5882">-        console.log(text);</tspan>
+
+<tspan x="10" y="5898">+        }).join("\n\n");</tspan>
+
+<tspan x="10" y="5914">+        console.log(str);</tspan>
+
+<tspan x="10" y="5930">     };</tspan>
+
+<tspan x="10" y="5946">+    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;</tspan>
+
+<tspan x="10" y="5962">     local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;</tspan>
+
+<tspan x="10" y="5978">+    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;</tspan>
+
+<tspan x="10" y="5994">     local.cliDict["-h"] = local.cliDict["-h"] || local.cliDict._help;</tspan>
+
+<tspan x="10" y="6010">     local.cliDict._default = local.cliDict._default || local.cliDict._help;</tspan>
+
+<tspan x="10" y="6026">     local.cliDict.help = local.cliDict.help || local.cliDict._help;</tspan>
+
+<tspan x="10" y="6042">@@ -347,38 +427,35 @@</tspan>
+
+<tspan x="10" y="6058">     local.cliDict._default();</tspan>
+
+<tspan x="10" y="6074"> };</tspan>
+
+<tspan x="10" y="6090"> </tspan>
+
+<tspan x="10" y="6106">-local.moduleDirname = function (module, modulePathList) {</tspan>
+
+<tspan x="10" y="6122">+local.moduleDirname = function (module, pathList) {</tspan>
+
+<tspan x="10" y="6138"> /*</tspan>
+
+<tspan x="10" y="6154">- * this function will search modulePathList for the module's __dirname</tspan>
+
+<tspan x="10" y="6170">+ * this function will search &lt;pathList&gt; for &lt;module&gt;'s __dirname</tspan>
+
+<tspan x="10" y="6186">  */</tspan>
+
+<tspan x="10" y="6202">-    var result;</tspan>
+
+<tspan x="10" y="6218">+    let result;</tspan>
+
+<tspan x="10" y="6234">     // search process.cwd()</tspan>
+
+<tspan x="10" y="6250">     if (!module || module === "." || module.indexOf("/") &gt;= 0) {</tspan>
+
+<tspan x="10" y="6266">         return require("path").resolve(process.cwd(), module || "");</tspan>
+
+<tspan x="10" y="6282">     }</tspan>
+
+<tspan x="10" y="6298">-    // search modulePathList</tspan>
+
+<tspan x="10" y="6314">-    [</tspan>
+
+<tspan x="10" y="6330">-        "node_modules"</tspan>
+
+<tspan x="10" y="6346">-    ]</tspan>
+
+<tspan x="10" y="6362">-    .concat(modulePathList)</tspan>
+
+<tspan x="10" y="6378">-    .concat(require("module").globalPaths)</tspan>
+
+<tspan x="10" y="6394">-    .concat([</tspan>
+
+<tspan x="10" y="6410">-        process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"</tspan>
+
+<tspan x="10" y="6426">-    ])</tspan>
+
+<tspan x="10" y="6442">-    .some(function (modulePath) {</tspan>
+
+<tspan x="10" y="6458">+    // search pathList</tspan>
+
+<tspan x="10" y="6474">+    Array.from([</tspan>
+
+<tspan x="10" y="6490">+        pathList,</tspan>
+
+<tspan x="10" y="6506">+        require("module").globalPaths,</tspan>
+
+<tspan x="10" y="6522">+        [</tspan>
+
+<tspan x="10" y="6538">+            process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"</tspan>
+
+<tspan x="10" y="6554">+        ]</tspan>
+
+<tspan x="10" y="6570">+    ]).flat().some(function (path) {</tspan>
+
+<tspan x="10" y="6586">         try {</tspan>
+
+<tspan x="10" y="6602">             result = require("path").resolve(</tspan>
+
+<tspan x="10" y="6618">                 process.cwd(),</tspan>
+
+<tspan x="10" y="6634">-                modulePath + "/" + module</tspan>
+
+<tspan x="10" y="6650">+                path + "/" + module</tspan>
+
+<tspan x="10" y="6666">             );</tspan>
+
+<tspan x="10" y="6682">             result = require("fs").statSync(result).isDirectory() &amp;&amp; result;</tspan>
+
+<tspan x="10" y="6698">             return result;</tspan>
+
+<tspan x="10" y="6714">         } catch (ignore) {</tspan>
+
+<tspan x="10" y="6730">-            result = null;</tspan>
+
+<tspan x="10" y="6746">+            result = "";</tspan>
+
+<tspan x="10" y="6762">         }</tspan>
+
+<tspan x="10" y="6778">-        return result;</tspan>
+
+<tspan x="10" y="6794">     });</tspan>
+
+<tspan x="10" y="6810">-    return result || "";</tspan>
+
+<tspan x="10" y="6826">+    return result;</tspan>
+
+<tspan x="10" y="6842"> };</tspan>
+
+<tspan x="10" y="6858"> </tspan>
+
+<tspan x="10" y="6874"> local.objectSetDefault = function (dict, defaults, depth) {</tspan>
+
+<tspan x="10" y="6890">@@ -388,8 +465,8 @@</tspan>
+
+<tspan x="10" y="6906">     dict = dict || {};</tspan>
+
+<tspan x="10" y="6922">     defaults = defaults || {};</tspan>
+
+<tspan x="10" y="6938">     Object.keys(defaults).forEach(function (key) {</tspan>
+
+<tspan x="10" y="6954">-        var defaults2;</tspan>
+
+<tspan x="10" y="6970">-        var dict2;</tspan>
+
+<tspan x="10" y="6986">+        let defaults2;</tspan>
+
+<tspan x="10" y="7002">+        let dict2;</tspan>
+
+<tspan x="10" y="7018">         dict2 = dict[key];</tspan>
+
+<tspan x="10" y="7034">         // handle misbehaving getter</tspan>
+
+<tspan x="10" y="7050">         try {</tspan>
+
+<tspan x="10" y="7066">@@ -406,13 +483,13 @@</tspan>
+
+<tspan x="10" y="7082">             dict[key] = defaults2;</tspan>
+
+<tspan x="10" y="7098">             return;</tspan>
+
+<tspan x="10" y="7114">         }</tspan>
+
+<tspan x="10" y="7130">-        // if dict2 and defaults2 are both non-null and non-array objects,</tspan>
+
+<tspan x="10" y="7146">+        // if dict2 and defaults2 are both non-undefined and non-array objects,</tspan>
+
+<tspan x="10" y="7162">         // then recurse with dict2 and defaults2</tspan>
+
+<tspan x="10" y="7178">         if (</tspan>
+
+<tspan x="10" y="7194">             depth &gt; 1</tspan>
+
+<tspan x="10" y="7210">-            // dict2 is a non-null and non-array object</tspan>
+
+<tspan x="10" y="7226">+            // dict2 is a non-undefined and non-array object</tspan>
+
+<tspan x="10" y="7242">             &amp;&amp; typeof dict2 === "object" &amp;&amp; dict2 &amp;&amp; !Array.isArray(dict2)</tspan>
+
+<tspan x="10" y="7258">-            // defaults2 is a non-null and non-array object</tspan>
+
+<tspan x="10" y="7274">+            // defaults2 is a non-undefined and non-array object</tspan>
+
+<tspan x="10" y="7290">             &amp;&amp; typeof defaults2 === "object" &amp;&amp; defaults2</tspan>
+
+<tspan x="10" y="7306">             &amp;&amp; !Array.isArray(defaults2)</tspan>
+
+<tspan x="10" y="7322">         ) {</tspan>
+
+<tspan x="10" y="7338">@@ -423,29 +500,23 @@</tspan>
+
+<tspan x="10" y="7354">     return dict;</tspan>
+
+<tspan x="10" y="7370"> };</tspan>
+
+<tspan x="10" y="7386"> </tspan>
+
+<tspan x="10" y="7402">-local.stringHtmlSafe = function (text) {</tspan>
+
+<tspan x="10" y="7418">+local.stringHtmlSafe = function (str) {</tspan>
+
+<tspan x="10" y="7434"> /*</tspan>
+
+<tspan x="10" y="7450">- * this function will make the text html-safe</tspan>
+
+<tspan x="10" y="7466">+ * this function will make &lt;str&gt; html-safe</tspan>
+
+<tspan x="10" y="7482">  * https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html</tspan>
+
+<tspan x="10" y="7498">  */</tspan>
+
+<tspan x="10" y="7514">-    return text</tspan>
+
+<tspan x="10" y="7530">-    .replace((</tspan>
+
+<tspan x="10" y="7546">-        /&amp;/g</tspan>
+
+<tspan x="10" y="7562">-    ), "&amp;amp;")</tspan>
+
+<tspan x="10" y="7578">-    .replace((</tspan>
+
+<tspan x="10" y="7594">-        /"/g</tspan>
+
+<tspan x="10" y="7610">-    ), "&amp;quot;")</tspan>
+
+<tspan x="10" y="7626">-    .replace((</tspan>
+
+<tspan x="10" y="7642">-        /'/g</tspan>
+
+<tspan x="10" y="7658">-    ), "&amp;apos;")</tspan>
+
+<tspan x="10" y="7674">-    .replace((</tspan>
+
+<tspan x="10" y="7690">-        /&lt;/g</tspan>
+
+<tspan x="10" y="7706">-    ), "&amp;lt;")</tspan>
+
+<tspan x="10" y="7722">-    .replace((</tspan>
+
+<tspan x="10" y="7738">-        /&gt;/g</tspan>
+
+<tspan x="10" y="7754">-    ), "&amp;gt;")</tspan>
+
+<tspan x="10" y="7770">-    .replace((</tspan>
+
+<tspan x="10" y="7786">-        /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
+
+<tspan x="10" y="7802">+    return str.replace((</tspan>
+
+<tspan x="10" y="7818">+        /&amp;/gu</tspan>
+
+<tspan x="10" y="7834">+    ), "&amp;amp;").replace((</tspan>
+
+<tspan x="10" y="7850">+        /"/gu</tspan>
+
+<tspan x="10" y="7866">+    ), "&amp;quot;").replace((</tspan>
+
+<tspan x="10" y="7882">+        /'/gu</tspan>
+
+<tspan x="10" y="7898">+    ), "&amp;apos;").replace((</tspan>
+
+<tspan x="10" y="7914">+        /&lt;/gu</tspan>
+
+<tspan x="10" y="7930">+    ), "&amp;lt;").replace((</tspan>
+
+<tspan x="10" y="7946">+        /&gt;/gu</tspan>
+
+<tspan x="10" y="7962">+    ), "&amp;gt;").replace((</tspan>
+
+<tspan x="10" y="7978">+        /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/igu</tspan>
+
+<tspan x="10" y="7994">     ), "&amp;$1");</tspan>
+
+<tspan x="10" y="8010"> };</tspan>
+
+<tspan x="10" y="8026"> </tspan>
+
+<tspan x="10" y="8042">@@ -557,57 +628,60 @@</tspan>
+
+<tspan x="10" y="8058"> ';</tspan>
+
+<tspan x="10" y="8074"> /* jslint ignore:end */</tspan>
+
+<tspan x="10" y="8090"> </tspan>
+
+<tspan x="10" y="8106">-local.templateRender = function (template, dict, opt) {</tspan>
+
+<tspan x="10" y="8122">+local.templateRender = function (template, dict, opt, ii) {</tspan>
+
+<tspan x="10" y="8138"> /*</tspan>
+
+<tspan x="10" y="8154">- * this function will render the template with given dict</tspan>
+
+<tspan x="10" y="8170">+ * this function will render &lt;template&gt; with given &lt;dict&gt;</tspan>
+
+<tspan x="10" y="8186">  */</tspan>
+
+<tspan x="10" y="8202">-    var argList;</tspan>
+
+<tspan x="10" y="8218">-    var getValue;</tspan>
+
+<tspan x="10" y="8234">-    var match;</tspan>
+
+<tspan x="10" y="8250">-    var renderPartial;</tspan>
+
+<tspan x="10" y="8266">-    var rgx;</tspan>
+
+<tspan x="10" y="8282">-    var skip;</tspan>
+
+<tspan x="10" y="8298">-    var value;</tspan>
+
+<tspan x="10" y="8314">-    dict = dict || {};</tspan>
+
+<tspan x="10" y="8330">+    let argList;</tspan>
+
+<tspan x="10" y="8346">+    let getVal;</tspan>
+
+<tspan x="10" y="8362">+    let match;</tspan>
+
+<tspan x="10" y="8378">+    let renderPartial;</tspan>
+
+<tspan x="10" y="8394">+    let rgx;</tspan>
+
+<tspan x="10" y="8410">+    let skip;</tspan>
+
+<tspan x="10" y="8426">+    let val;</tspan>
+
+<tspan x="10" y="8442">+    if (dict === null || dict === undefined) {</tspan>
+
+<tspan x="10" y="8458">+        dict = {};</tspan>
+
+<tspan x="10" y="8474">+    }</tspan>
+
+<tspan x="10" y="8490">     opt = opt || {};</tspan>
+
+<tspan x="10" y="8506">-    getValue = function (key) {</tspan>
+
+<tspan x="10" y="8522">+    getVal = function (key) {</tspan>
+
+<tspan x="10" y="8538">         argList = key.split(" ");</tspan>
+
+<tspan x="10" y="8554">-        value = dict;</tspan>
+
+<tspan x="10" y="8570">+        val = dict;</tspan>
+
+<tspan x="10" y="8586">         if (argList[0] === "#this/") {</tspan>
+
+<tspan x="10" y="8602">-            return;</tspan>
+
+<tspan x="10" y="8618">+            return val;</tspan>
+
+<tspan x="10" y="8634">         }</tspan>
+
+<tspan x="10" y="8650">-        // iteratively lookup nested values in the dict</tspan>
+
+<tspan x="10" y="8666">+        if (argList[0] === "#ii/") {</tspan>
+
+<tspan x="10" y="8682">+            return ii;</tspan>
+
+<tspan x="10" y="8698">+        }</tspan>
+
+<tspan x="10" y="8714">+        // iteratively lookup nested val in dict</tspan>
+
+<tspan x="10" y="8730">         argList[0].split(".").forEach(function (key) {</tspan>
+
+<tspan x="10" y="8746">-            if (key !== "this") {</tspan>
+
+<tspan x="10" y="8762">-                value = value &amp;&amp; value[key];</tspan>
+
+<tspan x="10" y="8778">-            }</tspan>
+
+<tspan x="10" y="8794">+            val = val &amp;&amp; val[key];</tspan>
+
+<tspan x="10" y="8810">         });</tspan>
+
+<tspan x="10" y="8826">-        return value;</tspan>
+
+<tspan x="10" y="8842">+        return val;</tspan>
+
+<tspan x="10" y="8858">     };</tspan>
+
+<tspan x="10" y="8874">     renderPartial = function (match0, helper, key, partial) {</tspan>
+
+<tspan x="10" y="8890">         switch (helper) {</tspan>
+
+<tspan x="10" y="8906">         case "each":</tspan>
+
+<tspan x="10" y="8922">-        case "eachTrimRightComma":</tspan>
+
+<tspan x="10" y="8938">-            value = getValue(key);</tspan>
+
+<tspan x="10" y="8954">-            value = (</tspan>
+
+<tspan x="10" y="8970">-                Array.isArray(value)</tspan>
+
+<tspan x="10" y="8986">-                ? value.map(function (dict) {</tspan>
+
+<tspan x="10" y="9002">+        case "eachTrimEndComma":</tspan>
+
+<tspan x="10" y="9018">+            val = getVal(key);</tspan>
+
+<tspan x="10" y="9034">+            val = (</tspan>
+
+<tspan x="10" y="9050">+                Array.isArray(val)</tspan>
+
+<tspan x="10" y="9066">+                ? val.map(function (dict, ii) {</tspan>
+
+<tspan x="10" y="9082">                     // recurse with partial</tspan>
+
+<tspan x="10" y="9098">-                    return local.templateRender(partial, dict, opt);</tspan>
+
+<tspan x="10" y="9114">+                    return local.templateRender(partial, dict, opt, ii);</tspan>
+
+<tspan x="10" y="9130">                 }).join("")</tspan>
+
+<tspan x="10" y="9146">                 : ""</tspan>
+
+<tspan x="10" y="9162">             );</tspan>
+
+<tspan x="10" y="9178">             // remove trailing-comma from last elem</tspan>
+
+<tspan x="10" y="9194">-            if (helper === "eachTrimRightComma") {</tspan>
+
+<tspan x="10" y="9210">-                value = value.trimRight().replace((</tspan>
+
+<tspan x="10" y="9226">+            if (helper === "eachTrimEndComma") {</tspan>
+
+<tspan x="10" y="9242">+                val = val.trimEnd().replace((</tspan>
+
+<tspan x="10" y="9258">                     /,$/</tspan>
+
+<tspan x="10" y="9274">                 ), "");</tspan>
+
+<tspan x="10" y="9290">             }</tspan>
+
+<tspan x="10" y="9306">-            return value;</tspan>
+
+<tspan x="10" y="9322">+            return val;</tspan>
+
+<tspan x="10" y="9338">         case "if":</tspan>
+
+<tspan x="10" y="9354">             partial = partial.split("{{#unless " + key + "}}");</tspan>
+
+<tspan x="10" y="9370">             partial = (</tspan>
+
+<tspan x="10" y="9386">-                getValue(key)</tspan>
+
+<tspan x="10" y="9402">+                getVal(key)</tspan>
+
+<tspan x="10" y="9418">                 ? partial[0]</tspan>
+
+<tspan x="10" y="9434">                 // handle 'unless' case</tspan>
+
+<tspan x="10" y="9450">                 : partial.slice(1).join("{{#unless " + key + "}}")</tspan>
+
+<tspan x="10" y="9466">@@ -616,7 +690,7 @@</tspan>
+
+<tspan x="10" y="9482">             return local.templateRender(partial, dict, opt);</tspan>
+
+<tspan x="10" y="9498">         case "unless":</tspan>
+
+<tspan x="10" y="9514">             return (</tspan>
+
+<tspan x="10" y="9530">-                getValue(key)</tspan>
+
+<tspan x="10" y="9546">+                getVal(key)</tspan>
+
+<tspan x="10" y="9562">                 ? ""</tspan>
+
+<tspan x="10" y="9578">                 // recurse with partial</tspan>
+
+<tspan x="10" y="9594">                 : local.templateRender(partial, dict, opt)</tspan>
+
+<tspan x="10" y="9610">@@ -648,35 +722,50 @@</tspan>
+
+<tspan x="10" y="9626">     return template.replace((</tspan>
+
+<tspan x="10" y="9642">         /\{\{[^}]+?\}\}/g</tspan>
+
+<tspan x="10" y="9658">     ), function (match0) {</tspan>
+
+<tspan x="10" y="9674">-        var markdownToHtml;</tspan>
+
+<tspan x="10" y="9690">-        var notHtmlSafe;</tspan>
+
+<tspan x="10" y="9706">+        let markdownToHtml;</tspan>
+
+<tspan x="10" y="9722">+        let notHtmlSafe;</tspan>
+
+<tspan x="10" y="9738">         notHtmlSafe = opt.notHtmlSafe;</tspan>
+
+<tspan x="10" y="9754">         try {</tspan>
+
+<tspan x="10" y="9770">-            getValue(match0.slice(2, -2));</tspan>
+
+<tspan x="10" y="9786">-            if (value === undefined) {</tspan>
+
+<tspan x="10" y="9802">+            val = getVal(match0.slice(2, -2));</tspan>
+
+<tspan x="10" y="9818">+            if (val === undefined) {</tspan>
+
+<tspan x="10" y="9834">                 return match0;</tspan>
+
+<tspan x="10" y="9850">             }</tspan>
+
+<tspan x="10" y="9866">-            argList.slice(1).forEach(function (arg0, ii, list) {</tspan>
+
+<tspan x="10" y="9882">-                switch (arg0) {</tspan>
+
+<tspan x="10" y="9898">+            argList.slice(1).forEach(function (fmt, ii, list) {</tspan>
+
+<tspan x="10" y="9914">+                switch (fmt) {</tspan>
+
+<tspan x="10" y="9930">+                case "*":</tspan>
+
+<tspan x="10" y="9946">+                case "+":</tspan>
+
+<tspan x="10" y="9962">+                case "-":</tspan>
+
+<tspan x="10" y="9978">+                case "/":</tspan>
+
+<tspan x="10" y="9994">+                    skip = ii + 1;</tspan>
+
+<tspan x="10" y="10010">+                    val = String(</tspan>
+
+<tspan x="10" y="10026">+                        fmt === "*"</tspan>
+
+<tspan x="10" y="10042">+                        ? Number(val) * Number(list[skip])</tspan>
+
+<tspan x="10" y="10058">+                        : fmt === "+"</tspan>
+
+<tspan x="10" y="10074">+                        ? Number(val) + Number(list[skip])</tspan>
+
+<tspan x="10" y="10090">+                        : fmt === "-"</tspan>
+
+<tspan x="10" y="10106">+                        ? Number(val) - Number(list[skip])</tspan>
+
+<tspan x="10" y="10122">+                        : Number(val) / Number(list[skip])</tspan>
+
+<tspan x="10" y="10138">+                    );</tspan>
+
+<tspan x="10" y="10154">+                    break;</tspan>
+
+<tspan x="10" y="10170">                 case "alphanumeric":</tspan>
+
+<tspan x="10" y="10186">-                    value = value.replace((</tspan>
+
+<tspan x="10" y="10202">+                    val = val.replace((</tspan>
+
+<tspan x="10" y="10218">                         /\W/g</tspan>
+
+<tspan x="10" y="10234">                     ), "_");</tspan>
+
+<tspan x="10" y="10250">                     break;</tspan>
+
+<tspan x="10" y="10266">                 case "decodeURIComponent":</tspan>
+
+<tspan x="10" y="10282">-                    value = decodeURIComponent(value);</tspan>
+
+<tspan x="10" y="10298">+                    val = decodeURIComponent(val);</tspan>
+
+<tspan x="10" y="10314">                     break;</tspan>
+
+<tspan x="10" y="10330">                 case "encodeURIComponent":</tspan>
+
+<tspan x="10" y="10346">-                    value = encodeURIComponent(value);</tspan>
+
+<tspan x="10" y="10362">+                    val = encodeURIComponent(val);</tspan>
+
+<tspan x="10" y="10378">                     break;</tspan>
+
+<tspan x="10" y="10394">                 case "jsonStringify":</tspan>
+
+<tspan x="10" y="10410">-                    value = JSON.stringify(value);</tspan>
+
+<tspan x="10" y="10426">+                    val = JSON.stringify(val);</tspan>
+
+<tspan x="10" y="10442">                     break;</tspan>
+
+<tspan x="10" y="10458">                 case "jsonStringify4":</tspan>
+
+<tspan x="10" y="10474">-                    value = JSON.stringify(value, null, 4);</tspan>
+
+<tspan x="10" y="10490">+                    val = JSON.stringify(val, undefined, 4);</tspan>
+
+<tspan x="10" y="10506">                     break;</tspan>
+
+<tspan x="10" y="10522">                 case "markdownSafe":</tspan>
+
+<tspan x="10" y="10538">-                    value = value.replace((</tspan>
+
+<tspan x="10" y="10554">+                    val = val.replace((</tspan>
+
+<tspan x="10" y="10570">                         /`/g</tspan>
+
+<tspan x="10" y="10586">                     ), "'");</tspan>
+
+<tspan x="10" y="10602">                     break;</tspan>
+
+<tspan x="10" y="10618">@@ -688,51 +777,46 @@</tspan>
+
+<tspan x="10" y="10634">                     break;</tspan>
+
+<tspan x="10" y="10650">                 case "padEnd":</tspan>
+
+<tspan x="10" y="10666">                 case "padStart":</tspan>
+
+<tspan x="10" y="10682">+                case "replace":</tspan>
+
+<tspan x="10" y="10698">                 case "slice":</tspan>
+
+<tspan x="10" y="10714">                     skip = ii + 2;</tspan>
+
+<tspan x="10" y="10730">-                    value = String(value)[arg0](</tspan>
+
+<tspan x="10" y="10746">+                    val = String(val)[fmt](</tspan>
+
+<tspan x="10" y="10762">                         list[skip - 1],</tspan>
+
+<tspan x="10" y="10778">-                        list[skip]</tspan>
+
+<tspan x="10" y="10794">+                        list[skip].replace("\"\"", "").replace("\"_\"", " ")</tspan>
+
+<tspan x="10" y="10810">                     );</tspan>
+
+<tspan x="10" y="10826">                     break;</tspan>
+
+<tspan x="10" y="10842">                 case "truncate":</tspan>
+
+<tspan x="10" y="10858">                     skip = ii + 1;</tspan>
+
+<tspan x="10" y="10874">-                    if (value.length &gt; list[skip]) {</tspan>
+
+<tspan x="10" y="10890">-                        value = value.slice(</tspan>
+
+<tspan x="10" y="10906">+                    if (val.length &gt; list[skip]) {</tspan>
+
+<tspan x="10" y="10922">+                        val = val.slice(</tspan>
+
+<tspan x="10" y="10938">                             0,</tspan>
+
+<tspan x="10" y="10954">                             Math.max(list[skip] - 3, 0)</tspan>
+
+<tspan x="10" y="10970">-                        ).trimRight() + "...";</tspan>
+
+<tspan x="10" y="10986">+                        ).trimEnd() + "...";</tspan>
+
+<tspan x="10" y="11002">                     }</tspan>
+
+<tspan x="10" y="11018">                     break;</tspan>
+
+<tspan x="10" y="11034">-                // default to String.prototype[arg0]()</tspan>
+
+<tspan x="10" y="11050">+                // default to String.prototype[fmt]()</tspan>
+
+<tspan x="10" y="11066">                 default:</tspan>
+
+<tspan x="10" y="11082">                     if (ii &lt;= skip) {</tspan>
+
+<tspan x="10" y="11098">                         break;</tspan>
+
+<tspan x="10" y="11114">                     }</tspan>
+
+<tspan x="10" y="11130">-                    value = value[arg0]();</tspan>
+
+<tspan x="10" y="11146">+                    val = val[fmt]();</tspan>
+
+<tspan x="10" y="11162">                 }</tspan>
+
+<tspan x="10" y="11178">             });</tspan>
+
+<tspan x="10" y="11194">-            value = String(value);</tspan>
+
+<tspan x="10" y="11210">+            val = String(val);</tspan>
+
+<tspan x="10" y="11226">             // default to htmlSafe</tspan>
+
+<tspan x="10" y="11242">             if (!notHtmlSafe) {</tspan>
+
+<tspan x="10" y="11258">-                value = value</tspan>
+
+<tspan x="10" y="11274">-                .replace((</tspan>
+
+<tspan x="10" y="11290">-                    /&amp;/g</tspan>
+
+<tspan x="10" y="11306">-                ), "&amp;amp;")</tspan>
+
+<tspan x="10" y="11322">-                .replace((</tspan>
+
+<tspan x="10" y="11338">-                    /"/g</tspan>
+
+<tspan x="10" y="11354">-                ), "&amp;quot;")</tspan>
+
+<tspan x="10" y="11370">-                .replace((</tspan>
+
+<tspan x="10" y="11386">-                    /'/g</tspan>
+
+<tspan x="10" y="11402">-                ), "&amp;apos;")</tspan>
+
+<tspan x="10" y="11418">-                .replace((</tspan>
+
+<tspan x="10" y="11434">-                    /&lt;/g</tspan>
+
+<tspan x="10" y="11450">-                ), "&amp;lt;")</tspan>
+
+<tspan x="10" y="11466">-                .replace((</tspan>
+
+<tspan x="10" y="11482">-                    /&gt;/g</tspan>
+
+<tspan x="10" y="11498">-                ), "&amp;gt;")</tspan>
+
+<tspan x="10" y="11514">-                .replace((</tspan>
+
+<tspan x="10" y="11530">-                    /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
+
+<tspan x="10" y="11546">+                val = val.replace((</tspan>
+
+<tspan x="10" y="11562">+                    /&amp;/gu</tspan>
+
+<tspan x="10" y="11578">+                ), "&amp;amp;").replace((</tspan>
+
+<tspan x="10" y="11594">+                    /"/gu</tspan>
+
+<tspan x="10" y="11610">+                ), "&amp;quot;").replace((</tspan>
+
+<tspan x="10" y="11626">+                    /'/gu</tspan>
+
+<tspan x="10" y="11642">+                ), "&amp;apos;").replace((</tspan>
+
+<tspan x="10" y="11658">+                    /&lt;/gu</tspan>
+
+<tspan x="10" y="11674">+                ), "&amp;lt;").replace((</tspan>
+
+<tspan x="10" y="11690">+                    /&gt;/gu</tspan>
+
+<tspan x="10" y="11706">+                ), "&amp;gt;").replace((</tspan>
+
+<tspan x="10" y="11722">+                    /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/igu</tspan>
+
+<tspan x="10" y="11738">                 ), "&amp;$1");</tspan>
+
+<tspan x="10" y="11754">             }</tspan>
+
+<tspan x="10" y="11770">             markdownToHtml = (</tspan>
+
+<tspan x="10" y="11786">@@ -740,19 +824,17 @@</tspan>
+
+<tspan x="10" y="11802">                 &amp;&amp; (typeof local.marked === "function" &amp;&amp; local.marked)</tspan>
+
+<tspan x="10" y="11818">             );</tspan>
+
+<tspan x="10" y="11834">             if (markdownToHtml) {</tspan>
+
+<tspan x="10" y="11850">-                value = markdownToHtml(value)</tspan>
+
+<tspan x="10" y="11866">-                .replace((</tspan>
+
+<tspan x="10" y="11882">-                    /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/ig</tspan>
+
+<tspan x="10" y="11898">+                val = markdownToHtml(val).replace((</tspan>
+
+<tspan x="10" y="11914">+                    /&amp;amp;(amp;|apos;|gt;|lt;|quot;)/igu</tspan>
+
+<tspan x="10" y="11930">                 ), "&amp;$1");</tspan>
+
+<tspan x="10" y="11946">             }</tspan>
+
+<tspan x="10" y="11962">-            return value;</tspan>
+
+<tspan x="10" y="11978">+            return val;</tspan>
+
+<tspan x="10" y="11994">         } catch (errCaught) {</tspan>
+
+<tspan x="10" y="12010">             errCaught.message = (</tspan>
+
+<tspan x="10" y="12026">                 "templateRender could not render expression "</tspan>
+
+<tspan x="10" y="12042">-                + JSON.stringify(match0)</tspan>
+
+<tspan x="10" y="12058">-                + "\n"</tspan>
+
+<tspan x="10" y="12074">+                + JSON.stringify(match0) + "\n"</tspan>
+
+<tspan x="10" y="12090">             ) + errCaught.message;</tspan>
+
+<tspan x="10" y="12106">-            local.assertThrow(null, errCaught);</tspan>
+
+<tspan x="10" y="12122">+            local.assertOrThrow(undefined, errCaught);</tspan>
+
+<tspan x="10" y="12138">         }</tspan>
+
+<tspan x="10" y="12154">     });</tspan>
+
+<tspan x="10" y="12170"> };</tspan>
+
+<tspan x="10" y="12186">@@ -762,9 +844,9 @@</tspan>
+
+<tspan x="10" y="12202">  * this function will run the fnc in a tryCatch block,</tspan>
+
+<tspan x="10" y="12218">  * else call onError with errCaught</tspan>
+
+<tspan x="10" y="12234">  */</tspan>
+
+<tspan x="10" y="12250">-    var result;</tspan>
+
+<tspan x="10" y="12266">+    let result;</tspan>
+
+<tspan x="10" y="12282">     // validate onError</tspan>
+
+<tspan x="10" y="12298">-    local.assertThrow(typeof onError === "function", typeof onError);</tspan>
+
+<tspan x="10" y="12314">+    local.assertOrThrow(typeof onError === "function", typeof onError);</tspan>
+
+<tspan x="10" y="12330">     try {</tspan>
+
+<tspan x="10" y="12346">         // reset errCaught</tspan>
+
+<tspan x="10" y="12362">         local._debugTryCatchError = null;</tspan>
+
+<tspan x="10" y="12378">@@ -787,18 +869,18 @@</tspan>
+
+<tspan x="10" y="12394"> /*</tspan>
+
+<tspan x="10" y="12410">  * this function will create the apidoc from &lt;opt&gt;.dir</tspan>
+
+<tspan x="10" y="12426">  */</tspan>
+
+<tspan x="10" y="12442">-    var elemCreate;</tspan>
+
+<tspan x="10" y="12458">-    var module;</tspan>
+
+<tspan x="10" y="12474">-    var moduleMain;</tspan>
+
+<tspan x="10" y="12490">-    var readExample;</tspan>
+
+<tspan x="10" y="12506">-    var tmp;</tspan>
+
+<tspan x="10" y="12522">-    var toString;</tspan>
+
+<tspan x="10" y="12538">-    var trimLeft;</tspan>
+
+<tspan x="10" y="12554">+    let elemCreate;</tspan>
+
+<tspan x="10" y="12570">+    let module;</tspan>
+
+<tspan x="10" y="12586">+    let moduleMain;</tspan>
+
+<tspan x="10" y="12602">+    let readExample;</tspan>
+
+<tspan x="10" y="12618">+    let tmp;</tspan>
+
+<tspan x="10" y="12634">+    let toString;</tspan>
+
+<tspan x="10" y="12650">+    let trimStart;</tspan>
+
+<tspan x="10" y="12666">     elemCreate = function (module, prefix, key) {</tspan>
+
+<tspan x="10" y="12682">     /*</tspan>
+
+<tspan x="10" y="12698">      * this function will create the apidoc-elem in given &lt;module&gt;</tspan>
+
+<tspan x="10" y="12714">      */</tspan>
+
+<tspan x="10" y="12730">-        var elem;</tspan>
+
+<tspan x="10" y="12746">+        let elem;</tspan>
+
+<tspan x="10" y="12762">         if (opt.modeNoApidoc) {</tspan>
+
+<tspan x="10" y="12778">             return elem;</tspan>
+
+<tspan x="10" y="12794">         }</tspan>
+
+<tspan x="10" y="12810">@@ -814,34 +896,30 @@</tspan>
+
+<tspan x="10" y="12826">         elem.name = (</tspan>
+
+<tspan x="10" y="12842">             elem.typeof + " &lt;span class=\"apidocSignatureSpan\"&gt;"</tspan>
+
+<tspan x="10" y="12858">             + elem.moduleName + ".&lt;/span&gt;" + key</tspan>
+
+<tspan x="10" y="12874">-        )</tspan>
+
+<tspan x="10" y="12890">-            // handle case where module is a function</tspan>
+
+<tspan x="10" y="12906">-            .replace("&gt;.&lt;", "&gt;&lt;");</tspan>
+
+<tspan x="10" y="12922">+        );</tspan>
+
+<tspan x="10" y="12938">+        // handle case where module is a function</tspan>
+
+<tspan x="10" y="12954">+        elem.name = elem.name.replace("&gt;.&lt;", "&gt;&lt;");</tspan>
+
+<tspan x="10" y="12970">         if (elem.typeof !== "function") {</tspan>
+
+<tspan x="10" y="12986">             return elem;</tspan>
+
+<tspan x="10" y="13002">         }</tspan>
+
+<tspan x="10" y="13018">         // init source</tspan>
+
+<tspan x="10" y="13034">         elem.source = local.stringHtmlSafe(</tspan>
+
+<tspan x="10" y="13050">-            trimLeft(toString(module[key])) || "n/a"</tspan>
+
+<tspan x="10" y="13066">+            trimStart(toString(module[key])) || "n/a"</tspan>
+
+<tspan x="10" y="13082">         ).replace((</tspan>
+
+<tspan x="10" y="13098">             /\([\S\s]*?\)/</tspan>
+
+<tspan x="10" y="13114">         ), function (match0) {</tspan>
+
+<tspan x="10" y="13130">             // init signature</tspan>
+
+<tspan x="10" y="13146">             elem.signature = match0.replace((</tspan>
+
+<tspan x="10" y="13162">                 / *?\/\*[\S\s]*?\*\/ */g</tspan>
+
+<tspan x="10" y="13178">-            ), "")</tspan>
+
+<tspan x="10" y="13194">-            .replace((</tspan>
+
+<tspan x="10" y="13210">+            ), "").replace((</tspan>
+
+<tspan x="10" y="13226">                 /,/g</tspan>
+
+<tspan x="10" y="13242">-            ), ", ")</tspan>
+
+<tspan x="10" y="13258">-            .replace((</tspan>
+
+<tspan x="10" y="13274">+            ), ", ").replace((</tspan>
+
+<tspan x="10" y="13290">                 /\s+/g</tspan>
+
+<tspan x="10" y="13306">             ), " ");</tspan>
+
+<tspan x="10" y="13322">             return elem.signature;</tspan>
+
+<tspan x="10" y="13338">-        })</tspan>
+
+<tspan x="10" y="13354">-        .replace((</tspan>
+
+<tspan x="10" y="13370">+        }).replace((</tspan>
+
+<tspan x="10" y="13386">             /( *?\/\*[\S\s]*?\*\/\n)/</tspan>
+
+<tspan x="10" y="13402">-        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;")</tspan>
+
+<tspan x="10" y="13418">-        .replace((</tspan>
+
+<tspan x="10" y="13434">+        ), "&lt;span class=\"apidocCodeCommentSpan\"&gt;$1&lt;/span&gt;").replace((</tspan>
+
+<tspan x="10" y="13450">             /^function \(/</tspan>
+
+<tspan x="10" y="13466">         ), key + " = function (");</tspan>
+
+<tspan x="10" y="13482">         // init example</tspan>
+
+<tspan x="10" y="13498">@@ -849,13 +927,14 @@</tspan>
+
+<tspan x="10" y="13514">             example.replace(</tspan>
+
+<tspan x="10" y="13530">                 new RegExp("((?:\n.*?){8}\\.)(" + key + ")(\\((?:.*?\n){8})"),</tspan>
+
+<tspan x="10" y="13546">                 function (ignore, match1, match2, match3) {</tspan>
+
+<tspan x="10" y="13562">-                    elem.example = "..." + trimLeft(</tspan>
+
+<tspan x="10" y="13578">+                    elem.example = "..." + trimStart(</tspan>
+
+<tspan x="10" y="13594">                         local.stringHtmlSafe(match1)</tspan>
+
+<tspan x="10" y="13610">                         + "&lt;span class=\"apidocCodeKeywordSpan\"&gt;"</tspan>
+
+<tspan x="10" y="13626">                         + local.stringHtmlSafe(match2)</tspan>
+
+<tspan x="10" y="13642">                         + "&lt;/span&gt;"</tspan>
+
+<tspan x="10" y="13658">                         + local.stringHtmlSafe(match3)</tspan>
+
+<tspan x="10" y="13674">-                    ).trimRight() + "\n...";</tspan>
+
+<tspan x="10" y="13690">+                    ).trimEnd() + "\n...";</tspan>
+
+<tspan x="10" y="13706">+                    return "";</tspan>
+
+<tspan x="10" y="13722">                 }</tspan>
+
+<tspan x="10" y="13738">             );</tspan>
+
+<tspan x="10" y="13754">             return elem.example;</tspan>
+
+<tspan x="10" y="13770">@@ -867,12 +946,12 @@</tspan>
+
+<tspan x="10" y="13786">     /*</tspan>
+
+<tspan x="10" y="13802">      * this function will read the example from given file</tspan>
+
+<tspan x="10" y="13818">      */</tspan>
+
+<tspan x="10" y="13834">-        var result;</tspan>
+
+<tspan x="10" y="13850">+        let result;</tspan>
+
+<tspan x="10" y="13866">         local.tryCatchOnError(function () {</tspan>
+
+<tspan x="10" y="13882">             file = local.path.resolve(opt.dir, file);</tspan>
+
+<tspan x="10" y="13898">             console.error("apidocCreate - readExample " + file);</tspan>
+
+<tspan x="10" y="13914">             result = "";</tspan>
+
+<tspan x="10" y="13930">-            result = (</tspan>
+
+<tspan x="10" y="13946">+            result = local.identity(</tspan>
+
+<tspan x="10" y="13962">                 "\n\n\n\n\n\n\n\n"</tspan>
+
+<tspan x="10" y="13978">                 // bug-workaround - truncate example to manageable size</tspan>
+
+<tspan x="10" y="13994">                 + local.fs.readFileSync(file, "utf8").slice(0, 262144)</tspan>
+
+<tspan x="10" y="14010">@@ -887,36 +966,37 @@</tspan>
+
+<tspan x="10" y="14026">     /*</tspan>
+
+<tspan x="10" y="14042">      * this function will try to return the string form of the value</tspan>
+
+<tspan x="10" y="14058">      */</tspan>
+
+<tspan x="10" y="14074">-        var result;</tspan>
+
+<tspan x="10" y="14090">+        let result;</tspan>
+
+<tspan x="10" y="14106">         local.tryCatchOnError(function () {</tspan>
+
+<tspan x="10" y="14122">             result = "";</tspan>
+
+<tspan x="10" y="14138">             result = String(value);</tspan>
+
+<tspan x="10" y="14154">         }, console.error);</tspan>
+
+<tspan x="10" y="14170">         return result;</tspan>
+
+<tspan x="10" y="14186">     };</tspan>
+
+<tspan x="10" y="14202">-    trimLeft = function (text) {</tspan>
+
+<tspan x="10" y="14218">+    trimStart = function (str) {</tspan>
+
+<tspan x="10" y="14234">     /*</tspan>
+
+<tspan x="10" y="14250">-     * this function will normalize the whitespace around the text</tspan>
+
+<tspan x="10" y="14266">+     * this function will normalize whitespace before &lt;str&gt;</tspan>
+
+<tspan x="10" y="14282">      */</tspan>
+
+<tspan x="10" y="14298">-        var whitespace;</tspan>
+
+<tspan x="10" y="14314">+        let whitespace;</tspan>
+
+<tspan x="10" y="14330">         whitespace = "";</tspan>
+
+<tspan x="10" y="14346">-        text.trim().replace((</tspan>
+
+<tspan x="10" y="14362">+        str.trim().replace((</tspan>
+
+<tspan x="10" y="14378">             /^ */gm</tspan>
+
+<tspan x="10" y="14394">         ), function (match0) {</tspan>
+
+<tspan x="10" y="14410">             if (!whitespace || match0.length &lt; whitespace.length) {</tspan>
+
+<tspan x="10" y="14426">                 whitespace = match0;</tspan>
+
+<tspan x="10" y="14442">             }</tspan>
+
+<tspan x="10" y="14458">+            return "";</tspan>
+
+<tspan x="10" y="14474">         });</tspan>
+
+<tspan x="10" y="14490">-        text = text.replace(new RegExp("^" + whitespace, "gm"), "");</tspan>
+
+<tspan x="10" y="14506">+        str = str.replace(new RegExp("^" + whitespace, "gm"), "");</tspan>
+
+<tspan x="10" y="14522">         // enforce 128 character column limit</tspan>
+
+<tspan x="10" y="14538">-        text = text.replace((</tspan>
+
+<tspan x="10" y="14554">+        str = str.replace((</tspan>
+
+<tspan x="10" y="14570">             /^.{128}[^\\\n]+/gm</tspan>
+
+<tspan x="10" y="14586">         ), function (match0) {</tspan>
+
+<tspan x="10" y="14602">             return match0.replace((</tspan>
+
+<tspan x="10" y="14618">                 /(.{128}(?:\b|\w+))/g</tspan>
+
+<tspan x="10" y="14634">-            ), "$1\n").trimRight();</tspan>
+
+<tspan x="10" y="14650">+            ), "$1\n").trimEnd();</tspan>
+
+<tspan x="10" y="14666">         });</tspan>
+
+<tspan x="10" y="14682">-        return text;</tspan>
+
+<tspan x="10" y="14698">+        return str;</tspan>
+
+<tspan x="10" y="14714">     };</tspan>
+
+<tspan x="10" y="14730">     // init opt</tspan>
+
+<tspan x="10" y="14746">     opt.dir = local.moduleDirname(</tspan>
+
+<tspan x="10" y="14762">@@ -1001,8 +1081,7 @@</tspan>
+
+<tspan x="10" y="14778"> " '</tspan>
+
+<tspan x="10" y="14794"> /* jslint ignore:end */</tspan>
+
+<tspan x="10" y="14810">                 + " | sort | head -n 256"</tspan>
+
+<tspan x="10" y="14826">-            ).toString()</tspan>
+
+<tspan x="10" y="14842">-            .split("\n")</tspan>
+
+<tspan x="10" y="14858">+            ).toString().split("\n")</tspan>
+
+<tspan x="10" y="14874">         );</tspan>
+
+<tspan x="10" y="14890">     });</tspan>
+
+<tspan x="10" y="14906">     opt.exampleList = opt.exampleList.filter(function (file) {</tspan>
+
+<tspan x="10" y="14922">@@ -1030,18 +1109,18 @@</tspan>
+
+<tspan x="10" y="14938">     // handle case where module is a function</tspan>
+
+<tspan x="10" y="14954">     if (typeof moduleMain === "function") {</tspan>
+
+<tspan x="10" y="14970">         (function () {</tspan>
+
+<tspan x="10" y="14986">-            var text;</tspan>
+
+<tspan x="10" y="15002">-            text = toString(moduleMain);</tspan>
+
+<tspan x="10" y="15018">+            let str;</tspan>
+
+<tspan x="10" y="15034">+            str = toString(moduleMain);</tspan>
+
+<tspan x="10" y="15050">             tmp = function () {</tspan>
+
+<tspan x="10" y="15066">                 return;</tspan>
+
+<tspan x="10" y="15082">             };</tspan>
+
+<tspan x="10" y="15098">-            // coverage-hack</tspan>
+
+<tspan x="10" y="15114">+            // hack-coverage</tspan>
+
+<tspan x="10" y="15130">             tmp();</tspan>
+
+<tspan x="10" y="15146">             Object.defineProperties(tmp, {</tspan>
+
+<tspan x="10" y="15162">                 toString: {</tspan>
+
+<tspan x="10" y="15178">                     get: function () {</tspan>
+
+<tspan x="10" y="15194">                         return function () {</tspan>
+
+<tspan x="10" y="15210">-                            return text;</tspan>
+
+<tspan x="10" y="15226">+                            return str;</tspan>
+
+<tspan x="10" y="15242">                         };</tspan>
+
+<tspan x="10" y="15258">                     }</tspan>
+
+<tspan x="10" y="15274">                 }</tspan>
+
+<tspan x="10" y="15290">@@ -1147,29 +1226,25 @@</tspan>
+
+<tspan x="10" y="15306"> " '</tspan>
+
+<tspan x="10" y="15322"> /* jslint ignore:end */</tspan>
+
+<tspan x="10" y="15338">                 + " | sort | head -n 256"</tspan>
+
+<tspan x="10" y="15354">-            ).toString()</tspan>
+
+<tspan x="10" y="15370">-            .split("\n")</tspan>
+
+<tspan x="10" y="15386">+            ).toString().split("\n")</tspan>
+
+<tspan x="10" y="15402">         );</tspan>
+
+<tspan x="10" y="15418">     });</tspan>
+
+<tspan x="10" y="15434">     opt.ii = 256;</tspan>
+
+<tspan x="10" y="15450">     opt.libFileList.every(function (file) {</tspan>
+
+<tspan x="10" y="15466">         local.tryCatchOnError(function () {</tspan>
+
+<tspan x="10" y="15482">             tmp = {};</tspan>
+
+<tspan x="10" y="15498">-            tmp.name = local.path.basename(file)</tspan>
+
+<tspan x="10" y="15514">-            .replace("lib.", "")</tspan>
+
+<tspan x="10" y="15530">-            .replace((</tspan>
+
+<tspan x="10" y="15546">+            tmp.name = local.path.basename(file).replace("lib.", "").replace((</tspan>
+
+<tspan x="10" y="15562">                 /\.[^.]*?$/</tspan>
+
+<tspan x="10" y="15578">-            ), "")</tspan>
+
+<tspan x="10" y="15594">-            .replace((</tspan>
+
+<tspan x="10" y="15610">+            ), "").replace((</tspan>
+
+<tspan x="10" y="15626">                 /\W/g</tspan>
+
+<tspan x="10" y="15642">             ), "_");</tspan>
+
+<tspan x="10" y="15658">-            ([</tspan>
+
+<tspan x="10" y="15674">+            Array.from([</tspan>
+
+<tspan x="10" y="15690">                 tmp.name,</tspan>
+
+<tspan x="10" y="15706">                 tmp.name.slice(0, 1).toUpperCase() + tmp.name.slice(1)</tspan>
+
+<tspan x="10" y="15722">             ]).some(function (name) {</tspan>
+
+<tspan x="10" y="15738">                 tmp.isFiltered = name &amp;&amp; (</tspan>
+
+<tspan x="10" y="15754">                     !opt.packageJson.main</tspan>
+
+<tspan x="10" y="15770">-                    || ("./" + file).indexOf(opt.packageJson.main) &lt; 0</tspan>
+
+<tspan x="10" y="15786">+                    || String("./" + file).indexOf(opt.packageJson.main) &lt; 0</tspan>
+
+<tspan x="10" y="15802">                 ) &amp;&amp; !module[name];</tspan>
+
+<tspan x="10" y="15818">                 return !tmp.isFiltered;</tspan>
+
+<tspan x="10" y="15834">             });</tspan>
+
+<tspan x="10" y="15850">@@ -1196,9 +1271,7 @@</tspan>
+
+<tspan x="10" y="15866">         moduleMain[tmp] = moduleMain[tmp] || opt.moduleDict[key];</tspan>
+
+<tspan x="10" y="15882">     });</tspan>
+
+<tspan x="10" y="15898">     // init moduleList</tspan>
+
+<tspan x="10" y="15914">-    opt.moduleList = Object.keys(opt.moduleDict)</tspan>
+
+<tspan x="10" y="15930">-    .sort()</tspan>
+
+<tspan x="10" y="15946">-    .map(function (prefix) {</tspan>
+
+<tspan x="10" y="15962">+    opt.moduleList = Object.keys(opt.moduleDict).sort().map(function (prefix) {</tspan>
+
+<tspan x="10" y="15978">         module = opt.moduleDict[prefix];</tspan>
+
+<tspan x="10" y="15994">         // handle case where module is a function</tspan>
+
+<tspan x="10" y="16010">         if (typeof module === "function") {</tspan>
+
+<tspan x="10" y="16026">@@ -1239,9 +1312,7 @@</tspan>
+
+<tspan x="10" y="16042">     // render apidoc</tspan>
+
+<tspan x="10" y="16058">     opt.result = local.templateRender(opt.template, opt, {</tspan>
+
+<tspan x="10" y="16074">         notHtmlSafe: true</tspan>
+
+<tspan x="10" y="16090">-    })</tspan>
+
+<tspan x="10" y="16106">-    .trim()</tspan>
+
+<tspan x="10" y="16122">-    .replace((</tspan>
+
+<tspan x="10" y="16138">+    }).trim().replace((</tspan>
+
+<tspan x="10" y="16154">         / +$/gm</tspan>
+
+<tspan x="10" y="16170">     ), "") + "\n";</tspan>
+
+<tspan x="10" y="16186">     return opt.result;</tspan>
+
+<tspan x="10" y="16202">@@ -1251,9 +1322,9 @@</tspan>
+
+<tspan x="10" y="16218"> /*</tspan>
+
+<tspan x="10" y="16234">  * this function will add the modules in &lt;moduleDict&gt; to &lt;opt&gt;.moduleDict</tspan>
+
+<tspan x="10" y="16250">  */</tspan>
+
+<tspan x="10" y="16266">-    var isModule;</tspan>
+
+<tspan x="10" y="16282">-    var objectKeys;</tspan>
+
+<tspan x="10" y="16298">-    var tmp;</tspan>
+
+<tspan x="10" y="16314">+    let isModule;</tspan>
+
+<tspan x="10" y="16330">+    let objectKeys;</tspan>
+
+<tspan x="10" y="16346">+    let tmp;</tspan>
+
+<tspan x="10" y="16362">     objectKeys = function (dict) {</tspan>
+
+<tspan x="10" y="16378">     /*</tspan>
+
+<tspan x="10" y="16394">      * this function will return a list of the dict's keys, with valid getters</tspan>
+
+<tspan x="10" y="16410">@@ -1302,7 +1373,7 @@</tspan>
+
+<tspan x="10" y="16426">                 ) {</tspan>
+
+<tspan x="10" y="16442">                     return;</tspan>
+
+<tspan x="10" y="16458">                 }</tspan>
+
+<tspan x="10" y="16474">-                isModule = ([</tspan>
+
+<tspan x="10" y="16490">+                isModule = Array.from([</tspan>
+
+<tspan x="10" y="16506">                     tmp.module,</tspan>
+
+<tspan x="10" y="16522">                     tmp.module.prototype</tspan>
+
+<tspan x="10" y="16538">                 ]).some(function (dict) {</tspan>
+
+<tspan x="10" y="16554">@@ -1351,7 +1422,4 @@</tspan>
+
+<tspan x="10" y="16570">     local.cliRun();</tspan>
+
+<tspan x="10" y="16586"> }</tspan>
+
+<tspan x="10" y="16602"> }());</tspan>
+
+<tspan x="10" y="16618">-</tspan>
+
+<tspan x="10" y="16634">-</tspan>
+
+<tspan x="10" y="16650">-</tspan>
+
+<tspan x="10" y="16666"> }());</tspan>
+
+<tspan x="10" y="16682">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apid\</tspan>
+<tspan x="10" y="16698">oc.js</tspan>
+
+<tspan x="10" y="16714">jslint - 291ms /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+
+<tspan x="10" y="16730">jslint - 9ms /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+
+<tspan x="10" y="16746">--- /tmp/npmTestPublished/node_modules/apidoc-lite/package.json.autofix.old	2020-03-17 06:38:08.\</tspan>
+<tspan x="10" y="16762">939904695 +0000</tspan>
+
+<tspan x="10" y="16778">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/package.json	2020-03-17 06:38:08.931904695 +0\</tspan>
+<tspan x="10" y="16794">000</tspan>
+
+<tspan x="10" y="16810">@@ -1,77 +1,77 @@</tspan>
+
+<tspan x="10" y="16826"> {</tspan>
+
+<tspan x="10" y="16842">-  "_from": "apidoc-lite",</tspan>
+
+<tspan x="10" y="16858">-  "_id": "apidoc-lite@2019.8.16",</tspan>
+
+<tspan x="10" y="16874">-  "_inBundle": false,</tspan>
+
+<tspan x="10" y="16890">-  "_integrity": "sha512-I15pmJC7jTc7q7OHz0USqc1GwVKq6SPP86cp8j8e9/fYhcmnv9bbxZKbxuVTnIoRicE51XJ\</tspan>
+<tspan x="10" y="16906">uVFLKiveJfpbdiA==",</tspan>
+
+<tspan x="10" y="16922">-  "_location": "/apidoc-lite",</tspan>
+
+<tspan x="10" y="16938">-  "_phantomChildren": {},</tspan>
+
+<tspan x="10" y="16954">-  "_requested": {</tspan>
+
+<tspan x="10" y="16970">-    "type": "tag",</tspan>
+
+<tspan x="10" y="16986">-    "registry": true,</tspan>
+
+<tspan x="10" y="17002">-    "raw": "apidoc-lite",</tspan>
+
+<tspan x="10" y="17018">+    "_from": "apidoc-lite",</tspan>
+
+<tspan x="10" y="17034">+    "_id": "apidoc-lite@2019.8.16",</tspan>
+
+<tspan x="10" y="17050">+    "_inBundle": false,</tspan>
+
+<tspan x="10" y="17066">+    "_integrity": "sha512-I15pmJC7jTc7q7OHz0USqc1GwVKq6SPP86cp8j8e9/fYhcmnv9bbxZKbxuVTnIoRicE51\</tspan>
+<tspan x="10" y="17082">XJuVFLKiveJfpbdiA==",</tspan>
+
+<tspan x="10" y="17098">+    "_location": "/apidoc-lite",</tspan>
+
+<tspan x="10" y="17114">+    "_phantomChildren": {},</tspan>
+
+<tspan x="10" y="17130">+    "_requested": {</tspan>
+
+<tspan x="10" y="17146">+        "escapedName": "apidoc-lite",</tspan>
+
+<tspan x="10" y="17162">+        "fetchSpec": "latest",</tspan>
+
+<tspan x="10" y="17178">+        "name": "apidoc-lite",</tspan>
+
+<tspan x="10" y="17194">+        "raw": "apidoc-lite",</tspan>
+
+<tspan x="10" y="17210">+        "rawSpec": "",</tspan>
+
+<tspan x="10" y="17226">+        "registry": true,</tspan>
+
+<tspan x="10" y="17242">+        "saveSpec": null,</tspan>
+
+<tspan x="10" y="17258">+        "type": "tag"</tspan>
+
+<tspan x="10" y="17274">+    },</tspan>
+
+<tspan x="10" y="17290">+    "_requiredBy_": [</tspan>
+
+<tspan x="10" y="17306">+        "#USER",</tspan>
+
+<tspan x="10" y="17322">+        "/"</tspan>
+
+<tspan x="10" y="17338">+    ],</tspan>
+
+<tspan x="10" y="17354">+    "_resolved": "https://registry.npmjs.org/apidoc-lite/-/apidoc-lite-2019.8.16.tgz",</tspan>
+
+<tspan x="10" y="17370">+    "_shasum": "3b4317645228d2dc4c29f939410e845f473ba021",</tspan>
+
+<tspan x="10" y="17386">+    "_spec": "apidoc-lite",</tspan>
+
+<tspan x="10" y="17402">+    "_where": "/tmp/npmTestPublished",</tspan>
+
+<tspan x="10" y="17418">+    "author": {</tspan>
+
+<tspan x="10" y="17434">+        "email": "kaizhu256@gmail.com",</tspan>
+
+<tspan x="10" y="17450">+        "name": "kai zhu"</tspan>
+
+<tspan x="10" y="17466">+    },</tspan>
+
+<tspan x="10" y="17482">+    "bin": {</tspan>
+
+<tspan x="10" y="17498">+        "apidoc-lite": "lib.apidoc.js"</tspan>
+
+<tspan x="10" y="17514">+    },</tspan>
+
+<tspan x="10" y="17530">+    "bugs": {</tspan>
+
+<tspan x="10" y="17546">+        "url": "https://github.com/kaizhu256/node-apidoc-lite/issues"</tspan>
+
+<tspan x="10" y="17562">+    },</tspan>
+
+<tspan x="10" y="17578">+    "bundleDependencies": false,</tspan>
+
+<tspan x="10" y="17594">+    "deprecated": false,</tspan>
+
+<tspan x="10" y="17610">+    "description": "this zero-dependency package will auto-generate documentation for your npm-\</tspan>
+<tspan x="10" y="17626">package with zero-config",</tspan>
+
+<tspan x="10" y="17642">+    "devDependencies": {</tspan>
+
+<tspan x="10" y="17658">+        "electron-lite": "github:kaizhu256/node-electron-lite#alpha",</tspan>
+
+<tspan x="10" y="17674">+        "utility2": "github:kaizhu256/node-utility2#alpha"</tspan>
+
+<tspan x="10" y="17690">+    },</tspan>
+
+<tspan x="10" y="17706">+    "engines": {</tspan>
+
+<tspan x="10" y="17722">+        "node": "&gt;=8.0"</tspan>
+
+<tspan x="10" y="17738">+    },</tspan>
+
+<tspan x="10" y="17754">+    "homepage": "https://github.com/kaizhu256/node-apidoc-lite",</tspan>
+
+<tspan x="10" y="17770">+    "keywords": [</tspan>
+
+<tspan x="10" y="17786">+        "apidoc",</tspan>
+
+<tspan x="10" y="17802">+        "documentation-generator",</tspan>
+
+<tspan x="10" y="17818">+        "doxygen"</tspan>
+
+<tspan x="10" y="17834">+    ],</tspan>
+
+<tspan x="10" y="17850">+    "license": "MIT",</tspan>
+
+<tspan x="10" y="17866">+    "main": "lib.apidoc.js",</tspan>
+
+<tspan x="10" y="17882">     "name": "apidoc-lite",</tspan>
+
+<tspan x="10" y="17898">-    "escapedName": "apidoc-lite",</tspan>
+
+<tspan x="10" y="17914">-    "rawSpec": "",</tspan>
+
+<tspan x="10" y="17930">-    "saveSpec": null,</tspan>
+
+<tspan x="10" y="17946">-    "fetchSpec": "latest"</tspan>
+
+<tspan x="10" y="17962">-  },</tspan>
+
+<tspan x="10" y="17978">-  "_requiredBy_": [</tspan>
+
+<tspan x="10" y="17994">-    "#USER",</tspan>
+
+<tspan x="10" y="18010">-    "/"</tspan>
+
+<tspan x="10" y="18026">-  ],</tspan>
+
+<tspan x="10" y="18042">-  "_resolved": "https://registry.npmjs.org/apidoc-lite/-/apidoc-lite-2019.8.16.tgz",</tspan>
+
+<tspan x="10" y="18058">-  "_shasum": "3b4317645228d2dc4c29f939410e845f473ba021",</tspan>
+
+<tspan x="10" y="18074">-  "_spec": "apidoc-lite",</tspan>
+
+<tspan x="10" y="18090">-  "_where": "/tmp/npmTestPublished",</tspan>
+
+<tspan x="10" y="18106">-  "author": {</tspan>
+
+<tspan x="10" y="18122">-    "name": "kai zhu",</tspan>
+
+<tspan x="10" y="18138">-    "email": "kaizhu256@gmail.com"</tspan>
+
+<tspan x="10" y="18154">-  },</tspan>
+
+<tspan x="10" y="18170">-  "bin": {</tspan>
+
+<tspan x="10" y="18186">-    "apidoc-lite": "lib.apidoc.js"</tspan>
+
+<tspan x="10" y="18202">-  },</tspan>
+
+<tspan x="10" y="18218">-  "bugs": {</tspan>
+
+<tspan x="10" y="18234">-    "url": "https://github.com/kaizhu256/node-apidoc-lite/issues"</tspan>
+
+<tspan x="10" y="18250">-  },</tspan>
+
+<tspan x="10" y="18266">-  "bundleDependencies": false,</tspan>
+
+<tspan x="10" y="18282">-  "deprecated": false,</tspan>
+
+<tspan x="10" y="18298">-  "description": "this zero-dependency package will auto-generate documentation for your npm-pa\</tspan>
+<tspan x="10" y="18314">ckage with zero-config",</tspan>
+
+<tspan x="10" y="18330">-  "devDependencies": {</tspan>
+
+<tspan x="10" y="18346">-    "electron-lite": "github:kaizhu256/node-electron-lite#alpha",</tspan>
+
+<tspan x="10" y="18362">-    "utility2": "github:kaizhu256/node-utility2#alpha"</tspan>
+
+<tspan x="10" y="18378">-  },</tspan>
+
+<tspan x="10" y="18394">-  "engines": {</tspan>
+
+<tspan x="10" y="18410">-    "node": "&gt;=8.0"</tspan>
+
+<tspan x="10" y="18426">-  },</tspan>
+
+<tspan x="10" y="18442">-  "homepage": "https://github.com/kaizhu256/node-apidoc-lite",</tspan>
+
+<tspan x="10" y="18458">-  "keywords": [</tspan>
+
+<tspan x="10" y="18474">-    "apidoc",</tspan>
+
+<tspan x="10" y="18490">-    "documentation-generator",</tspan>
+
+<tspan x="10" y="18506">-    "doxygen"</tspan>
+
+<tspan x="10" y="18522">-  ],</tspan>
+
+<tspan x="10" y="18538">-  "license": "MIT",</tspan>
+
+<tspan x="10" y="18554">-  "main": "lib.apidoc.js",</tspan>
+
+<tspan x="10" y="18570">-  "name": "apidoc-lite",</tspan>
+
+<tspan x="10" y="18586">-  "nameAliasPublish": "npmdoc",</tspan>
+
+<tspan x="10" y="18602">-  "nameLib": "apidoc",</tspan>
+
+<tspan x="10" y="18618">-  "nameOriginal": "apidoc-lite",</tspan>
+
+<tspan x="10" y="18634">-  "os": [</tspan>
+
+<tspan x="10" y="18650">-    "darwin",</tspan>
+
+<tspan x="10" y="18666">-    "linux"</tspan>
+
+<tspan x="10" y="18682">-  ],</tspan>
+
+<tspan x="10" y="18698">-  "repository": {</tspan>
+
+<tspan x="10" y="18714">-    "type": "git",</tspan>
+
+<tspan x="10" y="18730">-    "url": "git+https://github.com/kaizhu256/node-apidoc-lite.git"</tspan>
+
+<tspan x="10" y="18746">-  },</tspan>
+
+<tspan x="10" y="18762">-  "scripts": {</tspan>
+
+<tspan x="10" y="18778">-    "build-ci": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="18794">-    "env": "env",</tspan>
+
+<tspan x="10" y="18810">-    "eval": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="18826">-    "heroku-postbuild": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="18842">-    "postinstall": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="18858">-    "start": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="18874">-    "test": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="18890">-    "utility2": "./npm_scripts.sh"</tspan>
+
+<tspan x="10" y="18906">-  },</tspan>
+
+<tspan x="10" y="18922">-  "version": "2019.8.16"</tspan>
+
+<tspan x="10" y="18938">+    "nameAliasPublish": "npmdoc",</tspan>
+
+<tspan x="10" y="18954">+    "nameLib": "apidoc",</tspan>
+
+<tspan x="10" y="18970">+    "nameOriginal": "apidoc-lite",</tspan>
+
+<tspan x="10" y="18986">+    "os": [</tspan>
+
+<tspan x="10" y="19002">+        "darwin",</tspan>
+
+<tspan x="10" y="19018">+        "linux"</tspan>
+
+<tspan x="10" y="19034">+    ],</tspan>
+
+<tspan x="10" y="19050">+    "repository": {</tspan>
+
+<tspan x="10" y="19066">+        "type": "git",</tspan>
+
+<tspan x="10" y="19082">+        "url": "git+https://github.com/kaizhu256/node-apidoc-lite.git"</tspan>
+
+<tspan x="10" y="19098">+    },</tspan>
+
+<tspan x="10" y="19114">+    "scripts": {</tspan>
+
+<tspan x="10" y="19130">+        "build-ci": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="19146">+        "env": "env",</tspan>
+
+<tspan x="10" y="19162">+        "eval": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="19178">+        "heroku-postbuild": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="19194">+        "postinstall": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="19210">+        "start": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="19226">+        "test": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="19242">+        "utility2": "./npm_scripts.sh"</tspan>
+
+<tspan x="10" y="19258">+    },</tspan>
+
+<tspan x="10" y="19274">+    "version": "2019.8.16"</tspan>
+
+<tspan x="10" y="19290"> }</tspan>
+
+<tspan x="10" y="19306">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/package.\</tspan>
+<tspan x="10" y="19322">json</tspan>
+
+<tspan x="10" y="19338">jslint - 48ms /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+
+<tspan x="10" y="19354">--- /tmp/npmTestPublished/node_modules/apidoc-lite/test.js.autofix.old	2020-03-17 06:38:09.03990\</tspan>
+<tspan x="10" y="19370">4695 +0000</tspan>
+
+<tspan x="10" y="19386">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/test.js	2020-03-17 06:38:09.039904695 +0000</tspan>
+
+<tspan x="10" y="19402">@@ -245,7 +245,4 @@</tspan>
+
+<tspan x="10" y="19418">     onError(null, options);</tspan>
+
+<tspan x="10" y="19434"> };</tspan>
+
+<tspan x="10" y="19450"> }());</tspan>
+
+<tspan x="10" y="19466">-</tspan>
+
+<tspan x="10" y="19482">-</tspan>
+
+<tspan x="10" y="19498">-</tspan>
+
+<tspan x="10" y="19514"> }());</tspan>
+
+<tspan x="10" y="19530">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+
+<tspan x="10" y="19546">jslint /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+
+<tspan x="10" y="19562">  1 Unexpected '.'. // line 156, column 2</tspan>
+
+<tspan x="10" y="19578">    ).requireReadme();</tspan>
+
+<tspan x="10" y="19594">{</tspan>
+
+<tspan x="10" y="19610">    "name": "JSLintError",</tspan>
+
+<tspan x="10" y="19626">    "column": 2,</tspan>
+
+<tspan x="10" y="19642">    "line": 156,</tspan>
+
+<tspan x="10" y="19658">    "code": "unexpected_a",</tspan>
+
+<tspan x="10" y="19674">    "a": ".",</tspan>
+
+<tspan x="10" y="19690">    "b": null,</tspan>
+
+<tspan x="10" y="19706">    "message": "Unexpected '.'.",</tspan>
+
+<tspan x="10" y="19722">    "source": ").requireReadme();",</tspan>
+
+<tspan x="10" y="19738">    "ignore": null,</tspan>
+
+<tspan x="10" y="19754">    "evidence": ").requireReadme();"</tspan>
+
+<tspan x="10" y="19770">}</tspan>
+
+<tspan x="10" y="19786">Error</tspan>
+
+<tspan x="10" y="19802">    at warn_at_extra (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utility2/lib.j\</tspan>
+<tspan x="10" y="19818">slint.js:16546:42)</tspan>
+
+<tspan x="10" y="19834">    at warn_at (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utility2/lib.jslint.\</tspan>
+<tspan x="10" y="19850">js:11847:12)</tspan>
+
+<tspan x="10" y="19866">    at warn (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utility2/lib.jslint.js:\</tspan>
+<tspan x="10" y="19882">11869:29)</tspan>
+
+<tspan x="10" y="19898">    at left_check (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utility2/lib.jsli\</tspan>
+<tspan x="10" y="19914">nt.js:13529:9)</tspan>
+
+<tspan x="10" y="19930">    at /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utility2/lib.jslint.js:13894:\</tspan>
+<tspan x="10" y="19946">9</tspan>
+
+<tspan x="10" y="19962">    at Object.the_symbol.led (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utilit\</tspan>
+<tspan x="10" y="19978">y2/lib.jslint.js:13614:20)</tspan>
+
+<tspan x="10" y="19994">    at right (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utility2/lib.jslint.js\</tspan>
+<tspan x="10" y="20010">:13215:31)</tspan>
+
+<tspan x="10" y="20026">    at expression (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utility2/lib.jsli\</tspan>
+<tspan x="10" y="20042">nt.js:13218:6)</tspan>
+
+<tspan x="10" y="20058">    at Object.the_symbol.led (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utilit\</tspan>
+<tspan x="10" y="20074">y2/lib.jslint.js:13563:17)</tspan>
+
+<tspan x="10" y="20090">    at right (/tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/utility2/lib.jslint.js\</tspan>
+<tspan x="10" y="20106">:13215:31)</tspan>
+
+<tspan x="10" y="20122">jslint - 95ms /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+
+<tspan x="10" y="20138">testRunDefault - 1121 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
+
+<tspan x="10" y="20154">testRunDefault - 1123 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
+
+<tspan x="10" y="20170">testRunDefault - 1146 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
+
+<tspan x="10" y="20186">testRunDefault - 1153 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
+
+<tspan x="10" y="20202">testRunDefault - 1155 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
+
+<tspan x="10" y="20218">testRunDefault - 1156 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
+
+<tspan x="10" y="20234"></tspan>
+
+<tspan x="10" y="20250">DevTools listening on ws://127.0.0.1:46319/devtools/browser/a0228bec-0ea9-45e0-a98e-78feba9dafd3</tspan>
+
+<tspan x="10" y="20266">[0317/063810.502042:ERROR:command_buffer_proxy_impl.cc(125)] ContextResult::kTransientFailure: F\</tspan>
+<tspan x="10" y="20282">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
+
+<tspan x="10" y="20298">[0317/063810.508564:ERROR:command_buffer_proxy_impl.cc(125)] ContextResult::kTransientFailure: F\</tspan>
+<tspan x="10" y="20314">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
+
+<tspan x="10" y="20330">[0317/063810.508848:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
+<tspan x="10" y="20346">th unconsumed attachments: 0/1</tspan>
+
+<tspan x="10" y="20362">[0317/063810.512013:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
+<tspan x="10" y="20378">th unconsumed attachments: 0/1</tspan>
+
+<tspan x="10" y="20394">http-server listening on port 41759</tspan>
+
+<tspan x="10" y="20410">[0317/063810.855311:INFO:CONSOLE(274)] "Uncaught TypeError: local.querySelector is not a functio\</tspan>
+<tspan x="10" y="20426">n", source: http://127.0.0.1:40432/assets.example.js (274)</tspan>
+
+<tspan x="10" y="20442">[0317/063810.869282:INFO:CONSOLE(53916)] "testRunDefault - 5 ms - [browser test-case 1 of 2 pass\</tspan>
+<tspan x="10" y="20458">ed] - testCase_apidocCreate_default", source: http://127.0.0.1:40432/assets.utility2.rollup.js (\</tspan>
+<tspan x="10" y="20474">53916)</tspan>
+
+<tspan x="10" y="20490">[0317/063810.869956:INFO:CONSOLE(53916)] "testRunDefault - 6 ms - [browser test-case 2 of 2 pass\</tspan>
+<tspan x="10" y="20506">ed] - testCase_nop_default", source: http://127.0.0.1:40432/assets.utility2.rollup.js (53916)</tspan>
+
+<tspan x="10" y="20522">[0317/063810.961916:INFO:CONSOLE(126)] "domOnEventWindowOnloadTimeElapsed = 240", source: http:/\</tspan>
+<tspan x="10" y="20538">/127.0.0.1:40432/?modeTest=1&amp;timeoutDefault=30000&amp;modeTestCase= (126)</tspan>
+
+<tspan x="10" y="20554">testRunDefault - 2174 ms - [node test-case 7 of 8 passed] - testCase_webpage_default</tspan>
+
+<tspan x="10" y="20570">testRunDefault - 6027 ms - testCase pending - testCase_buildApp_default ...</tspan>
+
+<tspan x="10" y="20586">testRunDefault - 6555 ms - [node test-case 8 of 8 passed] - testCase_buildApp_default</tspan>
+
+<tspan x="10" y="20602">--------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="20618">File                |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+
+<tspan x="10" y="20634">--------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="20650">   apidoc-lite/     |     98.91 |     98.71 |     96.97 |     98.91 |</tspan>
+
+<tspan x="10" y="20666">      lib.apidoc.js |     98.68 |     98.55 |     96.47 |     98.68 |</tspan>
+
+<tspan x="10" y="20682">      test.js       |       100 |       100 |       100 |       100 |</tspan>
+
+<tspan x="10" y="20698">--------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="20714">All files           |     98.91 |     98.71 |     96.97 |     98.91 |</tspan>
+
+<tspan x="10" y="20730">--------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="20746"></tspan>
+
+<tspan x="10" y="20762">created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage.html/ind\</tspan>
+<tspan x="10" y="20778">ex.html</tspan>
+
+<tspan x="10" y="20794"></tspan>
+
+<tspan x="10" y="20810">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="20826">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
+<tspan x="10" y="20842">.36 (KHTML, like Gecko) HeadlessChrome/80.0.3987.132 Safari/537.36 - 2020-03-17T06:38:10.787Z</tspan>
+
+<tspan x="10" y="20858">|       7 ms            0 failed        2 passed      |</tspan>
+
+<tspan x="10" y="20874">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="20890">| test-report - npmTestPublished - node - linux v13.11.0 - 2020-03-17T06:38:08.337Z</tspan>
+
+<tspan x="10" y="20906">|    6556 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="20922">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="20938"></tspan>
+
+<tspan x="10" y="20954">created test-report file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.ht\</tspan>
+<tspan x="10" y="20970">ml</tspan>
+
+<tspan x="10" y="20986"></tspan>
+
+<tspan x="10" y="21002"></tspan>
+
+<tspan x="10" y="21018">npmTestPublished - 0 failed tests</tspan>
+
+<tspan x="10" y="21034"></tspan>
+
+<tspan x="10" y="21050"></tspan>
+
+<tspan x="10" y="21066">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-03-17T06:38:15.637Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
