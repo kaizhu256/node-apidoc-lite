@@ -270,7 +270,7 @@
             evt.preventDefault();
         }
     };
-    // init event-handling
+    // handle evt
     document.addEventListener(
         "keydown",
         window.domOnEventSelectAllWithinPre
@@ -279,7 +279,7 @@
 </script>
 <div class="header high">
     <h1 style="font-weight: bold;">
-        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2019.8.24)</a>
+        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2020.3.17)</a>
     </h1>
     <h1>Code coverage report for <span class="entity">node-apidoc-lite/test.js</span></h1>
     <table class="tableHeader">
@@ -293,11 +293,11 @@
     </tr>
     </thead>
     <tbody>
-        <td>statements: 22<br>branches: 23<br>functions: 7</td>
-        <td>100%<br>(96 / 96)</td>
-        <td>100%<br>(35 / 35)</td>
-        <td>100%<br>(14 / 14)</td>
-        <td>100%<br>(96 / 96)</td>
+        <td>statements: 41<br>branches: 42<br>functions: 12</td>
+        <td>100%<br>(123 / 123)</td>
+        <td>100%<br>(59 / 59)</td>
+        <td>100%<br>(18 / 18)</td>
+        <td>100%<br>(123 / 123)</td>
     </tbody>
     </table>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">node-apidoc-lite/</a> &#187; test.js</div>
@@ -553,18 +553,102 @@
 <a href="#L247" id="L247">247</a>
 <a href="#L248" id="L248">248</a>
 <a href="#L249" id="L249">249</a>
+<a href="#L250" id="L250">250</a>
+<a href="#L251" id="L251">251</a>
+<a href="#L252" id="L252">252</a>
+<a href="#L253" id="L253">253</a>
+<a href="#L254" id="L254">254</a>
+<a href="#L255" id="L255">255</a>
+<a href="#L256" id="L256">256</a>
+<a href="#L257" id="L257">257</a>
+<a href="#L258" id="L258">258</a>
+<a href="#L259" id="L259">259</a>
+<a href="#L260" id="L260">260</a>
+<a href="#L261" id="L261">261</a>
+<a href="#L262" id="L262">262</a>
+<a href="#L263" id="L263">263</a>
+<a href="#L264" id="L264">264</a>
+<a href="#L265" id="L265">265</a>
+<a href="#L266" id="L266">266</a>
+<a href="#L267" id="L267">267</a>
+<a href="#L268" id="L268">268</a>
+<a href="#L269" id="L269">269</a>
+<a href="#L270" id="L270">270</a>
+<a href="#L271" id="L271">271</a>
+<a href="#L272" id="L272">272</a>
+<a href="#L273" id="L273">273</a>
+<a href="#L274" id="L274">274</a>
+<a href="#L275" id="L275">275</a>
+<a href="#L276" id="L276">276</a>
+<a href="#L277" id="L277">277</a>
+<a href="#L278" id="L278">278</a>
+<a href="#L279" id="L279">279</a>
+<a href="#L280" id="L280">280</a>
+<a href="#L281" id="L281">281</a>
+<a href="#L282" id="L282">282</a>
+<a href="#L283" id="L283">283</a>
+<a href="#L284" id="L284">284</a>
+<a href="#L285" id="L285">285</a>
+<a href="#L286" id="L286">286</a>
+<a href="#L287" id="L287">287</a>
+<a href="#L288" id="L288">288</a>
+<a href="#L289" id="L289">289</a>
+<a href="#L290" id="L290">290</a>
+<a href="#L291" id="L291">291</a>
+<a href="#L292" id="L292">292</a>
+<a href="#L293" id="L293">293</a>
+<a href="#L294" id="L294">294</a>
+<a href="#L295" id="L295">295</a>
+<a href="#L296" id="L296">296</a>
+<a href="#L297" id="L297">297</a>
+<a href="#L298" id="L298">298</a>
+<a href="#L299" id="L299">299</a>
+<a href="#L300" id="L300">300</a>
+<a href="#L301" id="L301">301</a>
+<a href="#L302" id="L302">302</a>
+<a href="#L303" id="L303">303</a>
+<a href="#L304" id="L304">304</a>
+<a href="#L305" id="L305">305</a>
+<a href="#L306" id="L306">306</a>
+<a href="#L307" id="L307">307</a>
+<a href="#L308" id="L308">308</a>
+<a href="#L309" id="L309">309</a>
+<a href="#L310" id="L310">310</a>
+<a href="#L311" id="L311">311</a>
+<a href="#L312" id="L312">312</a>
+<a href="#L313" id="L313">313</a>
+<a href="#L314" id="L314">314</a>
+<a href="#L315" id="L315">315</a>
+<a href="#L316" id="L316">316</a>
+<a href="#L317" id="L317">317</a>
+<a href="#L318" id="L318">318</a>
+<a href="#L319" id="L319">319</a>
+<a href="#L320" id="L320">320</a>
+<a href="#L321" id="L321">321</a>
+<a href="#L322" id="L322">322</a>
+<a href="#L323" id="L323">323</a>
+<a href="#L324" id="L324">324</a>
+<a href="#L325" id="L325">325</a>
+<a href="#L326" id="L326">326</a>
+<a href="#L327" id="L327">327</a>
+<a href="#L328" id="L328">328</a>
+<a href="#L329" id="L329">329</a>
+<a href="#L330" id="L330">330</a>
+<a href="#L331" id="L331">331</a>
+<a href="#L332" id="L332">332</a>
+<a href="#L333" id="L333">333</a>
+<a href="#L334" id="L334">334</a>
+<a href="#L335" id="L335">335</a>
 </td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -577,13 +661,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -597,6 +682,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
@@ -606,6 +717,49 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -619,11 +773,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -650,7 +801,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -662,6 +812,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
@@ -697,6 +867,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -706,8 +879,7 @@
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
@@ -802,90 +974,155 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js" tabIndex="0">/* istanbul instrument in package apidoc */
+// assets.utility2.header.js - start
 /* istanbul ignore next */
 /* jslint utility2:true */
 (function (globalThis) {
     "use strict";
-    var consoleError;
-    var local;
+    let consoleError;
+    let debugName;
+    let local;
+    debugName = "debug" + String("Inline");
     // init globalThis
-    (function () {
-        try {
-            globalThis = Function("return this")(); // jslint ignore:line
-        } catch (ignore) {}
-    }());
-    globalThis.globalThis = globalThis;
+    globalThis.globalThis = globalThis.globalThis || <span class="branch-1 cbranch-skip" title="branch not covered" >globalThis;</span>
     // init debug_inline
-    <span class="skip-if-branch" title="if path not taken" >I</span>if (!globalThis["debug\u0049nline"]) {
+    <span class="skip-if-branch" title="if path not taken" >I</span>if (!globalThis[debugName]) {
 <span class="cstat-skip" title="statement not covered" >        consoleError = console.error;</span>
-<span class="cstat-skip" title="statement not covered" >        globalThis["debug\u0049nline"] = <span class="fstat-skip" title="function not covered" >function () {</span></span>
+<span class="cstat-skip" title="statement not covered" >        globalThis[debugName] = <span class="fstat-skip" title="function not covered" >function (...argList) {</span></span>
         /*
-         * this function will both print &lt;arguments&gt; to stderr
-         * and return &lt;arguments&gt;[0]
+         * this function will both print &lt;argList&gt; to stderr
+         * and return &lt;argList&gt;[0]
          */
-<span class="cstat-skip" title="statement not covered" >            var argList;</span>
-<span class="cstat-skip" title="statement not covered" >            argList = Array.from(arguments); </span>// jslint ignore:line
-            // debug arguments
-<span class="cstat-skip" title="statement not covered" >            globalThis["debug\u0049nlineArguments"] = argList;</span>
-<span class="cstat-skip" title="statement not covered" >            consoleError("\n\ndebug\u0049nline");</span>
-<span class="cstat-skip" title="statement not covered" >            consoleError.apply(console, argList);</span>
+<span class="cstat-skip" title="statement not covered" >            consoleError("\n\n" + debugName);</span>
+<span class="cstat-skip" title="statement not covered" >            consoleError(...argList);</span>
 <span class="cstat-skip" title="statement not covered" >            consoleError("\n");</span>
-            // return arg0 for inspection
 <span class="cstat-skip" title="statement not covered" >            return argList[0];</span>
         };
     }
+    String.prototype.trimEnd = (
+        String.prototype.trimEnd || <span class="branch-1 cbranch-skip" title="branch not covered" >String.prototype.trimRight</span>
+    );
+    String.prototype.trimStart = (
+        String.prototype.trimStart || <span class="branch-1 cbranch-skip" title="branch not covered" >String.prototype.trimLeft</span>
+    );
     // init local
     local = {};
     local.local = local;
     globalThis.globalLocal = local;
     // init isBrowser
     local.isBrowser = (
-        typeof window === "object"
-        &amp;&amp; window === globalThis
-        &amp;&amp; typeof window.XMLHttpRequest === "function"
-        &amp;&amp; window.document
-        &amp;&amp; typeof window.document.querySelector === "function"
+        typeof globalThis.XMLHttpRequest === "function"
+        &amp;&amp; globalThis.navigator
+        &amp;&amp; typeof globalThis.navigator.userAgent === "string"
+    );
+    // init isWebWorker
+    local.isWebWorker = (
+        local.isBrowser &amp;&amp; typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertThrow = <span class="fstat-skip" title="function not covered" >function (passed, message) {</span>
+    local.assertOrThrow = <span class="fstat-skip" title="function not covered" >function (passed, msg) {</span>
     /*
-     * this function will throw err.&lt;message&gt; if &lt;passed&gt; is falsy
+     * this function will throw err.&lt;msg&gt; if &lt;passed&gt; is falsy
      */
-<span class="cstat-skip" title="statement not covered" >        var err;</span>
 <span class="cstat-skip" title="statement not covered" >        if (passed) {</span>
 <span class="cstat-skip" title="statement not covered" >            return;</span>
         }
-<span class="cstat-skip" title="statement not covered" >        err = (</span>
+<span class="cstat-skip" title="statement not covered" >        throw (</span>
             (
-                message
-                &amp;&amp; typeof message.message === "string"
-                &amp;&amp; typeof message.stack === "string"
+                msg
+                &amp;&amp; typeof msg.message === "string"
+                &amp;&amp; typeof msg.stack === "string"
             )
-            // if message is errObj, then leave as is
-            ? message
+            // if msg is err, then leave as is
+            ? msg
             : new Error(
-                typeof message === "string"
-                // if message is a string, then leave as is
-                ? message
-                // else JSON.stringify message
-                : JSON.stringify(message, null, 4)
+                typeof msg === "string"
+                // if msg is a string, then leave as is
+                ? msg
+                // else JSON.stringify msg
+                : JSON.stringify(msg, undefined, 4)
             )
         );
-<span class="cstat-skip" title="statement not covered" >        throw err;</span>
+    };
+    local.coalesce = <span class="fstat-skip" title="function not covered" >function (...argList) {</span>
+    /*
+     * this function will coalesce null, undefined, or "" in &lt;argList&gt;
+     */
+<span class="cstat-skip" title="statement not covered" >        let arg;</span>
+<span class="cstat-skip" title="statement not covered" >        let ii;</span>
+<span class="cstat-skip" title="statement not covered" >        ii = 0;</span>
+<span class="cstat-skip" title="statement not covered" >        while (ii &lt; argList.length) {</span>
+<span class="cstat-skip" title="statement not covered" >            arg = argList[ii];</span>
+<span class="cstat-skip" title="statement not covered" >            if (arg !== null &amp;&amp; arg !== undefined &amp;&amp; arg !== "") {</span>
+<span class="cstat-skip" title="statement not covered" >                break;</span>
+            }
+<span class="cstat-skip" title="statement not covered" >            ii += 1;</span>
+        }
+<span class="cstat-skip" title="statement not covered" >        return arg;</span>
+    };
+    local.fsRmrfSync = <span class="fstat-skip" title="function not covered" >function (dir) {</span>
+    /*
+     * this function will sync "rm -rf" &lt;dir&gt;
+     */
+<span class="cstat-skip" title="statement not covered" >        let child_process;</span>
+        // do nothing if module does not exist
+<span class="cstat-skip" title="statement not covered" >        try {</span>
+<span class="cstat-skip" title="statement not covered" >            child_process = require("child_process");</span>
+        } catch (ignore) {
+<span class="cstat-skip" title="statement not covered" >            return;</span>
+        }
+<span class="cstat-skip" title="statement not covered" >        child_process.spawnSync("rm", [</span>
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = <span class="fstat-skip" title="function not covered" >function (file, data) {</span>
+    /*
+     * this function will sync write &lt;data&gt; to &lt;file&gt; with "mkdir -p"
+     */
+<span class="cstat-skip" title="statement not covered" >        let fs;</span>
+        // do nothing if module does not exist
+<span class="cstat-skip" title="statement not covered" >        try {</span>
+<span class="cstat-skip" title="statement not covered" >            fs = require("fs");</span>
+        } catch (ignore) {
+<span class="cstat-skip" title="statement not covered" >            return;</span>
+        }
+        // try to write file
+<span class="cstat-skip" title="statement not covered" >        try {</span>
+<span class="cstat-skip" title="statement not covered" >            fs.writeFileSync(file, data);</span>
+        } catch (ignore) {
+            // mkdir -p
+<span class="cstat-skip" title="statement not covered" >            require("child_process").spawnSync(</span>
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+<span class="cstat-skip" title="statement not covered" >            fs.writeFileSync(file, data);</span>
+        }
     };
     local.functionOrNop = <span class="fstat-skip" title="function not covered" >function (fnc) {</span>
     /*
      * this function will if &lt;fnc&gt; exists,
-     * them return &lt;fnc&gt;,
+     * return &lt;fnc&gt;,
      * else return &lt;nop&gt;
      */
 <span class="cstat-skip" title="statement not covered" >        return fnc || local.nop;</span>
     };
-    local.identity = <span class="fstat-skip" title="function not covered" >function (value) {</span>
+    local.identity = <span class="fstat-skip" title="function not covered" >function (val) {</span>
     /*
-     * this function will return &lt;value&gt;
+     * this function will return &lt;val&gt;
      */
-<span class="cstat-skip" title="statement not covered" >        return value;</span>
+<span class="cstat-skip" title="statement not covered" >        return val;</span>
     };
     local.nop = <span class="fstat-skip" title="function not covered" >function () {</span>
     /*
@@ -895,8 +1132,7 @@
     };
     local.objectAssignDefault = <span class="fstat-skip" title="function not covered" >function (target, source) {</span>
     /*
-     * this function will if items from &lt;target&gt; are
-     * null, undefined, or empty-string,
+     * this function will if items from &lt;target&gt; are null, undefined, or "",
      * then overwrite them with items from &lt;source&gt;
      */
 <span class="cstat-skip" title="statement not covered" >        target = target || {};</span>
@@ -910,6 +1146,26 @@
             }
         });
 <span class="cstat-skip" title="statement not covered" >        return target;</span>
+    };
+    local.querySelector = <span class="fstat-skip" title="function not covered" >function (selectors) {</span>
+    /*
+     * this function will return first dom-elem that match &lt;selectors&gt;
+     */
+<span class="cstat-skip" title="statement not covered" >        return (</span>
+            typeof document === "object" &amp;&amp; document
+            &amp;&amp; typeof document.querySelector === "function"
+            &amp;&amp; document.querySelector(selectors)
+        ) || {};
+    };
+    local.querySelectorAll = <span class="fstat-skip" title="function not covered" >function (selectors) {</span>
+    /*
+     * this function will return dom-elem-list that match &lt;selectors&gt;
+     */
+<span class="cstat-skip" title="statement not covered" >        return (</span>
+            typeof document === "object" &amp;&amp; document
+            &amp;&amp; typeof document.querySelectorAll === "function"
+            &amp;&amp; Array.from(document.querySelectorAll(selectors))
+        ) || [];
     };
     // require builtin
     if (!local.isBrowser) {
@@ -941,10 +1197,13 @@
         local.vm = require("vm");
         local.zlib = require("zlib");
     }
-}(this));
+}((typeof globalThis === "object" &amp;&amp; globalThis) || <span class="branch-2 cbranch-skip" title="branch not covered" >window)</span>);
+// assets.utility2.header.js - end
 &nbsp;
 &nbsp;
 &nbsp;
+/* istanbul ignore next */
+/* jslint utility2:true */
 (function (local) {
 "use strict";
 &nbsp;
@@ -953,9 +1212,8 @@
 // run shared js-env code - init-before
 (function () {
 // init local
-local = (
-    globalThis.utility2 || require("utility2")
-).requireReadme();
+local = globalThis.utility2 || require("utility2");
+local = local.requireReadme();
 globalThis.local = local;
 // init test
 local.testRunDefault(local);
@@ -1053,7 +1311,7 @@ local.testCase_apidocCreate_default = function (options, onError) {
 </table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat, 24 Aug 2019 01:32:41 GMT</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue, 17 Mar 2020 06:38:23 GMT</div>
 </div>
 </body>
 </html>
