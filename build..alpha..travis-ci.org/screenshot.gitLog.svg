@@ -1,183 +1,155 @@
-<svg height="1454" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="1454" fill="#555" width="720"></rect>
+<svg height="1230" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="1230" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">2020-03-17 01:36:52 -0500</tspan>
+<tspan x="10" y="26">2020-03-17 01:56:49 -0500</tspan>
 
-<tspan x="10" y="42">[build clean]</tspan>
+<tspan x="10" y="42">[npm publish] - npm publish 2020.3.16</tspan>
 
-<tspan x="10" y="58"></tspan>
+<tspan x="10" y="58">- jslint - remove ternary-operator/newline comment preceding bra</tspan>
 
-<tspan x="10" y="74">2020-03-17 01:33:17 -0500</tspan>
+<tspan x="10" y="74">- update build</tspan>
 
-<tspan x="10" y="90">update</tspan>
+<tspan x="10" y="90"></tspan>
 
-<tspan x="10" y="106"></tspan>
+<tspan x="10" y="106">2019-08-17 17:15:31 +0000</tspan>
 
-<tspan x="10" y="122">2019-09-08 01:34:45 -0500</tspan>
+<tspan x="10" y="122">[npm publish] - npm publish 2019.8.16</tspan>
 
-<tspan x="10" y="138">'- rename function assertThrow to assertOrThrow</tspan>
+<tspan x="10" y="138">- update build</tspan>
 
-<tspan x="10" y="154">'</tspan>
+<tspan x="10" y="154"></tspan>
 
-<tspan x="10" y="170"></tspan>
+<tspan x="10" y="170">2018-09-30 02:36:28 +0700</tspan>
 
-<tspan x="10" y="186">2019-08-23 20:31:15 -0500</tspan>
+<tspan x="10" y="186">[npm publish] - npm publish 2018.9.29</tspan>
 
-<tspan x="10" y="202">- jslint - remove ternary-operator/newline comment preceding bra</tspan>
+<tspan x="10" y="202">- migrate to new jslint (2018-09)</tspan>
 
-<tspan x="10" y="218"></tspan>
+<tspan x="10" y="218">- migrate from modeJs -&gt; isBrowser</tspan>
 
-<tspan x="10" y="234">2019-08-21 02:21:23 -0500</tspan>
+<tspan x="10" y="234">- update build</tspan>
 
-<tspan x="10" y="250">update.build</tspan>
+<tspan x="10" y="250"></tspan>
 
-<tspan x="10" y="266"></tspan>
+<tspan x="10" y="266">2018-08-08 22:02:05 +0700</tspan>
 
-<tspan x="10" y="282">2019-08-21 02:20:50 -0500</tspan>
+<tspan x="10" y="282">[npm publish] - npm publish 2018.5.25</tspan>
 
-<tspan x="10" y="298">update.build</tspan>
+<tspan x="10" y="298">- migrate from modeJs -&gt; isBrowser</tspan>
 
-<tspan x="10" y="314"></tspan>
+<tspan x="10" y="314">- update build</tspan>
 
-<tspan x="10" y="330">2019-08-17 17:15:31 +0000</tspan>
+<tspan x="10" y="330"></tspan>
 
-<tspan x="10" y="346">[npm publish] - npm publish 2019.8.16</tspan>
+<tspan x="10" y="346">2018-05-02 19:16:05 +0800</tspan>
 
-<tspan x="10" y="362">- update build</tspan>
+<tspan x="10" y="362">[npm publish] - npm publish 2018.5.2</tspan>
 
-<tspan x="10" y="378"></tspan>
+<tspan x="10" y="378">- update build</tspan>
 
-<tspan x="10" y="394">2018-09-30 02:36:28 +0700</tspan>
+<tspan x="10" y="394"></tspan>
 
-<tspan x="10" y="410">[npm publish] - npm publish 2018.9.29</tspan>
+<tspan x="10" y="410">2018-04-13 13:28:20 +0800</tspan>
 
-<tspan x="10" y="426">- migrate to new jslint (2018-09)</tspan>
+<tspan x="10" y="426">[npm publish] - npm publish v2017.4.12</tspan>
 
-<tspan x="10" y="442">- migrate from modeJs -&gt; isBrowser</tspan>
+<tspan x="10" y="442">- improve error-handling for misbehaving property-accessors</tspan>
 
-<tspan x="10" y="458">- update build</tspan>
+<tspan x="10" y="458">- fix build-ci for nodejs v9.x</tspan>
 
 <tspan x="10" y="474"></tspan>
 
-<tspan x="10" y="490">2018-08-08 22:02:05 +0700</tspan>
+<tspan x="10" y="490">2018-04-03 16:29:35 +0800</tspan>
 
-<tspan x="10" y="506">[npm publish] - npm publish 2018.5.25</tspan>
+<tspan x="10" y="506">[npm publish] - npm publish v2017.4.2</tspan>
 
-<tspan x="10" y="522">- migrate from modeJs -&gt; isBrowser</tspan>
+<tspan x="10" y="522">- replace option htmlBr with markdownToHtml in function templateRender</tspan>
 
-<tspan x="10" y="538">- update build</tspan>
+<tspan x="10" y="538">- update function apidocCreate with extra param options.whitelistDict</tspan>
 
 <tspan x="10" y="554"></tspan>
 
-<tspan x="10" y="570">2018-05-02 19:16:05 +0800</tspan>
+<tspan x="10" y="570">2018-01-14 22:38:51 +0700</tspan>
 
-<tspan x="10" y="586">[npm publish] - npm publish 2018.5.2</tspan>
+<tspan x="10" y="586">[npm publish] - npm publish 2017.1.13</tspan>
 
 <tspan x="10" y="602">- update build</tspan>
 
 <tspan x="10" y="618"></tspan>
 
-<tspan x="10" y="634">2018-04-13 13:28:20 +0800</tspan>
+<tspan x="10" y="634">2017-10-24 22:25:24 +0800</tspan>
 
-<tspan x="10" y="650">[npm publish] - npm publish v2017.4.12</tspan>
+<tspan x="10" y="650">[npm publish] - npm publish 2017.10.23</tspan>
 
-<tspan x="10" y="666">- improve error-handling for misbehaving property-accessors</tspan>
+<tspan x="10" y="666">- fix assert-module bug</tspan>
 
-<tspan x="10" y="682">- fix build-ci for nodejs v9.x</tspan>
+<tspan x="10" y="682">- fix test-coverage</tspan>
 
 <tspan x="10" y="698"></tspan>
 
-<tspan x="10" y="714">2018-04-03 16:29:35 +0800</tspan>
+<tspan x="10" y="714">2017-09-13 17:34:47 +0700</tspan>
 
-<tspan x="10" y="730">[npm publish] - npm publish v2017.4.2</tspan>
+<tspan x="10" y="730">[npm publish] - npm publish 2017.9.12</tspan>
 
-<tspan x="10" y="746">- replace option htmlBr with markdownToHtml in function templateRender</tspan>
+<tspan x="10" y="746">- add cli-help doc to README.md</tspan>
 
-<tspan x="10" y="762">- update function apidocCreate with extra param options.whitelistDict</tspan>
+<tspan x="10" y="762"></tspan>
 
-<tspan x="10" y="778"></tspan>
+<tspan x="10" y="778">2017-05-31 16:32:09 +0800</tspan>
 
-<tspan x="10" y="794">2018-01-14 22:38:51 +0700</tspan>
+<tspan x="10" y="794">[npm publish] - npm publish 2017.5.30</tspan>
 
-<tspan x="10" y="810">[npm publish] - npm publish 2017.1.13</tspan>
+<tspan x="10" y="810">- fix 'use strict' bug in firefox and safari</tspan>
 
-<tspan x="10" y="826">- update build</tspan>
+<tspan x="10" y="826">- revamp README.md</tspan>
 
 <tspan x="10" y="842"></tspan>
 
-<tspan x="10" y="858">2017-10-24 22:25:24 +0800</tspan>
+<tspan x="10" y="858">2017-04-23 14:15:27 +0800</tspan>
 
-<tspan x="10" y="874">[npm publish] - npm publish 2017.10.23</tspan>
+<tspan x="10" y="874">[npm publish] - npm publish 2017.4.22</tspan>
 
-<tspan x="10" y="890">- fix assert-module bug</tspan>
+<tspan x="10" y="890">- limit exampleList to 256 examples to handle edge-cases with many example-files like lodash</tspan>
 
-<tspan x="10" y="906">- fix test-coverage</tspan>
+<tspan x="10" y="906">- generalize function apidocCreate to handle more real-world npm-modules</tspan>
 
-<tspan x="10" y="922"></tspan>
+<tspan x="10" y="922">- try to document all .js files in first 3-levels of directories using param libFileList</tspan>
 
-<tspan x="10" y="938">2017-09-13 17:34:47 +0700</tspan>
+<tspan x="10" y="938">- use breadth-first for files to add to param libFileList in function apidocCreate</tspan>
 
-<tspan x="10" y="954">[npm publish] - npm publish 2017.9.12</tspan>
+<tspan x="10" y="954"></tspan>
 
-<tspan x="10" y="970">- add cli-help doc to README.md</tspan>
+<tspan x="10" y="970">2017-03-17 20:57:12 +0800</tspan>
 
-<tspan x="10" y="986"></tspan>
+<tspan x="10" y="986">[npm publish] - npm publish 2017.3.16</tspan>
 
-<tspan x="10" y="1002">2017-05-31 16:32:09 +0800</tspan>
+<tspan x="10" y="1002">- revert npm_package_nameAlias back to npm_package_name</tspan>
 
-<tspan x="10" y="1018">[npm publish] - npm publish 2017.5.30</tspan>
+<tspan x="10" y="1018"></tspan>
 
-<tspan x="10" y="1034">- fix 'use strict' bug in firefox and safari</tspan>
+<tspan x="10" y="1034">2017-03-10 20:24:53 +0800</tspan>
 
-<tspan x="10" y="1050">- revamp README.md</tspan>
+<tspan x="10" y="1050">- npm publish 2017.3.9</tspan>
 
-<tspan x="10" y="1066"></tspan>
+<tspan x="10" y="1066">- add ability to create markdown documentation</tspan>
 
-<tspan x="10" y="1082">2017-04-23 14:15:27 +0800</tspan>
+<tspan x="10" y="1082">- auto-document dir ./lib/</tspan>
 
-<tspan x="10" y="1098">[npm publish] - npm publish 2017.4.22</tspan>
+<tspan x="10" y="1098">- increase auto-coverage of examples</tspan>
 
-<tspan x="10" y="1114">- limit exampleList to 256 examples to handle edge-cases with many example-files like lodash</tspan>
+<tspan x="10" y="1114"></tspan>
 
-<tspan x="10" y="1130">- generalize function apidocCreate to handle more real-world npm-modules</tspan>
+<tspan x="10" y="1130">2017-03-03 04:18:06 +0800</tspan>
 
-<tspan x="10" y="1146">- try to document all .js files in first 3-levels of directories using param libFileList</tspan>
+<tspan x="10" y="1146">- npm publish 2017.2.27</tspan>
 
-<tspan x="10" y="1162">- use breadth-first for files to add to param libFileList in function apidocCreate</tspan>
+<tspan x="10" y="1162">- successful travis-ci build</tspan>
 
 <tspan x="10" y="1178"></tspan>
 
-<tspan x="10" y="1194">2017-03-17 20:57:12 +0800</tspan>
+<tspan x="10" y="1194">2014-03-26 02:31:50 +0700</tspan>
 
-<tspan x="10" y="1210">[npm publish] - npm publish 2017.3.16</tspan>
-
-<tspan x="10" y="1226">- revert npm_package_nameAlias back to npm_package_name</tspan>
-
-<tspan x="10" y="1242"></tspan>
-
-<tspan x="10" y="1258">2017-03-10 20:24:53 +0800</tspan>
-
-<tspan x="10" y="1274">- npm publish 2017.3.9</tspan>
-
-<tspan x="10" y="1290">- add ability to create markdown documentation</tspan>
-
-<tspan x="10" y="1306">- auto-document dir ./lib/</tspan>
-
-<tspan x="10" y="1322">- increase auto-coverage of examples</tspan>
-
-<tspan x="10" y="1338"></tspan>
-
-<tspan x="10" y="1354">2017-03-03 04:18:06 +0800</tspan>
-
-<tspan x="10" y="1370">- npm publish 2017.2.27</tspan>
-
-<tspan x="10" y="1386">- successful travis-ci build</tspan>
-
-<tspan x="10" y="1402"></tspan>
-
-<tspan x="10" y="1418">2014-03-26 02:31:50 +0700</tspan>
-
-<tspan x="10" y="1434">add blank README.md</tspan>
+<tspan x="10" y="1210">add blank README.md</tspan>
 
 </text>
 </svg>
