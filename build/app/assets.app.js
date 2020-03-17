@@ -516,7 +516,7 @@ instruction
 /* script-begin /assets.utility2.lib.apidoc.js */
 // usr/bin/env node
 /*
- * lib.apidoc.js (2019.8.24)
+ * lib.apidoc.js (2020.3.17)
  * https://github.com/kaizhu256/node-apidoc-lite
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
@@ -3439,7 +3439,7 @@ if (module === require.main && !globalThis.utility2_rollup) {
 /* script-begin /assets.utility2.lib.istanbul.js */
 // usr/bin/env node
 /*
- * lib.istanbul.js (2019.9.16)
+ * lib.istanbul.js (2020.3.16)
  * https://github.com/kaizhu256/node-istanbul-lite
  * this zero-dependency package will provide a browser-compatible version of the istanbul (v0.4.5) coverage-tool, with a working web-demo
  *
@@ -16005,7 +16005,7 @@ if (module === require.main && !globalThis.utility2_rollup) {
 /* script-begin /assets.utility2.lib.jslint.js */
 // usr/bin/env node
 /*
- * lib.jslint.js (2020.3.16)
+ * lib.jslint.js (2020.3.17)
  * https://github.com/kaizhu256/node-jslint-lite
  * this zero-dependency package will provide browser-compatible versions of jslint (v2020.1.17) and csslint (v2018.2.25), with a working web-demo
  *
@@ -47010,7 +47010,7 @@ if (module === require.main && !globalThis.utility2_rollup) {
 /* script-begin /assets.utility2.js */
 // usr/bin/env node
 /*
- * lib.utility2.js (2020.2.18)
+ * lib.utility2.js (2020.3.17)
  * https://github.com/kaizhu256/node-utility2
  * this zero-dependency package will provide high-level functions to to build, test, and deploy webapps
  *
