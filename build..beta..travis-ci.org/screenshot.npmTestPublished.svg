@@ -1,232 +1,455 @@
-<svg height="2174" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="2174" fill="#555" width="720"></rect>
+<svg height="3790" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="3790" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-17T17:37:15.163Z - npm-testing /tmp/npmTe\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-03-17T07:06:11.818Z - npm-testing /tmp/npmTe\</tspan>
 <tspan x="10" y="58">stPublished/node_modules/apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
 
 <tspan x="10" y="90"></tspan>
 
-<tspan x="10" y="106">covering $ /home/travis/.nvm/versions/node/v12.8.1/bin/node /tmp/npmTestPublished/node_modules/a\</tspan>
-<tspan x="10" y="122">pidoc-lite/test.js</tspan>
+<tspan x="10" y="106">covering $ /home/travis/.nvm/versions/node/v13.11.0/bin/node /tmp/npmTestPublished/node_modules/\</tspan>
+<tspan x="10" y="122">apidoc-lite/test.js</tspan>
 
 <tspan x="10" y="138">&gt; jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
 
-<tspan x="10" y="154">jslint - 405ms /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="154">http-server listening on port 41923</tspan>
 
-<tspan x="10" y="170">jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="170">jslint - 305ms /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
 
-<tspan x="10" y="186">jslint - 1ms /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="186">jslint - 9ms /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="202">jslint - 59ms /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="202">--- /tmp/npmTestPublished/node_modules/apidoc-lite/package.json.autofix.old	2020-03-17 07:06:12.\</tspan>
+<tspan x="10" y="218">593786780 +0000</tspan>
 
-<tspan x="10" y="218">http-server listening on port 46230</tspan>
+<tspan x="10" y="234">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/package.json	2020-03-17 07:06:12.593786780 +0\</tspan>
+<tspan x="10" y="250">000</tspan>
 
-<tspan x="10" y="234">db - dropping database ...</tspan>
+<tspan x="10" y="266">@@ -1,78 +1,78 @@</tspan>
 
-<tspan x="10" y="250">testRunDefault - 465 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
+<tspan x="10" y="282"> {</tspan>
 
-<tspan x="10" y="266">testRunDefault - 563 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="298">-  "_from": "apidoc-lite",</tspan>
 
-<tspan x="10" y="282">testRunDefault - 589 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="314">-  "_id": "apidoc-lite@2020.3.16",</tspan>
 
-<tspan x="10" y="298">testRunDefault - 598 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="330">-  "_inBundle": false,</tspan>
 
-<tspan x="10" y="314">testRunDefault - 599 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="346">-  "_integrity": "sha512-U/fOog1v3VKZLY8aATBVSDqpctfc8aBrzbCXG37bTQ5hBnXxd/5LiOEXlK/A+2SiAC3OWH4\</tspan>
+<tspan x="10" y="362">oeKcSvpnfuPrgJA==",</tspan>
 
-<tspan x="10" y="330">testRunDefault - 599 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="378">-  "_location": "/apidoc-lite",</tspan>
 
-<tspan x="10" y="346">http-server listening on port 42168</tspan>
+<tspan x="10" y="394">-  "_phantomChildren": {},</tspan>
 
-<tspan x="10" y="362">Xlib:  extension "RANDR" missing on display ":99.0".</tspan>
+<tspan x="10" y="410">-  "_requested": {</tspan>
 
-<tspan x="10" y="378">[5893:0817/173717.723697:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
-<tspan x="10" y="394"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
+<tspan x="10" y="426">-    "type": "tag",</tspan>
 
-<tspan x="10" y="410">[5893:0817/173717.732887:ERROR:bus.cc(395)] Failed to connect to the bus: Could not parse server\</tspan>
-<tspan x="10" y="426"> address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")</tspan>
+<tspan x="10" y="442">-    "registry": true,</tspan>
 
-<tspan x="10" y="442">[5955:0817/173717.905510:ERROR:sandbox_linux.cc(344)] InitializeSandbox() called with multiple t\</tspan>
-<tspan x="10" y="458">hreads in process gpu-process.</tspan>
+<tspan x="10" y="458">-    "raw": "apidoc-lite",</tspan>
 
-<tspan x="10" y="474">[5893:0817/173718.125370:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="490">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="506">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="474">+    "_from": "apidoc-lite",</tspan>
 
-<tspan x="10" y="522">[5893:0817/173718.149943:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="538">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="554">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="490">+    "_id": "apidoc-lite@2020.3.16",</tspan>
 
-<tspan x="10" y="570">[5893:0817/173718.940506:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="586">:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="506">+    "_inBundle": false,</tspan>
 
-<tspan x="10" y="602">[5893:0817/173718.965854:WARNING:quota_manager.cc(1629)] No storage quota provided in QuotaSetti\</tspan>
-<tspan x="10" y="618">ngs.</tspan>
+<tspan x="10" y="522">+    "_integrity": "sha512-U/fOog1v3VKZLY8aATBVSDqpctfc8aBrzbCXG37bTQ5hBnXxd/5LiOEXlK/A+2SiAC3OW\</tspan>
+<tspan x="10" y="538">H4oeKcSvpnfuPrgJA==",</tspan>
 
-<tspan x="10" y="634">[5893:0817/173718.976588:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="650">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
-<tspan x="10" y="666">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="554">+    "_location": "/apidoc-lite",</tspan>
 
-<tspan x="10" y="682">[5893:0817/173718.986999:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="698">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="714">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="570">+    "_phantomChildren": {},</tspan>
 
-<tspan x="10" y="730">[5893:0817/173718.992776:INFO:CONSOLE(8)] "db - dropping database ...", source: http://127.0.0.1\</tspan>
-<tspan x="10" y="746">:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="586">+    "_requested": {</tspan>
 
-<tspan x="10" y="762">[5893:0817/173719.019826:INFO:CONSOLE(128)] "%cElectron Security Warning (Insecure Resources)", \</tspan>
-<tspan x="10" y="778">source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/external/resou\</tspan>
-<tspan x="10" y="794">rces/electron.asar/renderer/security-warnings.js (128)</tspan>
+<tspan x="10" y="602">+        "escapedName": "apidoc-lite",</tspan>
 
-<tspan x="10" y="810">[5893:0817/173719.021087:INFO:CONSOLE(188)] "%cElectron Security Warning (Insecure Content-Secur\</tspan>
-<tspan x="10" y="826">ity-Policy)", source: /tmp/npmTestPublished/node_modules/apidoc-lite/node_modules/electron-lite/\</tspan>
-<tspan x="10" y="842">external/resources/electron.asar/renderer/security-warnings.js (188)</tspan>
+<tspan x="10" y="618">+        "fetchSpec": "latest",</tspan>
 
-<tspan x="10" y="858">[5893:0817/173719.036318:INFO:CONSOLE(8)] "testRunDefault - 19 ms - [browser test-case 1 of 2 pa\</tspan>
-<tspan x="10" y="874">ssed] - testCase_apidocCreate_default", source: http://127.0.0.1:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="634">+        "name": "apidoc-lite",</tspan>
 
-<tspan x="10" y="890">[5893:0817/173719.051509:INFO:CONSOLE(8)] "testRunDefault - 9 ms - [browser test-case 1 of 2 pas\</tspan>
-<tspan x="10" y="906">sed] - testCase_apidocCreate_default", source: http://127.0.0.1:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="650">+        "raw": "apidoc-lite",</tspan>
 
-<tspan x="10" y="922">[5893:0817/173719.061558:INFO:CONSOLE(8)] "testRunDefault - 20 ms - [browser test-case 2 of 2 pa\</tspan>
-<tspan x="10" y="938">ssed] - testCase_nop_default", source: http://127.0.0.1:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="666">+        "rawSpec": "",</tspan>
 
-<tspan x="10" y="954">[5893:0817/173719.061677:INFO:CONSOLE(8)] "testRunDefault - 45 ms - [browser test-case 2 of 2 pa\</tspan>
-<tspan x="10" y="970">ssed] - testCase_nop_default", source: http://127.0.0.1:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="682">+        "registry": true,</tspan>
 
-<tspan x="10" y="986">[5893:0817/173720.068136:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
-<tspan x="10" y="1002">-----|</tspan>
+<tspan x="10" y="698">+        "saveSpec": null,</tspan>
 
-<tspan x="10" y="1018">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="714">+        "type": "tag"</tspan>
 
-<tspan x="10" y="1034">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="730">+    },</tspan>
 
-<tspan x="10" y="1050">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="746">+    "_requiredBy_": [</tspan>
 
-<tspan x="10" y="1066">All files |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="762">+        "#USER",</tspan>
 
-<tspan x="10" y="1082">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="778">+        "/"</tspan>
 
-<tspan x="10" y="1098">", source: http://127.0.0.1:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="794">+    ],</tspan>
 
-<tspan x="10" y="1114">[5893:0817/173720.075103:INFO:CONSOLE(8)] "----------|-----------|-----------|-----------|------\</tspan>
-<tspan x="10" y="1130">-----|</tspan>
+<tspan x="10" y="810">+    "_resolved": "https://registry.npmjs.org/apidoc-lite/-/apidoc-lite-2020.3.16.tgz",</tspan>
 
-<tspan x="10" y="1146">File      |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="826">+    "_shasum": "328d57fbc895a2a8edd6cb50cfa8efa2a1824a9a",</tspan>
 
-<tspan x="10" y="1162">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="842">+    "_spec": "apidoc-lite",</tspan>
 
-<tspan x="10" y="1178">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="858">+    "_where": "/tmp/npmTestPublished",</tspan>
 
-<tspan x="10" y="1194">All files |       100 |       100 |       100 |       100 |</tspan>
+<tspan x="10" y="874">+    "author": {</tspan>
 
-<tspan x="10" y="1210">----------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="890">+        "email": "kaizhu256@gmail.com",</tspan>
 
-<tspan x="10" y="1226">", source: http://127.0.0.1:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="906">+        "name": "kai zhu"</tspan>
 
-<tspan x="10" y="1242">[5893:0817/173720.078380:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="1258">html", source: http://127.0.0.1:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="922">+    },</tspan>
 
-<tspan x="10" y="1274">[5893:0817/173720.106849:INFO:CONSOLE(8)] "created coverage file /tmp/build/coverage.html/index.\</tspan>
-<tspan x="10" y="1290">html", source: http://127.0.0.1:46230/assets.example.js (8)</tspan>
+<tspan x="10" y="938">+    "bin": {</tspan>
 
-<tspan x="10" y="1306">testRunDefault - 5033 ms - testCase pending - testCase_buildApp_default, testCase_webpage_defaul\</tspan>
-<tspan x="10" y="1322">t ...</tspan>
+<tspan x="10" y="954">+        "apidoc-lite": "lib.apidoc.js"</tspan>
 
-<tspan x="10" y="1338">testRunDefault - 5937 ms - [node test-case 7 of 8 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="970">+    },</tspan>
 
-<tspan x="10" y="1354">[5893:0817/173723.970296:INFO:CONSOLE(8)] "null", source: http://127.0.0.1:46230/assets.example.\</tspan>
-<tspan x="10" y="1370">js (8)</tspan>
+<tspan x="10" y="986">+    "bugs": {</tspan>
 
-<tspan x="10" y="1386">[5893:0817/173724.127559:INFO:CONSOLE(8)] "Error: ENOENT: no such file or directory, rename '/tm\</tspan>
-<tspan x="10" y="1402">p/npmTestPublished/node_modules/apidoc-lite/tmp/electron.16ca0a7a3b60.1a69d00b79e9c.html' -&gt; '/t\</tspan>
-<tspan x="10" y="1418">mp/npmTestPublished/node_modules/apidoc-lite/tmp/electron.html'", source: http://127.0.0.1:46230\</tspan>
-<tspan x="10" y="1434">/assets.example.js (8)</tspan>
+<tspan x="10" y="1002">+        "url": "https://github.com/kaizhu256/node-apidoc-lite/issues"</tspan>
 
-<tspan x="10" y="1450"></tspan>
+<tspan x="10" y="1018">+    },</tspan>
 
-<tspan x="10" y="1466">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="1482">reenshot.npmTestPublished.browser.%2F.png</tspan>
+<tspan x="10" y="1034">+    "bundleDependencies": false,</tspan>
 
-<tspan x="10" y="1498"></tspan>
+<tspan x="10" y="1050">+    "deprecated": false,</tspan>
 
-<tspan x="10" y="1514">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="1530">reenshot.npmTestPublished.browser.%2F.html</tspan>
+<tspan x="10" y="1066">+    "description": "this zero-dependency package will auto-generate documentation for your npm-\</tspan>
+<tspan x="10" y="1082">package with zero-config",</tspan>
 
-<tspan x="10" y="1546"></tspan>
+<tspan x="10" y="1098">+    "devDependencies": {</tspan>
 
-<tspan x="10" y="1562">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="1578">reenshot.npmTestPublished.browser.%2F.png</tspan>
+<tspan x="10" y="1114">+        "electron-lite": "github:kaizhu256/node-electron-lite#alpha",</tspan>
 
-<tspan x="10" y="1594"></tspan>
+<tspan x="10" y="1130">+        "utility2": "github:kaizhu256/node-utility2#alpha"</tspan>
 
-<tspan x="10" y="1610">browserTest - created screenshot file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/sc\</tspan>
-<tspan x="10" y="1626">reenshot.npmTestPublished.browser.%2F.html</tspan>
+<tspan x="10" y="1146">+    },</tspan>
 
-<tspan x="10" y="1642">testRunDefault - 8077 ms - [node test-case 8 of 8 passed] - testCase_webpage_default</tspan>
+<tspan x="10" y="1162">+    "engines": {</tspan>
 
-<tspan x="10" y="1658">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="1178">+        "node": "&gt;=12.0"</tspan>
 
-<tspan x="10" y="1674">File                |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+<tspan x="10" y="1194">+    },</tspan>
 
-<tspan x="10" y="1690">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="1210">+    "fileCount": 8,</tspan>
 
-<tspan x="10" y="1706">   apidoc-lite/     |     70.85 |     50.62 |     71.43 |     70.85 |</tspan>
+<tspan x="10" y="1226">+    "homepage": "https://github.com/kaizhu256/node-apidoc-lite",</tspan>
 
-<tspan x="10" y="1722">      example.js    |     64.58 |     38.46 |        60 |     64.58 |</tspan>
+<tspan x="10" y="1242">+    "keywords": [</tspan>
 
-<tspan x="10" y="1738">      lib.apidoc.js |     71.52 |     56.73 |     77.65 |     71.52 |</tspan>
+<tspan x="10" y="1258">+        "apidoc",</tspan>
 
-<tspan x="10" y="1754">      test.js       |     77.08 |     34.29 |        50 |     77.08 |</tspan>
+<tspan x="10" y="1274">+        "documentation-generator",</tspan>
 
-<tspan x="10" y="1770">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="1290">+        "doxygen"</tspan>
 
-<tspan x="10" y="1786">All files           |     70.85 |     50.62 |     71.43 |     70.85 |</tspan>
+<tspan x="10" y="1306">+    ],</tspan>
 
-<tspan x="10" y="1802">--------------------|-----------|-----------|-----------|-----------|</tspan>
+<tspan x="10" y="1322">+    "license": "MIT",</tspan>
 
-<tspan x="10" y="1818"></tspan>
+<tspan x="10" y="1338">+    "main": "lib.apidoc.js",</tspan>
 
-<tspan x="10" y="1834">created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage.html/ind\</tspan>
-<tspan x="10" y="1850">ex.html</tspan>
+<tspan x="10" y="1354">     "name": "apidoc-lite",</tspan>
 
-<tspan x="10" y="1866"></tspan>
+<tspan x="10" y="1370">-    "escapedName": "apidoc-lite",</tspan>
 
-<tspan x="10" y="1882">-------------------------------------------------------</tspan>
+<tspan x="10" y="1386">-    "rawSpec": "",</tspan>
 
-<tspan x="10" y="1898">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
-<tspan x="10" y="1914">.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Electron/2.0.18 Safari/537.36 - 2019-08-17T17:37:18\</tspan>
-<tspan x="10" y="1930">.422Z</tspan>
+<tspan x="10" y="1402">-    "saveSpec": null,</tspan>
 
-<tspan x="10" y="1946">|    1008 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="1418">-    "fetchSpec": "latest"</tspan>
 
-<tspan x="10" y="1962">-------------------------------------------------------</tspan>
+<tspan x="10" y="1434">-  },</tspan>
 
-<tspan x="10" y="1978">| test-report - npmTestPublished - node - linux v12.8.1 - 2019-08-17T17:37:15.335Z</tspan>
+<tspan x="10" y="1450">-  "_requiredBy_": [</tspan>
 
-<tspan x="10" y="1994">|    8078 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="1466">-    "#USER",</tspan>
 
-<tspan x="10" y="2010">-------------------------------------------------------</tspan>
+<tspan x="10" y="1482">-    "/"</tspan>
 
-<tspan x="10" y="2026"></tspan>
+<tspan x="10" y="1498">-  ],</tspan>
 
-<tspan x="10" y="2042">created test-report file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.ht\</tspan>
-<tspan x="10" y="2058">ml</tspan>
+<tspan x="10" y="1514">-  "_resolved": "https://registry.npmjs.org/apidoc-lite/-/apidoc-lite-2020.3.16.tgz",</tspan>
 
-<tspan x="10" y="2074"></tspan>
+<tspan x="10" y="1530">-  "_shasum": "328d57fbc895a2a8edd6cb50cfa8efa2a1824a9a",</tspan>
 
-<tspan x="10" y="2090"></tspan>
+<tspan x="10" y="1546">-  "_spec": "apidoc-lite",</tspan>
 
-<tspan x="10" y="2106">npmTestPublished - 0 failed tests</tspan>
+<tspan x="10" y="1562">-  "_where": "/tmp/npmTestPublished",</tspan>
 
-<tspan x="10" y="2122"></tspan>
+<tspan x="10" y="1578">-  "author": {</tspan>
 
-<tspan x="10" y="2138"></tspan>
+<tspan x="10" y="1594">-    "name": "kai zhu",</tspan>
 
-<tspan x="10" y="2154">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2019-08-17T17:37:25.471Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="1610">-    "email": "kaizhu256@gmail.com"</tspan>
+
+<tspan x="10" y="1626">-  },</tspan>
+
+<tspan x="10" y="1642">-  "bin": {</tspan>
+
+<tspan x="10" y="1658">-    "apidoc-lite": "lib.apidoc.js"</tspan>
+
+<tspan x="10" y="1674">-  },</tspan>
+
+<tspan x="10" y="1690">-  "bugs": {</tspan>
+
+<tspan x="10" y="1706">-    "url": "https://github.com/kaizhu256/node-apidoc-lite/issues"</tspan>
+
+<tspan x="10" y="1722">-  },</tspan>
+
+<tspan x="10" y="1738">-  "bundleDependencies": false,</tspan>
+
+<tspan x="10" y="1754">-  "deprecated": false,</tspan>
+
+<tspan x="10" y="1770">-  "description": "this zero-dependency package will auto-generate documentation for your npm-pa\</tspan>
+<tspan x="10" y="1786">ckage with zero-config",</tspan>
+
+<tspan x="10" y="1802">-  "devDependencies": {</tspan>
+
+<tspan x="10" y="1818">-    "electron-lite": "github:kaizhu256/node-electron-lite#alpha",</tspan>
+
+<tspan x="10" y="1834">-    "utility2": "github:kaizhu256/node-utility2#alpha"</tspan>
+
+<tspan x="10" y="1850">-  },</tspan>
+
+<tspan x="10" y="1866">-  "engines": {</tspan>
+
+<tspan x="10" y="1882">-    "node": "&gt;=12.0"</tspan>
+
+<tspan x="10" y="1898">-  },</tspan>
+
+<tspan x="10" y="1914">-  "fileCount": 8,</tspan>
+
+<tspan x="10" y="1930">-  "homepage": "https://github.com/kaizhu256/node-apidoc-lite",</tspan>
+
+<tspan x="10" y="1946">-  "keywords": [</tspan>
+
+<tspan x="10" y="1962">-    "apidoc",</tspan>
+
+<tspan x="10" y="1978">-    "documentation-generator",</tspan>
+
+<tspan x="10" y="1994">-    "doxygen"</tspan>
+
+<tspan x="10" y="2010">-  ],</tspan>
+
+<tspan x="10" y="2026">-  "license": "MIT",</tspan>
+
+<tspan x="10" y="2042">-  "main": "lib.apidoc.js",</tspan>
+
+<tspan x="10" y="2058">-  "name": "apidoc-lite",</tspan>
+
+<tspan x="10" y="2074">-  "nameAliasPublish": "npmdoc",</tspan>
+
+<tspan x="10" y="2090">-  "nameLib": "apidoc",</tspan>
+
+<tspan x="10" y="2106">-  "nameOriginal": "apidoc-lite",</tspan>
+
+<tspan x="10" y="2122">-  "os": [</tspan>
+
+<tspan x="10" y="2138">-    "darwin",</tspan>
+
+<tspan x="10" y="2154">-    "linux"</tspan>
+
+<tspan x="10" y="2170">-  ],</tspan>
+
+<tspan x="10" y="2186">-  "repository": {</tspan>
+
+<tspan x="10" y="2202">-    "type": "git",</tspan>
+
+<tspan x="10" y="2218">-    "url": "git+https://github.com/kaizhu256/node-apidoc-lite.git"</tspan>
+
+<tspan x="10" y="2234">-  },</tspan>
+
+<tspan x="10" y="2250">-  "scripts": {</tspan>
+
+<tspan x="10" y="2266">-    "build-ci": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2282">-    "env": "env",</tspan>
+
+<tspan x="10" y="2298">-    "eval": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2314">-    "heroku-postbuild": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2330">-    "postinstall": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2346">-    "start": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2362">-    "test": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2378">-    "utility2": "./npm_scripts.sh"</tspan>
+
+<tspan x="10" y="2394">-  },</tspan>
+
+<tspan x="10" y="2410">-  "version": "2020.3.16"</tspan>
+
+<tspan x="10" y="2426">+    "nameAliasPublish": "npmdoc",</tspan>
+
+<tspan x="10" y="2442">+    "nameLib": "apidoc",</tspan>
+
+<tspan x="10" y="2458">+    "nameOriginal": "apidoc-lite",</tspan>
+
+<tspan x="10" y="2474">+    "os": [</tspan>
+
+<tspan x="10" y="2490">+        "darwin",</tspan>
+
+<tspan x="10" y="2506">+        "linux"</tspan>
+
+<tspan x="10" y="2522">+    ],</tspan>
+
+<tspan x="10" y="2538">+    "repository": {</tspan>
+
+<tspan x="10" y="2554">+        "type": "git",</tspan>
+
+<tspan x="10" y="2570">+        "url": "git+https://github.com/kaizhu256/node-apidoc-lite.git"</tspan>
+
+<tspan x="10" y="2586">+    },</tspan>
+
+<tspan x="10" y="2602">+    "scripts": {</tspan>
+
+<tspan x="10" y="2618">+        "build-ci": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2634">+        "env": "env",</tspan>
+
+<tspan x="10" y="2650">+        "eval": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2666">+        "heroku-postbuild": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2682">+        "postinstall": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2698">+        "start": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2714">+        "test": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2730">+        "utility2": "./npm_scripts.sh"</tspan>
+
+<tspan x="10" y="2746">+    },</tspan>
+
+<tspan x="10" y="2762">+    "version": "2020.3.16"</tspan>
+
+<tspan x="10" y="2778"> }</tspan>
+
+<tspan x="10" y="2794">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/package.\</tspan>
+<tspan x="10" y="2810">json</tspan>
+
+<tspan x="10" y="2826">jslint - 35ms /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+
+<tspan x="10" y="2842">jslint - 53ms /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+
+<tspan x="10" y="2858">testRunDefault - 645 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
+
+<tspan x="10" y="2874">testRunDefault - 646 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
+
+<tspan x="10" y="2890">testRunDefault - 670 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
+
+<tspan x="10" y="2906">testRunDefault - 677 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
+
+<tspan x="10" y="2922">testRunDefault - 678 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
+
+<tspan x="10" y="2938">testRunDefault - 678 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
+
+<tspan x="10" y="2954"></tspan>
+
+<tspan x="10" y="2970">DevTools listening on ws://127.0.0.1:38831/devtools/browser/dbda2dd8-c46c-41ea-8cc6-5af7beb5ea84</tspan>
+
+<tspan x="10" y="2986">[0317/070613.696348:ERROR:command_buffer_proxy_impl.cc(125)] ContextResult::kTransientFailure: F\</tspan>
+<tspan x="10" y="3002">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
+
+<tspan x="10" y="3018">[0317/070613.696235:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
+<tspan x="10" y="3034">th unconsumed attachments: 0/1</tspan>
+
+<tspan x="10" y="3050">[0317/070613.700318:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
+<tspan x="10" y="3066">th unconsumed attachments: 0/1</tspan>
+
+<tspan x="10" y="3082">[0317/070613.707991:ERROR:command_buffer_proxy_impl.cc(125)] ContextResult::kTransientFailure: F\</tspan>
+<tspan x="10" y="3098">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
+
+<tspan x="10" y="3114">[0317/070613.707970:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
+<tspan x="10" y="3130">th unconsumed attachments: 0/1</tspan>
+
+<tspan x="10" y="3146">http-server listening on port 53176</tspan>
+
+<tspan x="10" y="3162">[0317/070614.082528:INFO:CONSOLE(280)] "testRunDefault - 4 ms - [browser test-case 1 of 2 passed\</tspan>
+<tspan x="10" y="3178">] - testCase_apidocCreate_default", source: http://127.0.0.1:41923/assets.example.js (280)</tspan>
+
+<tspan x="10" y="3194">[0317/070614.096063:INFO:CONSOLE(280)] "testRunDefault - 18 ms - [browser test-case 2 of 2 passe\</tspan>
+<tspan x="10" y="3210">d] - testCase_nop_default", source: http://127.0.0.1:41923/assets.example.js (280)</tspan>
+
+<tspan x="10" y="3226">[0317/070614.168276:INFO:CONSOLE(280)] "domOnEventWindowOnloadTimeElapsed = 258", source: http:/\</tspan>
+<tspan x="10" y="3242">/127.0.0.1:41923/assets.example.js (280)</tspan>
+
+<tspan x="10" y="3258">testRunDefault - 1762 ms - [node test-case 7 of 8 passed] - testCase_webpage_default</tspan>
+
+<tspan x="10" y="3274">testRunDefault - 6020 ms - testCase pending - testCase_buildApp_default ...</tspan>
+
+<tspan x="10" y="3290">testRunDefault - 6079 ms - [node test-case 8 of 8 passed] - testCase_buildApp_default</tspan>
+
+<tspan x="10" y="3306">--------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="3322">File                |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+
+<tspan x="10" y="3338">--------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="3354">   apidoc-lite/     |     99.01 |     98.91 |      97.2 |     99.01 |</tspan>
+
+<tspan x="10" y="3370">      lib.apidoc.js |     98.77 |      98.7 |     96.63 |     98.77 |</tspan>
+
+<tspan x="10" y="3386">      test.js       |       100 |       100 |       100 |       100 |</tspan>
+
+<tspan x="10" y="3402">--------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="3418">All files           |     99.01 |     98.91 |      97.2 |     99.01 |</tspan>
+
+<tspan x="10" y="3434">--------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="3450"></tspan>
+
+<tspan x="10" y="3466">created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage.html/ind\</tspan>
+<tspan x="10" y="3482">ex.html</tspan>
+
+<tspan x="10" y="3498"></tspan>
+
+<tspan x="10" y="3514">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="3530">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
+<tspan x="10" y="3546">.36 (KHTML, like Gecko) HeadlessChrome/80.0.3987.132 Safari/537.36 - 2020-03-17T07:06:13.981Z</tspan>
+
+<tspan x="10" y="3562">|      24 ms            0 failed        2 passed      |</tspan>
+
+<tspan x="10" y="3578">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="3594">| test-report - npmTestPublished - node - linux v13.11.0 - 2020-03-17T07:06:11.994Z</tspan>
+
+<tspan x="10" y="3610">|    6079 ms            0 failed        8 passed      |</tspan>
+
+<tspan x="10" y="3626">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="3642"></tspan>
+
+<tspan x="10" y="3658">created test-report file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.ht\</tspan>
+<tspan x="10" y="3674">ml</tspan>
+
+<tspan x="10" y="3690"></tspan>
+
+<tspan x="10" y="3706"></tspan>
+
+<tspan x="10" y="3722">npmTestPublished - 0 failed tests</tspan>
+
+<tspan x="10" y="3738"></tspan>
+
+<tspan x="10" y="3754"></tspan>
+
+<tspan x="10" y="3770">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-03-17T07:06:18.806Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
