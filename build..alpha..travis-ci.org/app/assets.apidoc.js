@@ -1,6 +1,6 @@
 // usr/bin/env node
 /*
- * lib.apidoc.js (2020.3.16)
+ * lib.apidoc.js (2020.3.17)
  * https://github.com/kaizhu256/node-apidoc-lite
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
