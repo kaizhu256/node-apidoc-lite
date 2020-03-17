@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * lib.apidoc.js (2019.8.16)
+ * lib.apidoc.js (2020.3.16)
  * https://github.com/kaizhu256/node-apidoc-lite
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
@@ -9,91 +9,155 @@
 
 
 /* istanbul instrument in package apidoc */
+// assets.utility2.header.js - start
 /* istanbul ignore next */
 /* jslint utility2:true */
 (function (globalThis) {
     "use strict";
-    var consoleError;
-    var local;
+    let consoleError;
+    let debugName;
+    let local;
+    debugName = "debug" + String("Inline");
     // init globalThis
-    (function () {
-        try {
-            globalThis = Function("return this")(); // jslint ignore:line
-        } catch (ignore) {}
-    }());
-    globalThis.globalThis = globalThis;
+    globalThis.globalThis = globalThis.globalThis || globalThis;
     // init debug_inline
-    if (!globalThis["debug\u0049nline"]) {
+    if (!globalThis[debugName]) {
         consoleError = console.error;
-        globalThis["debug\u0049nline"] = function () {
+        globalThis[debugName] = function (...argList) {
         /*
-         * this function will both print <arguments> to stderr
-         * and return <arguments>[0]
+         * this function will both print <argList> to stderr
+         * and return <argList>[0]
          */
-            var argList;
-            argList = Array.from(arguments); // jslint ignore:line
-            // debug arguments
-            globalThis["debug\u0049nlineArguments"] = argList;
-            consoleError("\n\ndebug\u0049nline");
-            consoleError.apply(console, argList);
+            consoleError("\n\n" + debugName);
+            consoleError(...argList);
             consoleError("\n");
-            // return arg0 for inspection
             return argList[0];
         };
     }
+    String.prototype.trimEnd = (
+        String.prototype.trimEnd || String.prototype.trimRight
+    );
+    String.prototype.trimStart = (
+        String.prototype.trimStart || String.prototype.trimLeft
+    );
     // init local
     local = {};
     local.local = local;
     globalThis.globalLocal = local;
     // init isBrowser
     local.isBrowser = (
-        typeof window === "object"
-        && window === globalThis
-        && typeof window.XMLHttpRequest === "function"
-        && window.document
-        && typeof window.document.querySelector === "function"
+        typeof globalThis.XMLHttpRequest === "function"
+        && globalThis.navigator
+        && typeof globalThis.navigator.userAgent === "string"
+    );
+    // init isWebWorker
+    local.isWebWorker = (
+        local.isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertThrow = function (passed, message) {
+    local.assertOrThrow = function (passed, msg) {
     /*
-     * this function will throw err.<message> if <passed> is falsy
+     * this function will throw err.<msg> if <passed> is falsy
      */
-        var err;
         if (passed) {
             return;
         }
-        err = (
-            // ternary-operator
+        throw (
             (
-                message
-                && typeof message.message === "string"
-                && typeof message.stack === "string"
+                msg
+                && typeof msg.message === "string"
+                && typeof msg.stack === "string"
             )
-            // if message is errObj, then leave as is
-            ? message
+            // if msg is err, then leave as is
+            ? msg
             : new Error(
-                typeof message === "string"
-                // if message is a string, then leave as is
-                ? message
-                // else JSON.stringify message
-                : JSON.stringify(message, null, 4)
+                typeof msg === "string"
+                // if msg is a string, then leave as is
+                ? msg
+                // else JSON.stringify msg
+                : JSON.stringify(msg, undefined, 4)
             )
         );
-        throw err;
+    };
+    local.coalesce = function (...argList) {
+    /*
+     * this function will coalesce null, undefined, or "" in <argList>
+     */
+        let arg;
+        let ii;
+        ii = 0;
+        while (ii < argList.length) {
+            arg = argList[ii];
+            if (arg !== null && arg !== undefined && arg !== "") {
+                break;
+            }
+            ii += 1;
+        }
+        return arg;
+    };
+    local.fsRmrfSync = function (dir) {
+    /*
+     * this function will sync "rm -rf" <dir>
+     */
+        let child_process;
+        // do nothing if module does not exist
+        try {
+            child_process = require("child_process");
+        } catch (ignore) {
+            return;
+        }
+        child_process.spawnSync("rm", [
+            "-rf", dir
+        ], {
+            stdio: [
+                "ignore", 1, 2
+            ]
+        });
+    };
+    local.fsWriteFileWithMkdirpSync = function (file, data) {
+    /*
+     * this function will sync write <data> to <file> with "mkdir -p"
+     */
+        let fs;
+        // do nothing if module does not exist
+        try {
+            fs = require("fs");
+        } catch (ignore) {
+            return;
+        }
+        // try to write file
+        try {
+            fs.writeFileSync(file, data);
+        } catch (ignore) {
+            // mkdir -p
+            require("child_process").spawnSync(
+                "mkdir",
+                [
+                    "-p", require("path").dirname(file)
+                ],
+                {
+                    stdio: [
+                        "ignore", 1, 2
+                    ]
+                }
+            );
+            // rewrite file
+            fs.writeFileSync(file, data);
+        }
     };
     local.functionOrNop = function (fnc) {
     /*
      * this function will if <fnc> exists,
-     * them return <fnc>,
+     * return <fnc>,
      * else return <nop>
      */
         return fnc || local.nop;
     };
-    local.identity = function (value) {
+    local.identity = function (val) {
     /*
-     * this function will return <value>
+     * this function will return <val>
      */
-        return value;
+        return val;
     };
     local.nop = function () {
     /*
@@ -103,8 +167,7 @@
     };
     local.objectAssignDefault = function (target, source) {
     /*
-     * this function will if items from <target> are
-     * null, undefined, or empty-string,
+     * this function will if items from <target> are null, undefined, or "",
      * then overwrite them with items from <source>
      */
         target = target || {};
@@ -118,6 +181,26 @@
             }
         });
         return target;
+    };
+    local.querySelector = function (selectors) {
+    /*
+     * this function will return first dom-elem that match <selectors>
+     */
+        return (
+            typeof document === "object" && document
+            && typeof document.querySelector === "function"
+            && document.querySelector(selectors)
+        ) || {};
+    };
+    local.querySelectorAll = function (selectors) {
+    /*
+     * this function will return dom-elem-list that match <selectors>
+     */
+        return (
+            typeof document === "object" && document
+            && typeof document.querySelectorAll === "function"
+            && Array.from(document.querySelectorAll(selectors))
+        ) || [];
     };
     // require builtin
     if (!local.isBrowser) {
@@ -149,7 +232,8 @@
         local.vm = require("vm");
         local.zlib = require("zlib");
     }
-}(this));
+}((typeof globalThis === "object" && globalThis) || window));
+// assets.utility2.header.js - end
 
 
 
@@ -183,7 +267,7 @@ local.apidoc = local;
 /* validateLineSortedReset */
 local.cliRun = function (opt) {
 /*
- * this function will run the cli with given <opt>
+ * this function will run cli with given <opt>
  */
     local.cliDict._eval = local.cliDict._eval || function () {
     /*
@@ -193,18 +277,16 @@ local.cliRun = function (opt) {
         globalThis.local = local;
         local.vm.runInThisContext(process.argv[3]);
     };
-    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;
-    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;
     local.cliDict._help = local.cliDict._help || function () {
     /*
      *
      * will print help
      */
-        var commandList;
-        var file;
-        var packageJson;
-        var text;
-        var textDict;
+        let commandList;
+        let file;
+        let packageJson;
+        let str;
+        let strDict;
         commandList = [
             {
                 argList: "<arg2>  ...",
@@ -229,37 +311,37 @@ local.cliRun = function (opt) {
         opt.rgxComment = opt.rgxComment || (
             /\)\u0020\{\n(?:|\u0020{4})\/\*\n(?:\u0020|\u0020{5})\*((?:\u0020<[^>]*?>|\u0020\.\.\.)*?)\n(?:\u0020|\u0020{5})\*\u0020(will\u0020.*?\S)\n(?:\u0020|\u0020{5})\*\/\n(?:\u0020{4}|\u0020{8})\S/
         );
-        textDict = {};
+        strDict = {};
         Object.keys(local.cliDict).sort().forEach(function (key, ii) {
             if (key[0] === "_" && key !== "_default") {
                 return;
             }
-            text = String(local.cliDict[key]);
+            str = String(local.cliDict[key]);
             if (key === "_default") {
                 key = "";
             }
-            textDict[text] = textDict[text] || (ii + 2);
-            ii = textDict[text];
+            strDict[str] = strDict[str] || (ii + 2);
+            ii = strDict[str];
             if (commandList[ii]) {
                 commandList[ii].command.push(key);
                 return;
             }
             try {
-                commandList[ii] = opt.rgxComment.exec(text);
+                commandList[ii] = opt.rgxComment.exec(str);
                 commandList[ii] = {
-                    argList: (commandList[ii][1] || "").trim(),
+                    argList: local.coalesce(commandList[ii][1], "").trim(),
                     command: [
                         key
                     ],
                     description: commandList[ii][2]
                 };
             } catch (ignore) {
-                local.assertThrow(null, new Error(
+                local.assertOrThrow(undefined, new Error(
                     "cliRun - cannot parse comment in COMMAND "
                     + key
                     + ":\nnew RegExp("
                     + JSON.stringify(opt.rgxComment.source)
-                    + ").exec(" + JSON.stringify(text).replace((
+                    + ").exec(" + JSON.stringify(str).replace((
                         /\\\\/g
                     ), "\u0000").replace((
                         /\\n/g
@@ -269,9 +351,9 @@ local.cliRun = function (opt) {
                 ));
             }
         });
-        text = "";
-        text += packageJson.name + " (" + packageJson.version + ")\n\n";
-        text += commandList.filter(function (elem) {
+        str = "";
+        str += packageJson.name + " (" + packageJson.version + ")\n\n";
+        str += commandList.filter(function (elem) {
             return elem;
         }).map(function (elem, ii) {
             elem.command = elem.command.filter(function (elem) {
@@ -294,17 +376,15 @@ local.cliRun = function (opt) {
             }
             return (
                 elem.description + "\n  " + file
-                + ("  " + elem.command.sort().join("|") + "  ")
-                    .replace((
-                    /^\u0020{4}$/
-                ), "  ")
+                + "  " + elem.command.sort().join("|") + "  "
                 + elem.argList.join("  ")
             );
-        })
-        .join("\n\n");
-        console.log(text);
+        }).join("\n\n");
+        console.log(str);
     };
+    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;
     local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;
+    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;
     local.cliDict["-h"] = local.cliDict["-h"] || local.cliDict._help;
     local.cliDict._default = local.cliDict._default || local.cliDict._help;
     local.cliDict.help = local.cliDict.help || local.cliDict._help;
@@ -347,38 +427,35 @@ local.cliRun = function (opt) {
     local.cliDict._default();
 };
 
-local.moduleDirname = function (module, modulePathList) {
+local.moduleDirname = function (module, pathList) {
 /*
- * this function will search modulePathList for the module's __dirname
+ * this function will search <pathList> for <module>'s __dirname
  */
-    var result;
+    let result;
     // search process.cwd()
     if (!module || module === "." || module.indexOf("/") >= 0) {
         return require("path").resolve(process.cwd(), module || "");
     }
-    // search modulePathList
-    [
-        "node_modules"
-    ]
-    .concat(modulePathList)
-    .concat(require("module").globalPaths)
-    .concat([
-        process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"
-    ])
-    .some(function (modulePath) {
+    // search pathList
+    Array.from([
+        pathList,
+        require("module").globalPaths,
+        [
+            process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"
+        ]
+    ]).flat().some(function (path) {
         try {
             result = require("path").resolve(
                 process.cwd(),
-                modulePath + "/" + module
+                path + "/" + module
             );
             result = require("fs").statSync(result).isDirectory() && result;
             return result;
         } catch (ignore) {
-            result = null;
+            result = "";
         }
-        return result;
     });
-    return result || "";
+    return result;
 };
 
 local.objectSetDefault = function (dict, defaults, depth) {
@@ -388,8 +465,8 @@ local.objectSetDefault = function (dict, defaults, depth) {
     dict = dict || {};
     defaults = defaults || {};
     Object.keys(defaults).forEach(function (key) {
-        var defaults2;
-        var dict2;
+        let defaults2;
+        let dict2;
         dict2 = dict[key];
         // handle misbehaving getter
         try {
@@ -406,13 +483,13 @@ local.objectSetDefault = function (dict, defaults, depth) {
             dict[key] = defaults2;
             return;
         }
-        // if dict2 and defaults2 are both non-null and non-array objects,
+        // if dict2 and defaults2 are both non-undefined and non-array objects,
         // then recurse with dict2 and defaults2
         if (
             depth > 1
-            // dict2 is a non-null and non-array object
+            // dict2 is a non-undefined and non-array object
             && typeof dict2 === "object" && dict2 && !Array.isArray(dict2)
-            // defaults2 is a non-null and non-array object
+            // defaults2 is a non-undefined and non-array object
             && typeof defaults2 === "object" && defaults2
             && !Array.isArray(defaults2)
         ) {
@@ -423,29 +500,23 @@ local.objectSetDefault = function (dict, defaults, depth) {
     return dict;
 };
 
-local.stringHtmlSafe = function (text) {
+local.stringHtmlSafe = function (str) {
 /*
- * this function will make the text html-safe
+ * this function will make <str> html-safe
  * https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html
  */
-    return text
-    .replace((
-        /&/g
-    ), "&amp;")
-    .replace((
-        /"/g
-    ), "&quot;")
-    .replace((
-        /'/g
-    ), "&apos;")
-    .replace((
-        /</g
-    ), "&lt;")
-    .replace((
-        />/g
-    ), "&gt;")
-    .replace((
-        /&amp;(amp;|apos;|gt;|lt;|quot;)/ig
+    return str.replace((
+        /&/gu
+    ), "&amp;").replace((
+        /"/gu
+    ), "&quot;").replace((
+        /'/gu
+    ), "&apos;").replace((
+        /</gu
+    ), "&lt;").replace((
+        />/gu
+    ), "&gt;").replace((
+        /&amp;(amp;|apos;|gt;|lt;|quot;)/igu
     ), "&$1");
 };
 
@@ -542,7 +613,7 @@ local.templateApidocHtml = '\
     </h2>\n\
     <ul>\n\
     <li>description and source-code<pre class="apidocCodePre">{{source truncate 4096}}</pre></li>\n\
-    <li>example usage<pre class="apidocCodePre">{{example}}</pre></li>\n\
+    <li>example use<pre class="apidocCodePre">{{example}}</pre></li>\n\
     </ul>\n\
     {{/if source}}\n\
     {{/each elemList}}\n\
@@ -557,57 +628,60 @@ local.templateApidocHtml = '\
 ';
 /* jslint ignore:end */
 
-local.templateRender = function (template, dict, opt) {
+local.templateRender = function (template, dict, opt, ii) {
 /*
- * this function will render the template with given dict
+ * this function will render <template> with given <dict>
  */
-    var argList;
-    var getValue;
-    var match;
-    var renderPartial;
-    var rgx;
-    var skip;
-    var value;
-    dict = dict || {};
+    let argList;
+    let getVal;
+    let match;
+    let renderPartial;
+    let rgx;
+    let skip;
+    let val;
+    if (dict === null || dict === undefined) {
+        dict = {};
+    }
     opt = opt || {};
-    getValue = function (key) {
+    getVal = function (key) {
         argList = key.split(" ");
-        value = dict;
+        val = dict;
         if (argList[0] === "#this/") {
-            return;
+            return val;
         }
-        // iteratively lookup nested values in the dict
+        if (argList[0] === "#ii/") {
+            return ii;
+        }
+        // iteratively lookup nested val in dict
         argList[0].split(".").forEach(function (key) {
-            if (key !== "this") {
-                value = value && value[key];
-            }
+            val = val && val[key];
         });
-        return value;
+        return val;
     };
     renderPartial = function (match0, helper, key, partial) {
         switch (helper) {
         case "each":
-        case "eachTrimRightComma":
-            value = getValue(key);
-            value = (
-                Array.isArray(value)
-                ? value.map(function (dict) {
+        case "eachTrimEndComma":
+            val = getVal(key);
+            val = (
+                Array.isArray(val)
+                ? val.map(function (dict, ii) {
                     // recurse with partial
-                    return local.templateRender(partial, dict, opt);
+                    return local.templateRender(partial, dict, opt, ii);
                 }).join("")
                 : ""
             );
             // remove trailing-comma from last elem
-            if (helper === "eachTrimRightComma") {
-                value = value.trimRight().replace((
+            if (helper === "eachTrimEndComma") {
+                val = val.trimEnd().replace((
                     /,$/
                 ), "");
             }
-            return value;
+            return val;
         case "if":
             partial = partial.split("{{#unless " + key + "}}");
             partial = (
-                getValue(key)
+                getVal(key)
                 ? partial[0]
                 // handle 'unless' case
                 : partial.slice(1).join("{{#unless " + key + "}}")
@@ -616,7 +690,7 @@ local.templateRender = function (template, dict, opt) {
             return local.templateRender(partial, dict, opt);
         case "unless":
             return (
-                getValue(key)
+                getVal(key)
                 ? ""
                 // recurse with partial
                 : local.templateRender(partial, dict, opt)
@@ -648,35 +722,50 @@ local.templateRender = function (template, dict, opt) {
     return template.replace((
         /\{\{[^}]+?\}\}/g
     ), function (match0) {
-        var markdownToHtml;
-        var notHtmlSafe;
+        let markdownToHtml;
+        let notHtmlSafe;
         notHtmlSafe = opt.notHtmlSafe;
         try {
-            getValue(match0.slice(2, -2));
-            if (value === undefined) {
+            val = getVal(match0.slice(2, -2));
+            if (val === undefined) {
                 return match0;
             }
-            argList.slice(1).forEach(function (arg0, ii, list) {
-                switch (arg0) {
+            argList.slice(1).forEach(function (fmt, ii, list) {
+                switch (fmt) {
+                case "*":
+                case "+":
+                case "-":
+                case "/":
+                    skip = ii + 1;
+                    val = String(
+                        fmt === "*"
+                        ? Number(val) * Number(list[skip])
+                        : fmt === "+"
+                        ? Number(val) + Number(list[skip])
+                        : fmt === "-"
+                        ? Number(val) - Number(list[skip])
+                        : Number(val) / Number(list[skip])
+                    );
+                    break;
                 case "alphanumeric":
-                    value = value.replace((
+                    val = val.replace((
                         /\W/g
                     ), "_");
                     break;
                 case "decodeURIComponent":
-                    value = decodeURIComponent(value);
+                    val = decodeURIComponent(val);
                     break;
                 case "encodeURIComponent":
-                    value = encodeURIComponent(value);
+                    val = encodeURIComponent(val);
                     break;
                 case "jsonStringify":
-                    value = JSON.stringify(value);
+                    val = JSON.stringify(val);
                     break;
                 case "jsonStringify4":
-                    value = JSON.stringify(value, null, 4);
+                    val = JSON.stringify(val, undefined, 4);
                     break;
                 case "markdownSafe":
-                    value = value.replace((
+                    val = val.replace((
                         /`/g
                     ), "'");
                     break;
@@ -688,51 +777,46 @@ local.templateRender = function (template, dict, opt) {
                     break;
                 case "padEnd":
                 case "padStart":
+                case "replace":
                 case "slice":
                     skip = ii + 2;
-                    value = String(value)[arg0](
+                    val = String(val)[fmt](
                         list[skip - 1],
-                        list[skip]
+                        list[skip].replace("\"\"", "").replace("\"_\"", " ")
                     );
                     break;
                 case "truncate":
                     skip = ii + 1;
-                    if (value.length > list[skip]) {
-                        value = value.slice(
+                    if (val.length > list[skip]) {
+                        val = val.slice(
                             0,
                             Math.max(list[skip] - 3, 0)
-                        ).trimRight() + "...";
+                        ).trimEnd() + "...";
                     }
                     break;
-                // default to String.prototype[arg0]()
+                // default to String.prototype[fmt]()
                 default:
                     if (ii <= skip) {
                         break;
                     }
-                    value = value[arg0]();
+                    val = val[fmt]();
                 }
             });
-            value = String(value);
+            val = String(val);
             // default to htmlSafe
             if (!notHtmlSafe) {
-                value = value
-                .replace((
-                    /&/g
-                ), "&amp;")
-                .replace((
-                    /"/g
-                ), "&quot;")
-                .replace((
-                    /'/g
-                ), "&apos;")
-                .replace((
-                    /</g
-                ), "&lt;")
-                .replace((
-                    />/g
-                ), "&gt;")
-                .replace((
-                    /&amp;(amp;|apos;|gt;|lt;|quot;)/ig
+                val = val.replace((
+                    /&/gu
+                ), "&amp;").replace((
+                    /"/gu
+                ), "&quot;").replace((
+                    /'/gu
+                ), "&apos;").replace((
+                    /</gu
+                ), "&lt;").replace((
+                    />/gu
+                ), "&gt;").replace((
+                    /&amp;(amp;|apos;|gt;|lt;|quot;)/igu
                 ), "&$1");
             }
             markdownToHtml = (
@@ -740,19 +824,17 @@ local.templateRender = function (template, dict, opt) {
                 && (typeof local.marked === "function" && local.marked)
             );
             if (markdownToHtml) {
-                value = markdownToHtml(value)
-                .replace((
-                    /&amp;(amp;|apos;|gt;|lt;|quot;)/ig
+                val = markdownToHtml(val).replace((
+                    /&amp;(amp;|apos;|gt;|lt;|quot;)/igu
                 ), "&$1");
             }
-            return value;
+            return val;
         } catch (errCaught) {
             errCaught.message = (
                 "templateRender could not render expression "
-                + JSON.stringify(match0)
-                + "\n"
+                + JSON.stringify(match0) + "\n"
             ) + errCaught.message;
-            local.assertThrow(null, errCaught);
+            local.assertOrThrow(undefined, errCaught);
         }
     });
 };
@@ -762,9 +844,9 @@ local.tryCatchOnError = function (fnc, onError) {
  * this function will run the fnc in a tryCatch block,
  * else call onError with errCaught
  */
-    var result;
+    let result;
     // validate onError
-    local.assertThrow(typeof onError === "function", typeof onError);
+    local.assertOrThrow(typeof onError === "function", typeof onError);
     try {
         // reset errCaught
         local._debugTryCatchError = null;
@@ -787,18 +869,18 @@ local.apidocCreate = function (opt) {
 /*
  * this function will create the apidoc from <opt>.dir
  */
-    var elemCreate;
-    var module;
-    var moduleMain;
-    var readExample;
-    var tmp;
-    var toString;
-    var trimLeft;
+    let elemCreate;
+    let module;
+    let moduleMain;
+    let readExample;
+    let tmp;
+    let toString;
+    let trimStart;
     elemCreate = function (module, prefix, key) {
     /*
      * this function will create the apidoc-elem in given <module>
      */
-        var elem;
+        let elem;
         if (opt.modeNoApidoc) {
             return elem;
         }
@@ -814,34 +896,30 @@ local.apidocCreate = function (opt) {
         elem.name = (
             elem.typeof + " <span class=\"apidocSignatureSpan\">"
             + elem.moduleName + ".</span>" + key
-        )
-            // handle case where module is a function
-            .replace(">.<", "><");
+        );
+        // handle case where module is a function
+        elem.name = elem.name.replace(">.<", "><");
         if (elem.typeof !== "function") {
             return elem;
         }
         // init source
         elem.source = local.stringHtmlSafe(
-            trimLeft(toString(module[key])) || "n/a"
+            trimStart(toString(module[key])) || "n/a"
         ).replace((
             /\([\S\s]*?\)/
         ), function (match0) {
             // init signature
             elem.signature = match0.replace((
                 /\u0020*?\/\*[\S\s]*?\*\/\u0020*/g
-            ), "")
-            .replace((
+            ), "").replace((
                 /,/g
-            ), ", ")
-            .replace((
+            ), ", ").replace((
                 /\s+/g
             ), " ");
             return elem.signature;
-        })
-        .replace((
+        }).replace((
             /(\u0020*?\/\*[\S\s]*?\*\/\n)/
-        ), "<span class=\"apidocCodeCommentSpan\">$1</span>")
-        .replace((
+        ), "<span class=\"apidocCodeCommentSpan\">$1</span>").replace((
             /^function\u0020\(/
         ), key + " = function (");
         // init example
@@ -849,13 +927,14 @@ local.apidocCreate = function (opt) {
             example.replace(
                 new RegExp("((?:\n.*?){8}\\.)(" + key + ")(\\((?:.*?\n){8})"),
                 function (ignore, match1, match2, match3) {
-                    elem.example = "..." + trimLeft(
+                    elem.example = "..." + trimStart(
                         local.stringHtmlSafe(match1)
                         + "<span class=\"apidocCodeKeywordSpan\">"
                         + local.stringHtmlSafe(match2)
                         + "</span>"
                         + local.stringHtmlSafe(match3)
-                    ).trimRight() + "\n...";
+                    ).trimEnd() + "\n...";
+                    return "";
                 }
             );
             return elem.example;
@@ -867,12 +946,12 @@ local.apidocCreate = function (opt) {
     /*
      * this function will read the example from given file
      */
-        var result;
+        let result;
         local.tryCatchOnError(function () {
             file = local.path.resolve(opt.dir, file);
             console.error("apidocCreate - readExample " + file);
             result = "";
-            result = (
+            result = local.identity(
                 "\n\n\n\n\n\n\n\n"
                 // bug-workaround - truncate example to manageable size
                 + local.fs.readFileSync(file, "utf8").slice(0, 262144)
@@ -887,36 +966,37 @@ local.apidocCreate = function (opt) {
     /*
      * this function will try to return the string form of the value
      */
-        var result;
+        let result;
         local.tryCatchOnError(function () {
             result = "";
             result = String(value);
         }, console.error);
         return result;
     };
-    trimLeft = function (text) {
+    trimStart = function (str) {
     /*
-     * this function will normalize the whitespace around the text
+     * this function will normalize whitespace before <str>
      */
-        var whitespace;
+        let whitespace;
         whitespace = "";
-        text.trim().replace((
+        str.trim().replace((
             /^\u0020*/gm
         ), function (match0) {
             if (!whitespace || match0.length < whitespace.length) {
                 whitespace = match0;
             }
+            return "";
         });
-        text = text.replace(new RegExp("^" + whitespace, "gm"), "");
+        str = str.replace(new RegExp("^" + whitespace, "gm"), "");
         // enforce 128 character column limit
-        text = text.replace((
+        str = str.replace((
             /^.{128}[^\\\n]+/gm
         ), function (match0) {
             return match0.replace((
                 /(.{128}(?:\b|\w+))/g
-            ), "$1\n").trimRight();
+            ), "$1\n").trimEnd();
         });
-        return text;
+        return str;
     };
     // init opt
     opt.dir = local.moduleDirname(
@@ -1001,8 +1081,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
 " '
 /* jslint ignore:end */
                 + " | sort | head -n 256"
-            ).toString()
-            .split("\n")
+            ).toString().split("\n")
         );
     });
     opt.exampleList = opt.exampleList.filter(function (file) {
@@ -1030,18 +1109,18 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
     // handle case where module is a function
     if (typeof moduleMain === "function") {
         (function () {
-            var text;
-            text = toString(moduleMain);
+            let str;
+            str = toString(moduleMain);
             tmp = function () {
                 return;
             };
-            // coverage-hack
+            // hack-coverage
             tmp();
             Object.defineProperties(tmp, {
                 toString: {
                     get: function () {
                         return function () {
-                            return text;
+                            return str;
                         };
                     }
                 }
@@ -1147,29 +1226,25 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
 " '
 /* jslint ignore:end */
                 + " | sort | head -n 256"
-            ).toString()
-            .split("\n")
+            ).toString().split("\n")
         );
     });
     opt.ii = 256;
     opt.libFileList.every(function (file) {
         local.tryCatchOnError(function () {
             tmp = {};
-            tmp.name = local.path.basename(file)
-            .replace("lib.", "")
-            .replace((
+            tmp.name = local.path.basename(file).replace("lib.", "").replace((
                 /\.[^.]*?$/
-            ), "")
-            .replace((
+            ), "").replace((
                 /\W/g
             ), "_");
-            ([
+            Array.from([
                 tmp.name,
                 tmp.name.slice(0, 1).toUpperCase() + tmp.name.slice(1)
             ]).some(function (name) {
                 tmp.isFiltered = name && (
                     !opt.packageJson.main
-                    || ("./" + file).indexOf(opt.packageJson.main) < 0
+                    || String("./" + file).indexOf(opt.packageJson.main) < 0
                 ) && !module[name];
                 return !tmp.isFiltered;
             });
@@ -1196,9 +1271,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
         moduleMain[tmp] = moduleMain[tmp] || opt.moduleDict[key];
     });
     // init moduleList
-    opt.moduleList = Object.keys(opt.moduleDict)
-    .sort()
-    .map(function (prefix) {
+    opt.moduleList = Object.keys(opt.moduleDict).sort().map(function (prefix) {
         module = opt.moduleDict[prefix];
         // handle case where module is a function
         if (typeof module === "function") {
@@ -1239,9 +1312,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
     // render apidoc
     opt.result = local.templateRender(opt.template, opt, {
         notHtmlSafe: true
-    })
-    .trim()
-    .replace((
+    }).trim().replace((
         /\u0020+$/gm
     ), "") + "\n";
     return opt.result;
@@ -1251,9 +1322,9 @@ local.apidocModuleDictAdd = function (opt, moduleDict) {
 /*
  * this function will add the modules in <moduleDict> to <opt>.moduleDict
  */
-    var isModule;
-    var objectKeys;
-    var tmp;
+    let isModule;
+    let objectKeys;
+    let tmp;
     objectKeys = function (dict) {
     /*
      * this function will return a list of the dict's keys, with valid getters
@@ -1302,7 +1373,7 @@ local.apidocModuleDictAdd = function (opt, moduleDict) {
                 ) {
                     return;
                 }
-                isModule = ([
+                isModule = Array.from([
                     tmp.module,
                     tmp.module.prototype
                 ]).some(function (dict) {
@@ -1351,7 +1422,4 @@ if (module === require.main && !globalThis.utility2_rollup) {
     local.cliRun();
 }
 }());
-
-
-
 }());

@@ -44,21 +44,22 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 
 
 # documentation
-#### cli help
-![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.npmPackageCliHelp.svg)
-
 #### api doc
 - [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
 [![apidoc](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.org/apidoc.html)
 
-#### todo
-- none
+#### cli help
+![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.npmPackageCliHelp.svg)
 
-#### changelog 2019.8.16
-- npm publish 2019.8.16
+#### changelog 2020.3.16
+- npm publish 2020.3.16
+- jslint - remove ternary-operator/newline comment preceding bra
 - update build
 - none
+
+#### todo
+-none
 
 #### this package requires
 - darwin or linux os
@@ -115,8 +116,9 @@ npm install mysql
         "utility2": "kaizhu256/node-utility2#alpha"
     },
     "engines": {
-        "node": ">=8.0"
+        "node": ">=12.0"
     },
+    "fileCount": 8,
     "homepage": "https://github.com/kaizhu256/node-apidoc-lite",
     "keywords": [
         "apidoc",
@@ -147,7 +149,7 @@ npm install mysql
         "test": "./npm_scripts.sh",
         "utility2": "./npm_scripts.sh"
     },
-    "version": "2019.8.16"
+    "version": "2020.3.16"
 }
 ```
 
@@ -163,7 +165,7 @@ npm install mysql
 ```shell
 # build_ci.sh
 
-# this shell script will run the build for this package
+# this shell script will run build-ci for this package
 
 shBuildCiAfter () {(set -e
     shDeployCustom
