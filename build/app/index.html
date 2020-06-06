@@ -164,7 +164,7 @@ pre {
         switch (gotoState) {
         // ajaxProgress - show
         case 1:
-            // init <timerInterval> and <timerTimeout>
+            // init timerInterval and timerTimeout
             if (!timerTimeout) {
                 timeStart = Date.now();
                 timerInterval = setInterval(opt, 2000, 1, onError);
@@ -216,12 +216,12 @@ pre {
                 + (tmp - timeStart)
                 + " ms"
             );
-            // cleanup <timerInterval> and <timerTimeout>
+            // cleanup timerInterval and timerTimeout
             timeStart = tmp;
             clearInterval(timerInterval);
-            timerInterval = null;
+            timerInterval = undefined;
             clearTimeout(timerTimeout);
-            timerTimeout = null;
+            timerTimeout = undefined;
             // hide ajaxProgressBar
             styleBar.background = "transparent";
             // hide ajaxProgressModal
@@ -244,7 +244,7 @@ pre {
         opt.cnt = 0;
         window.domOnEventAjaxProgressUpdate(2, onError);
     };
-    // init <styleBar>
+    // init styleBar
     styleBar = document.getElementById("domElementAjaxProgressBar1").style;
     styleBar0 = Object.assign({}, styleBar);
     Object.entries({
@@ -261,7 +261,7 @@ pre {
     }).forEach(function (entry) {
         styleBar[entry[0]] = styleBar[entry[0]] || entry[1];
     });
-    // init <styleModal>
+    // init styleModal
     styleModal = document.getElementById("domElementAjaxProgressModal1") || {};
     styleModal = styleModal.style || {};
     styleModal0 = Object.assign({}, styleModal);
