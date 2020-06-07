@@ -167,10 +167,6 @@
             throw err;
         });
     }
-    // require builtin
-    if (!local.isBrowser) {
-        local.fs = require("fs");
-    }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
 
@@ -362,10 +358,6 @@
         process.on("unhandledRejection", function (err) {
             throw err;
         });
-    }
-    // require builtin
-    if (!local.isBrowser) {
-        local.fs = require("fs");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -1674,10 +1666,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
         process.on("unhandledRejection", function (err) {
             throw err;
         });
-    }
-    // require builtin
-    if (!local.isBrowser) {
-        local.fs = require("fs");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -13579,10 +13567,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
         process.on("unhandledRejection", function (err) {
             throw err;
         });
-    }
-    // require builtin
-    if (!local.isBrowser) {
-        local.fs = require("fs");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -31033,10 +31017,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             throw err;
         });
     }
-    // require builtin
-    if (!local.isBrowser) {
-        local.fs = require("fs");
-    }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
 
@@ -31455,10 +31435,6 @@ if (local.isBrowser) {
         process.on("unhandledRejection", function (err) {
             throw err;
         });
-    }
-    // require builtin
-    if (!local.isBrowser) {
-        local.fs = require("fs");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -44271,10 +44247,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             throw err;
         });
     }
-    // require builtin
-    if (!local.isBrowser) {
-        local.fs = require("fs");
-    }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
 
@@ -44498,10 +44470,6 @@ local.assetsDict["/assets.utility2.header.js"] = '\
         process.on("unhandledRejection", function (err) {\n\
             throw err;\n\
         });\n\
-    }\n\
-    // require builtin\n\
-    if (!local.isBrowser) {\n\
-        local.fs = require("fs");\n\
     }\n\
 }((typeof globalThis === "object" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -51475,10 +51443,6 @@ instruction\n\
             throw err;\n\
         });\n\
     }\n\
-    // require builtin\n\
-    if (!local.isBrowser) {\n\
-        local.fs = require(\"fs\");\n\
-    }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
 \n\
@@ -53063,10 +53027,6 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
         process.on(\"unhandledRejection\", function (err) {\n\
             throw err;\n\
         });\n\
-    }\n\
-    // require builtin\n\
-    if (!local.isBrowser) {\n\
-        local.fs = require(\"fs\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -70519,10 +70479,6 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
         process.on(\"unhandledRejection\", function (err) {\n\
             throw err;\n\
         });\n\
-    }\n\
-    // require builtin\n\
-    if (!local.isBrowser) {\n\
-        local.fs = require(\"fs\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
