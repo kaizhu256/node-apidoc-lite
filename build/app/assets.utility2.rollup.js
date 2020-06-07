@@ -165,8 +165,6 @@
             });
         }
         local.fs = require("fs");
-        local.http = require("http");
-        local.https = require("https");
         local.path = require("path");
         local.url = require("url");
     }
@@ -360,8 +358,6 @@
             });
         }
         local.fs = require("fs");
-        local.http = require("http");
-        local.https = require("https");
         local.path = require("path");
         local.url = require("url");
     }
@@ -1672,8 +1668,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.fs = require("fs");
-        local.http = require("http");
-        local.https = require("https");
         local.path = require("path");
         local.url = require("url");
     }
@@ -13575,8 +13569,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.fs = require("fs");
-        local.http = require("http");
-        local.https = require("https");
         local.path = require("path");
         local.url = require("url");
     }
@@ -31029,8 +31021,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.fs = require("fs");
-        local.http = require("http");
-        local.https = require("https");
         local.path = require("path");
         local.url = require("url");
     }
@@ -31451,8 +31441,6 @@ if (local.isBrowser) {
             });
         }
         local.fs = require("fs");
-        local.http = require("http");
-        local.https = require("https");
         local.path = require("path");
         local.url = require("url");
     }
@@ -44269,8 +44257,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.fs = require("fs");
-        local.http = require("http");
-        local.https = require("https");
         local.path = require("path");
         local.url = require("url");
     }
@@ -44496,8 +44482,6 @@ local.assetsDict["/assets.utility2.header.js"] = '\
             });\n\
         }\n\
         local.fs = require("fs");\n\
-        local.http = require("http");\n\
-        local.https = require("https");\n\
         local.path = require("path");\n\
         local.url = require("url");\n\
     }\n\
@@ -51058,7 +51042,6 @@ if (!local.isBrowser) {
 }
 // require modules
 local.http = local._http;
-local.https = local._http;
 }());
 
 
@@ -51069,6 +51052,8 @@ local.https = local._http;
 if (local.isBrowser) {
     return;
 }
+local.http = require("http");
+/* validateLineSortedReset */
 local.Module = require("module");
 // init env
 local.objectAssignDefault(local.env, {
@@ -51476,8 +51461,6 @@ instruction\n\
             });\n\
         }\n\
         local.fs = require(\"fs\");\n\
-        local.http = require(\"http\");\n\
-        local.https = require(\"https\");\n\
         local.path = require(\"path\");\n\
         local.url = require(\"url\");\n\
     }\n\
@@ -53064,8 +53047,6 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
             });\n\
         }\n\
         local.fs = require(\"fs\");\n\
-        local.http = require(\"http\");\n\
-        local.https = require(\"https\");\n\
         local.path = require(\"path\");\n\
         local.url = require(\"url\");\n\
     }\n\
@@ -70521,8 +70502,6 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
             });\n\
         }\n\
         local.fs = require(\"fs\");\n\
-        local.http = require(\"http\");\n\
-        local.https = require(\"https\");\n\
         local.path = require(\"path\");\n\
         local.url = require(\"url\");\n\
     }\n\
