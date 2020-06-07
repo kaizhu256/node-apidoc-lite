@@ -302,7 +302,7 @@
         </td>
         <td>
             100%<br>
-            (149 / 149)
+            (142 / 142)
         </td>
         <td>
             100%<br>
@@ -314,7 +314,7 @@
         </td>
         <td>
             100%<br>
-            (149 / 149)
+            (142 / 142)
         </td>
     </tbody>
     </table>
@@ -1123,13 +1123,6 @@
 <a href="#l798" id="l798">798</a>
 <a href="#l799" id="l799">799</a>
 <a href="#l800" id="l800">800</a>
-<a href="#l801" id="l801">801</a>
-<a href="#l802" id="l802">802</a>
-<a href="#l803" id="l803">803</a>
-<a href="#l804" id="l804">804</a>
-<a href="#l805" id="l805">805</a>
-<a href="#l806" id="l806">806</a>
-<a href="#l807" id="l807">807</a>
 </td>
         <td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1305,13 +1298,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
@@ -2115,12 +2101,9 @@ instruction
             });
         }
         local.assert = require("assert");
-        local.buffer = require("buffer");
         local.child_process = require("child_process");
         local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.dgram = require("dgram");
-        local.dns = require("dns");
         local.domain = require("domain");
         local.events = require("events");
         local.fs = require("fs");
@@ -2135,12 +2118,8 @@ instruction
         local.stream = require("stream");
         local.string_decoder = require("string_decoder");
         local.timers = require("timers");
-        local.tls = require("tls");
-        local.tty = require("tty");
         local.url = require("url");
         local.util = require("util");
-        local.vm = require("vm");
-        local.zlib = require("zlib");
     }
 }((typeof globalThis === "object" &amp;&amp; globalThis) || <span class="branch-2 cbranch-skip" title="branch not covered">window)</span>);
 // assets.utility2.header.js - end
@@ -2689,7 +2668,7 @@ utility2-comment --&gt;\n\
 local.assetsDict["/assets.apidoc.js"] = (
     local.assetsDict["/assets.apidoc.js"]
     || local.fs.readFileSync(
-        local.path.resolve(local.__dirname + "/lib.apidoc.js"),
+        require("path").resolve(local.__dirname + "/lib.apidoc.js"),
         "utf8"
     ).replace((
         /^#!\//

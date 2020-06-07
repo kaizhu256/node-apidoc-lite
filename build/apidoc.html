@@ -601,7 +601,7 @@ options = {
      * will eval &lt;code&gt;
      */
         globalThis.local = local;
-        local.vm.runInThisContext(process.argv[3]);
+        require(&quot;vm&quot;).runInThisContext(process.argv[3]);
     };
     local.cliDict._help = local.cliDict._help || function () {
     /*
@@ -702,8 +702,7 @@ options = {
                 );
             }
             return (
-                elem.description + &quot;\n  &quot; + file
-                + &quot;  &quo...</pre></li>
+                elem.description + &quot;\n  &quot; + file...</pre></li>
     <li>example use<pre class="apidocCodePre">...
         dir: process.argv[2],
         modulePathList: module.paths

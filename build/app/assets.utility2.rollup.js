@@ -165,12 +165,9 @@
             });
         }
         local.assert = require("assert");
-        local.buffer = require("buffer");
         local.child_process = require("child_process");
         local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.dgram = require("dgram");
-        local.dns = require("dns");
         local.domain = require("domain");
         local.events = require("events");
         local.fs = require("fs");
@@ -185,12 +182,8 @@
         local.stream = require("stream");
         local.string_decoder = require("string_decoder");
         local.timers = require("timers");
-        local.tls = require("tls");
-        local.tty = require("tty");
         local.url = require("url");
         local.util = require("util");
-        local.vm = require("vm");
-        local.zlib = require("zlib");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -382,12 +375,9 @@
             });
         }
         local.assert = require("assert");
-        local.buffer = require("buffer");
         local.child_process = require("child_process");
         local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.dgram = require("dgram");
-        local.dns = require("dns");
         local.domain = require("domain");
         local.events = require("events");
         local.fs = require("fs");
@@ -402,12 +392,8 @@
         local.stream = require("stream");
         local.string_decoder = require("string_decoder");
         local.timers = require("timers");
-        local.tls = require("tls");
-        local.tty = require("tty");
         local.url = require("url");
         local.util = require("util");
-        local.vm = require("vm");
-        local.zlib = require("zlib");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -452,7 +438,7 @@ local.cliRun = function (opt) {
      * will eval <code>
      */
         globalThis.local = local;
-        local.vm.runInThisContext(process.argv[3]);
+        require("vm").runInThisContext(process.argv[3]);
     };
     local.cliDict._help = local.cliDict._help || function () {
     /*
@@ -1716,12 +1702,9 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.buffer = require("buffer");
         local.child_process = require("child_process");
         local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.dgram = require("dgram");
-        local.dns = require("dns");
         local.domain = require("domain");
         local.events = require("events");
         local.fs = require("fs");
@@ -1736,12 +1719,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
         local.stream = require("stream");
         local.string_decoder = require("string_decoder");
         local.timers = require("timers");
-        local.tls = require("tls");
-        local.tty = require("tty");
         local.url = require("url");
         local.util = require("util");
-        local.vm = require("vm");
-        local.zlib = require("zlib");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -1786,7 +1765,7 @@ local.cliRun = function (opt) {
      * will eval <code>
      */
         globalThis.local = local;
-        local.vm.runInThisContext(process.argv[3]);
+        require("vm").runInThisContext(process.argv[3]);
     };
     local.cliDict._help = local.cliDict._help || function () {
     /*
@@ -13641,12 +13620,9 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.buffer = require("buffer");
         local.child_process = require("child_process");
         local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.dgram = require("dgram");
-        local.dns = require("dns");
         local.domain = require("domain");
         local.events = require("events");
         local.fs = require("fs");
@@ -13661,12 +13637,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
         local.stream = require("stream");
         local.string_decoder = require("string_decoder");
         local.timers = require("timers");
-        local.tls = require("tls");
-        local.tty = require("tty");
         local.url = require("url");
         local.util = require("util");
-        local.vm = require("vm");
-        local.zlib = require("zlib");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -13711,7 +13683,7 @@ local.cliRun = function (opt) {
      * will eval <code>
      */
         globalThis.local = local;
-        local.vm.runInThisContext(process.argv[3]);
+        require("vm").runInThisContext(process.argv[3]);
     };
     local.cliDict._help = local.cliDict._help || function () {
     /*
@@ -31117,12 +31089,9 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.buffer = require("buffer");
         local.child_process = require("child_process");
         local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.dgram = require("dgram");
-        local.dns = require("dns");
         local.domain = require("domain");
         local.events = require("events");
         local.fs = require("fs");
@@ -31137,12 +31106,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
         local.stream = require("stream");
         local.string_decoder = require("string_decoder");
         local.timers = require("timers");
-        local.tls = require("tls");
-        local.tty = require("tty");
         local.url = require("url");
         local.util = require("util");
-        local.vm = require("vm");
-        local.zlib = require("zlib");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -31561,12 +31526,9 @@ if (local.isBrowser) {
             });
         }
         local.assert = require("assert");
-        local.buffer = require("buffer");
         local.child_process = require("child_process");
         local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.dgram = require("dgram");
-        local.dns = require("dns");
         local.domain = require("domain");
         local.events = require("events");
         local.fs = require("fs");
@@ -31581,12 +31543,8 @@ if (local.isBrowser) {
         local.stream = require("stream");
         local.string_decoder = require("string_decoder");
         local.timers = require("timers");
-        local.tls = require("tls");
-        local.tty = require("tty");
         local.url = require("url");
         local.util = require("util");
-        local.vm = require("vm");
-        local.zlib = require("zlib");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -31631,7 +31589,7 @@ local.cliRun = function (opt) {
      * will eval <code>
      */
         globalThis.local = local;
-        local.vm.runInThisContext(process.argv[3]);
+        require("vm").runInThisContext(process.argv[3]);
     };
     local.cliDict._help = local.cliDict._help || function () {
     /*
@@ -44401,12 +44359,9 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.buffer = require("buffer");
         local.child_process = require("child_process");
         local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.dgram = require("dgram");
-        local.dns = require("dns");
         local.domain = require("domain");
         local.events = require("events");
         local.fs = require("fs");
@@ -44421,12 +44376,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
         local.stream = require("stream");
         local.string_decoder = require("string_decoder");
         local.timers = require("timers");
-        local.tls = require("tls");
-        local.tty = require("tty");
         local.url = require("url");
         local.util = require("util");
-        local.vm = require("vm");
-        local.zlib = require("zlib");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -44650,12 +44601,9 @@ local.assetsDict["/assets.utility2.header.js"] = '\
             });\n\
         }\n\
         local.assert = require("assert");\n\
-        local.buffer = require("buffer");\n\
         local.child_process = require("child_process");\n\
         local.cluster = require("cluster");\n\
         local.crypto = require("crypto");\n\
-        local.dgram = require("dgram");\n\
-        local.dns = require("dns");\n\
         local.domain = require("domain");\n\
         local.events = require("events");\n\
         local.fs = require("fs");\n\
@@ -44670,12 +44618,8 @@ local.assetsDict["/assets.utility2.header.js"] = '\
         local.stream = require("stream");\n\
         local.string_decoder = require("string_decoder");\n\
         local.timers = require("timers");\n\
-        local.tls = require("tls");\n\
-        local.tty = require("tty");\n\
         local.url = require("url");\n\
         local.util = require("util");\n\
-        local.vm = require("vm");\n\
-        local.zlib = require("zlib");\n\
     }\n\
 }((typeof globalThis === "object" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -45265,7 +45209,7 @@ local.assetsDict["/assets.index.template.html"] = \'\\\n\
 local.assetsDict["/assets.my_app.js"] = (\n\
     local.assetsDict["/assets.my_app.js"]\n\
     || local.fs.readFileSync(\n\
-        local.path.resolve(local.__dirname + "/lib.my_app.js"),\n\
+        require("path").resolve(local.__dirname + "/lib.my_app.js"),\n\
         "utf8"\n\
     ).replace((\n\
         /^#!\\//\n\
@@ -45854,10 +45798,12 @@ local.cliDict["utility2.start"] = function () {
  * <port>
  * will start utility2 http-server on given <port> (default 8081)
  */
-    local.env.PORT = process.argv[3] || local.env.PORT;
     globalThis.local = local;
     local.replStart();
     local.testRunServer({});
+    if (local.env.npm_config_runme) {
+        require(require("path").resolve(local.env.npm_config_runme));
+    }
 };
 
 local.cliDict["utility2.testReportCreate"] = function () {
@@ -45868,7 +45814,7 @@ local.cliDict["utility2.testReportCreate"] = function () {
     process.exit(
         local.testReportCreate(
             JSON.parse(local.fs.readFileSync(
-                local.path.resolve(
+                require("path").resolve(
                     local.env.npm_config_dir_build + "/test-report.json"
                 ),
                 "utf8"
@@ -46935,7 +46881,7 @@ local.browserTest = function (opt, onError) {
             // save test-report.json
             onParallel.cnt += 1;
             local.fs.writeFile(
-                local.path.resolve(
+                require("path").resolve(
                     local.env.npm_config_dir_build + "/test-report.json"
                 ),
                 JSON.stringify(globalThis.utility2_testReport),
@@ -47551,7 +47497,7 @@ local.childProcessEval = function (code, opt) {
     promise.child = require("child_process").spawn("node", [
         "-e", (
             "/*jslint node*/\n"
-            + "let code = \"\";\n"
+            + "let data = \"\";\n"
             + "process.stdin.setEncoding(\"utf8\");\n"
             + "process.stdin.on(\"readable\", function () {\n"
             + "    let chunk;\n"
@@ -47560,11 +47506,11 @@ local.childProcessEval = function (code, opt) {
             + "        if (chunk === null) {\n"
             + "            return;\n"
             + "        }\n"
-            + "        code += chunk;\n"
+            + "        data += chunk;\n"
             + "    }\n"
             + "});\n"
             + "process.stdin.on(\"end\", function () {\n"
-            + "    require(\"vm\").runInThisContext(code);\n"
+            + "    require(\"vm\").runInThisContext(data);\n"
             + "});\n"
         )
     ], Object.assign({
@@ -47591,7 +47537,7 @@ local.cliRun = function (opt) {
      * will eval <code>
      */
         globalThis.local = local;
-        local.vm.runInThisContext(process.argv[3]);
+        require("vm").runInThisContext(process.argv[3]);
     };
     local.cliDict._help = local.cliDict._help || function () {
     /*
@@ -49375,7 +49321,7 @@ local.requireReadme = function () {
     }
     // init file $npm_package_main
     globalThis.utility2_moduleExports = require(
-        local.path.resolve(local.env.npm_package_main)
+        require("path").resolve(local.env.npm_package_main)
     );
     globalThis.utility2_moduleExports.globalThis = globalThis;
     // read code from README.md
@@ -49400,7 +49346,7 @@ local.requireReadme = function () {
         "globalThis.utility2_moduleExports"
     );
     // init example.js
-    tmp = local.path.resolve("example.js");
+    tmp = require("path").resolve("example.js");
     // jslint code
     local.jslintAndPrint(code, tmp);
     // instrument code
@@ -51246,8 +51192,8 @@ if (local.isBrowser) {
 local.Module = require("module");
 // init env
 local.objectAssignDefault(local.env, {
-    npm_config_dir_build: local.path.resolve("tmp/build"),
-    npm_config_dir_tmp: local.path.resolve("tmp")
+    npm_config_dir_build: require("path").resolve("tmp/build"),
+    npm_config_dir_tmp: require("path").resolve("tmp")
 });
 // merge previous test-report
 if (local.env.npm_config_file_test_report_merge) {
@@ -51650,12 +51596,9 @@ instruction\n\
             });\n\
         }\n\
         local.assert = require(\"assert\");\n\
-        local.buffer = require(\"buffer\");\n\
         local.child_process = require(\"child_process\");\n\
         local.cluster = require(\"cluster\");\n\
         local.crypto = require(\"crypto\");\n\
-        local.dgram = require(\"dgram\");\n\
-        local.dns = require(\"dns\");\n\
         local.domain = require(\"domain\");\n\
         local.events = require(\"events\");\n\
         local.fs = require(\"fs\");\n\
@@ -51670,12 +51613,8 @@ instruction\n\
         local.stream = require(\"stream\");\n\
         local.string_decoder = require(\"string_decoder\");\n\
         local.timers = require(\"timers\");\n\
-        local.tls = require(\"tls\");\n\
-        local.tty = require(\"tty\");\n\
         local.url = require(\"url\");\n\
         local.util = require(\"util\");\n\
-        local.vm = require(\"vm\");\n\
-        local.zlib = require(\"zlib\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -52427,7 +52366,7 @@ utility2-comment -->\\n\\\n\
 local.assetsDict[\"/assets.utility2.js\"] = (\n\
     local.assetsDict[\"/assets.utility2.js\"]\n\
     || local.fs.readFileSync(\n\
-        local.path.resolve(local.__dirname + \"/lib.utility2.js\"),\n\
+        require(\"path\").resolve(local.__dirname + \"/lib.utility2.js\"),\n\
         \"utf8\"\n\
     ).replace((\n\
         /^#!\\//\n\
@@ -53260,12 +53199,9 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
             });\n\
         }\n\
         local.assert = require(\"assert\");\n\
-        local.buffer = require(\"buffer\");\n\
         local.child_process = require(\"child_process\");\n\
         local.cluster = require(\"cluster\");\n\
         local.crypto = require(\"crypto\");\n\
-        local.dgram = require(\"dgram\");\n\
-        local.dns = require(\"dns\");\n\
         local.domain = require(\"domain\");\n\
         local.events = require(\"events\");\n\
         local.fs = require(\"fs\");\n\
@@ -53280,12 +53216,8 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
         local.stream = require(\"stream\");\n\
         local.string_decoder = require(\"string_decoder\");\n\
         local.timers = require(\"timers\");\n\
-        local.tls = require(\"tls\");\n\
-        local.tty = require(\"tty\");\n\
         local.url = require(\"url\");\n\
         local.util = require(\"util\");\n\
-        local.vm = require(\"vm\");\n\
-        local.zlib = require(\"zlib\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -53330,7 +53262,7 @@ local.cliRun = function (opt) {\n\
      * will eval <code>\n\
      */\n\
         globalThis.local = local;\n\
-        local.vm.runInThisContext(process.argv[3]);\n\
+        require(\"vm\").runInThisContext(process.argv[3]);\n\
     };\n\
     local.cliDict._help = local.cliDict._help || function () {\n\
     /*\n\
@@ -70739,12 +70671,9 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
             });\n\
         }\n\
         local.assert = require(\"assert\");\n\
-        local.buffer = require(\"buffer\");\n\
         local.child_process = require(\"child_process\");\n\
         local.cluster = require(\"cluster\");\n\
         local.crypto = require(\"crypto\");\n\
-        local.dgram = require(\"dgram\");\n\
-        local.dns = require(\"dns\");\n\
         local.domain = require(\"domain\");\n\
         local.events = require(\"events\");\n\
         local.fs = require(\"fs\");\n\
@@ -70759,12 +70688,8 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
         local.stream = require(\"stream\");\n\
         local.string_decoder = require(\"string_decoder\");\n\
         local.timers = require(\"timers\");\n\
-        local.tls = require(\"tls\");\n\
-        local.tty = require(\"tty\");\n\
         local.url = require(\"url\");\n\
         local.util = require(\"util\");\n\
-        local.vm = require(\"vm\");\n\
-        local.zlib = require(\"zlib\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -71484,7 +71409,7 @@ local.testCase_cliRun_default = function (opt, onError) {\n\
                 start: local.nop\n\
             }\n\
         ], [\n\
-            local.vm, {\n\
+            require(\"vm\"), {\n\
                 runInThisContext: local.nop\n\
             }\n\
         ], [\n\
@@ -72680,7 +72605,7 @@ if (local.isBrowser) {\n\
         }, function (err, xhr) {\n\
             if (!err && xhr.responseText !== local.cronScript) {\n\
                 local.cronScript = xhr.responseText;\n\
-                local.vm.runInThisContext(local.cronScript);\n\
+                require(\"vm\").runInThisContext(local.cronScript);\n\
             }\n\
         });\n\
         setInterval(function () {\n\
@@ -72701,7 +72626,7 @@ if (local.isBrowser) {\n\
                 }, function (err, xhr) {\n\
                     if (!err && xhr.responseText !== local.cronScript) {\n\
                         local.cronScript = xhr.responseText;\n\
-                        local.vm.runInThisContext(local.cronScript);\n\
+                        require(\"vm\").runInThisContext(local.cronScript);\n\
                     }\n\
                 });\n\
             }\n\
