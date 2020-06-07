@@ -165,8 +165,6 @@
             });
         }
         local.fs = require("fs");
-        local.path = require("path");
-        local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -358,8 +356,6 @@
             });
         }
         local.fs = require("fs");
-        local.path = require("path");
-        local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -1031,7 +1027,7 @@ local.apidocCreate = function (opt) {
      */
         let result;
         local.tryCatchOnError(function () {
-            file = local.path.resolve(opt.dir, file);
+            file = require("path").resolve(opt.dir, file);
             console.error("apidocCreate - readExample " + file);
             result = "";
             result = local.identity(
@@ -1304,7 +1300,10 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
     opt.libFileList.every(function (file) {
         local.tryCatchOnError(function () {
             tmp = {};
-            tmp.name = local.path.basename(file).replace("lib.", "").replace((
+            tmp.name = require("path").basename(file).replace(
+                "lib.",
+                ""
+            ).replace((
                 /\.[^.]*?$/
             ), "").replace((
                 /\W/g
@@ -1668,8 +1667,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.fs = require("fs");
-        local.path = require("path");
-        local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -2142,7 +2139,7 @@ let esprima;
 let estraverse;
 let esutils;
 let process;
-let require;
+let require2;
 // mock builtins
 escodegen = {};
 esprima = {};
@@ -2156,7 +2153,7 @@ process = (
     }
     : globalThis.process
 );
-require = function (key) {
+require2 = function (key) {
     switch (key) {
     case "./package.json":
     case "source-map":
@@ -2167,7 +2164,7 @@ require = function (key) {
         return esutils;
     }
 };
-require(escodegen, esprima);
+require2(escodegen, esprima);
 
 
 
@@ -8003,7 +8000,7 @@ file https://github.com/estools/estraverse/blob/4.2.0/estraverse.js
         return tree;
     }
 
-    exports.version = require('./package.json').version;
+    exports.version = require2('./package.json').version;
     exports.Syntax = Syntax;
     exports.traverse = traverse;
     exports.replace = replace;
@@ -8249,8 +8246,8 @@ file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
         FORMAT_MINIFY,
         FORMAT_DEFAULTS;
 
-    estraverse = require('estraverse');
-    esutils = require('esutils');
+    estraverse = require2('estraverse');
+    esutils = require2('esutils');
 
     Syntax = estraverse.Syntax;
 
@@ -10735,7 +10732,7 @@ file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
             if (!exports.browser) {
                 // We assume environment is node.js
                 // And prevent from including source-map by browserify
-                SourceNode = require('source-map').SourceNode;
+                SourceNode = require2('source-map').SourceNode;
             } else {
                 SourceNode = global.sourceMap.SourceNode;
             }
@@ -10781,7 +10778,7 @@ file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
 
     FORMAT_DEFAULTS = getDefaultOptions().format;
 
-    exports.version = require('./package.json').version;
+    exports.version = require2('./package.json').version;
     exports.generate = generate;
     exports.attachComments = estraverse.attachComments;
     exports.Precedence = updateDeeply({}, Precedence);
@@ -10816,9 +10813,9 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
     "use strict";
     var SYNTAX,
         nodeType,
-        ESP = isNode ? require('esprima') : esprima,
-        ESPGEN = isNode ? require('escodegen') : escodegen,  //TODO - package as dependency
-        crypto = isNode ? require('crypto') : null,
+        ESP = isNode ? require2('esprima') : esprima,
+        ESPGEN = isNode ? require2('escodegen') : escodegen,  //TODO - package as dependency
+        crypto = isNode ? require2('crypto') : null,
         LEADER_WRAP = '(function () { ',
         TRAILER_WRAP = '\n}());',
         COMMENT_RE = /^\s*istanbul\s+ignore\s+(if|else|next)(?=\W|$)/,
@@ -12327,17 +12324,21 @@ let path;
 let reportHtmlWrite;
 let reportTextWrite;
 // mock module path
-path = local.path || {
-    dirname: function (file) {
-        return file.replace((
-            /\/[\w\-.]+?$/
-        ), "");
-    },
-    resolve: function (...argList) {
-        return argList[argList.length - 1];
-    },
-    sep: "/"
-};
+path = (
+    local.isBrowser
+    ? {
+        dirname: function (file) {
+            return file.replace((
+                /\/[\w\-.]+?$/
+            ), "");
+        },
+        resolve: function (...argList) {
+            return argList[argList.length - 1];
+        },
+        sep: "/"
+    }
+    : require("path")
+);
 // init function
 fileWrite = function (file, data) {
 /*
@@ -13310,11 +13311,12 @@ local.cliDict.cover = function () {
     tmp._extensions[".js"] = function (module, file) {
         if (typeof file === "string" && (
             file.indexOf(process.env.npm_config_mode_coverage_dir) === 0 || (
-                file.indexOf(process.cwd() + local.path.sep) === 0
+                file.indexOf(process.cwd() + require("path").sep) === 0
                 && (
                     process.env.npm_config_mode_coverage === "node_modules"
                     || file.indexOf(
-                        local.path.resolve("node_modules") + local.path.sep
+                        require("path").resolve("node_modules")
+                        + require("path").sep
                     ) !== 0
                 )
             )
@@ -13329,7 +13331,7 @@ local.cliDict.cover = function () {
     };
     // init process.argv
     process.argv.splice(1, 2);
-    process.argv[1] = local.path.resolve(process.argv[1]);
+    process.argv[1] = require("path").resolve(process.argv[1]);
     console.error("\nistanbul - covering $ " + process.argv.join(" "));
     // create coverage on exit
     process.on("exit", function () {
@@ -13346,7 +13348,7 @@ local.cliDict.instrument = function () {
  * <script>
  * will instrument <script> and print result to stdout
  */
-    process.argv[3] = local.path.resolve(process.argv[3]);
+    process.argv[3] = require("path").resolve(process.argv[3]);
     process.stdout.write(local.instrumentSync(
         local.fs.readFileSync(process.argv[3], "utf8"),
         process.argv[3]
@@ -13358,7 +13360,7 @@ local.cliDict.report = function () {
  * <coverageJson>
  * will create coverage-report from file <coverageJson>
  */
-    process.argv[3] = local.path.resolve(process.argv[3]);
+    process.argv[3] = require("path").resolve(process.argv[3]);
     globalThis.__coverage__ = JSON.parse(
         local.fs.readFileSync(process.argv[3])
     );
@@ -13384,7 +13386,7 @@ local.cliDict.test = function () {
     }
     // restart node with __filename removed from process.argv
     process.argv.splice(1, 2);
-    process.argv[1] = local.path.resolve(process.argv[1]);
+    process.argv[1] = require("path").resolve(process.argv[1]);
     // re-init cli
     require("module").runMain();
 };
@@ -13569,8 +13571,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.fs = require("fs");
-        local.path = require("path");
-        local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -30824,7 +30824,7 @@ local.cliDict._default = function () {
             return;
         }
         local.jslintAndPrint(
-            local.fs.readFileSync(local.path.resolve(file), "utf8"),
+            local.fs.readFileSync(require("path").resolve(file), "utf8"),
             file,
             {
                 autofix: process.argv.indexOf("--autofix") >= 0,
@@ -31021,8 +31021,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.fs = require("fs");
-        local.path = require("path");
-        local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -31441,8 +31439,6 @@ if (local.isBrowser) {
             });
         }
         local.fs = require("fs");
-        local.path = require("path");
-        local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -44257,8 +44253,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.fs = require("fs");
-        local.path = require("path");
-        local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -44482,8 +44476,6 @@ local.assetsDict["/assets.utility2.header.js"] = '\
             });\n\
         }\n\
         local.fs = require("fs");\n\
-        local.path = require("path");\n\
-        local.url = require("url");\n\
     }\n\
 }((typeof globalThis === "object" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -45120,8 +45112,8 @@ if (globalThis.utility2_serverHttp1) {\n\
 }\n\
 process.env.PORT = process.env.PORT || "8081";\n\
 console.error("http-server listening on port " + process.env.PORT);\n\
-local.http.createServer(function (req, res) {\n\
-    req.urlParsed = local.url.parse(req.url);\n\
+require("http").createServer(function (req, res) {\n\
+    req.urlParsed = require("url").parse(req.url);\n\
     if (local.assetsDict[req.urlParsed.pathname] !== undefined) {\n\
         res.end(local.assetsDict[req.urlParsed.pathname]);\n\
         return;\n\
@@ -46641,15 +46633,17 @@ local.browserTest = function (opt, onError) {
         return;
     }
     local.gotoNext(opt, function (err, data) {
+        let url;
         switch (opt.gotoState) {
         // node - init
         case 1:
+            url = require("url");
             onParallel = local.onParallel(opt.gotoNext);
             onParallel.cnt += 1;
             isDone = 0;
             testId = Math.random().toString(16);
             testName = local.env.MODE_BUILD + ".browser." + encodeURIComponent(
-                new local.url.URL(opt.url).pathname.replace(
+                new url.URL(opt.url).pathname.replace(
                     "/build.."
                     + local.env.CI_BRANCH
                     + ".." + local.env.CI_HOST,
@@ -50817,7 +50811,7 @@ local.urlParse = function (url) {
             ).test(url)) {
                 url = local.serverLocalHost + "/" + url;
             }
-            urlParsed = local.url.parse(url);
+            urlParsed = require("url").parse(url);
         }
         // init query
         urlParsed.query = {};
@@ -51461,8 +51455,6 @@ instruction\n\
             });\n\
         }\n\
         local.fs = require(\"fs\");\n\
-        local.path = require(\"path\");\n\
-        local.url = require(\"url\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -52261,8 +52253,8 @@ if (globalThis.utility2_serverHttp1) {\n\
 }\n\
 process.env.PORT = process.env.PORT || \"8081\";\n\
 console.error(\"http-server listening on port \" + process.env.PORT);\n\
-local.http.createServer(function (req, res) {\n\
-    req.urlParsed = local.url.parse(req.url);\n\
+require(\"http\").createServer(function (req, res) {\n\
+    req.urlParsed = require(\"url\").parse(req.url);\n\
     if (local.assetsDict[req.urlParsed.pathname] !== undefined) {\n\
         res.end(local.assetsDict[req.urlParsed.pathname]);\n\
         return;\n\
@@ -53047,8 +53039,6 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
             });\n\
         }\n\
         local.fs = require(\"fs\");\n\
-        local.path = require(\"path\");\n\
-        local.url = require(\"url\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -70302,7 +70292,7 @@ local.cliDict._default = function () {\n\
             return;\n\
         }\n\
         local.jslintAndPrint(\n\
-            local.fs.readFileSync(local.path.resolve(file), \"utf8\"),\n\
+            local.fs.readFileSync(require(\"path\").resolve(file), \"utf8\"),\n\
             file,\n\
             {\n\
                 autofix: process.argv.indexOf(\"--autofix\") >= 0,\n\
@@ -70502,8 +70492,6 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
             });\n\
         }\n\
         local.fs = require(\"fs\");\n\
-        local.path = require(\"path\");\n\
-        local.url = require(\"url\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -72481,12 +72469,12 @@ if (process.argv[2]) {\n\
     }\n\
     // start\n\
     process.argv.splice(1, 1);\n\
-    process.argv[1] = local.path.resolve(process.argv[1]);\n\
+    process.argv[1] = require(\"path\").resolve(process.argv[1]);\n\
     local.Module.runMain();\n\
 }\n\
 // runme\n\
 if (local.env.npm_config_runme) {\n\
-    require(local.path.resolve(local.env.npm_config_runme));\n\
+    require(require(\"path\").resolve(local.env.npm_config_runme));\n\
 }\n\
 }());\n\
 }());\n\

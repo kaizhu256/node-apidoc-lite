@@ -302,7 +302,7 @@
         </td>
         <td>
             100%<br>
-            (125 / 125)
+            (123 / 123)
         </td>
         <td>
             100%<br>
@@ -314,7 +314,7 @@
         </td>
         <td>
             100%<br>
-            (125 / 125)
+            (123 / 123)
         </td>
     </tbody>
     </table>
@@ -1104,8 +1104,6 @@
 <a href="#l779" id="l779">779</a>
 <a href="#l780" id="l780">780</a>
 <a href="#l781" id="l781">781</a>
-<a href="#l782" id="l782">782</a>
-<a href="#l783" id="l783">783</a>
 </td>
         <td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1281,8 +1279,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2067,8 +2063,6 @@ instruction
             });
         }
         local.fs = require("fs");
-        local.path = require("path");
-        local.url = require("url");
     }
 }((typeof globalThis === "object" &amp;&amp; globalThis) || <span class="branch-2 cbranch-skip" title="branch not covered">window)</span>);
 // assets.utility2.header.js - end
@@ -2664,8 +2658,8 @@ local.assetsDict["/assets.example.html"] = local.assetsDict["/"];
 }
 <span class="cstat-skip" title="statement not covered">process.env.PORT = process.env.PORT || "8081";</span>
 <span class="cstat-skip" title="statement not covered">console.error("http-server listening on port " + process.env.PORT);</span>
-<span class="cstat-skip" title="statement not covered">local.http.createServer(<span class="fstat-skip" title="function not covered">function (req, res) {</span></span>
-<span class="cstat-skip" title="statement not covered">    req.urlParsed = local.url.parse(req.url);</span>
+<span class="cstat-skip" title="statement not covered">require("http").createServer(<span class="fstat-skip" title="function not covered">function (req, res) {</span></span>
+<span class="cstat-skip" title="statement not covered">    req.urlParsed = require("url").parse(req.url);</span>
 <span class="cstat-skip" title="statement not covered">    if (local.assetsDict[req.urlParsed.pathname] !== undefined) {</span>
 <span class="cstat-skip" title="statement not covered">        res.end(local.assetsDict[req.urlParsed.pathname]);</span>
 <span class="cstat-skip" title="statement not covered">        return;</span>
