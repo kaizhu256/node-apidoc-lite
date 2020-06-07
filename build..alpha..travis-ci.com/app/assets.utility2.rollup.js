@@ -165,7 +165,6 @@
             });
         }
         local.assert = require("assert");
-        local.child_process = require("child_process");
         local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
@@ -365,7 +364,6 @@
             });
         }
         local.assert = require("assert");
-        local.child_process = require("child_process");
         local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
@@ -1159,7 +1157,7 @@ local.apidocCreate = function (opt) {
         opt.exampleList = opt.exampleList.concat(
             // find . -maxdepth 1 -mindepth 1 -name "*.js" -type f
             // https://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list
-            local.child_process.execSync(
+            require("child_process").execSync(
                 "find \"" + opt.dir
                 + "\" -maxdepth " + depth + " -mindepth " + depth
                 + " -type f | sed -e \"s|" + opt.dir
@@ -1286,7 +1284,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
         opt.libFileList = opt.libFileList.concat(
             // find . -maxdepth 1 -mindepth 1 -name "*.js" -type f
             // https://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list
-            local.child_process.execSync(
+            require("child_process").execSync(
                 "find \"" + opt.dir
                 + "\" -maxdepth " + depth + " -mindepth " + depth
                 + " -name \"*.js\" -type f | sed -e \"s|" + opt.dir
@@ -1682,7 +1680,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.child_process = require("child_process");
         local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
@@ -13590,7 +13587,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.child_process = require("child_process");
         local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
@@ -30004,7 +30000,7 @@ local.jslintAndPrint = function (code = "", file = "undefined", opt = {}) {
         ) {
             local.fs.writeFileSync(file, code);
             local.fs.writeFileSync(file + ".autofix.old", opt.code0);
-            local.child_process.spawnSync(
+            require("child_process").spawnSync(
                 "diff",
                 [
                     "-u", file + ".autofix.old", file
@@ -31049,7 +31045,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.child_process = require("child_process");
         local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
@@ -31476,7 +31471,6 @@ if (local.isBrowser) {
             });
         }
         local.assert = require("assert");
-        local.child_process = require("child_process");
         local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
@@ -44299,7 +44293,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.child_process = require("child_process");
         local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
@@ -44531,7 +44524,6 @@ local.assetsDict["/assets.utility2.header.js"] = '\
             });\n\
         }\n\
         local.assert = require("assert");\n\
-        local.child_process = require("child_process");\n\
         local.crypto = require("crypto");\n\
         local.fs = require("fs");\n\
         local.http = require("http");\n\
@@ -49204,7 +49196,7 @@ local.requireReadme = function () {
     });
     // jslint process.cwd()
     if (!local.env.npm_config_mode_lib) {
-        local.child_process.spawn("node", [
+        require("child_process").spawn("node", [
             "-e", (
                 "require("
                 + JSON.stringify(__filename)
@@ -51516,7 +51508,6 @@ instruction\n\
             });\n\
         }\n\
         local.assert = require(\"assert\");\n\
-        local.child_process = require(\"child_process\");\n\
         local.crypto = require(\"crypto\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
@@ -53109,7 +53100,6 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
             });\n\
         }\n\
         local.assert = require(\"assert\");\n\
-        local.child_process = require(\"child_process\");\n\
         local.crypto = require(\"crypto\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
@@ -69523,7 +69513,7 @@ local.jslintAndPrint = function (code = \"\", file = \"undefined\", opt = {}) {\
         ) {\n\
             local.fs.writeFileSync(file, code);\n\
             local.fs.writeFileSync(file + \".autofix.old\", opt.code0);\n\
-            local.child_process.spawnSync(\n\
+            require(\"child_process\").spawnSync(\n\
                 \"diff\",\n\
                 [\n\
                     \"-u\", file + \".autofix.old\", file\n\
@@ -70571,7 +70561,6 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
             });\n\
         }\n\
         local.assert = require(\"assert\");\n\
-        local.child_process = require(\"child_process\");\n\
         local.crypto = require(\"crypto\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
@@ -71918,7 +71907,7 @@ local.testCase_replStart_default = function (opt, onError) {\n\
     local.replStart();\n\
     local.testMock([\n\
         [\n\
-            local.child_process, {\n\
+            require(\"child_process\"), {\n\
                 spawn: function () {\n\
                     return {\n\
                         on: function (evt, callback) {\n\
