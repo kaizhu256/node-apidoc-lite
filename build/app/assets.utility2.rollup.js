@@ -164,7 +164,6 @@
                 throw err;
             });
         }
-        local.assert = require("assert");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
@@ -360,7 +359,6 @@
                 throw err;
             });
         }
-        local.assert = require("assert");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
@@ -1673,7 +1671,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 throw err;
             });
         }
-        local.assert = require("assert");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
@@ -13577,7 +13574,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 throw err;
             });
         }
-        local.assert = require("assert");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
@@ -31032,7 +31028,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 throw err;
             });
         }
-        local.assert = require("assert");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
@@ -31455,7 +31450,6 @@ if (local.isBrowser) {
                 throw err;
             });
         }
-        local.assert = require("assert");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
@@ -44274,7 +44268,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 throw err;
             });
         }
-        local.assert = require("assert");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
@@ -44502,7 +44495,6 @@ local.assetsDict["/assets.utility2.header.js"] = '\
                 throw err;\n\
             });\n\
         }\n\
-        local.assert = require("assert");\n\
         local.fs = require("fs");\n\
         local.http = require("http");\n\
         local.https = require("https");\n\
@@ -51483,7 +51475,6 @@ instruction\n\
                 throw err;\n\
             });\n\
         }\n\
-        local.assert = require(\"assert\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
         local.https = require(\"https\");\n\
@@ -53072,7 +53063,6 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
                 throw err;\n\
             });\n\
         }\n\
-        local.assert = require(\"assert\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
         local.https = require(\"https\");\n\
@@ -70530,7 +70520,6 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
                 throw err;\n\
             });\n\
         }\n\
-        local.assert = require(\"assert\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
         local.https = require(\"https\");\n\
@@ -71255,7 +71244,7 @@ local.testCase_cliRun_default = function (opt, onError) {\n\
                 argv: []\n\
             }\n\
         ], [\n\
-            require(\"local.repl\"), {\n\
+            require(\"repl\"), {\n\
                 start: local.nop\n\
             }\n\
         ], [\n\
