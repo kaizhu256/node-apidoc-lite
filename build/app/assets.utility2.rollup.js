@@ -165,13 +165,10 @@
             });
         }
         local.assert = require("assert");
-        local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
         local.path = require("path");
-        local.repl = require("repl");
-        local.stream = require("stream");
         local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
@@ -364,13 +361,10 @@
             });
         }
         local.assert = require("assert");
-        local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
         local.path = require("path");
-        local.repl = require("repl");
-        local.stream = require("stream");
         local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
@@ -1680,13 +1674,10 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
         local.path = require("path");
-        local.repl = require("repl");
-        local.stream = require("stream");
         local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
@@ -13587,13 +13578,10 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
         local.path = require("path");
-        local.repl = require("repl");
-        local.stream = require("stream");
         local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
@@ -31045,13 +31033,10 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
         local.path = require("path");
-        local.repl = require("repl");
-        local.stream = require("stream");
         local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
@@ -31471,13 +31456,10 @@ if (local.isBrowser) {
             });
         }
         local.assert = require("assert");
-        local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
         local.path = require("path");
-        local.repl = require("repl");
-        local.stream = require("stream");
         local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
@@ -44293,13 +44275,10 @@ if (module === require.main && !globalThis.utility2_rollup) {
             });
         }
         local.assert = require("assert");
-        local.crypto = require("crypto");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
         local.path = require("path");
-        local.repl = require("repl");
-        local.stream = require("stream");
         local.url = require("url");
     }
 }((typeof globalThis === "object" && globalThis) || window));
@@ -44524,13 +44503,10 @@ local.assetsDict["/assets.utility2.header.js"] = '\
             });\n\
         }\n\
         local.assert = require("assert");\n\
-        local.crypto = require("crypto");\n\
         local.fs = require("fs");\n\
         local.http = require("http");\n\
         local.https = require("https");\n\
         local.path = require("path");\n\
-        local.repl = require("repl");\n\
-        local.stream = require("stream");\n\
         local.url = require("url");\n\
     }\n\
 }((typeof globalThis === "object" && globalThis) || window));\n\
@@ -46034,9 +46010,9 @@ local._testCase_buildApidoc_default = function (opt, onError) {
             ], [
                 globalThis, "process"
             ], [
-                local.stream, "prototype"
-            ], [
                 process, "stdin"
+            ], [
+                require("local.stream"), "prototype"
             ]
         ].forEach(function (elem, tmp) {
             tmp = elem[0][elem[1]];
@@ -51508,13 +51484,10 @@ instruction\n\
             });\n\
         }\n\
         local.assert = require(\"assert\");\n\
-        local.crypto = require(\"crypto\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
         local.https = require(\"https\");\n\
         local.path = require(\"path\");\n\
-        local.repl = require(\"repl\");\n\
-        local.stream = require(\"stream\");\n\
         local.url = require(\"url\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
@@ -53100,13 +53073,10 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
             });\n\
         }\n\
         local.assert = require(\"assert\");\n\
-        local.crypto = require(\"crypto\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
         local.https = require(\"https\");\n\
         local.path = require(\"path\");\n\
-        local.repl = require(\"repl\");\n\
-        local.stream = require(\"stream\");\n\
         local.url = require(\"url\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
@@ -70561,13 +70531,10 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
             });\n\
         }\n\
         local.assert = require(\"assert\");\n\
-        local.crypto = require(\"crypto\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
         local.https = require(\"https\");\n\
         local.path = require(\"path\");\n\
-        local.repl = require(\"repl\");\n\
-        local.stream = require(\"stream\");\n\
         local.url = require(\"url\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
@@ -71284,16 +71251,16 @@ local.testCase_cliRun_default = function (opt, onError) {\n\
                 _help: null\n\
             }\n\
         ], [\n\
-            local.repl, {\n\
+            process, {\n\
+                argv: []\n\
+            }\n\
+        ], [\n\
+            require(\"local.repl\"), {\n\
                 start: local.nop\n\
             }\n\
         ], [\n\
             require(\"vm\"), {\n\
                 runInThisContext: local.nop\n\
-            }\n\
-        ], [\n\
-            process, {\n\
-                argv: []\n\
             }\n\
         ]\n\
     ], function (onError) {\n\
