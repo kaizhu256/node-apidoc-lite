@@ -1228,7 +1228,7 @@ local.apidocCreate = function (opt) {
             result = local.identity(
                 "\n\n\n\n\n\n\n\n"
                 // bug-workaround - truncate example to manageable size
-                + local.fs.readFileSync(file, "utf8").slice(0, 262144)
+                + require("fs").readFileSync(file, "utf8").slice(0, 262144)
                 + "\n\n\n\n\n\n\n\n"
             ).replace((
                 /\r\n*/g
@@ -11332,7 +11332,7 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
      * Usage on nodejs
      * ---------------
      *
-     *      var instrumenter = new require('istanbul').Instrumenter(),
+     *      var instrumenter = new require2('istanbul').Instrumenter(),
      *          changed = instrumenter.instrumentSync('function meaningOfLife() { return 42; }', 'filename.js');
      *
      * Usage in a browser
@@ -13482,7 +13482,7 @@ local.cliDict.cover = function () {
     let moduleExtensionsJs;
     let tmp;
     try {
-        tmp = JSON.parse(local.fs.readFileSync("package.json", "utf8"));
+        tmp = JSON.parse(require("fs").readFileSync("package.json", "utf8"));
         process.env.npm_package_nameLib = (
             process.env.npm_package_nameLib
             || tmp.nameLib
@@ -13513,7 +13513,7 @@ local.cliDict.cover = function () {
             )
         )) {
             module._compile(local.instrumentInPackage(
-                local.fs.readFileSync(file, "utf8"),
+                require("fs").readFileSync(file, "utf8"),
                 file
             ), file);
             return;
@@ -13541,7 +13541,7 @@ local.cliDict.instrument = function () {
  */
     process.argv[3] = require("path").resolve(process.argv[3]);
     process.stdout.write(local.instrumentSync(
-        local.fs.readFileSync(process.argv[3], "utf8"),
+        require("fs").readFileSync(process.argv[3], "utf8"),
         process.argv[3]
     ));
 };
@@ -13553,7 +13553,7 @@ local.cliDict.report = function () {
  */
     process.argv[3] = require("path").resolve(process.argv[3]);
     globalThis.__coverage__ = JSON.parse(
-        local.fs.readFileSync(process.argv[3])
+        require("fs").readFileSync(process.argv[3])
     );
     globalThis.__coverageInclude__ = {};
     Object.keys(globalThis.__coverage__).forEach(function (file) {
@@ -30159,10 +30159,10 @@ local.jslintAndPrint = function (code = "", file = "undefined", opt = {}) {
             && !opt.fileType0
             && !opt.stop
             && code !== opt.code0
-            && local.fs.existsSync(file)
+            && require("fs").existsSync(file)
         ) {
-            local.fs.writeFileSync(file, code);
-            local.fs.writeFileSync(file + ".autofix.old", opt.code0);
+            require("fs").writeFileSync(file, code);
+            require("fs").writeFileSync(file + ".autofix.old", opt.code0);
             require("child_process").spawnSync(
                 "diff",
                 [
@@ -30174,7 +30174,7 @@ local.jslintAndPrint = function (code = "", file = "undefined", opt = {}) {
                     ]
                 }
             );
-            local.fs.unlinkSync(file + ".autofix.old");
+            require("fs").unlinkSync(file + ".autofix.old");
             console.error(
                 "\u001b[1mjslint-autofix - modified and saved file " + file
                 + "\u001b[22m"
@@ -31011,7 +31011,7 @@ local.cliDict._default = function () {
             return;
         }
         local.jslintAndPrint(
-            local.fs.readFileSync(require("path").resolve(file), "utf8"),
+            require("fs").readFileSync(require("path").resolve(file), "utf8"),
             file,
             {
                 autofix: process.argv.indexOf("--autofix") >= 0,
@@ -45840,8 +45840,8 @@ local.cliDict["utility2.start"] = function () {
     globalThis.local = local;
     local.replStart();
     local.testRunServer({});
-    if (local.env.npm_config_runme) {
-        require(require("path").resolve(local.env.npm_config_runme));
+    if (process.env.npm_config_runme) {
+        require(require("path").resolve(process.env.npm_config_runme));
     }
 };
 
@@ -45855,7 +45855,7 @@ local.cliDict["utility2.testReportCreate"] = function () {
             JSON.parse(
                 require("fs").readFileSync(
                     require("path").resolve(
-                        local.env.npm_config_dir_build + "/test-report.json"
+                        process.env.npm_config_dir_build + "/test-report.json"
                     ),
                     "utf8"
                 )
@@ -45870,6 +45870,7 @@ local.cliDict["utility2.testReportCreate"] = function () {
 // run shared js-env code - function
 (function () {
 let localEventListenerDict;
+// init var
 localEventListenerDict = {};
 // init lib Blob
 local.Blob = globalThis.Blob || function (list, opt) {
@@ -45888,124 +45889,6 @@ local.Blob = globalThis.Blob || function (list, opt) {
         return String(elem);
     }));
     this.type = (opt && opt.type) || "";
-};
-
-// init lib FormData
-local.FormData = function () {
-/*
- * this function will create serverLocal-compatible FormData instance
- * The FormData(form) constructor must run these steps:
- * 1. Let fd be a new FormData object.
- * 2. If form is given, set fd's entries to the result
- *    of constructing the form data set for form. (not implemented)
- * 3. Return fd.
- * https://xhr.spec.whatwg.org/#dom-formdata
- */
-    this.entryList = [];
-};
-
-local.FormData.prototype.append = function (name, value, filename) {
-/*
- * The append(name, value, filename) method, when invoked, must run these steps:
- * 1. If the filename argument is given, set value to a new File object
- *    whose contents are value and name is filename.
- * 2. Append a new entry whose name is name, and value is value,
- *    to context object's list of entries.
- * https://xhr.spec.whatwg.org/#dom-formdata-append
- */
-    if (filename) {
-        // bug-workaround - chromium cannot assign name to Blob instance
-        local.tryCatchOnError(function () {
-            value.name = filename;
-        }, local.nop);
-    }
-    this.entryList.push({
-        name,
-        value
-    });
-};
-
-local.FormData.prototype.read = function (onError) {
-/*
- * this function will read from formData as buffer, e.g.
- * --Boundary\r\n
- * Content-Disposition: form-data; name="key"\r\n
- * \r\n
- * value\r\n
- * --Boundary\r\n
- * Content-Disposition: form-data; name="input1"; filename="file1.png"\r\n
- * Content-Type: image/jpeg\r\n
- * \r\n
- * <data1>\r\n
- * --Boundary\r\n
- * Content-Disposition: form-data; name="input2"; filename="file2.png"\r\n
- * Content-Type: image/jpeg\r\n
- * \r\n
- * <data2>\r\n
- * --Boundary--\r\n
- * https://tools.ietf.org/html/rfc7578
- */
-    let boundary;
-    let result;
-    // handle null-case
-    if (!this.entryList.length) {
-        onError();
-        return;
-    }
-    // init boundary
-    boundary = "--" + Date.now().toString(16) + Math.random().toString(16);
-    // init result
-    result = [];
-    local.onParallelList({
-        list: this.entryList
-    }, function (opt2, onParallel) {
-        let value;
-        value = opt2.elem.value;
-        if (!(value && value.constructor === local.Blob)) {
-            result[opt2.ii] = [
-                (
-                    boundary + "\r\nContent-Disposition: form-data; name=\""
-                    + opt2.elem.name + "\"\r\n\r\n"
-                ), value, "\r\n"
-            ];
-            onParallel.cnt += 1;
-            onParallel();
-            return;
-        }
-        // read from blob in parallel
-        onParallel.cnt += 1;
-        local.blobRead(value, function (err, data) {
-            result[opt2.ii] = !err && [
-                (
-                    boundary + "\r\nContent-Disposition: form-data; name=\""
-                    + opt2.elem.name + "\"" + (
-                        (value && value.name)
-                        // read param filename
-                        ? "; filename=\"" + value.name + "\""
-                        : ""
-                    ) + "\r\n" + (
-                        (value && value.type)
-                        // read param Content-Type
-                        ? "Content-Type: " + value.type + "\r\n"
-                        : ""
-                    ) + "\r\n"
-                ), data, "\r\n"
-            ];
-            onParallel(err);
-        });
-    }, function (err) {
-        // add closing boundary
-        result.push([
-            boundary + "--\r\n"
-        ]);
-        // concatenate result
-        onError(
-            err,
-            // flatten result
-            !err
-            && local.bufferConcat(result.flat())
-        );
-    });
 };
 
 // init lib _http
@@ -46165,7 +46048,7 @@ local._testCase_buildApidoc_default = function (opt, onError) {
             ], [
                 process, "stdin"
             ], [
-                require("local.stream"), "prototype"
+                require("stream"), "prototype"
             ]
         ].forEach(function (elem, tmp) {
             tmp = elem[0][elem[1]];
@@ -46195,8 +46078,8 @@ local._testCase_buildApidoc_default = function (opt, onError) {
     };
     if (
         local.isBrowser
-        || local.env.npm_config_mode_coverage
-        || local.env.npm_config_mode_test_case
+        || process.env.npm_config_mode_coverage
+        || process.env.npm_config_mode_test_case
         !== "testCase_buildApidoc_default"
     ) {
         onError(undefined, opt);
@@ -46272,8 +46155,8 @@ local._testCase_webpage_default = function (opt, onError) {
     local.domStyleValidate();
     local.browserTest({
         fileScreenshot: (
-            local.env.npm_config_dir_build
-            + "/screenshot." + local.env.MODE_BUILD + ".browser.%2F.png"
+            process.env.npm_config_dir_build
+            + "/screenshot." + process.env.MODE_BUILD + ".browser.%2F.png"
         ),
         url: (
             local.serverLocalHost
@@ -46625,9 +46508,6 @@ local.ajax = function (opt, onError) {
     // Blob
     // https://developer.mozilla.org/en-US/docs/Web/API/Blob
     case local2.Blob:
-    // FormData
-    // https://developer.mozilla.org/en-US/docs/Web/API/FormData
-    case local2.FormData:
         local2.blobRead(xhr.data, function (err, data) {
             if (err) {
                 xhr.onEvent(err);
@@ -46749,10 +46629,6 @@ local.blobRead = function (blob, onError) {
  */
     let isDone;
     let reader;
-    if (blob && blob.constructor && blob.constructor === local.FormData) {
-        blob.read(onError);
-        return;
-    }
     if (!local.isBrowser) {
         onError(undefined, local.bufferValidateAndCoerce(blob.buf));
         return;
@@ -46827,16 +46703,18 @@ local.browserTest = function (opt, onError) {
             onParallel.cnt += 1;
             isDone = 0;
             testId = Math.random().toString(16);
-            testName = local.env.MODE_BUILD + ".browser." + encodeURIComponent(
-                new url.URL(opt.url).pathname.replace(
-                    "/build.."
-                    + local.env.CI_BRANCH
-                    + ".." + local.env.CI_HOST,
-                    "/build"
+            testName = (
+                process.env.MODE_BUILD + ".browser." + encodeURIComponent(
+                    new url.URL(opt.url).pathname.replace(
+                        "/build.."
+                        + process.env.CI_BRANCH
+                        + ".." + process.env.CI_HOST,
+                        "/build"
+                    )
                 )
             );
             fileScreenshot = (
-                local.env.npm_config_dir_build + "/screenshot."
+                process.env.npm_config_dir_build + "/screenshot."
                 + testName
                 + ".png"
             );
@@ -46862,7 +46740,7 @@ local.browserTest = function (opt, onError) {
                     "--remote-debugging-port=0"
                 ],
                 dumpio: !opt.modeSilent,
-                executablePath: local.env.CHROME_BIN,
+                executablePath: process.env.CHROME_BIN,
                 ignoreDefaultArgs: true
             }).then(opt.gotoNextData);
             break;
@@ -46925,13 +46803,13 @@ local.browserTest = function (opt, onError) {
             onParallel.cnt += 1;
             require("fs").writeFile(
                 require("path").resolve(
-                    local.env.npm_config_dir_build + "/test-report.json"
+                    process.env.npm_config_dir_build + "/test-report.json"
                 ),
                 JSON.stringify(globalThis.utility2_testReport),
                 function (err) {
                     console.error(
                         "\nbrowserTest - merged test-report "
-                        + local.env.npm_config_dir_build + "/test-report.json"
+                        + process.env.npm_config_dir_build + "/test-report.json"
                         + "\n"
                     );
                     onParallel(err);
@@ -49269,12 +49147,15 @@ local.requireReadme = function () {
  * this function will require and export example.js embedded in README.md
  */
     let code;
+    let env;
     let module;
     let tmp;
+    // init env
+    env = (typeof process === "object" && process && process.env) || {};
     // init module.exports
     module = {};
     // if file is modified, then restart process
-    if (local.env.npm_config_mode_auto_restart) {
+    if (env.npm_config_mode_auto_restart) {
         require("fs").readdir(".", function (ignore, fileList) {
             fileList.forEach(function (file) {
                 require("fs").stat(file, function (ignore, data) {
@@ -49296,17 +49177,8 @@ local.requireReadme = function () {
             });
         });
     }
-    if (local.isBrowser) {
-        module.exports = local.objectAssignDefault(
-            globalThis.utility2_rollup || globalThis.local,
-            local
-        );
-        return module.exports;
-    }
-    // start repl-debugger
-    local.replStart();
     // jslint process.cwd()
-    if (!local.env.npm_config_mode_lib) {
+    if (!env.npm_config_mode_lib) {
         require("child_process").spawn("node", [
             "-e", (
                 "require("
@@ -49316,7 +49188,7 @@ local.requireReadme = function () {
                 + ", {autofix:true,conditional:true}, process.exit);"
             )
         ], {
-            env: Object.assign({}, local.env, {
+            env: Object.assign({}, env, {
                 npm_config_mode_lib: "1"
             }),
             stdio: [
@@ -49324,7 +49196,16 @@ local.requireReadme = function () {
             ]
         });
     }
-    if (globalThis.utility2_rollup || local.env.npm_config_mode_start) {
+    if (local.isBrowser) {
+        module.exports = local.objectAssignDefault(
+            globalThis.utility2_rollup || globalThis.local,
+            local
+        );
+        return module.exports;
+    }
+    // start repl-debugger
+    local.replStart();
+    if (globalThis.utility2_rollup || env.npm_config_mode_start) {
         // init assets index.html
         local.assetsDict["/index.html"] = (
             local.fsReadFileOrDefaultSync("index.html", "utf8", "")
@@ -49338,13 +49219,13 @@ local.requireReadme = function () {
             /^#!\//
         ), "// ");
         // init exports
-        local[local.env.npm_package_nameLib] = local;
+        local[env.npm_package_nameLib] = local;
         module.exports = local;
         return module.exports;
     }
     // init file $npm_package_main
     globalThis.utility2_moduleExports = require(
-        require("path").resolve(local.env.npm_package_main)
+        require("path").resolve(env.npm_package_main)
     );
     globalThis.utility2_moduleExports.globalThis = globalThis;
     // read code from README.md
@@ -49362,10 +49243,10 @@ local.requireReadme = function () {
     });
     // alias require($npm_package_name) to utility2_moduleExports;
     code = code.replace(
-        new RegExp("require\\(." + local.env.npm_package_name + ".\\)"),
+        new RegExp("require\\(." + env.npm_package_name + ".\\)"),
         "globalThis.utility2_moduleExports"
     ).replace(
-        new RegExp("require\\(." + local.env.npm_package_nameOriginal + ".\\)"),
+        new RegExp("require\\(." + env.npm_package_nameOriginal + ".\\)"),
         "globalThis.utility2_moduleExports"
     );
     // init example.js
@@ -49380,14 +49261,14 @@ local.requireReadme = function () {
     module._compile(code, tmp);
     // init exports
     module.exports.utility2 = local;
-    module.exports[local.env.npm_package_nameLib] = (
+    module.exports[env.npm_package_nameLib] = (
         globalThis.utility2_moduleExports
     );
     // init assets lib.xxx.js
     local.assetsDict[
-        "/assets." + local.env.npm_package_nameLib + ".js"
+        "/assets." + env.npm_package_nameLib + ".js"
     ] = local.fsReadFileOrDefaultSync(
-        local.env.npm_package_main,
+        env.npm_package_main,
         "utf8",
         ""
     ).replace((
@@ -49395,12 +49276,12 @@ local.requireReadme = function () {
     ), "// ");
     Object.assign(local.assetsDict, module.exports.assetsDict);
     // instrument assets lib.xxx.js
-    local.assetsDict["/assets." + local.env.npm_package_nameLib + ".js"] = (
+    local.assetsDict["/assets." + env.npm_package_nameLib + ".js"] = (
         local.istanbulInstrumentInPackage(
             local.assetsDict[
-                "/assets." + local.env.npm_package_nameLib + ".js"
+                "/assets." + env.npm_package_nameLib + ".js"
             ],
-            local.env.npm_package_main
+            env.npm_package_main
         )
     );
     module.exports.assetsDict = local.assetsDict;
@@ -49436,10 +49317,10 @@ local.requireReadme = function () {
                 /<!--\u0020utility2-comment\b([\S\s]*?)\butility2-comment\u0020-->/g
             ), "$1"),
             {
-                env: local.env,
+                env,
                 isRollup,
                 packageJson: {
-                    nameLib: local.env.npm_package_nameLib
+                    nameLib: env.npm_package_nameLib
                 }
             }
         );
@@ -49469,7 +49350,7 @@ return '\
 /*\n\
 assets.app.js\n\
 \n\
-' + local.env.npm_package_description + '\n\
+' + env.npm_package_description + '\n\
 \n\
 instruction\n\
     1. save this script as assets.app.js\n\
@@ -49484,7 +49365,7 @@ instruction\n\
 /* jslint ignore:end */
         case "/assets.my_app.js":
             // handle large string-replace
-            tmp = "/assets." + local.env.npm_package_nameLib + ".js";
+            tmp = "/assets." + env.npm_package_nameLib + ".js";
             code = local.assetsDict["/assets.utility2.rollup.content.js"].split(
                 "/* utility2.rollup.js content */"
             );
@@ -69603,10 +69484,10 @@ local.jslintAndPrint = function (code = \"\", file = \"undefined\", opt = {}) {\
             && !opt.fileType0\n\
             && !opt.stop\n\
             && code !== opt.code0\n\
-            && local.fs.existsSync(file)\n\
+            && require(\"fs\").existsSync(file)\n\
         ) {\n\
-            local.fs.writeFileSync(file, code);\n\
-            local.fs.writeFileSync(file + \".autofix.old\", opt.code0);\n\
+            require(\"fs\").writeFileSync(file, code);\n\
+            require(\"fs\").writeFileSync(file + \".autofix.old\", opt.code0);\n\
             require(\"child_process\").spawnSync(\n\
                 \"diff\",\n\
                 [\n\
@@ -69618,7 +69499,7 @@ local.jslintAndPrint = function (code = \"\", file = \"undefined\", opt = {}) {\
                     ]\n\
                 }\n\
             );\n\
-            local.fs.unlinkSync(file + \".autofix.old\");\n\
+            require(\"fs\").unlinkSync(file + \".autofix.old\");\n\
             console.error(\n\
                 \"\\u001b[1mjslint-autofix - modified and saved file \" + file\n\
                 + \"\\u001b[22m\"\n\
@@ -70455,7 +70336,7 @@ local.cliDict._default = function () {\n\
             return;\n\
         }\n\
         local.jslintAndPrint(\n\
-            local.fs.readFileSync(require(\"path\").resolve(file), \"utf8\"),\n\
+            require(\"fs\").readFileSync(require(\"path\").resolve(file), \"utf8\"),\n\
             file,\n\
             {\n\
                 autofix: process.argv.indexOf(\"--autofix\") >= 0,\n\
@@ -70686,92 +70567,6 @@ let assertJsonEqual;\n\
 let assertOrThrow;\n\
 assertJsonEqual = local.assertJsonEqual;\n\
 assertOrThrow = local.assertOrThrow;\n\
-local.testCase_FormData_default = function (opt, onError) {\n\
-/*\n\
- * this function will test FormData's default handling-behavior\n\
- */\n\
-    opt = {};\n\
-    opt.blob1 = new local.Blob([\n\
-        \"aa\", \"bb\", local.stringHelloEmoji, 0\n\
-    ]);\n\
-    opt.blob2 = new local.Blob([\n\
-        \"aa\", \"bb\", local.stringHelloEmoji, 0\n\
-    ], {\n\
-        type: \"text/plain; charset=utf-8\"\n\
-    });\n\
-    opt.data = new local.FormData();\n\
-    opt.data.append(\"text1\", \"aabb\" + local.stringHelloEmoji + \"0\");\n\
-    // test file-upload handling-behavior\n\
-    opt.data.append(\"file1\", opt.blob1);\n\
-    // test file-upload and filename handling-behavior\n\
-    opt.data.append(\"file2\", opt.blob2, \"filename2.txt\");\n\
-    opt.method = \"POST\";\n\
-    opt.url = \"/test.echo\";\n\
-    local.ajax(opt, function (err, xhr) {\n\
-        // handle err\n\
-        assertOrThrow(!err, err);\n\
-        // validate responseText\n\
-        assertOrThrow(xhr.responseText.indexOf(\n\
-            \"\\r\\nContent-Disposition: form-data; \"\n\
-            + \"name=\\\"text1\\\"\\r\\n\\r\\naabbhello \\ud83d\\ude01\\n0\\r\\n\"\n\
-        ) >= 0, xhr.responseText);\n\
-        assertOrThrow(xhr.responseText.indexOf(\n\
-            \"\\r\\nContent-Disposition: form-data; \"\n\
-            + \"name=\\\"file1\\\"\\r\\n\\r\\naabbhello \\ud83d\\ude01\\n0\\r\\n\"\n\
-        ) >= 0, xhr.responseText);\n\
-        assertOrThrow(xhr.responseText.indexOf(\n\
-            \"\\r\\nContent-Disposition: form-data; name=\\\"file2\\\"; \"\n\
-            + \"filename=\\\"filename2.txt\\\"\\r\\nContent-Type: text/plain; \"\n\
-            + \"charset=utf-8\\r\\n\\r\\naabbhello \\ud83d\\ude01\\n0\\r\\n\"\n\
-        ) >= 0, xhr.responseText);\n\
-        onError(undefined, opt);\n\
-    });\n\
-};\n\
-\n\
-local.testCase_FormData_err = function (opt, onError) {\n\
-/*\n\
- * this function will test FormData's err handling-behavior\n\
- */\n\
-    local.testMock([\n\
-        [\n\
-            local.FormData.prototype, {\n\
-                read: function (onError) {\n\
-                    onError(new Error());\n\
-                }\n\
-            }\n\
-        ]\n\
-    ], function (onError) {\n\
-        local.ajax({\n\
-            data: new local.FormData(),\n\
-            method: \"POST\",\n\
-            url: \"/test.echo\"\n\
-        }, function (err) {\n\
-            // handle err\n\
-            assertOrThrow(err, err);\n\
-            onError(undefined, opt);\n\
-        });\n\
-    }, onError);\n\
-};\n\
-\n\
-local.testCase_FormData_nullCase = function (opt, onError) {\n\
-/*\n\
- * this function will test FormData's null-case handling-behavior\n\
- */\n\
-    local.ajax({\n\
-        data: new local.FormData(),\n\
-        method: \"POST\",\n\
-        url: \"/test.echo\"\n\
-    }, function (err, xhr) {\n\
-        // handle err\n\
-        assertOrThrow(!err, err);\n\
-        // validate responseText\n\
-        assertOrThrow((\n\
-            /\\r\\n\\r\\n$/\n\
-        ).test(xhr.responseText), xhr.responseText);\n\
-        onError(undefined, opt);\n\
-    });\n\
-};\n\
-\n\
 local.testCase_ajax_cache = function (opt, onError) {\n\
 /*\n\
  * this function will test ajax's cache handling-behavior\n\
@@ -71661,137 +71456,6 @@ local.testCase_moduleDirname_default = function (opt, onError) {\n\
     onError(undefined, opt);\n\
 };\n\
 \n\
-local.testCase_objectAssignRecurse_default = function (opt, onError) {\n\
-/*\n\
- * this function will test objectAssignRecurse's default handling-behavior\n\
- */\n\
-    // test null-case handling-behavior\n\
-    local.objectAssignRecurse();\n\
-    local.objectAssignRecurse({});\n\
-    // test falsy handling-behavior\n\
-    [\n\
-        \"\", 0, false, null, undefined\n\
-    ].forEach(function (aa) {\n\
-        [\n\
-            \"\", 0, false, null, undefined\n\
-        ].forEach(function (bb) {\n\
-            assertJsonEqual(\n\
-                local.objectAssignRecurse({\n\
-                    data: aa\n\
-                }, {\n\
-                    data: bb\n\
-                }).data,\n\
-                bb === undefined\n\
-                ? aa\n\
-                : bb\n\
-            );\n\
-        });\n\
-    });\n\
-    // test non-recursive handling-behavior\n\
-    assertJsonEqual(local.objectAssignRecurse({\n\
-        aa: 1,\n\
-        bb: {\n\
-            cc: 1\n\
-        },\n\
-        cc: {\n\
-            dd: 1\n\
-        },\n\
-        dd: [\n\
-            1, 1\n\
-        ],\n\
-        ee: [\n\
-            1, 1\n\
-        ]\n\
-    }, {\n\
-        aa: 2,\n\
-        bb: {\n\
-            dd: 2\n\
-        },\n\
-        cc: {\n\
-            ee: 2\n\
-        },\n\
-        dd: [\n\
-            2, 2\n\
-        ],\n\
-        ee: {\n\
-            ff: 2\n\
-        }\n\
-    // test default-depth handling-behavior\n\
-    }, null), {\n\
-        aa: 2,\n\
-        bb: {\n\
-            dd: 2\n\
-        },\n\
-        cc: {\n\
-            ee: 2\n\
-        },\n\
-        dd: [\n\
-            2, 2\n\
-        ],\n\
-        ee: {\n\
-            ff: 2\n\
-        }\n\
-    });\n\
-    // test recursive handling-behavior\n\
-    assertJsonEqual(local.objectAssignRecurse({\n\
-        aa: 1,\n\
-        bb: {\n\
-            cc: 1\n\
-        },\n\
-        cc: {\n\
-            dd: 1\n\
-        },\n\
-        dd: [\n\
-            1, 1\n\
-        ],\n\
-        ee: [\n\
-            1, 1\n\
-        ]\n\
-    }, {\n\
-        aa: 2,\n\
-        bb: {\n\
-            dd: 2\n\
-        },\n\
-        cc: {\n\
-            ee: 2\n\
-        },\n\
-        dd: [\n\
-            2, 2\n\
-        ],\n\
-        ee: {\n\
-            ff: 2\n\
-        }\n\
-    // test depth handling-behavior\n\
-    }, 2), {\n\
-        aa: 2,\n\
-        bb: {\n\
-            cc: 1,\n\
-            dd: 2\n\
-        },\n\
-        cc: {\n\
-            dd: 1,\n\
-            ee: 2\n\
-        },\n\
-        dd: [\n\
-            2, 2\n\
-        ],\n\
-        ee: {\n\
-            ff: 2\n\
-        }\n\
-    });\n\
-    // test env with empty-string handling-behavior\n\
-    assertJsonEqual(local.objectAssignRecurse(\n\
-        local.env,\n\
-        {\n\
-            \"emptyString\": null\n\
-        },\n\
-        // test default-depth handling-behavior\n\
-        null,\n\
-        local.env\n\
-    ).emptyString, \"\");\n\
-    onError(undefined, opt);\n\
-};\n\
-\n\
 local.testCase_onErrorThrow_err = function (opt, onError) {\n\
 /*\n\
  * this function will test onErrorThrow's err handling-behavior\n\
@@ -72542,7 +72206,7 @@ if (local.isBrowser) {\n\
 \n\
 \n\
 (function () {\n\
-    switch (local.env.HEROKU_APP_NAME) {\n\
+    switch (process.env.HEROKU_APP_NAME) {\n\
     case \"h1-cron1\":\n\
         // heroku-keepalive\n\
         setInterval(function () {\n\
@@ -72612,7 +72276,7 @@ local.assetsDict[\"/assets.script_only.html\"] = (\n\
 );\n\
 if (process.argv[2]) {\n\
     // start with coverage\n\
-    if (local.env.npm_config_mode_coverage) {\n\
+    if (process.env.npm_config_mode_coverage) {\n\
         process.argv.splice(1, 1, __dirname + \"/lib.istanbul.js\", \"cover\");\n\
         local.istanbul.cliDict[process.argv[2]]();\n\
         return;\n\
@@ -72623,8 +72287,8 @@ if (process.argv[2]) {\n\
     local.Module.runMain();\n\
 }\n\
 // runme\n\
-if (local.env.npm_config_runme) {\n\
-    require(require(\"path\").resolve(local.env.npm_config_runme));\n\
+if (process.env.npm_config_runme) {\n\
+    require(require(\"path\").resolve(process.env.npm_config_runme));\n\
 }\n\
 }());\n\
 }());\n\
@@ -73705,7 +73369,7 @@ local.apidocCreate = function (opt) {\n\
             result = local.identity(\n\
                 \"\\n\\n\\n\\n\\n\\n\\n\\n\"\n\
                 // bug-workaround - truncate example to manageable size\n\
-                + local.fs.readFileSync(file, \"utf8\").slice(0, 262144)\n\
+                + require(\"fs\").readFileSync(file, \"utf8\").slice(0, 262144)\n\
                 + \"\\n\\n\\n\\n\\n\\n\\n\\n\"\n\
             ).replace((\n\
                 /\\r\\n*/g\n\
@@ -75012,7 +74676,7 @@ local.apidocCreate = function (opt) {
             result = local.identity(
                 "\n\n\n\n\n\n\n\n"
                 // bug-workaround - truncate example to manageable size
-                + local.fs.readFileSync(file, "utf8").slice(0, 262144)
+                + require("fs").readFileSync(file, "utf8").slice(0, 262144)
                 + "\n\n\n\n\n\n\n\n"
             ).replace((
                 /\r\n*/g
