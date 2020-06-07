@@ -720,7 +720,7 @@ utility2-comment -->\n\
 /* jslint ignore:end */
 local.assetsDict["/assets.apidoc.js"] = (
     local.assetsDict["/assets.apidoc.js"]
-    || local.fs.readFileSync(
+    || require("fs").readFileSync(
         require("path").resolve(local.__dirname + "/lib.apidoc.js"),
         "utf8"
     ).replace((
@@ -753,7 +753,7 @@ if (module !== require.main || globalThis.utility2_rollup) {
 }
 local.assetsDict["/assets.example.js"] = (
     local.assetsDict["/assets.example.js"]
-    || local.fs.readFileSync(__filename, "utf8")
+    || require("fs").readFileSync(__filename, "utf8")
 );
 local.assetsDict["/favicon.ico"] = local.assetsDict["/favicon.ico"] || "";
 local.assetsDict["/index.html"] = local.assetsDict["/"];

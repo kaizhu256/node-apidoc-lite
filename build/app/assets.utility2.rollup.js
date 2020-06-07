@@ -394,7 +394,9 @@ local.cliRun = function (opt) {
 /*
  * this function will run cli with given <opt>
  */
-    local.cliDict._eval = local.cliDict._eval || function () {
+    let cliDict;
+    cliDict = local.cliDict;
+    cliDict._eval = cliDict._eval || function () {
     /*
      * <code>
      * will eval <code>
@@ -402,7 +404,7 @@ local.cliRun = function (opt) {
         globalThis.local = local;
         require("vm").runInThisContext(process.argv[3]);
     };
-    local.cliDict._help = local.cliDict._help || function () {
+    cliDict._help = cliDict._help || function () {
     /*
      *
      * will print help
@@ -437,11 +439,11 @@ local.cliRun = function (opt) {
             /\)\u0020\{\n(?:|\u0020{4})\/\*\n(?:\u0020|\u0020{5})\*((?:\u0020<[^>]*?>|\u0020\.\.\.)*?)\n(?:\u0020|\u0020{5})\*\u0020(will\u0020.*?\S)\n(?:\u0020|\u0020{5})\*\/\n(?:\u0020{4}|\u0020{8})\S/
         );
         strDict = {};
-        Object.keys(local.cliDict).sort().forEach(function (key, ii) {
+        Object.keys(cliDict).sort().forEach(function (key, ii) {
             if (key[0] === "_" && key !== "_default") {
                 return;
             }
-            str = String(local.cliDict[key]);
+            str = String(cliDict[key]);
             if (key === "_default") {
                 key = "";
             }
@@ -507,13 +509,13 @@ local.cliRun = function (opt) {
         }).join("\n\n");
         console.log(str);
     };
-    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;
-    local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;
-    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;
-    local.cliDict["-h"] = local.cliDict["-h"] || local.cliDict._help;
-    local.cliDict._default = local.cliDict._default || local.cliDict._help;
-    local.cliDict.help = local.cliDict.help || local.cliDict._help;
-    local.cliDict._interactive = local.cliDict._interactive || function () {
+    cliDict["--eval"] = cliDict["--eval"] || cliDict._eval;
+    cliDict["--help"] = cliDict["--help"] || cliDict._help;
+    cliDict["-e"] = cliDict["-e"] || cliDict._eval;
+    cliDict["-h"] = cliDict["-h"] || cliDict._help;
+    cliDict._default = cliDict._default || cliDict._help;
+    cliDict.help = cliDict.help || cliDict._help;
+    cliDict._interactive = cliDict._interactive || function () {
     /*
      *
      * will start interactive-mode
@@ -523,33 +525,27 @@ local.cliRun = function (opt) {
             useGlobal: true
         });
     };
-    local.cliDict["--interactive"] = (
-        local.cliDict["--interactive"]
-        || local.cliDict._interactive
-    );
-    local.cliDict["-i"] = local.cliDict["-i"] || local.cliDict._interactive;
-    local.cliDict._version = local.cliDict._version || function () {
+    cliDict["--interactive"] = cliDict["--interactive"] || cliDict._interactive;
+    cliDict["-i"] = cliDict["-i"] || cliDict._interactive;
+    cliDict._version = cliDict._version || function () {
     /*
      *
      * will print version
      */
         console.log(require(__dirname + "/package.json").version);
     };
-    local.cliDict["--version"] = (
-        local.cliDict["--version"]
-        || local.cliDict._version
-    );
-    local.cliDict["-v"] = local.cliDict["-v"] || local.cliDict._version;
+    cliDict["--version"] = cliDict["--version"] || cliDict._version;
+    cliDict["-v"] = cliDict["-v"] || cliDict._version;
     // default to --help command if no arguments are given
     if (process.argv.length <= 2) {
-        local.cliDict._help();
+        cliDict._help();
         return;
     }
-    if (local.cliDict[process.argv[2]]) {
-        local.cliDict[process.argv[2]]();
+    if (cliDict[process.argv[2]]) {
+        cliDict[process.argv[2]]();
         return;
     }
-    local.cliDict._default();
+    cliDict._default();
 };
 
 local.moduleDirname = function (module, pathList) {
@@ -1705,7 +1701,9 @@ local.cliRun = function (opt) {
 /*
  * this function will run cli with given <opt>
  */
-    local.cliDict._eval = local.cliDict._eval || function () {
+    let cliDict;
+    cliDict = local.cliDict;
+    cliDict._eval = cliDict._eval || function () {
     /*
      * <code>
      * will eval <code>
@@ -1713,7 +1711,7 @@ local.cliRun = function (opt) {
         globalThis.local = local;
         require("vm").runInThisContext(process.argv[3]);
     };
-    local.cliDict._help = local.cliDict._help || function () {
+    cliDict._help = cliDict._help || function () {
     /*
      *
      * will print help
@@ -1748,11 +1746,11 @@ local.cliRun = function (opt) {
             /\)\u0020\{\n(?:|\u0020{4})\/\*\n(?:\u0020|\u0020{5})\*((?:\u0020<[^>]*?>|\u0020\.\.\.)*?)\n(?:\u0020|\u0020{5})\*\u0020(will\u0020.*?\S)\n(?:\u0020|\u0020{5})\*\/\n(?:\u0020{4}|\u0020{8})\S/
         );
         strDict = {};
-        Object.keys(local.cliDict).sort().forEach(function (key, ii) {
+        Object.keys(cliDict).sort().forEach(function (key, ii) {
             if (key[0] === "_" && key !== "_default") {
                 return;
             }
-            str = String(local.cliDict[key]);
+            str = String(cliDict[key]);
             if (key === "_default") {
                 key = "";
             }
@@ -1818,13 +1816,13 @@ local.cliRun = function (opt) {
         }).join("\n\n");
         console.log(str);
     };
-    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;
-    local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;
-    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;
-    local.cliDict["-h"] = local.cliDict["-h"] || local.cliDict._help;
-    local.cliDict._default = local.cliDict._default || local.cliDict._help;
-    local.cliDict.help = local.cliDict.help || local.cliDict._help;
-    local.cliDict._interactive = local.cliDict._interactive || function () {
+    cliDict["--eval"] = cliDict["--eval"] || cliDict._eval;
+    cliDict["--help"] = cliDict["--help"] || cliDict._help;
+    cliDict["-e"] = cliDict["-e"] || cliDict._eval;
+    cliDict["-h"] = cliDict["-h"] || cliDict._help;
+    cliDict._default = cliDict._default || cliDict._help;
+    cliDict.help = cliDict.help || cliDict._help;
+    cliDict._interactive = cliDict._interactive || function () {
     /*
      *
      * will start interactive-mode
@@ -1834,33 +1832,27 @@ local.cliRun = function (opt) {
             useGlobal: true
         });
     };
-    local.cliDict["--interactive"] = (
-        local.cliDict["--interactive"]
-        || local.cliDict._interactive
-    );
-    local.cliDict["-i"] = local.cliDict["-i"] || local.cliDict._interactive;
-    local.cliDict._version = local.cliDict._version || function () {
+    cliDict["--interactive"] = cliDict["--interactive"] || cliDict._interactive;
+    cliDict["-i"] = cliDict["-i"] || cliDict._interactive;
+    cliDict._version = cliDict._version || function () {
     /*
      *
      * will print version
      */
         console.log(require(__dirname + "/package.json").version);
     };
-    local.cliDict["--version"] = (
-        local.cliDict["--version"]
-        || local.cliDict._version
-    );
-    local.cliDict["-v"] = local.cliDict["-v"] || local.cliDict._version;
+    cliDict["--version"] = cliDict["--version"] || cliDict._version;
+    cliDict["-v"] = cliDict["-v"] || cliDict._version;
     // default to --help command if no arguments are given
     if (process.argv.length <= 2) {
-        local.cliDict._help();
+        cliDict._help();
         return;
     }
-    if (local.cliDict[process.argv[2]]) {
-        local.cliDict[process.argv[2]]();
+    if (cliDict[process.argv[2]]) {
+        cliDict[process.argv[2]]();
         return;
     }
-    local.cliDict._default();
+    cliDict._default();
 };
 
 local.fsReadFileOrDefaultSync = function (pathname, type, dflt) {
@@ -13609,7 +13601,9 @@ local.cliRun = function (opt) {
 /*
  * this function will run cli with given <opt>
  */
-    local.cliDict._eval = local.cliDict._eval || function () {
+    let cliDict;
+    cliDict = local.cliDict;
+    cliDict._eval = cliDict._eval || function () {
     /*
      * <code>
      * will eval <code>
@@ -13617,7 +13611,7 @@ local.cliRun = function (opt) {
         globalThis.local = local;
         require("vm").runInThisContext(process.argv[3]);
     };
-    local.cliDict._help = local.cliDict._help || function () {
+    cliDict._help = cliDict._help || function () {
     /*
      *
      * will print help
@@ -13652,11 +13646,11 @@ local.cliRun = function (opt) {
             /\)\u0020\{\n(?:|\u0020{4})\/\*\n(?:\u0020|\u0020{5})\*((?:\u0020<[^>]*?>|\u0020\.\.\.)*?)\n(?:\u0020|\u0020{5})\*\u0020(will\u0020.*?\S)\n(?:\u0020|\u0020{5})\*\/\n(?:\u0020{4}|\u0020{8})\S/
         );
         strDict = {};
-        Object.keys(local.cliDict).sort().forEach(function (key, ii) {
+        Object.keys(cliDict).sort().forEach(function (key, ii) {
             if (key[0] === "_" && key !== "_default") {
                 return;
             }
-            str = String(local.cliDict[key]);
+            str = String(cliDict[key]);
             if (key === "_default") {
                 key = "";
             }
@@ -13722,13 +13716,13 @@ local.cliRun = function (opt) {
         }).join("\n\n");
         console.log(str);
     };
-    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;
-    local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;
-    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;
-    local.cliDict["-h"] = local.cliDict["-h"] || local.cliDict._help;
-    local.cliDict._default = local.cliDict._default || local.cliDict._help;
-    local.cliDict.help = local.cliDict.help || local.cliDict._help;
-    local.cliDict._interactive = local.cliDict._interactive || function () {
+    cliDict["--eval"] = cliDict["--eval"] || cliDict._eval;
+    cliDict["--help"] = cliDict["--help"] || cliDict._help;
+    cliDict["-e"] = cliDict["-e"] || cliDict._eval;
+    cliDict["-h"] = cliDict["-h"] || cliDict._help;
+    cliDict._default = cliDict._default || cliDict._help;
+    cliDict.help = cliDict.help || cliDict._help;
+    cliDict._interactive = cliDict._interactive || function () {
     /*
      *
      * will start interactive-mode
@@ -13738,33 +13732,27 @@ local.cliRun = function (opt) {
             useGlobal: true
         });
     };
-    local.cliDict["--interactive"] = (
-        local.cliDict["--interactive"]
-        || local.cliDict._interactive
-    );
-    local.cliDict["-i"] = local.cliDict["-i"] || local.cliDict._interactive;
-    local.cliDict._version = local.cliDict._version || function () {
+    cliDict["--interactive"] = cliDict["--interactive"] || cliDict._interactive;
+    cliDict["-i"] = cliDict["-i"] || cliDict._interactive;
+    cliDict._version = cliDict._version || function () {
     /*
      *
      * will print version
      */
         console.log(require(__dirname + "/package.json").version);
     };
-    local.cliDict["--version"] = (
-        local.cliDict["--version"]
-        || local.cliDict._version
-    );
-    local.cliDict["-v"] = local.cliDict["-v"] || local.cliDict._version;
+    cliDict["--version"] = cliDict["--version"] || cliDict._version;
+    cliDict["-v"] = cliDict["-v"] || cliDict._version;
     // default to --help command if no arguments are given
     if (process.argv.length <= 2) {
-        local.cliDict._help();
+        cliDict._help();
         return;
     }
-    if (local.cliDict[process.argv[2]]) {
-        local.cliDict[process.argv[2]]();
+    if (cliDict[process.argv[2]]) {
+        cliDict[process.argv[2]]();
         return;
     }
-    local.cliDict._default();
+    cliDict._default();
 };
 
 local.objectDeepCopyWithKeysSorted = function (obj) {
@@ -31477,7 +31465,9 @@ local.cliRun = function (opt) {
 /*
  * this function will run cli with given <opt>
  */
-    local.cliDict._eval = local.cliDict._eval || function () {
+    let cliDict;
+    cliDict = local.cliDict;
+    cliDict._eval = cliDict._eval || function () {
     /*
      * <code>
      * will eval <code>
@@ -31485,7 +31475,7 @@ local.cliRun = function (opt) {
         globalThis.local = local;
         require("vm").runInThisContext(process.argv[3]);
     };
-    local.cliDict._help = local.cliDict._help || function () {
+    cliDict._help = cliDict._help || function () {
     /*
      *
      * will print help
@@ -31520,11 +31510,11 @@ local.cliRun = function (opt) {
             /\)\u0020\{\n(?:|\u0020{4})\/\*\n(?:\u0020|\u0020{5})\*((?:\u0020<[^>]*?>|\u0020\.\.\.)*?)\n(?:\u0020|\u0020{5})\*\u0020(will\u0020.*?\S)\n(?:\u0020|\u0020{5})\*\/\n(?:\u0020{4}|\u0020{8})\S/
         );
         strDict = {};
-        Object.keys(local.cliDict).sort().forEach(function (key, ii) {
+        Object.keys(cliDict).sort().forEach(function (key, ii) {
             if (key[0] === "_" && key !== "_default") {
                 return;
             }
-            str = String(local.cliDict[key]);
+            str = String(cliDict[key]);
             if (key === "_default") {
                 key = "";
             }
@@ -31590,13 +31580,13 @@ local.cliRun = function (opt) {
         }).join("\n\n");
         console.log(str);
     };
-    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;
-    local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;
-    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;
-    local.cliDict["-h"] = local.cliDict["-h"] || local.cliDict._help;
-    local.cliDict._default = local.cliDict._default || local.cliDict._help;
-    local.cliDict.help = local.cliDict.help || local.cliDict._help;
-    local.cliDict._interactive = local.cliDict._interactive || function () {
+    cliDict["--eval"] = cliDict["--eval"] || cliDict._eval;
+    cliDict["--help"] = cliDict["--help"] || cliDict._help;
+    cliDict["-e"] = cliDict["-e"] || cliDict._eval;
+    cliDict["-h"] = cliDict["-h"] || cliDict._help;
+    cliDict._default = cliDict._default || cliDict._help;
+    cliDict.help = cliDict.help || cliDict._help;
+    cliDict._interactive = cliDict._interactive || function () {
     /*
      *
      * will start interactive-mode
@@ -31606,33 +31596,27 @@ local.cliRun = function (opt) {
             useGlobal: true
         });
     };
-    local.cliDict["--interactive"] = (
-        local.cliDict["--interactive"]
-        || local.cliDict._interactive
-    );
-    local.cliDict["-i"] = local.cliDict["-i"] || local.cliDict._interactive;
-    local.cliDict._version = local.cliDict._version || function () {
+    cliDict["--interactive"] = cliDict["--interactive"] || cliDict._interactive;
+    cliDict["-i"] = cliDict["-i"] || cliDict._interactive;
+    cliDict._version = cliDict._version || function () {
     /*
      *
      * will print version
      */
         console.log(require(__dirname + "/package.json").version);
     };
-    local.cliDict["--version"] = (
-        local.cliDict["--version"]
-        || local.cliDict._version
-    );
-    local.cliDict["-v"] = local.cliDict["-v"] || local.cliDict._version;
+    cliDict["--version"] = cliDict["--version"] || cliDict._version;
+    cliDict["-v"] = cliDict["-v"] || cliDict._version;
     // default to --help command if no arguments are given
     if (process.argv.length <= 2) {
-        local.cliDict._help();
+        cliDict._help();
         return;
     }
-    if (local.cliDict[process.argv[2]]) {
-        local.cliDict[process.argv[2]]();
+    if (cliDict[process.argv[2]]) {
+        cliDict[process.argv[2]]();
         return;
     }
-    local.cliDict._default();
+    cliDict._default();
 };
 }());
 
@@ -45064,7 +45048,7 @@ local.assetsDict["/assets.index.template.html"] = \'\\\n\
 /* jslint ignore:end */\n\
 local.assetsDict["/assets.my_app.js"] = (\n\
     local.assetsDict["/assets.my_app.js"]\n\
-    || local.fs.readFileSync(\n\
+    || require("fs").readFileSync(\n\
         require("path").resolve(local.__dirname + "/lib.my_app.js"),\n\
         "utf8"\n\
     ).replace((\n\
@@ -45097,7 +45081,7 @@ if (module !== require.main || globalThis.utility2_rollup) {\n\
 }\n\
 local.assetsDict["/assets.example.js"] = (\n\
     local.assetsDict["/assets.example.js"]\n\
-    || local.fs.readFileSync(__filename, "utf8")\n\
+    || require("fs").readFileSync(__filename, "utf8")\n\
 );\n\
 local.assetsDict["/favicon.ico"] = local.assetsDict["/favicon.ico"] || "";\n\
 local.assetsDict["/index.html"] = local.assetsDict["/"];\n\
@@ -45669,12 +45653,14 @@ local.cliDict["utility2.testReportCreate"] = function () {
  */
     process.exit(
         local.testReportCreate(
-            JSON.parse(local.fs.readFileSync(
-                require("path").resolve(
-                    local.env.npm_config_dir_build + "/test-report.json"
-                ),
-                "utf8"
-            ))
+            JSON.parse(
+                require("fs").readFileSync(
+                    require("path").resolve(
+                        local.env.npm_config_dir_build + "/test-report.json"
+                    ),
+                    "utf8"
+                )
+            )
         ).testsFailed !== 0
     );
 };
@@ -46738,7 +46724,7 @@ local.browserTest = function (opt, onError) {
             local.testReportMerge(globalThis.utility2_testReport, data);
             // save test-report.json
             onParallel.cnt += 1;
-            local.fs.writeFile(
+            require("fs").writeFile(
                 require("path").resolve(
                     local.env.npm_config_dir_build + "/test-report.json"
                 ),
@@ -46973,7 +46959,7 @@ local.buildLib = function (opt, onError) {
     let result;
     local.objectAssignDefault(opt, {
         customize: local.nop,
-        dataFrom: local.fs.readFileSync(
+        dataFrom: require("fs").readFileSync(
             "lib." + local.env.npm_package_nameLib + ".js",
             "utf8"
         ),
@@ -46996,7 +46982,7 @@ local.buildLib = function (opt, onError) {
     });
     // customize assets.utility2.rollup.js
     if (
-        local.fs.existsSync("./assets.utility2.rollup.js")
+        require("fs").existsSync("./assets.utility2.rollup.js")
     ) {
         opt.dataTo = opt.dataTo.replace(
             "    // || globalThis.utility2_rollup_old",
@@ -47028,7 +47014,7 @@ local.buildReadme = function (opt, onError) {
     local.objectAssignDefault(opt, {
         customize: local.nop,
         // reset toc
-        dataFrom: local.fs.readFileSync(
+        dataFrom: require("fs").readFileSync(
             "README.md",
             "utf8"
         ).replace((
@@ -47051,7 +47037,7 @@ local.buildReadme = function (opt, onError) {
         opt.packageJson.description = opt.dataFrom.split("\n")[1];
         local.objectAssignDefault(opt.packageJson, {
             nameLib: JSON.parse(
-                local.fs.readFileSync("package.json", "utf8")
+                require("fs").readFileSync("package.json", "utf8")
             ).nameLib
         });
         opt.packageJson = local.objectAssignDefault(opt.packageJson, {
@@ -47303,7 +47289,7 @@ local.buildTest = function (opt, onError) {
     let result;
     local.objectAssignDefault(opt, {
         customize: local.nop,
-        dataFrom: local.fs.readFileSync("test.js", "utf8"),
+        dataFrom: require("fs").readFileSync("test.js", "utf8"),
         dataTo: local.templateRenderMyApp(
             local.assetsDict["/assets.test.template.js"]
         )
@@ -47322,7 +47308,7 @@ local.buildTest = function (opt, onError) {
         "./assets.utility2.rollup.js",
         "./lib.utility2.js"
     ].forEach(function (file) {
-        if (local.fs.existsSync(file)) {
+        if (require("fs").existsSync(file)) {
             opt.dataTo = opt.dataTo.replace(
                 "require(\"utility2\")",
                 "require(\"" + file + "\")"
@@ -47389,7 +47375,9 @@ local.cliRun = function (opt) {
 /*
  * this function will run cli with given <opt>
  */
-    local.cliDict._eval = local.cliDict._eval || function () {
+    let cliDict;
+    cliDict = local.cliDict;
+    cliDict._eval = cliDict._eval || function () {
     /*
      * <code>
      * will eval <code>
@@ -47397,7 +47385,7 @@ local.cliRun = function (opt) {
         globalThis.local = local;
         require("vm").runInThisContext(process.argv[3]);
     };
-    local.cliDict._help = local.cliDict._help || function () {
+    cliDict._help = cliDict._help || function () {
     /*
      *
      * will print help
@@ -47432,11 +47420,11 @@ local.cliRun = function (opt) {
             /\)\u0020\{\n(?:|\u0020{4})\/\*\n(?:\u0020|\u0020{5})\*((?:\u0020<[^>]*?>|\u0020\.\.\.)*?)\n(?:\u0020|\u0020{5})\*\u0020(will\u0020.*?\S)\n(?:\u0020|\u0020{5})\*\/\n(?:\u0020{4}|\u0020{8})\S/
         );
         strDict = {};
-        Object.keys(local.cliDict).sort().forEach(function (key, ii) {
+        Object.keys(cliDict).sort().forEach(function (key, ii) {
             if (key[0] === "_" && key !== "_default") {
                 return;
             }
-            str = String(local.cliDict[key]);
+            str = String(cliDict[key]);
             if (key === "_default") {
                 key = "";
             }
@@ -47502,13 +47490,13 @@ local.cliRun = function (opt) {
         }).join("\n\n");
         console.log(str);
     };
-    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;
-    local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;
-    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;
-    local.cliDict["-h"] = local.cliDict["-h"] || local.cliDict._help;
-    local.cliDict._default = local.cliDict._default || local.cliDict._help;
-    local.cliDict.help = local.cliDict.help || local.cliDict._help;
-    local.cliDict._interactive = local.cliDict._interactive || function () {
+    cliDict["--eval"] = cliDict["--eval"] || cliDict._eval;
+    cliDict["--help"] = cliDict["--help"] || cliDict._help;
+    cliDict["-e"] = cliDict["-e"] || cliDict._eval;
+    cliDict["-h"] = cliDict["-h"] || cliDict._help;
+    cliDict._default = cliDict._default || cliDict._help;
+    cliDict.help = cliDict.help || cliDict._help;
+    cliDict._interactive = cliDict._interactive || function () {
     /*
      *
      * will start interactive-mode
@@ -47518,33 +47506,27 @@ local.cliRun = function (opt) {
             useGlobal: true
         });
     };
-    local.cliDict["--interactive"] = (
-        local.cliDict["--interactive"]
-        || local.cliDict._interactive
-    );
-    local.cliDict["-i"] = local.cliDict["-i"] || local.cliDict._interactive;
-    local.cliDict._version = local.cliDict._version || function () {
+    cliDict["--interactive"] = cliDict["--interactive"] || cliDict._interactive;
+    cliDict["-i"] = cliDict["-i"] || cliDict._interactive;
+    cliDict._version = cliDict._version || function () {
     /*
      *
      * will print version
      */
         console.log(require(__dirname + "/package.json").version);
     };
-    local.cliDict["--version"] = (
-        local.cliDict["--version"]
-        || local.cliDict._version
-    );
-    local.cliDict["-v"] = local.cliDict["-v"] || local.cliDict._version;
+    cliDict["--version"] = cliDict["--version"] || cliDict._version;
+    cliDict["-v"] = cliDict["-v"] || cliDict._version;
     // default to --help command if no arguments are given
     if (process.argv.length <= 2) {
-        local.cliDict._help();
+        cliDict._help();
         return;
     }
-    if (local.cliDict[process.argv[2]]) {
-        local.cliDict[process.argv[2]]();
+    if (cliDict[process.argv[2]]) {
+        cliDict[process.argv[2]]();
         return;
     }
-    local.cliDict._default();
+    cliDict._default();
 };
 
 local.corsBackendHostInject = function (url, backendHost, rgx, location) {
@@ -48259,7 +48241,7 @@ local.jslintAutofixLocalFunction = function (code, file) {
     // customize local for assets.utility2.rollup.js
     if (
         file === "lib." + process.env.npm_package_nameLib + ".js"
-        && local.fs.existsSync("./assets.utility2.rollup.js")
+        && require("fs").existsSync("./assets.utility2.rollup.js")
     ) {
         code = code.replace(
             "    // || globalThis.utility2_rollup_old",
@@ -48376,7 +48358,7 @@ local.jslintAutofixLocalFunction = function (code, file) {
         dictProp[key] = true;
     });
     // local-function - missing
-    switch (local.fs.existsSync("assets.utility2.rollup.js") || file) {
+    switch (require("fs").existsSync("assets.utility2.rollup.js") || file) {
     case "README.md":
     case "lib.utility2.js":
     case "test.js":
@@ -48841,29 +48823,6 @@ local.onErrorWithStack = function (onError) {
     return onError2;
 };
 
-local.onFileModifiedRestart = function (file) {
-/*
- * this function will watch <file>, and if modified, then restart process
- */
-    if (
-        local.env.npm_config_mode_auto_restart
-        && local.fs.existsSync(file)
-        && local.fs.statSync(file).isFile()
-    ) {
-        local.fs.watchFile(file, {
-            interval: 1000,
-            persistent: false
-        }, function (stat2, stat1) {
-            if (stat2.mtime > stat1.mtime) {
-                console.error("file modified - " + file);
-                setTimeout(function () {
-                    process.exit(77);
-                }, 1000);
-            }
-        });
-    }
-};
-
 local.onParallel = function (onError, onEach, onRetry) {
 /*
  * this function will create function that will
@@ -49115,6 +49074,29 @@ local.requireReadme = function () {
     let tmp;
     // init module.exports
     module = {};
+    // if file is modified, then restart process
+    if (local.env.npm_config_mode_auto_restart) {
+        require("fs").readdir(".", function (ignore, fileList) {
+            fileList.forEach(function (file) {
+                require("fs").stat(file, function (ignore, data) {
+                    if (!data.isFile()) {
+                        return;
+                    }
+                    require("fs").watchFile(file, {
+                        interval: 1000,
+                        persistent: false
+                    }, function (stat2, stat1) {
+                        if (stat2.mtime > stat1.mtime) {
+                            console.error("file modified - " + file);
+                            setTimeout(function () {
+                                process.exit(77);
+                            }, 1000);
+                        }
+                    });
+                });
+            });
+        });
+    }
     if (local.isBrowser) {
         module.exports = local.objectAssignDefault(
             globalThis.utility2_rollup || globalThis.local,
@@ -49124,22 +49106,6 @@ local.requireReadme = function () {
     }
     // start repl-debugger
     local.replStart();
-    // debug dir
-    [
-        __dirname + "/lib.jslint.js",
-        __filename,
-        "undefined"
-    ].forEach(function (file) {
-        local.fs.exists(file, function (exists) {
-            if (exists) {
-                local.onFileModifiedRestart(file);
-            }
-        });
-    });
-    // if file is modified, then restart process
-    local.fs.readdirSync(".").forEach(function (file) {
-        local.onFileModifiedRestart(file);
-    });
     // jslint process.cwd()
     if (!local.env.npm_config_mode_lib) {
         require("child_process").spawn("node", [
@@ -49166,7 +49132,7 @@ local.requireReadme = function () {
             || local.assetsDict["/index.rollup.html"] || ""
         );
         local.assetsDict["/"] = local.assetsDict["/index.html"];
-        local.assetsDict["/assets.app.js"] = local.fs.readFileSync(
+        local.assetsDict["/assets.app.js"] = require("fs").readFileSync(
             __filename,
             "utf8"
         ).replace((
@@ -49241,7 +49207,7 @@ local.requireReadme = function () {
     module.exports.assetsDict = local.assetsDict;
     local.assetsDict["/assets.example.js"] = code;
     local.assetsDict["/assets.test.js"] = local.istanbulInstrumentInPackage(
-        local.fs.readFileSync("test.js", "utf8"),
+        require("fs").readFileSync("test.js", "utf8"),
         "test.js"
     );
     // init assets index.html
@@ -49348,7 +49314,7 @@ instruction\n\
                 stateInit: true
             });
             // add extra physical files to assetsDict
-            local.fs.readdirSync(".").forEach(function (file) {
+            require("fs").readdirSync(".").forEach(function (file) {
                 file = "/" + file;
                 if (
                     local.assetsDict[file]
@@ -49907,7 +49873,9 @@ local.templateRenderMyApp = function (template) {
  */
     let githubRepo;
     let packageJson;
-    packageJson = JSON.parse(local.fs.readFileSync("package.json", "utf8"));
+    packageJson = JSON.parse(
+        require("fs").readFileSync("package.json", "utf8")
+    );
     local.objectAssignDefault(packageJson, {
         nameLib: packageJson.name.replace((
             /\W/g
@@ -51077,7 +51045,7 @@ if (module === require.main && (!globalThis.utility2_rollup || (
     && local.cliDict[process.argv[2]]
     && process.argv[2].indexOf("utility2.") === 0
 ))) {
-    local.cliRun({}, local.nop);
+    local.cliRun({});
     if (local.cliDict[process.argv[2]]) {
         local.cliDict[process.argv[2]]();
         switch (process.argv[2]) {
@@ -51094,7 +51062,7 @@ if (module === require.main && (!globalThis.utility2_rollup || (
 // override assets
 if (globalThis.utility2_rollup) {
     local.assetsDict["/assets.utility2.rollup.js"] = (
-        local.fs.readFileSync(
+        require("fs").readFileSync(
             __filename,
             "utf8"
         ).split("\n/* script-end /assets.utility2.rollup.end.js */")[0]
@@ -52205,7 +52173,7 @@ utility2-comment -->\\n\\\n\
 /* jslint ignore:end */\n\
 local.assetsDict[\"/assets.utility2.js\"] = (\n\
     local.assetsDict[\"/assets.utility2.js\"]\n\
-    || local.fs.readFileSync(\n\
+    || require(\"fs\").readFileSync(\n\
         require(\"path\").resolve(local.__dirname + \"/lib.utility2.js\"),\n\
         \"utf8\"\n\
     ).replace((\n\
@@ -52238,7 +52206,7 @@ if (module !== require.main || globalThis.utility2_rollup) {\n\
 }\n\
 local.assetsDict[\"/assets.example.js\"] = (\n\
     local.assetsDict[\"/assets.example.js\"]\n\
-    || local.fs.readFileSync(__filename, \"utf8\")\n\
+    || require(\"fs\").readFileSync(__filename, \"utf8\")\n\
 );\n\
 local.assetsDict[\"/favicon.ico\"] = local.assetsDict[\"/favicon.ico\"] || \"\";\n\
 local.assetsDict[\"/index.html\"] = local.assetsDict[\"/\"];\n\
@@ -53077,7 +53045,9 @@ local.cliRun = function (opt) {\n\
 /*\n\
  * this function will run cli with given <opt>\n\
  */\n\
-    local.cliDict._eval = local.cliDict._eval || function () {\n\
+    let cliDict;\n\
+    cliDict = local.cliDict;\n\
+    cliDict._eval = cliDict._eval || function () {\n\
     /*\n\
      * <code>\n\
      * will eval <code>\n\
@@ -53085,7 +53055,7 @@ local.cliRun = function (opt) {\n\
         globalThis.local = local;\n\
         require(\"vm\").runInThisContext(process.argv[3]);\n\
     };\n\
-    local.cliDict._help = local.cliDict._help || function () {\n\
+    cliDict._help = cliDict._help || function () {\n\
     /*\n\
      *\n\
      * will print help\n\
@@ -53120,11 +53090,11 @@ local.cliRun = function (opt) {\n\
             /\\)\\u0020\\{\\n(?:|\\u0020{4})\\/\\*\\n(?:\\u0020|\\u0020{5})\\*((?:\\u0020<[^>]*?>|\\u0020\\.\\.\\.)*?)\\n(?:\\u0020|\\u0020{5})\\*\\u0020(will\\u0020.*?\\S)\\n(?:\\u0020|\\u0020{5})\\*\\/\\n(?:\\u0020{4}|\\u0020{8})\\S/\n\
         );\n\
         strDict = {};\n\
-        Object.keys(local.cliDict).sort().forEach(function (key, ii) {\n\
+        Object.keys(cliDict).sort().forEach(function (key, ii) {\n\
             if (key[0] === \"_\" && key !== \"_default\") {\n\
                 return;\n\
             }\n\
-            str = String(local.cliDict[key]);\n\
+            str = String(cliDict[key]);\n\
             if (key === \"_default\") {\n\
                 key = \"\";\n\
             }\n\
@@ -53190,13 +53160,13 @@ local.cliRun = function (opt) {\n\
         }).join(\"\\n\\n\");\n\
         console.log(str);\n\
     };\n\
-    local.cliDict[\"--eval\"] = local.cliDict[\"--eval\"] || local.cliDict._eval;\n\
-    local.cliDict[\"--help\"] = local.cliDict[\"--help\"] || local.cliDict._help;\n\
-    local.cliDict[\"-e\"] = local.cliDict[\"-e\"] || local.cliDict._eval;\n\
-    local.cliDict[\"-h\"] = local.cliDict[\"-h\"] || local.cliDict._help;\n\
-    local.cliDict._default = local.cliDict._default || local.cliDict._help;\n\
-    local.cliDict.help = local.cliDict.help || local.cliDict._help;\n\
-    local.cliDict._interactive = local.cliDict._interactive || function () {\n\
+    cliDict[\"--eval\"] = cliDict[\"--eval\"] || cliDict._eval;\n\
+    cliDict[\"--help\"] = cliDict[\"--help\"] || cliDict._help;\n\
+    cliDict[\"-e\"] = cliDict[\"-e\"] || cliDict._eval;\n\
+    cliDict[\"-h\"] = cliDict[\"-h\"] || cliDict._help;\n\
+    cliDict._default = cliDict._default || cliDict._help;\n\
+    cliDict.help = cliDict.help || cliDict._help;\n\
+    cliDict._interactive = cliDict._interactive || function () {\n\
     /*\n\
      *\n\
      * will start interactive-mode\n\
@@ -53206,33 +53176,27 @@ local.cliRun = function (opt) {\n\
             useGlobal: true\n\
         });\n\
     };\n\
-    local.cliDict[\"--interactive\"] = (\n\
-        local.cliDict[\"--interactive\"]\n\
-        || local.cliDict._interactive\n\
-    );\n\
-    local.cliDict[\"-i\"] = local.cliDict[\"-i\"] || local.cliDict._interactive;\n\
-    local.cliDict._version = local.cliDict._version || function () {\n\
+    cliDict[\"--interactive\"] = cliDict[\"--interactive\"] || cliDict._interactive;\n\
+    cliDict[\"-i\"] = cliDict[\"-i\"] || cliDict._interactive;\n\
+    cliDict._version = cliDict._version || function () {\n\
     /*\n\
      *\n\
      * will print version\n\
      */\n\
         console.log(require(__dirname + \"/package.json\").version);\n\
     };\n\
-    local.cliDict[\"--version\"] = (\n\
-        local.cliDict[\"--version\"]\n\
-        || local.cliDict._version\n\
-    );\n\
-    local.cliDict[\"-v\"] = local.cliDict[\"-v\"] || local.cliDict._version;\n\
+    cliDict[\"--version\"] = cliDict[\"--version\"] || cliDict._version;\n\
+    cliDict[\"-v\"] = cliDict[\"-v\"] || cliDict._version;\n\
     // default to --help command if no arguments are given\n\
     if (process.argv.length <= 2) {\n\
-        local.cliDict._help();\n\
+        cliDict._help();\n\
         return;\n\
     }\n\
-    if (local.cliDict[process.argv[2]]) {\n\
-        local.cliDict[process.argv[2]]();\n\
+    if (cliDict[process.argv[2]]) {\n\
+        cliDict[process.argv[2]]();\n\
         return;\n\
     }\n\
-    local.cliDict._default();\n\
+    cliDict._default();\n\
 };\n\
 \n\
 local.objectDeepCopyWithKeysSorted = function (obj) {\n\
@@ -70519,6 +70483,10 @@ local.testRunDefault(local);\n\
 \n\
 // run shared js-env code - function\n\
 (function () {\n\
+let assertJsonEqual;\n\
+let assertOrThrow;\n\
+assertJsonEqual = local.assertJsonEqual;\n\
+assertOrThrow = local.assertOrThrow;\n\
 local.testCase_FormData_default = function (opt, onError) {\n\
 /*\n\
  * this function will test FormData's default handling-behavior\n\
@@ -70542,17 +70510,17 @@ local.testCase_FormData_default = function (opt, onError) {\n\
     opt.url = \"/test.echo\";\n\
     local.ajax(opt, function (err, xhr) {\n\
         // handle err\n\
-        local.assertOrThrow(!err, err);\n\
+        assertOrThrow(!err, err);\n\
         // validate responseText\n\
-        local.assertOrThrow(xhr.responseText.indexOf(\n\
+        assertOrThrow(xhr.responseText.indexOf(\n\
             \"\\r\\nContent-Disposition: form-data; \"\n\
             + \"name=\\\"text1\\\"\\r\\n\\r\\naabbhello \\ud83d\\ude01\\n0\\r\\n\"\n\
         ) >= 0, xhr.responseText);\n\
-        local.assertOrThrow(xhr.responseText.indexOf(\n\
+        assertOrThrow(xhr.responseText.indexOf(\n\
             \"\\r\\nContent-Disposition: form-data; \"\n\
             + \"name=\\\"file1\\\"\\r\\n\\r\\naabbhello \\ud83d\\ude01\\n0\\r\\n\"\n\
         ) >= 0, xhr.responseText);\n\
-        local.assertOrThrow(xhr.responseText.indexOf(\n\
+        assertOrThrow(xhr.responseText.indexOf(\n\
             \"\\r\\nContent-Disposition: form-data; name=\\\"file2\\\"; \"\n\
             + \"filename=\\\"filename2.txt\\\"\\r\\nContent-Type: text/plain; \"\n\
             + \"charset=utf-8\\r\\n\\r\\naabbhello \\ud83d\\ude01\\n0\\r\\n\"\n\
@@ -70580,7 +70548,7 @@ local.testCase_FormData_err = function (opt, onError) {\n\
             url: \"/test.echo\"\n\
         }, function (err) {\n\
             // handle err\n\
-            local.assertOrThrow(err, err);\n\
+            assertOrThrow(err, err);\n\
             onError(undefined, opt);\n\
         });\n\
     }, onError);\n\
@@ -70596,9 +70564,9 @@ local.testCase_FormData_nullCase = function (opt, onError) {\n\
         url: \"/test.echo\"\n\
     }, function (err, xhr) {\n\
         // handle err\n\
-        local.assertOrThrow(!err, err);\n\
+        assertOrThrow(!err, err);\n\
         // validate responseText\n\
-        local.assertOrThrow((\n\
+        assertOrThrow((\n\
             /\\r\\n\\r\\n$/\n\
         ).test(xhr.responseText), xhr.responseText);\n\
         onError(undefined, opt);\n\
@@ -70624,7 +70592,7 @@ local.testCase_ajax_cache = function (opt, onError) {\n\
             break;\n\
         case 2:\n\
             // validate responseText\n\
-            local.assertJsonEqual(data.responseText, local.stringHelloEmoji);\n\
+            assertJsonEqual(data.responseText, local.stringHelloEmoji);\n\
             // test http GET 304 cache handling-behavior\n\
             local.ajax({\n\
                 headers: {\n\
@@ -70637,7 +70605,7 @@ local.testCase_ajax_cache = function (opt, onError) {\n\
             break;\n\
         case 3:\n\
             // validate statusCode\n\
-            local.assertJsonEqual(data.statusCode, 304);\n\
+            assertJsonEqual(data.statusCode, 304);\n\
             opt.gotoNext();\n\
             break;\n\
         default:\n\
@@ -70689,15 +70657,15 @@ local.testCase_ajax_default = function (opt, onError) {\n\
             url: \"/test.body\"\n\
         }, function (err, xhr) {\n\
             // handle err\n\
-            local.assertOrThrow(!err, err);\n\
+            assertOrThrow(!err, err);\n\
             // validate statusCode\n\
-            local.assertJsonEqual(xhr.statusCode, 200);\n\
+            assertJsonEqual(xhr.statusCode, 200);\n\
             // validate responseText\n\
             switch (responseType) {\n\
             case \"arraybuffer\":\n\
             case \"blob\":\n\
-                local.assertJsonEqual(xhr.responseBuffer.byteLength, 11);\n\
-                local.assertJsonEqual(Array.from(xhr.responseBuffer), [\n\
+                assertJsonEqual(xhr.responseBuffer.byteLength, 11);\n\
+                assertJsonEqual(Array.from(xhr.responseBuffer), [\n\
                     0x68,\n\
                     0x65,\n\
                     0x6c,\n\
@@ -70712,7 +70680,7 @@ local.testCase_ajax_default = function (opt, onError) {\n\
                 ]);\n\
                 break;\n\
             default:\n\
-                local.assertJsonEqual(xhr.responseText, local.stringHelloEmoji);\n\
+                assertJsonEqual(xhr.responseText, local.stringHelloEmoji);\n\
             }\n\
             onParallel(null, opt);\n\
         });\n\
@@ -70724,9 +70692,9 @@ local.testCase_ajax_default = function (opt, onError) {\n\
         url: \"/test.timeout\"\n\
     }, function (err, xhr) {\n\
         // handle err\n\
-        local.assertOrThrow(err, err);\n\
+        assertOrThrow(err, err);\n\
         // validate statusCode\n\
-        local.assertJsonEqual(xhr.statusCode, 500);\n\
+        assertJsonEqual(xhr.statusCode, 500);\n\
         onParallel(null, opt);\n\
     });\n\
     // test multiple-callback handling-behavior\n\
@@ -70752,21 +70720,21 @@ local.testCase_ajax_default = function (opt, onError) {\n\
         url: \"/test.echo\"\n\
     }, function (err, xhr) {\n\
         // handle err\n\
-        local.assertOrThrow(!err, err);\n\
+        assertOrThrow(!err, err);\n\
         // validate statusCode\n\
-        local.assertJsonEqual(xhr.statusCode, 200);\n\
+        assertJsonEqual(xhr.statusCode, 200);\n\
         // validate resHeaders\n\
-        local.assertJsonEqual(xhr.resHeaders[\"x-res-header-test\"], \"bb\");\n\
+        assertJsonEqual(xhr.resHeaders[\"x-res-header-test\"], \"bb\");\n\
         // validate responseText\n\
-        local.assertOrThrow((\n\
+        assertOrThrow((\n\
             /\\r\\nhello\\u0020\\ud83d\\ude01\\n$/\n\
         ).test(xhr.responseText), xhr.responseText);\n\
-        local.assertOrThrow((\n\
+        assertOrThrow((\n\
             /\\r\\nx-req-header-test:\\u0020aa\\r\\n/\n\
         ).test(xhr.responseText), xhr.responseText);\n\
         // validate properties\n\
-        local.assertJsonEqual(xhr._aa, undefined);\n\
-        local.assertJsonEqual(xhr.aa, \"aa\");\n\
+        assertJsonEqual(xhr._aa, undefined);\n\
+        assertJsonEqual(xhr.aa, \"aa\");\n\
         onParallel(null, opt);\n\
     });\n\
 \n\
@@ -70789,7 +70757,7 @@ local.testCase_ajax_default = function (opt, onError) {\n\
         onParallel.cnt += 1;\n\
         local.ajax(opt2.elem, function (err) {\n\
             // handle err\n\
-            local.assertOrThrow(err, err);\n\
+            assertOrThrow(err, err);\n\
             onParallel(null, opt);\n\
         });\n\
     }, onParallel);\n\
@@ -70800,11 +70768,11 @@ local.testCase_ajax_default = function (opt, onError) {\n\
         url: \"LICENSE\"\n\
     }, function (err, xhr) {\n\
         // handle err\n\
-        local.assertOrThrow(!err, err);\n\
+        assertOrThrow(!err, err);\n\
         // validate statusCode\n\
-        local.assertJsonEqual(xhr.statusCode, 200);\n\
+        assertJsonEqual(xhr.statusCode, 200);\n\
         // validate responseText\n\
-        local.assertOrThrow(xhr.responseText.indexOf(\n\
+        assertOrThrow(xhr.responseText.indexOf(\n\
             \"MIT License (https://opensource.org/licenses/MIT)\\n\\n\"\n\
         ) === 0, xhr.data);\n\
         onParallel(null, opt);\n\
@@ -70833,9 +70801,9 @@ local.testCase_ajax_default = function (opt, onError) {\n\
                 )\n\
             }, function (err, xhr) {\n\
                 // handle err\n\
-                local.assertOrThrow(!err, err);\n\
+                assertOrThrow(!err, err);\n\
                 // validate statusCode\n\
-                local.assertJsonEqual(xhr.statusCode, 200);\n\
+                assertJsonEqual(xhr.statusCode, 200);\n\
                 onParallel();\n\
             });\n\
             // test err handling-behavior\n\
@@ -70852,9 +70820,9 @@ local.testCase_ajax_default = function (opt, onError) {\n\
                 ) + \"/undefined\"\n\
             }, function (err, xhr) {\n\
                 // handle err\n\
-                local.assertOrThrow(err, err);\n\
+                assertOrThrow(err, err);\n\
                 // validate statusCode\n\
-                local.assertJsonEqual(xhr.statusCode, 404);\n\
+                assertJsonEqual(xhr.statusCode, 404);\n\
                 onParallel();\n\
             });\n\
         });\n\
@@ -70870,9 +70838,9 @@ local.testCase_ajax_default = function (opt, onError) {\n\
             url: \"/test.timeout\"\n\
         }, function (err, xhr) {\n\
             // handle err\n\
-            local.assertOrThrow(err, err);\n\
+            assertOrThrow(err, err);\n\
             // validate statusCode\n\
-            local.assertJsonEqual(xhr.statusCode, 500);\n\
+            assertJsonEqual(xhr.statusCode, 500);\n\
             onParallel(null, opt);\n\
         });\n\
     }, 1000);\n\
@@ -70883,42 +70851,42 @@ local.testCase_assertXxx_default = function (opt, onError) {\n\
  * this function will test assertXxx's default handling-behavior\n\
  */\n\
     // test assertion passed\n\
-    local.assertOrThrow(true, true);\n\
+    assertOrThrow(true, true);\n\
     // test assertion failed with undefined message\n\
     local.tryCatchOnError(function () {\n\
-        local.assertOrThrow(null);\n\
+        assertOrThrow(null);\n\
     }, function (err) {\n\
         // handle err\n\
-        local.assertOrThrow(err, err);\n\
+        assertOrThrow(err, err);\n\
         // validate err.message\n\
-        local.assertJsonEqual(err.message, \"\");\n\
+        assertJsonEqual(err.message, \"\");\n\
     });\n\
     // test assertion failed with string message\n\
     local.tryCatchOnError(function () {\n\
-        local.assertOrThrow(null, \"aa\");\n\
+        assertOrThrow(null, \"aa\");\n\
     }, function (err) {\n\
         // handle err\n\
-        local.assertOrThrow(err, err);\n\
+        assertOrThrow(err, err);\n\
         // validate err.message\n\
-        local.assertJsonEqual(err.message, \"aa\");\n\
+        assertJsonEqual(err.message, \"aa\");\n\
     });\n\
     // test assertion failed with errObj\n\
     local.tryCatchOnError(function () {\n\
-        local.assertOrThrow(null, new Error());\n\
+        assertOrThrow(null, new Error());\n\
     }, function (err) {\n\
         // handle err\n\
-        local.assertOrThrow(err, err);\n\
+        assertOrThrow(err, err);\n\
     });\n\
     // test assertion failed with json object\n\
     local.tryCatchOnError(function () {\n\
-        local.assertOrThrow(null, {\n\
+        assertOrThrow(null, {\n\
             aa: 1\n\
         });\n\
     }, function (err) {\n\
         // handle err\n\
-        local.assertOrThrow(err, err);\n\
+        assertOrThrow(err, err);\n\
         // validate err.message\n\
-        local.assertJsonEqual(err.message, \"{\\n    \\\"aa\\\": 1\\n}\");\n\
+        assertJsonEqual(err.message, \"{\\n    \\\"aa\\\": 1\\n}\");\n\
     });\n\
     onError(undefined, opt);\n\
 };\n\
@@ -70932,17 +70900,17 @@ local.testCase_base64Xxx_default = function (opt, onError) {\n\
         local.stringCharsetAscii + local.stringHelloEmoji\n\
     );\n\
     // test null-case handling-behavior\n\
-    local.assertJsonEqual(local.base64FromBuffer(), \"\");\n\
-    local.assertJsonEqual(local.bufferToUtf8(local.base64ToBuffer()), \"\");\n\
-    local.assertJsonEqual(local.base64ToUtf8(), \"\");\n\
-    local.assertJsonEqual(local.base64FromBuffer(local.base64ToBuffer()), \"\");\n\
-    local.assertJsonEqual(local.base64FromBuffer(local.base64ToUtf8()), \"\");\n\
+    assertJsonEqual(local.base64FromBuffer(), \"\");\n\
+    assertJsonEqual(local.bufferToUtf8(local.base64ToBuffer()), \"\");\n\
+    assertJsonEqual(local.base64ToUtf8(), \"\");\n\
+    assertJsonEqual(local.base64FromBuffer(local.base64ToBuffer()), \"\");\n\
+    assertJsonEqual(local.base64FromBuffer(local.base64ToUtf8()), \"\");\n\
     // test identity handling-behavior\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.base64FromBuffer(local.base64ToBuffer(opt.base64)),\n\
         opt.base64\n\
     );\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.base64FromBuffer(local.base64ToUtf8(opt.base64)),\n\
         opt.base64\n\
     );\n\
@@ -70966,9 +70934,9 @@ local.testCase_blobRead_default = function (opt, onError) {\n\
         local.stringHelloEmoji\n\
     ]), function (err, data) {\n\
         // handle err\n\
-        local.assertOrThrow(!err, err);\n\
+        assertOrThrow(!err, err);\n\
         // validate data\n\
-        local.assertJsonEqual(\n\
+        assertJsonEqual(\n\
             local.bufferToUtf8(data),\n\
             \"aabbhello \\ud83d\\ude01\\n\"\n\
         );\n\
@@ -70996,7 +70964,7 @@ local.testCase_blobRead_default = function (opt, onError) {\n\
     ], function (onError) {\n\
         local.blobRead(null, function (err) {\n\
             // handle err\n\
-            local.assertOrThrow(err, err);\n\
+            assertOrThrow(err, err);\n\
         });\n\
         onError(undefined, opt);\n\
     }, onParallel);\n\
@@ -71015,7 +70983,7 @@ local.testCase_bufferValidateAndCoerce_err = function (opt, onError) {\n\
             opt = errCaught;\n\
         }\n\
         // handle err\n\
-        local.assertOrThrow(opt, elem);\n\
+        assertOrThrow(opt, elem);\n\
     });\n\
     onError(undefined, opt);\n\
 };\n\
@@ -71081,7 +71049,7 @@ local.testCase_buildLib_default = function (opt, onError) {\n\
                 }\n\
             }\n\
         ], [\n\
-            local.fs, {\n\
+            require(\"fs\"), {\n\
                 // test customize-local handling-behavior\n\
                 existsSync: function () {\n\
                     return true;\n\
@@ -71122,7 +71090,7 @@ local.testCase_buildReadme_default = function (opt, onError) {\n\
     }\n\
     opt = {};\n\
     // test shNpmTestPublished handling-behavior\n\
-    opt.dataFrom = local.fs.readFileSync(\"README.md\", \"utf8\").replace(\n\
+    opt.dataFrom = require(\"fs\").readFileSync(\"README.md\", \"utf8\").replace(\n\
         \"#\\u0021! shNpmTestPublished\",\n\
         \"shNpmTestPublished\"\n\
     );\n\
@@ -71250,9 +71218,9 @@ local.testCase_cliRun_default = function (opt, onError) {\n\
  //!! * this function will corsBackendHostInject's default handling-behavior\n\
  //!! */\n\
     //!! // test null-case handling-behavior\n\
-    //!! local.assertJsonEqual(local.corsBackendHostInject(), undefined);\n\
+    //!! assertJsonEqual(local.corsBackendHostInject(), undefined);\n\
     //!! // test override-all handling-behavior\n\
-    //!! local.assertJsonEqual(local.corsBackendHostInject(\n\
+    //!! assertJsonEqual(local.corsBackendHostInject(\n\
         //!! \"cc.com\",\n\
         //!! \"aa-alpha.bb.com\",\n\
         //!! null,\n\
@@ -71262,7 +71230,7 @@ local.testCase_cliRun_default = function (opt, onError) {\n\
         //!! }\n\
     //!! ), \"aa-beta.bb.com\");\n\
     //!! // test override-rgx handling-behavior\n\
-    //!! local.assertJsonEqual(local.corsBackendHostInject(\n\
+    //!! assertJsonEqual(local.corsBackendHostInject(\n\
         //!! \"cc/dd\",\n\
         //!! \"aa-alpha.bb.com/\",\n\
         //!! (\n\
@@ -71287,7 +71255,7 @@ local.testCase_corsForwardProxyHostIfNeeded_default = function (\n\
         onError(undefined, opt);\n\
         return;\n\
     }\n\
-    local.assertOrThrow(local.corsForwardProxyHostIfNeeded({\n\
+    assertOrThrow(local.corsForwardProxyHostIfNeeded({\n\
         location: {\n\
             host: \"undefined.github.io\"\n\
         },\n\
@@ -71322,7 +71290,7 @@ local.testCase_cryptoAesXxxCbcRawXxx_default = function (opt, onError) {\n\
             break;\n\
         case 3:\n\
             // validate data\n\
-            local.assertJsonEqual(local.bufferToUtf8(data), \"aa\");\n\
+            assertJsonEqual(local.bufferToUtf8(data), \"aa\");\n\
             opt.gotoNext();\n\
             break;\n\
         case 4:\n\
@@ -71342,7 +71310,7 @@ local.testCase_cryptoAesXxxCbcRawXxx_default = function (opt, onError) {\n\
             break;\n\
         case 6:\n\
             // validate data\n\
-            local.assertJsonEqual(local.bufferToUtf8(data), \"aa\");\n\
+            assertJsonEqual(local.bufferToUtf8(data), \"aa\");\n\
             opt.gotoNext();\n\
             break;\n\
         default:\n\
@@ -71361,7 +71329,7 @@ local.testCase_domFragmentRender_default = function (opt, onError) {\n\
         onError(undefined, opt);\n\
         return;\n\
     }\n\
-    local.assertJsonEqual(local.domFragmentRender(\"<div>{{value}}</div>\", {\n\
+    assertJsonEqual(local.domFragmentRender(\"<div>{{value}}</div>\", {\n\
         value: \"aa\"\n\
     }).children[0].outerHTML, \"<div>aa</div>\");\n\
     onError(undefined, opt);\n\
@@ -71375,12 +71343,19 @@ local.testCase_libUtility2Js_standalone = function (opt, onError) {\n\
         onError(undefined, opt);\n\
         return;\n\
     }\n\
-    local.fs.writeFileSync(\"tmp/lib.utility2.js\", local.fs.readFileSync(\n\
-        \"lib.utility2.js\",\n\
-        \"utf8\"\n\
-    ).replace(\"/* istanbul instrument in package utility2 */\", \"\"));\n\
-    require(\"./tmp/lib.utility2.js\");\n\
-    onError(undefined, opt);\n\
+    require(\"fs\").readFile(\"lib.utility2.js\", \"utf8\", function (err, data) {\n\
+        // handle err\n\
+        assertOrThrow(!err, err);\n\
+        require(\"fs\").writeFile(\"tmp/lib.utility2.js\", data.replace(\n\
+            \"/* istanbul instrument in package utility2 */\",\n\
+            \"\"\n\
+        ), function (err) {\n\
+            // handle err\n\
+            assertOrThrow(!err, err);\n\
+            require(\"./tmp/lib.utility2.js\");\n\
+        });\n\
+        onError(undefined, opt);\n\
+    });\n\
 };\n\
 \n\
 local.testCase_listShuffle_default = function (opt, onError) {\n\
@@ -71397,12 +71372,12 @@ local.testCase_listShuffle_default = function (opt, onError) {\n\
             local.listShuffle(JSON.parse(opt.list))\n\
         );\n\
         // validate shuffled list\n\
-        local.assertJsonEqual(opt.listShuffled.length, opt.list.length);\n\
+        assertJsonEqual(opt.listShuffled.length, opt.list.length);\n\
         opt.changed = opt.changed || opt.listShuffled !== opt.list;\n\
         opt.ii += 1;\n\
     }\n\
     // validate list changed at least once during shuffle\n\
-    local.assertOrThrow(opt.changed, opt);\n\
+    assertOrThrow(opt.changed, opt);\n\
     onError(undefined, opt);\n\
 };\n\
 \n\
@@ -71437,9 +71412,9 @@ local.testCase_middlewareForwardProxy_default = function (opt, onError) {\n\
         url: \"\"\n\
     }, function (err, xhr) {\n\
         // handle err\n\
-        local.assertOrThrow(!err, err);\n\
+        assertOrThrow(!err, err);\n\
         // validate responseText\n\
-        local.assertJsonEqual(xhr.responseText, local.stringHelloEmoji);\n\
+        assertJsonEqual(xhr.responseText, local.stringHelloEmoji);\n\
         onParallel(null, opt, xhr);\n\
     });\n\
     // test err handling-behavior\n\
@@ -71451,7 +71426,7 @@ local.testCase_middlewareForwardProxy_default = function (opt, onError) {\n\
         url: \"\"\n\
     }, function (err) {\n\
         // handle err\n\
-        local.assertOrThrow(err, err);\n\
+        assertOrThrow(err, err);\n\
         onParallel(null, opt);\n\
     });\n\
     onParallel(null, opt);\n\
@@ -71466,21 +71441,21 @@ local.testCase_moduleDirname_default = function (opt, onError) {\n\
         return;\n\
     }\n\
     // test null-case handling-behavior\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.moduleDirname(null, module.paths),\n\
         process.cwd()\n\
     );\n\
     // test path handling-behavior\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.moduleDirname(\".\", module.paths),\n\
         process.cwd()\n\
     );\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.moduleDirname(\"./\", module.paths),\n\
         process.cwd()\n\
     );\n\
     // test module-does-not-exist handling-behavior\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.moduleDirname(\"syntax-err\", module.paths),\n\
         \"\"\n\
     );\n\
@@ -71501,7 +71476,7 @@ local.testCase_objectAssignRecurse_default = function (opt, onError) {\n\
         [\n\
             \"\", 0, false, null, undefined\n\
         ].forEach(function (bb) {\n\
-            local.assertJsonEqual(\n\
+            assertJsonEqual(\n\
                 local.objectAssignRecurse({\n\
                     data: aa\n\
                 }, {\n\
@@ -71514,7 +71489,7 @@ local.testCase_objectAssignRecurse_default = function (opt, onError) {\n\
         });\n\
     });\n\
     // test non-recursive handling-behavior\n\
-    local.assertJsonEqual(local.objectAssignRecurse({\n\
+    assertJsonEqual(local.objectAssignRecurse({\n\
         aa: 1,\n\
         bb: {\n\
             cc: 1\n\
@@ -71559,7 +71534,7 @@ local.testCase_objectAssignRecurse_default = function (opt, onError) {\n\
         }\n\
     });\n\
     // test recursive handling-behavior\n\
-    local.assertJsonEqual(local.objectAssignRecurse({\n\
+    assertJsonEqual(local.objectAssignRecurse({\n\
         aa: 1,\n\
         bb: {\n\
             cc: 1\n\
@@ -71606,7 +71581,7 @@ local.testCase_objectAssignRecurse_default = function (opt, onError) {\n\
         }\n\
     });\n\
     // test env with empty-string handling-behavior\n\
-    local.assertJsonEqual(local.objectAssignRecurse(\n\
+    assertJsonEqual(local.objectAssignRecurse(\n\
         local.env,\n\
         {\n\
             \"emptyString\": null\n\
@@ -71626,7 +71601,7 @@ local.testCase_onErrorThrow_err = function (opt, onError) {\n\
         local.onErrorThrow(new Error());\n\
     }, function (err) {\n\
         // handle err\n\
-        local.assertOrThrow(err, err);\n\
+        assertOrThrow(err, err);\n\
         onError(undefined, opt);\n\
     });\n\
 };\n\
@@ -71635,35 +71610,11 @@ local.testCase_onErrorWithStack_toString = function (opt, onError) {\n\
 /*\n\
  * this function will test onErrorWithStack's toString handling-behavior\n\
  */\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         String(local.onErrorWithStack(local.nop)),\n\
         String(local.nop)\n\
     );\n\
     onError(undefined, opt);\n\
-};\n\
-\n\
-local.testCase_onFileModifiedRestart_watchFile = function (opt, onError) {\n\
-/*\n\
- * this function will test onFileModifiedRestart's watchFile handling-behavior\n\
- */\n\
-    let onParallel;\n\
-    if (local.isBrowser) {\n\
-        onError(undefined, opt);\n\
-        return;\n\
-    }\n\
-    onParallel = local.onParallel(onError);\n\
-    onParallel.cnt += 1;\n\
-    local.fs.stat(__filename, function (err, stat) {\n\
-        // test default watchFile handling-behavior\n\
-        onParallel.cnt += 1;\n\
-        local.fs.utimes(__filename, stat.atime, new Date(), onParallel);\n\
-        // test nop watchFile handling-behavior\n\
-        onParallel.cnt += 1;\n\
-        setTimeout(function () {\n\
-            local.fs.utimes(__filename, stat.atime, stat.mtime, onParallel);\n\
-        }, 1000);\n\
-        onParallel(err, opt);\n\
-    });\n\
 };\n\
 \n\
 local.testCase_onNext_err = function (opt, onError) {\n\
@@ -71681,7 +71632,7 @@ local.testCase_onNext_err = function (opt, onError) {\n\
         opt.gotoNext();\n\
     }, function (err) {\n\
         // handle err\n\
-        local.assertOrThrow(err, err);\n\
+        assertOrThrow(err, err);\n\
         onError(undefined, opt);\n\
     });\n\
 };\n\
@@ -71711,7 +71662,7 @@ local.testCase_onParallelList_default = function (opt, onError) {\n\
                 setTimeout(onParallel, 5000);\n\
             }, function (err) {\n\
                 // handle err\n\
-                local.assertOrThrow(err, err);\n\
+                assertOrThrow(err, err);\n\
                 opt.gotoNext();\n\
             });\n\
             break;\n\
@@ -71741,17 +71692,17 @@ local.testCase_onParallelList_default = function (opt, onError) {\n\
                     }\n\
                     opt.data[opt2.ii] = opt2.elem;\n\
                     // test retry handling-behavior\n\
-                    local.assertOrThrow(opt2.retry < 1);\n\
+                    assertOrThrow(opt2.retry < 1);\n\
                     onParallel(null, opt2);\n\
                 });\n\
             }, opt.gotoNext, opt.rateLimit);\n\
             break;\n\
         case 4:\n\
             // validate data\n\
-            local.assertJsonEqual(opt.data, [\n\
+            assertJsonEqual(opt.data, [\n\
                 1, 2, 3, 4, 5\n\
             ]);\n\
-            local.assertJsonEqual(opt.rateMax, 3);\n\
+            assertJsonEqual(opt.rateMax, 3);\n\
             opt.data = [];\n\
             opt.rateLimit = \"syntax-err\";\n\
             opt.rateMax = 0;\n\
@@ -71770,10 +71721,10 @@ local.testCase_onParallelList_default = function (opt, onError) {\n\
             break;\n\
         case 5:\n\
             // validate data\n\
-            local.assertJsonEqual(opt.data, [\n\
+            assertJsonEqual(opt.data, [\n\
                 1, 2, 3, 4, 5\n\
             ]);\n\
-            local.assertJsonEqual(opt.rateMax, 2);\n\
+            assertJsonEqual(opt.rateMax, 2);\n\
             opt.gotoNext();\n\
             break;\n\
         default:\n\
@@ -71793,7 +71744,7 @@ local.testCase_onParallel_default = function (opt, onError) {\n\
     // test onEach handling-behavior\n\
     onParallel = local.onParallel(onError, function () {\n\
         // validate cnt\n\
-        local.assertOrThrow(onParallel.cnt >= 0, onParallel);\n\
+        assertOrThrow(onParallel.cnt >= 0, onParallel);\n\
     });\n\
     onParallel.cnt += 1;\n\
     // test multiple-task handling-behavior\n\
@@ -71805,11 +71756,11 @@ local.testCase_onParallel_default = function (opt, onError) {\n\
         // test multiple-callback-error handling-behavior\n\
         onParallelError();\n\
         // handle err\n\
-        local.assertOrThrow(onParallelError.err, onParallelError.err);\n\
+        assertOrThrow(onParallelError.err, onParallelError.err);\n\
         // test err handling-behavior\n\
         onParallelError(new Error());\n\
         // handle err\n\
-        local.assertOrThrow(onParallelError.err, onParallelError.err);\n\
+        assertOrThrow(onParallelError.err, onParallelError.err);\n\
         // test ignore-after-error handling-behavior\n\
         onParallelError();\n\
     });\n\
@@ -71912,9 +71863,9 @@ local.testCase_setTimeoutOnError_default = function (opt, onError) {\n\
  * this function will test setTimeoutOnError's default handling-behavior\n\
  */\n\
     // test null-case handling-behavior\n\
-    local.assertJsonEqual(local.setTimeoutOnError(), undefined);\n\
+    assertJsonEqual(local.setTimeoutOnError(), undefined);\n\
     // test onError handling-behavior\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.setTimeoutOnError(onError, 0, null, {}, opt),\n\
         {}\n\
     );\n\
@@ -71924,7 +71875,7 @@ local.testCase_stringHtmlSafe_default = function (opt, onError) {\n\
 /*\n\
  * this function will test stringHtmlSafe's default handling-behavior\n\
  */\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.stringHtmlSafe(\n\
             local.stringHtmlSafe(local.stringCharsetAscii).slice(32, -1)\n\
         ),\n\
@@ -71940,7 +71891,7 @@ local.testCase_stringQuotedToAscii_default = function (opt, onError) {\n\
 /*\n\
  * this function will test stringQuotedToAscii's default handling-behavior\n\
  */\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.stringQuotedToAscii(local.stringHelloEmoji),\n\
         \"hello \\\\ud83d\\\\ude01\\n\"\n\
     );\n\
@@ -71951,7 +71902,7 @@ local.testCase_stringRegexpEscape_default = function (opt, onError) {\n\
 /*\n\
  * this function will test stringRegexpEscape's default handling-behavior\n\
  */\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.stringRegexpEscape(local.stringCharsetAscii),\n\
         (\n\
             \"\\u0000\\u0001\\u0002\\u0003\\u0004\\u0005\\u0006\\u0007\"\n\
@@ -71972,15 +71923,15 @@ local.testCase_templateRender_default = function (opt, onError) {\n\
  * this function will test templateRender's default handling-behavior\n\
  */\n\
     // test null-case handling-behavior\n\
-    local.assertJsonEqual(local.templateRender(), \"\");\n\
+    assertJsonEqual(local.templateRender(), \"\");\n\
     // test undefined-value handling-behavior\n\
-    local.assertJsonEqual(local.templateRender(\"{{aa}}\", {}), \"{{aa}}\");\n\
+    assertJsonEqual(local.templateRender(\"{{aa}}\", {}), \"{{aa}}\");\n\
     // test basic handling-behavior\n\
-    local.assertJsonEqual(local.templateRender(\"{{aa}}\", {\n\
+    assertJsonEqual(local.templateRender(\"{{aa}}\", {\n\
         aa: \"```<aa\\nbb>```\"\n\
     }), \"```&lt;aa\\nbb&gt;```\");\n\
     // test markdownToHtml handling-behavior\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.templateRender(\"{{aa markdownToHtml}}\", {\n\
             aa: local.stringCharsetAscii.slice(32, -1)\n\
         }),\n\
@@ -71991,7 +71942,7 @@ local.testCase_templateRender_default = function (opt, onError) {\n\
         )\n\
     );\n\
     // test markdownSafe handling-behavior\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.templateRender(\"{{aa markdownSafe notHtmlSafe}}\", {\n\
             aa: local.stringCharsetAscii.slice(32, -1)\n\
         }),\n\
@@ -72001,11 +71952,11 @@ local.testCase_templateRender_default = function (opt, onError) {\n\
         )\n\
     );\n\
     // test notHtmlSafe handling-behavior\n\
-    local.assertJsonEqual(local.templateRender(\"{{aa notHtmlSafe}}\", {\n\
+    assertJsonEqual(local.templateRender(\"{{aa notHtmlSafe}}\", {\n\
         aa: \"```<aa\\nbb>```\"\n\
     }), \"```<aa\\nbb>```\");\n\
     // test default handling-behavior\n\
-    local.assertJsonEqual(local.templateRender((\n\
+    assertJsonEqual(local.templateRender((\n\
         \"{{aa alphanumeric}} \"\n\
         + \"{{aa truncate 4 truncate 4}} \"\n\
         + \"{{aa jsonStringify jsonStringify4 decodeURIComponent\"\n\
@@ -72026,7 +71977,7 @@ local.testCase_templateRender_default = function (opt, onError) {\n\
         }\n\
     }), \"__aa__ `... %22%5C%22%60%3Caa%3E%60%5C%22%22 1 null {{dd}} gg\");\n\
     // test partial handling-behavior\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.templateRender((\n\
             \"{{#undefined aa}}\\n\"\n\
             + \"list1{{#each list1}}\\n\"\n\
@@ -72098,7 +72049,7 @@ local.testCase_templateRender_default = function (opt, onError) {\n\
         });\n\
     }, local.nop);\n\
     // handle err\n\
-    local.assertOrThrow(local._debugTryCatchError, local._debugTryCatchError);\n\
+    assertOrThrow(local._debugTryCatchError, local._debugTryCatchError);\n\
     onError(undefined, opt);\n\
 };\n\
 \n\
@@ -72139,7 +72090,7 @@ local.testCase_throwError_default = function (opt, onError) {\n\
         local.throwError();\n\
     }, function (err) {\n\
         // handle err\n\
-        local.assertOrThrow(err, err);\n\
+        assertOrThrow(err, err);\n\
         onError(undefined, opt);\n\
     });\n\
 };\n\
@@ -72158,12 +72109,12 @@ local.testCase_uiAnimateXxx_default = function (opt, onError) {\n\
     local.uiAnimateSlideUp();\n\
     opt.classList.add(\"uiAnimateSlide\");\n\
     local.uiAnimateSlideDown(opt);\n\
-    local.assertOrThrow(\n\
+    assertOrThrow(\n\
         opt.style.maxHeight.indexOf(\"px\") >= 0,\n\
         opt.style.maxHeight\n\
     );\n\
     local.uiAnimateSlideUp(opt);\n\
-    local.assertJsonEqual(opt.style.maxHeight, \"0px\");\n\
+    assertJsonEqual(opt.style.maxHeight, \"0px\");\n\
     // test uiAnimateSlideAccordian handling-behavior\n\
     local.uiAnimateSlideAccordian(\n\
         opt,\n\
@@ -72178,18 +72129,18 @@ local.testCase_urlJoin_default = function (opt, onError) {\n\
 /*\n\
  * this function will test urlJoin's default handling-behavior\n\
  */\n\
-    local.assertJsonEqual(local.urlJoin(\"\", \"\"), \"/\");\n\
-    local.assertJsonEqual(local.urlJoin(\"http://aa/bb\", \"zz\"), \"http://aa/zz\");\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(local.urlJoin(\"\", \"\"), \"/\");\n\
+    assertJsonEqual(local.urlJoin(\"http://aa/bb\", \"zz\"), \"http://aa/zz\");\n\
+    assertJsonEqual(\n\
         local.urlJoin(\"http://aa/bb/\", \"zz\"),\n\
         \"http://aa/bb/zz\"\n\
     );\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(\n\
         local.urlJoin(\"http://aa/bb/\", \"/zz\"),\n\
         \"http://aa/zz\"\n\
     );\n\
-    local.assertJsonEqual(local.urlJoin(\"http://aa/bb/\", \"//zz\"), \"http://zz\");\n\
-    local.assertJsonEqual(\n\
+    assertJsonEqual(local.urlJoin(\"http://aa/bb/\", \"//zz\"), \"http://zz\");\n\
+    assertJsonEqual(\n\
         local.urlJoin(\"http://aa/bb/\", \"http://zz\"),\n\
         \"http://zz\"\n\
     );\n\
@@ -72211,7 +72162,7 @@ local.testCase_urlParse_default = function (opt, onError) {\n\
         ]\n\
     ], function (onError) {\n\
         // test default handling-behavior\n\
-        local.assertJsonEqual(local.urlParse(\n\
+        assertJsonEqual(local.urlParse(\n\
             \"https://127.0.0.1:80/foo/bar?aa=1&bb%20cc=dd%20=ee&aa=2&aa#zz=1\"\n\
         ), {\n\
             basename: \"bar\",\n\
@@ -72235,7 +72186,7 @@ local.testCase_urlParse_default = function (opt, onError) {\n\
             search: \"?aa=1&bb%20cc=dd%20=ee&aa=2&aa\"\n\
         });\n\
         // test err handling-behavior\n\
-        local.assertJsonEqual(local.urlParse(null), {\n\
+        assertJsonEqual(local.urlParse(null), {\n\
             basename: \"\",\n\
             hash: \"\",\n\
             host: \"\",\n\
@@ -72256,7 +72207,7 @@ local.testCase_uuid4Create_default = function (opt, onError) {\n\
 /*\n\
  * this function will test uuid4Create's default handling-behavior\n\
  */\n\
-    local.assertOrThrow(\n\
+    assertOrThrow(\n\
         local.regexpValidateUuid.test(local.uuid4Create()),\n\
         local.uuid4Create()\n\
     );\n\

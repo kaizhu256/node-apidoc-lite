@@ -1,273 +1,281 @@
-<svg height="2174" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="2174" fill="#555" width="720"></rect>
+<svg height="2238" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="2238" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">2020-06-06 21:23:01 -0500</tspan>
+<tspan x="10" y="26">2020-06-06 22:17:38 -0500</tspan>
 
-<tspan x="10" y="42">- remove eagerly requiring builtins:</tspan>
+<tspan x="10" y="42">- minimize dependency to local</tspan>
 
-<tspan x="10" y="58">    url</tspan>
+<tspan x="10" y="58">- remove eagerly requiring nodejs-builtins except fs</tspan>
 
 <tspan x="10" y="74"></tspan>
 
-<tspan x="10" y="90">2020-06-06 20:58:04 -0500</tspan>
+<tspan x="10" y="90">2020-06-06 21:23:01 -0500</tspan>
 
 <tspan x="10" y="106">- remove eagerly requiring builtins:</tspan>
 
-<tspan x="10" y="122">    path</tspan>
+<tspan x="10" y="122">    url</tspan>
 
 <tspan x="10" y="138"></tspan>
 
-<tspan x="10" y="154">2020-06-06 20:46:27 -0500</tspan>
+<tspan x="10" y="154">2020-06-06 20:58:04 -0500</tspan>
 
 <tspan x="10" y="170">- remove eagerly requiring builtins:</tspan>
 
-<tspan x="10" y="186"></tspan>
+<tspan x="10" y="186">    path</tspan>
 
-<tspan x="10" y="202">2020-06-06 20:35:21 -0500</tspan>
+<tspan x="10" y="202"></tspan>
 
-<tspan x="10" y="218">- remove eagerly requiring builtins:</tspan>
+<tspan x="10" y="218">2020-06-06 20:46:27 -0500</tspan>
 
-<tspan x="10" y="234"></tspan>
+<tspan x="10" y="234">- remove eagerly requiring builtins:</tspan>
 
-<tspan x="10" y="250">2020-06-06 20:31:57 -0500</tspan>
+<tspan x="10" y="250"></tspan>
 
-<tspan x="10" y="266">- remove eagerly requiring builtins:</tspan>
+<tspan x="10" y="266">2020-06-06 20:35:21 -0500</tspan>
 
-<tspan x="10" y="282"></tspan>
+<tspan x="10" y="282">- remove eagerly requiring builtins:</tspan>
 
-<tspan x="10" y="298">2020-06-06 20:23:55 -0500</tspan>
+<tspan x="10" y="298"></tspan>
 
-<tspan x="10" y="314">- remove eagerly requiring builtins:</tspan>
+<tspan x="10" y="314">2020-06-06 20:31:57 -0500</tspan>
 
-<tspan x="10" y="330">    buffer,</tspan>
+<tspan x="10" y="330">- remove eagerly requiring builtins:</tspan>
 
-<tspan x="10" y="346">    dgam,</tspan>
+<tspan x="10" y="346"></tspan>
 
-<tspan x="10" y="362">    dns,</tspan>
+<tspan x="10" y="362">2020-06-06 20:23:55 -0500</tspan>
 
-<tspan x="10" y="378">    vm,</tspan>
+<tspan x="10" y="378">- remove eagerly requiring builtins:</tspan>
 
-<tspan x="10" y="394">    tls,</tspan>
+<tspan x="10" y="394">    buffer,</tspan>
 
-<tspan x="10" y="410">    tty,</tspan>
+<tspan x="10" y="410">    dgam,</tspan>
 
-<tspan x="10" y="426">    zlib</tspan>
+<tspan x="10" y="426">    dns,</tspan>
 
-<tspan x="10" y="442"></tspan>
+<tspan x="10" y="442">    vm,</tspan>
 
-<tspan x="10" y="458">2020-06-06 20:17:40 -0500</tspan>
+<tspan x="10" y="458">    tls,</tspan>
 
-<tspan x="10" y="474">- remove eagerly requiring builtins:</tspan>
+<tspan x="10" y="474">    tty,</tspan>
 
-<tspan x="10" y="490">    buffer,</tspan>
+<tspan x="10" y="490">    zlib</tspan>
 
-<tspan x="10" y="506">    dgam,</tspan>
+<tspan x="10" y="506"></tspan>
 
-<tspan x="10" y="522">    dns,</tspan>
+<tspan x="10" y="522">2020-06-06 20:17:40 -0500</tspan>
 
-<tspan x="10" y="538">    vm,</tspan>
+<tspan x="10" y="538">- remove eagerly requiring builtins:</tspan>
 
-<tspan x="10" y="554">    tls,</tspan>
+<tspan x="10" y="554">    buffer,</tspan>
 
-<tspan x="10" y="570">    tty,</tspan>
+<tspan x="10" y="570">    dgam,</tspan>
 
-<tspan x="10" y="586">    zlib</tspan>
+<tspan x="10" y="586">    dns,</tspan>
 
-<tspan x="10" y="602"></tspan>
+<tspan x="10" y="602">    vm,</tspan>
 
-<tspan x="10" y="618">2020-06-06 20:11:09 -0500</tspan>
+<tspan x="10" y="618">    tls,</tspan>
 
-<tspan x="10" y="634">- remove eagerly requiring builtins:</tspan>
+<tspan x="10" y="634">    tty,</tspan>
 
-<tspan x="10" y="650">    buffer,</tspan>
+<tspan x="10" y="650">    zlib</tspan>
 
-<tspan x="10" y="666">    dgam,</tspan>
+<tspan x="10" y="666"></tspan>
 
-<tspan x="10" y="682">    dns,</tspan>
+<tspan x="10" y="682">2020-06-06 20:11:09 -0500</tspan>
 
-<tspan x="10" y="698">    vm,</tspan>
+<tspan x="10" y="698">- remove eagerly requiring builtins:</tspan>
 
-<tspan x="10" y="714">    tls,</tspan>
+<tspan x="10" y="714">    buffer,</tspan>
 
-<tspan x="10" y="730">    tty,</tspan>
+<tspan x="10" y="730">    dgam,</tspan>
 
-<tspan x="10" y="746">    zlib</tspan>
+<tspan x="10" y="746">    dns,</tspan>
 
-<tspan x="10" y="762"></tspan>
+<tspan x="10" y="762">    vm,</tspan>
 
-<tspan x="10" y="778">2020-06-06 22:50:01 +0000</tspan>
+<tspan x="10" y="778">    tls,</tspan>
 
-<tspan x="10" y="794">travis-ci.com</tspan>
+<tspan x="10" y="794">    tty,</tspan>
 
-<tspan x="10" y="810"></tspan>
+<tspan x="10" y="810">    zlib</tspan>
 
-<tspan x="10" y="826">2020-06-06 17:47:19 -0500</tspan>
+<tspan x="10" y="826"></tspan>
 
-<tspan x="10" y="842">update</tspan>
+<tspan x="10" y="842">2020-06-06 22:50:01 +0000</tspan>
 
-<tspan x="10" y="858"></tspan>
+<tspan x="10" y="858">travis-ci.com</tspan>
 
-<tspan x="10" y="874">2020-06-06 17:46:57 -0500</tspan>
+<tspan x="10" y="874"></tspan>
 
-<tspan x="10" y="890">update</tspan>
+<tspan x="10" y="890">2020-06-06 17:47:19 -0500</tspan>
 
-<tspan x="10" y="906"></tspan>
+<tspan x="10" y="906">update</tspan>
 
-<tspan x="10" y="922">2020-03-17 02:10:50 -0500</tspan>
+<tspan x="10" y="922"></tspan>
 
-<tspan x="10" y="938">[build clean]</tspan>
+<tspan x="10" y="938">2020-06-06 17:46:57 -0500</tspan>
 
-<tspan x="10" y="954"></tspan>
+<tspan x="10" y="954">update</tspan>
 
-<tspan x="10" y="970">2020-03-17 01:56:49 -0500</tspan>
+<tspan x="10" y="970"></tspan>
 
-<tspan x="10" y="986">[npm publish] - npm publish 2020.3.16</tspan>
+<tspan x="10" y="986">2020-03-17 02:10:50 -0500</tspan>
 
-<tspan x="10" y="1002">- jslint - remove ternary-operator/newline comment preceding bra</tspan>
+<tspan x="10" y="1002">[build clean]</tspan>
 
-<tspan x="10" y="1018">- update build</tspan>
+<tspan x="10" y="1018"></tspan>
 
-<tspan x="10" y="1034"></tspan>
+<tspan x="10" y="1034">2020-03-17 01:56:49 -0500</tspan>
 
-<tspan x="10" y="1050">2019-08-17 17:15:31 +0000</tspan>
+<tspan x="10" y="1050">[npm publish] - npm publish 2020.3.16</tspan>
 
-<tspan x="10" y="1066">[npm publish] - npm publish 2019.8.16</tspan>
+<tspan x="10" y="1066">- jslint - remove ternary-operator/newline comment preceding bra</tspan>
 
 <tspan x="10" y="1082">- update build</tspan>
 
 <tspan x="10" y="1098"></tspan>
 
-<tspan x="10" y="1114">2018-09-30 02:36:28 +0700</tspan>
+<tspan x="10" y="1114">2019-08-17 17:15:31 +0000</tspan>
 
-<tspan x="10" y="1130">[npm publish] - npm publish 2018.9.29</tspan>
+<tspan x="10" y="1130">[npm publish] - npm publish 2019.8.16</tspan>
 
-<tspan x="10" y="1146">- migrate to new jslint (2018-09)</tspan>
+<tspan x="10" y="1146">- update build</tspan>
 
-<tspan x="10" y="1162">- migrate from modeJs -&gt; isBrowser</tspan>
+<tspan x="10" y="1162"></tspan>
 
-<tspan x="10" y="1178">- update build</tspan>
+<tspan x="10" y="1178">2018-09-30 02:36:28 +0700</tspan>
 
-<tspan x="10" y="1194"></tspan>
+<tspan x="10" y="1194">[npm publish] - npm publish 2018.9.29</tspan>
 
-<tspan x="10" y="1210">2018-08-08 22:02:05 +0700</tspan>
+<tspan x="10" y="1210">- migrate to new jslint (2018-09)</tspan>
 
-<tspan x="10" y="1226">[npm publish] - npm publish 2018.5.25</tspan>
+<tspan x="10" y="1226">- migrate from modeJs -&gt; isBrowser</tspan>
 
-<tspan x="10" y="1242">- migrate from modeJs -&gt; isBrowser</tspan>
+<tspan x="10" y="1242">- update build</tspan>
 
-<tspan x="10" y="1258">- update build</tspan>
+<tspan x="10" y="1258"></tspan>
 
-<tspan x="10" y="1274"></tspan>
+<tspan x="10" y="1274">2018-08-08 22:02:05 +0700</tspan>
 
-<tspan x="10" y="1290">2018-05-02 19:16:05 +0800</tspan>
+<tspan x="10" y="1290">[npm publish] - npm publish 2018.5.25</tspan>
 
-<tspan x="10" y="1306">[npm publish] - npm publish 2018.5.2</tspan>
+<tspan x="10" y="1306">- migrate from modeJs -&gt; isBrowser</tspan>
 
 <tspan x="10" y="1322">- update build</tspan>
 
 <tspan x="10" y="1338"></tspan>
 
-<tspan x="10" y="1354">2018-04-13 13:28:20 +0800</tspan>
+<tspan x="10" y="1354">2018-05-02 19:16:05 +0800</tspan>
 
-<tspan x="10" y="1370">[npm publish] - npm publish v2017.4.12</tspan>
+<tspan x="10" y="1370">[npm publish] - npm publish 2018.5.2</tspan>
 
-<tspan x="10" y="1386">- improve error-handling for misbehaving property-accessors</tspan>
+<tspan x="10" y="1386">- update build</tspan>
 
-<tspan x="10" y="1402">- fix build-ci for nodejs v9.x</tspan>
+<tspan x="10" y="1402"></tspan>
 
-<tspan x="10" y="1418"></tspan>
+<tspan x="10" y="1418">2018-04-13 13:28:20 +0800</tspan>
 
-<tspan x="10" y="1434">2018-04-03 16:29:35 +0800</tspan>
+<tspan x="10" y="1434">[npm publish] - npm publish v2017.4.12</tspan>
 
-<tspan x="10" y="1450">[npm publish] - npm publish v2017.4.2</tspan>
+<tspan x="10" y="1450">- improve error-handling for misbehaving property-accessors</tspan>
 
-<tspan x="10" y="1466">- replace option htmlBr with markdownToHtml in function templateRender</tspan>
+<tspan x="10" y="1466">- fix build-ci for nodejs v9.x</tspan>
 
-<tspan x="10" y="1482">- update function apidocCreate with extra param options.whitelistDict</tspan>
+<tspan x="10" y="1482"></tspan>
 
-<tspan x="10" y="1498"></tspan>
+<tspan x="10" y="1498">2018-04-03 16:29:35 +0800</tspan>
 
-<tspan x="10" y="1514">2018-01-14 22:38:51 +0700</tspan>
+<tspan x="10" y="1514">[npm publish] - npm publish v2017.4.2</tspan>
 
-<tspan x="10" y="1530">[npm publish] - npm publish 2017.1.13</tspan>
+<tspan x="10" y="1530">- replace option htmlBr with markdownToHtml in function templateRender</tspan>
 
-<tspan x="10" y="1546">- update build</tspan>
+<tspan x="10" y="1546">- update function apidocCreate with extra param options.whitelistDict</tspan>
 
 <tspan x="10" y="1562"></tspan>
 
-<tspan x="10" y="1578">2017-10-24 22:25:24 +0800</tspan>
+<tspan x="10" y="1578">2018-01-14 22:38:51 +0700</tspan>
 
-<tspan x="10" y="1594">[npm publish] - npm publish 2017.10.23</tspan>
+<tspan x="10" y="1594">[npm publish] - npm publish 2017.1.13</tspan>
 
-<tspan x="10" y="1610">- fix assert-module bug</tspan>
+<tspan x="10" y="1610">- update build</tspan>
 
-<tspan x="10" y="1626">- fix test-coverage</tspan>
+<tspan x="10" y="1626"></tspan>
 
-<tspan x="10" y="1642"></tspan>
+<tspan x="10" y="1642">2017-10-24 22:25:24 +0800</tspan>
 
-<tspan x="10" y="1658">2017-09-13 17:34:47 +0700</tspan>
+<tspan x="10" y="1658">[npm publish] - npm publish 2017.10.23</tspan>
 
-<tspan x="10" y="1674">[npm publish] - npm publish 2017.9.12</tspan>
+<tspan x="10" y="1674">- fix assert-module bug</tspan>
 
-<tspan x="10" y="1690">- add cli-help doc to README.md</tspan>
+<tspan x="10" y="1690">- fix test-coverage</tspan>
 
 <tspan x="10" y="1706"></tspan>
 
-<tspan x="10" y="1722">2017-05-31 16:32:09 +0800</tspan>
+<tspan x="10" y="1722">2017-09-13 17:34:47 +0700</tspan>
 
-<tspan x="10" y="1738">[npm publish] - npm publish 2017.5.30</tspan>
+<tspan x="10" y="1738">[npm publish] - npm publish 2017.9.12</tspan>
 
-<tspan x="10" y="1754">- fix 'use strict' bug in firefox and safari</tspan>
+<tspan x="10" y="1754">- add cli-help doc to README.md</tspan>
 
-<tspan x="10" y="1770">- revamp README.md</tspan>
+<tspan x="10" y="1770"></tspan>
 
-<tspan x="10" y="1786"></tspan>
+<tspan x="10" y="1786">2017-05-31 16:32:09 +0800</tspan>
 
-<tspan x="10" y="1802">2017-04-23 14:15:27 +0800</tspan>
+<tspan x="10" y="1802">[npm publish] - npm publish 2017.5.30</tspan>
 
-<tspan x="10" y="1818">[npm publish] - npm publish 2017.4.22</tspan>
+<tspan x="10" y="1818">- fix 'use strict' bug in firefox and safari</tspan>
 
-<tspan x="10" y="1834">- limit exampleList to 256 examples to handle edge-cases with many example-files like lodash</tspan>
+<tspan x="10" y="1834">- revamp README.md</tspan>
 
-<tspan x="10" y="1850">- generalize function apidocCreate to handle more real-world npm-modules</tspan>
+<tspan x="10" y="1850"></tspan>
 
-<tspan x="10" y="1866">- try to document all .js files in first 3-levels of directories using param libFileList</tspan>
+<tspan x="10" y="1866">2017-04-23 14:15:27 +0800</tspan>
 
-<tspan x="10" y="1882">- use breadth-first for files to add to param libFileList in function apidocCreate</tspan>
+<tspan x="10" y="1882">[npm publish] - npm publish 2017.4.22</tspan>
 
-<tspan x="10" y="1898"></tspan>
+<tspan x="10" y="1898">- limit exampleList to 256 examples to handle edge-cases with many example-files like lodash</tspan>
 
-<tspan x="10" y="1914">2017-03-17 20:57:12 +0800</tspan>
+<tspan x="10" y="1914">- generalize function apidocCreate to handle more real-world npm-modules</tspan>
 
-<tspan x="10" y="1930">[npm publish] - npm publish 2017.3.16</tspan>
+<tspan x="10" y="1930">- try to document all .js files in first 3-levels of directories using param libFileList</tspan>
 
-<tspan x="10" y="1946">- revert npm_package_nameAlias back to npm_package_name</tspan>
+<tspan x="10" y="1946">- use breadth-first for files to add to param libFileList in function apidocCreate</tspan>
 
 <tspan x="10" y="1962"></tspan>
 
-<tspan x="10" y="1978">2017-03-10 20:24:53 +0800</tspan>
+<tspan x="10" y="1978">2017-03-17 20:57:12 +0800</tspan>
 
-<tspan x="10" y="1994">- npm publish 2017.3.9</tspan>
+<tspan x="10" y="1994">[npm publish] - npm publish 2017.3.16</tspan>
 
-<tspan x="10" y="2010">- add ability to create markdown documentation</tspan>
+<tspan x="10" y="2010">- revert npm_package_nameAlias back to npm_package_name</tspan>
 
-<tspan x="10" y="2026">- auto-document dir ./lib/</tspan>
+<tspan x="10" y="2026"></tspan>
 
-<tspan x="10" y="2042">- increase auto-coverage of examples</tspan>
+<tspan x="10" y="2042">2017-03-10 20:24:53 +0800</tspan>
 
-<tspan x="10" y="2058"></tspan>
+<tspan x="10" y="2058">- npm publish 2017.3.9</tspan>
 
-<tspan x="10" y="2074">2017-03-03 04:18:06 +0800</tspan>
+<tspan x="10" y="2074">- add ability to create markdown documentation</tspan>
 
-<tspan x="10" y="2090">- npm publish 2017.2.27</tspan>
+<tspan x="10" y="2090">- auto-document dir ./lib/</tspan>
 
-<tspan x="10" y="2106">- successful travis-ci build</tspan>
+<tspan x="10" y="2106">- increase auto-coverage of examples</tspan>
 
 <tspan x="10" y="2122"></tspan>
 
-<tspan x="10" y="2138">2014-03-26 02:31:50 +0700</tspan>
+<tspan x="10" y="2138">2017-03-03 04:18:06 +0800</tspan>
 
-<tspan x="10" y="2154">add blank README.md</tspan>
+<tspan x="10" y="2154">- npm publish 2017.2.27</tspan>
+
+<tspan x="10" y="2170">- successful travis-ci build</tspan>
+
+<tspan x="10" y="2186"></tspan>
+
+<tspan x="10" y="2202">2014-03-26 02:31:50 +0700</tspan>
+
+<tspan x="10" y="2218">add blank README.md</tspan>
 
 </text>
 </svg>
