@@ -156,15 +156,16 @@
         recurse(tgt, src, depth | 0);
         return tgt;
     };
-    // require builtin
-    if (!local.isBrowser) {
-        if (process.unhandledRejections !== "strict") {
-            process.unhandledRejections = "strict";
-            process.on("unhandledRejection", function (err) {
-                throw err;
-            });
-        }
-        local.fs = require("fs");
+    // bug-workaround - throw unhandledRejections in node-process
+    if (
+        typeof process === "object" && process
+        && typeof process.on === "function"
+        && process.unhandledRejections !== "strict"
+    ) {
+        process.unhandledRejections = "strict";
+        process.on("unhandledRejection", function (err) {
+            throw err;
+        });
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -347,15 +348,16 @@
         recurse(tgt, src, depth | 0);
         return tgt;
     };
-    // require builtin
-    if (!local.isBrowser) {
-        if (process.unhandledRejections !== "strict") {
-            process.unhandledRejections = "strict";
-            process.on("unhandledRejection", function (err) {
-                throw err;
-            });
-        }
-        local.fs = require("fs");
+    // bug-workaround - throw unhandledRejections in node-process
+    if (
+        typeof process === "object" && process
+        && typeof process.on === "function"
+        && process.unhandledRejections !== "strict"
+    ) {
+        process.unhandledRejections = "strict";
+        process.on("unhandledRejection", function (err) {
+            throw err;
+        });
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -1654,15 +1656,16 @@ if (module === require.main && !globalThis.utility2_rollup) {
         recurse(tgt, src, depth | 0);
         return tgt;
     };
-    // require builtin
-    if (!local.isBrowser) {
-        if (process.unhandledRejections !== "strict") {
-            process.unhandledRejections = "strict";
-            process.on("unhandledRejection", function (err) {
-                throw err;
-            });
-        }
-        local.fs = require("fs");
+    // bug-workaround - throw unhandledRejections in node-process
+    if (
+        typeof process === "object" && process
+        && typeof process.on === "function"
+        && process.unhandledRejections !== "strict"
+    ) {
+        process.unhandledRejections = "strict";
+        process.on("unhandledRejection", function (err) {
+            throw err;
+        });
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -13554,15 +13557,16 @@ if (module === require.main && !globalThis.utility2_rollup) {
         recurse(tgt, src, depth | 0);
         return tgt;
     };
-    // require builtin
-    if (!local.isBrowser) {
-        if (process.unhandledRejections !== "strict") {
-            process.unhandledRejections = "strict";
-            process.on("unhandledRejection", function (err) {
-                throw err;
-            });
-        }
-        local.fs = require("fs");
+    // bug-workaround - throw unhandledRejections in node-process
+    if (
+        typeof process === "object" && process
+        && typeof process.on === "function"
+        && process.unhandledRejections !== "strict"
+    ) {
+        process.unhandledRejections = "strict";
+        process.on("unhandledRejection", function (err) {
+            throw err;
+        });
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -31000,15 +31004,16 @@ if (module === require.main && !globalThis.utility2_rollup) {
         recurse(tgt, src, depth | 0);
         return tgt;
     };
-    // require builtin
-    if (!local.isBrowser) {
-        if (process.unhandledRejections !== "strict") {
-            process.unhandledRejections = "strict";
-            process.on("unhandledRejection", function (err) {
-                throw err;
-            });
-        }
-        local.fs = require("fs");
+    // bug-workaround - throw unhandledRejections in node-process
+    if (
+        typeof process === "object" && process
+        && typeof process.on === "function"
+        && process.unhandledRejections !== "strict"
+    ) {
+        process.unhandledRejections = "strict";
+        process.on("unhandledRejection", function (err) {
+            throw err;
+        });
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -31418,15 +31423,16 @@ if (local.isBrowser) {
         recurse(tgt, src, depth | 0);
         return tgt;
     };
-    // require builtin
-    if (!local.isBrowser) {
-        if (process.unhandledRejections !== "strict") {
-            process.unhandledRejections = "strict";
-            process.on("unhandledRejection", function (err) {
-                throw err;
-            });
-        }
-        local.fs = require("fs");
+    // bug-workaround - throw unhandledRejections in node-process
+    if (
+        typeof process === "object" && process
+        && typeof process.on === "function"
+        && process.unhandledRejections !== "strict"
+    ) {
+        process.unhandledRejections = "strict";
+        process.on("unhandledRejection", function (err) {
+            throw err;
+        });
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -44228,15 +44234,16 @@ if (module === require.main && !globalThis.utility2_rollup) {
         recurse(tgt, src, depth | 0);
         return tgt;
     };
-    // require builtin
-    if (!local.isBrowser) {
-        if (process.unhandledRejections !== "strict") {
-            process.unhandledRejections = "strict";
-            process.on("unhandledRejection", function (err) {
-                throw err;
-            });
-        }
-        local.fs = require("fs");
+    // bug-workaround - throw unhandledRejections in node-process
+    if (
+        typeof process === "object" && process
+        && typeof process.on === "function"
+        && process.unhandledRejections !== "strict"
+    ) {
+        process.unhandledRejections = "strict";
+        process.on("unhandledRejection", function (err) {
+            throw err;
+        });
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -44451,15 +44458,16 @@ local.assetsDict["/assets.utility2.header.js"] = '\
         recurse(tgt, src, depth | 0);\n\
         return tgt;\n\
     };\n\
-    // require builtin\n\
-    if (!local.isBrowser) {\n\
-        if (process.unhandledRejections !== "strict") {\n\
-            process.unhandledRejections = "strict";\n\
-            process.on("unhandledRejection", function (err) {\n\
-                throw err;\n\
-            });\n\
-        }\n\
-        local.fs = require("fs");\n\
+    // bug-workaround - throw unhandledRejections in node-process\n\
+    if (\n\
+        typeof process === "object" && process\n\
+        && typeof process.on === "function"\n\
+        && process.unhandledRejections !== "strict"\n\
+    ) {\n\
+        process.unhandledRejections = "strict";\n\
+        process.on("unhandledRejection", function (err) {\n\
+            throw err;\n\
+        });\n\
     }\n\
 }((typeof globalThis === "object" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -45831,40 +45839,45 @@ local._testCase_buildApidoc_default = function (opt, onError) {
         ];
         [
             [
-                local, "child_process"
+                process, "process"
             ], [
-                local, "cluster"
+                process.stdin, "stdin"
             ], [
-                local, "http"
+                require("child_process"), "child_process"
             ], [
-                local, "https"
+                require("cluster"), "cluster"
             ], [
-                local, "net"
+                require("fs"), "cluster"
             ], [
-                local, "repl"
+                require("http"), "http"
             ], [
-                local.events, "prototype"
+                require("https"), "https"
             ], [
-                globalThis, "process"
+                require("net"), "net"
             ], [
-                process, "stdin"
+                require("repl"), "repl"
             ], [
-                require("stream"), "prototype"
+                require("events").prototype, "prototype"
+            ], [
+                require("stream").prototype, "prototype"
             ]
-        ].forEach(function (elem, tmp) {
-            tmp = elem[0][elem[1]];
+        ].forEach(function ([
+            dict, name
+        ]) {
             mockDict = {};
-            Object.keys(tmp).forEach(function (key) {
-                if (typeof tmp[key] === "function" && !(
+            Object.entries(dict).forEach(function ([
+                key, val
+            ]) {
+                if (typeof val === "function" && !(
                     /^(?:fs\.Read|fs\.read|process\.binding|process\.dlopen)/
-                ).test(elem[1] + "." + key)) {
+                ).test(name + "." + key)) {
                     mockDict[key] = function () {
                         return;
                     };
                 }
             });
             mockList.push([
-                tmp, mockDict
+                dict, mockDict
             ]);
         });
         local.testMock(mockList, function (onError) {
@@ -51295,15 +51308,16 @@ instruction\n\
         recurse(tgt, src, depth | 0);\n\
         return tgt;\n\
     };\n\
-    // require builtin\n\
-    if (!local.isBrowser) {\n\
-        if (process.unhandledRejections !== \"strict\") {\n\
-            process.unhandledRejections = \"strict\";\n\
-            process.on(\"unhandledRejection\", function (err) {\n\
-                throw err;\n\
-            });\n\
-        }\n\
-        local.fs = require(\"fs\");\n\
+    // bug-workaround - throw unhandledRejections in node-process\n\
+    if (\n\
+        typeof process === \"object\" && process\n\
+        && typeof process.on === \"function\"\n\
+        && process.unhandledRejections !== \"strict\"\n\
+    ) {\n\
+        process.unhandledRejections = \"strict\";\n\
+        process.on(\"unhandledRejection\", function (err) {\n\
+            throw err;\n\
+        });\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -52879,15 +52893,16 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
         recurse(tgt, src, depth | 0);\n\
         return tgt;\n\
     };\n\
-    // require builtin\n\
-    if (!local.isBrowser) {\n\
-        if (process.unhandledRejections !== \"strict\") {\n\
-            process.unhandledRejections = \"strict\";\n\
-            process.on(\"unhandledRejection\", function (err) {\n\
-                throw err;\n\
-            });\n\
-        }\n\
-        local.fs = require(\"fs\");\n\
+    // bug-workaround - throw unhandledRejections in node-process\n\
+    if (\n\
+        typeof process === \"object\" && process\n\
+        && typeof process.on === \"function\"\n\
+        && process.unhandledRejections !== \"strict\"\n\
+    ) {\n\
+        process.unhandledRejections = \"strict\";\n\
+        process.on(\"unhandledRejection\", function (err) {\n\
+            throw err;\n\
+        });\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -70328,15 +70343,16 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
         recurse(tgt, src, depth | 0);\n\
         return tgt;\n\
     };\n\
-    // require builtin\n\
-    if (!local.isBrowser) {\n\
-        if (process.unhandledRejections !== \"strict\") {\n\
-            process.unhandledRejections = \"strict\";\n\
-            process.on(\"unhandledRejection\", function (err) {\n\
-                throw err;\n\
-            });\n\
-        }\n\
-        local.fs = require(\"fs\");\n\
+    // bug-workaround - throw unhandledRejections in node-process\n\
+    if (\n\
+        typeof process === \"object\" && process\n\
+        && typeof process.on === \"function\"\n\
+        && process.unhandledRejections !== \"strict\"\n\
+    ) {\n\
+        process.unhandledRejections = \"strict\";\n\
+        process.on(\"unhandledRejection\", function (err) {\n\
+            throw err;\n\
+        });\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\

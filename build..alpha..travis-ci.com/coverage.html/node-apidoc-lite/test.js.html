@@ -297,16 +297,16 @@
     <tbody>
         <td>
             Statements: 52<br>
-            Branches: 45<br>
+            Branches: 44<br>
             Functions: 12
         </td>
         <td>
             100%<br>
-            (99 / 99)
+            (97 / 97)
         </td>
         <td>
             100%<br>
-            (56 / 56)
+            (58 / 58)
         </td>
         <td>
             100%<br>
@@ -314,7 +314,7 @@
         </td>
         <td>
             100%<br>
-            (99 / 99)
+            (97 / 97)
         </td>
     </tbody>
     </table>
@@ -592,6 +592,7 @@
 <a href="#l267" id="l267">267</a>
 <a href="#l268" id="l268">268</a>
 <a href="#l269" id="l269">269</a>
+<a href="#l270" id="l270">270</a>
 </td>
         <td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -745,13 +746,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1014,15 +1016,16 @@
 <span class="cstat-skip" title="statement not covered">        recurse(tgt, src, depth | 0);</span>
 <span class="cstat-skip" title="statement not covered">        return tgt;</span>
     };
-    // require builtin
-    <span class="skip-if-branch" title="else path not taken">E</span>if (!local.isBrowser) {
-        <span class="skip-if-branch" title="if path not taken">I</span>if (process.unhandledRejections !== "strict") {
-<span class="cstat-skip" title="statement not covered">            process.unhandledRejections = "strict";</span>
-<span class="cstat-skip" title="statement not covered">            process.on("unhandledRejection", <span class="fstat-skip" title="function not covered">function (err) {</span></span>
-<span class="cstat-skip" title="statement not covered">                throw err;</span>
-            });
-        }
-        local.fs = require("fs");
+    // bug-workaround - throw unhandledRejections in node-process
+    <span class="skip-if-branch" title="if path not taken">I</span>if (
+        typeof process === "object" &amp;&amp; process
+        &amp;&amp; typeof process.on === "function"
+        &amp;&amp; process.unhandledRejections !== "strict"
+    ) {
+<span class="cstat-skip" title="statement not covered">        process.unhandledRejections = "strict";</span>
+<span class="cstat-skip" title="statement not covered">        process.on("unhandledRejection", <span class="fstat-skip" title="function not covered">function (err) {</span></span>
+<span class="cstat-skip" title="statement not covered">            throw err;</span>
+        });
     }
 }((typeof globalThis === "object" &amp;&amp; globalThis) || <span class="branch-2 cbranch-skip" title="branch not covered">window)</span>);
 // assets.utility2.header.js - end

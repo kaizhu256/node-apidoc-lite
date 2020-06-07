@@ -1,9 +1,9 @@
-<svg height="1230" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="1230" fill="#555" width="720"></rect>
+<svg height="958" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="958" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-06-07T05:31:57.561Z - npm-testing /home/travis/bu\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-06-07T06:08:08.626Z - npm-testing /home/travis/bu\</tspan>
 <tspan x="10" y="58">ild/kaizhu256/node-apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -13,7 +13,7 @@
 <tspan x="10" y="106">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/bui\</tspan>
 <tspan x="10" y="122">ld/test-report.json</tspan>
 
-<tspan x="10" y="138">&gt; http-server listening on port 55276</tspan>
+<tspan x="10" y="138">&gt; http-server listening on port 45180</tspan>
 
 <tspan x="10" y="154">apidocCreate - readExample /home/travis/build/kaizhu256/node-apidoc-lite/package.json</tspan>
 
@@ -37,104 +37,77 @@
 
 <tspan x="10" y="314">apidocCreate - requiring /home/travis/build/kaizhu256/node-apidoc-lite ...</tspan>
 
-<tspan x="10" y="330">TypeError: Cannot convert undefined or null to object</tspan>
+<tspan x="10" y="330">apidocCreate - ... required /home/travis/build/kaizhu256/node-apidoc-lite</tspan>
 
-<tspan x="10" y="346">    at Function.keys (&lt;anonymous&gt;)</tspan>
+<tspan x="10" y="346"></tspan>
 
-<tspan x="10" y="362">    at /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/utility2/lib.utility2.js:1787:\</tspan>
-<tspan x="10" y="378">20</tspan>
+<tspan x="10" y="362">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/bui\</tspan>
+<tspan x="10" y="378">ld/test-report.json</tspan>
 
-<tspan x="10" y="394">    at Array.forEach (&lt;anonymous&gt;)</tspan>
+<tspan x="10" y="394">jslint - 3ms - /home/travis/build/kaizhu256/node-apidoc-lite/README.md</tspan>
 
-<tspan x="10" y="410">    at Object.require2 [as require] (/home/travis/build/kaizhu256/node-apidoc-lite/node_modules/\</tspan>
-<tspan x="10" y="426">utility2/lib.utility2.js:1784:11)</tspan>
+<tspan x="10" y="410">jslint - 7ms - /home/travis/build/kaizhu256/node-apidoc-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="442">    at /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/utility2/lib.apidoc.js:985:20</tspan>
+<tspan x="10" y="426">jslint - 15ms - /home/travis/build/kaizhu256/node-apidoc-lite/package.json</tspan>
 
-<tspan x="10" y="458">    at Object.local.tryCatchOnError (/home/travis/build/kaizhu256/node-apidoc-lite/node_modules/\</tspan>
-<tspan x="10" y="474">utility2/lib.apidoc.js:739:18)</tspan>
+<tspan x="10" y="442">wrote file apidoc - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/apidoc.html</tspan>
 
-<tspan x="10" y="490">    at Object.local.apidocCreate (/home/travis/build/kaizhu256/node-apidoc-lite/node_modules/uti\</tspan>
-<tspan x="10" y="506">lity2/lib.apidoc.js:980:11)</tspan>
+<tspan x="10" y="458">testRunDefault - 156 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="522">    at Object.local._testCase_buildApidoc_default [as onTestCase] (/home/travis/build/kaizhu256/\</tspan>
-<tspan x="10" y="538">node-apidoc-lite/node_modules/utility2/lib.utility2.js:1822:15)</tspan>
+<tspan x="10" y="474">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.j\</tspan>
+<tspan x="10" y="490">son</tspan>
 
-<tspan x="10" y="554">    at /home/travis/build/kaizhu256/node-apidoc-lite/node_modules/utility2/lib.utility2.js:6325:\</tspan>
-<tspan x="10" y="570">22</tspan>
+<tspan x="10" y="506">jslint - 53ms - /home/travis/build/kaizhu256/node-apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="586">    at Object.local.tryCatchOnError (/home/travis/build/kaizhu256/node-apidoc-lite/node_modules/\</tspan>
-<tspan x="10" y="602">utility2/lib.utility2.js:6443:18)</tspan>
+<tspan x="10" y="522"></tspan>
 
-<tspan x="10" y="618"></tspan>
+<tspan x="10" y="538">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/bui\</tspan>
+<tspan x="10" y="554">ld/test-report.json</tspan>
 
-<tspan x="10" y="634">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/bui\</tspan>
-<tspan x="10" y="650">ld/test-report.json</tspan>
+<tspan x="10" y="570"></tspan>
 
-<tspan x="10" y="666">wrote file apidoc - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/apidoc.html</tspan>
+<tspan x="10" y="586">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="682">testRunDefault - 141 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="602">| test-report - buildApidoc - node - linux v14.4.0 - 2020-06-07T06:08:08.716Z</tspan>
 
-<tspan x="10" y="698">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.j\</tspan>
-<tspan x="10" y="714">son</tspan>
+<tspan x="10" y="618">|     158 ms            0 failed        1 passed      |</tspan>
 
-<tspan x="10" y="730">jslint - 3ms - /home/travis/build/kaizhu256/node-apidoc-lite/README.md</tspan>
+<tspan x="10" y="634">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="746">jslint - 6ms - /home/travis/build/kaizhu256/node-apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="650">| test-report - npmTest - node - linux v14.4.0 - 2020-06-07T06:08:01.405Z</tspan>
 
-<tspan x="10" y="762">jslint - 14ms - /home/travis/build/kaizhu256/node-apidoc-lite/package.json</tspan>
+<tspan x="10" y="666">|    5976 ms            0 failed        8 passed      |</tspan>
 
-<tspan x="10" y="778">jslint - 53ms - /home/travis/build/kaizhu256/node-apidoc-lite/test.js</tspan>
+<tspan x="10" y="682">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="794"></tspan>
+<tspan x="10" y="698">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-07T06:07:53.616Z</tspan>
 
-<tspan x="10" y="810">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/bui\</tspan>
-<tspan x="10" y="826">ld/test-report.json</tspan>
+<tspan x="10" y="714">|    5963 ms            0 failed        8 passed      |</tspan>
 
-<tspan x="10" y="842"></tspan>
+<tspan x="10" y="730">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="858">-------------------------------------------------------</tspan>
+<tspan x="10" y="746"></tspan>
 
-<tspan x="10" y="874">| test-report - buildApidoc - node - linux v14.4.0 - 2020-06-07T05:31:57.658Z</tspan>
+<tspan x="10" y="762">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.h\</tspan>
+<tspan x="10" y="778">tml</tspan>
 
-<tspan x="10" y="890">|     143 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="794">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/build.badge.s\</tspan>
+<tspan x="10" y="810">vg</tspan>
 
-<tspan x="10" y="906">-------------------------------------------------------</tspan>
+<tspan x="10" y="826">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.b\</tspan>
+<tspan x="10" y="842">adge.svg</tspan>
 
-<tspan x="10" y="922">| test-report - npmTest - node - linux v14.4.0 - 2020-06-07T05:31:50.057Z</tspan>
+<tspan x="10" y="858"></tspan>
 
-<tspan x="10" y="938">|    6095 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="874">buildApidoc - 0 failed tests</tspan>
 
-<tspan x="10" y="954">-------------------------------------------------------</tspan>
+<tspan x="10" y="890"></tspan>
 
-<tspan x="10" y="970">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-07T05:31:41.925Z</tspan>
+<tspan x="10" y="906">jslint - 244ms - /home/travis/build/kaizhu256/node-apidoc-lite/lib.apidoc.js</tspan>
 
-<tspan x="10" y="986">|    6121 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="922"></tspan>
 
-<tspan x="10" y="1002">-------------------------------------------------------</tspan>
-
-<tspan x="10" y="1018"></tspan>
-
-<tspan x="10" y="1034">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.h\</tspan>
-<tspan x="10" y="1050">tml</tspan>
-
-<tspan x="10" y="1066">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/build.badge.s\</tspan>
-<tspan x="10" y="1082">vg</tspan>
-
-<tspan x="10" y="1098">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.b\</tspan>
-<tspan x="10" y="1114">adge.svg</tspan>
-
-<tspan x="10" y="1130"></tspan>
-
-<tspan x="10" y="1146">buildApidoc - 0 failed tests</tspan>
-
-<tspan x="10" y="1162"></tspan>
-
-<tspan x="10" y="1178">jslint - 242ms - /home/travis/build/kaizhu256/node-apidoc-lite/lib.apidoc.js</tspan>
-
-<tspan x="10" y="1194"></tspan>
-
-<tspan x="10" y="1210">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-06-07T05:31:58.179Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="938">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-06-07T06:08:09.218Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
