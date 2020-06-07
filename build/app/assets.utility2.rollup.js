@@ -166,24 +166,14 @@
         }
         local.assert = require("assert");
         local.child_process = require("child_process");
-        local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.domain = require("domain");
-        local.events = require("events");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
-        local.net = require("net");
-        local.os = require("os");
         local.path = require("path");
-        local.querystring = require("querystring");
-        local.readline = require("readline");
         local.repl = require("repl");
         local.stream = require("stream");
-        local.string_decoder = require("string_decoder");
-        local.timers = require("timers");
         local.url = require("url");
-        local.util = require("util");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -376,24 +366,14 @@
         }
         local.assert = require("assert");
         local.child_process = require("child_process");
-        local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.domain = require("domain");
-        local.events = require("events");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
-        local.net = require("net");
-        local.os = require("os");
         local.path = require("path");
-        local.querystring = require("querystring");
-        local.readline = require("readline");
         local.repl = require("repl");
         local.stream = require("stream");
-        local.string_decoder = require("string_decoder");
-        local.timers = require("timers");
         local.url = require("url");
-        local.util = require("util");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -1703,24 +1683,14 @@ if (module === require.main && !globalThis.utility2_rollup) {
         }
         local.assert = require("assert");
         local.child_process = require("child_process");
-        local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.domain = require("domain");
-        local.events = require("events");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
-        local.net = require("net");
-        local.os = require("os");
         local.path = require("path");
-        local.querystring = require("querystring");
-        local.readline = require("readline");
         local.repl = require("repl");
         local.stream = require("stream");
-        local.string_decoder = require("string_decoder");
-        local.timers = require("timers");
         local.url = require("url");
-        local.util = require("util");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -13621,24 +13591,14 @@ if (module === require.main && !globalThis.utility2_rollup) {
         }
         local.assert = require("assert");
         local.child_process = require("child_process");
-        local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.domain = require("domain");
-        local.events = require("events");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
-        local.net = require("net");
-        local.os = require("os");
         local.path = require("path");
-        local.querystring = require("querystring");
-        local.readline = require("readline");
         local.repl = require("repl");
         local.stream = require("stream");
-        local.string_decoder = require("string_decoder");
-        local.timers = require("timers");
         local.url = require("url");
-        local.util = require("util");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -31090,24 +31050,14 @@ if (module === require.main && !globalThis.utility2_rollup) {
         }
         local.assert = require("assert");
         local.child_process = require("child_process");
-        local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.domain = require("domain");
-        local.events = require("events");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
-        local.net = require("net");
-        local.os = require("os");
         local.path = require("path");
-        local.querystring = require("querystring");
-        local.readline = require("readline");
         local.repl = require("repl");
         local.stream = require("stream");
-        local.string_decoder = require("string_decoder");
-        local.timers = require("timers");
         local.url = require("url");
-        local.util = require("util");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -31527,24 +31477,14 @@ if (local.isBrowser) {
         }
         local.assert = require("assert");
         local.child_process = require("child_process");
-        local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.domain = require("domain");
-        local.events = require("events");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
-        local.net = require("net");
-        local.os = require("os");
         local.path = require("path");
-        local.querystring = require("querystring");
-        local.readline = require("readline");
         local.repl = require("repl");
         local.stream = require("stream");
-        local.string_decoder = require("string_decoder");
-        local.timers = require("timers");
         local.url = require("url");
-        local.util = require("util");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -44360,24 +44300,14 @@ if (module === require.main && !globalThis.utility2_rollup) {
         }
         local.assert = require("assert");
         local.child_process = require("child_process");
-        local.cluster = require("cluster");
         local.crypto = require("crypto");
-        local.domain = require("domain");
-        local.events = require("events");
         local.fs = require("fs");
         local.http = require("http");
         local.https = require("https");
-        local.net = require("net");
-        local.os = require("os");
         local.path = require("path");
-        local.querystring = require("querystring");
-        local.readline = require("readline");
         local.repl = require("repl");
         local.stream = require("stream");
-        local.string_decoder = require("string_decoder");
-        local.timers = require("timers");
         local.url = require("url");
-        local.util = require("util");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -44602,24 +44532,14 @@ local.assetsDict["/assets.utility2.header.js"] = '\
         }\n\
         local.assert = require("assert");\n\
         local.child_process = require("child_process");\n\
-        local.cluster = require("cluster");\n\
         local.crypto = require("crypto");\n\
-        local.domain = require("domain");\n\
-        local.events = require("events");\n\
         local.fs = require("fs");\n\
         local.http = require("http");\n\
         local.https = require("https");\n\
-        local.net = require("net");\n\
-        local.os = require("os");\n\
         local.path = require("path");\n\
-        local.querystring = require("querystring");\n\
-        local.readline = require("readline");\n\
         local.repl = require("repl");\n\
         local.stream = require("stream");\n\
-        local.string_decoder = require("string_decoder");\n\
-        local.timers = require("timers");\n\
         local.url = require("url");\n\
-        local.util = require("util");\n\
     }\n\
 }((typeof globalThis === "object" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -51597,24 +51517,14 @@ instruction\n\
         }\n\
         local.assert = require(\"assert\");\n\
         local.child_process = require(\"child_process\");\n\
-        local.cluster = require(\"cluster\");\n\
         local.crypto = require(\"crypto\");\n\
-        local.domain = require(\"domain\");\n\
-        local.events = require(\"events\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
         local.https = require(\"https\");\n\
-        local.net = require(\"net\");\n\
-        local.os = require(\"os\");\n\
         local.path = require(\"path\");\n\
-        local.querystring = require(\"querystring\");\n\
-        local.readline = require(\"readline\");\n\
         local.repl = require(\"repl\");\n\
         local.stream = require(\"stream\");\n\
-        local.string_decoder = require(\"string_decoder\");\n\
-        local.timers = require(\"timers\");\n\
         local.url = require(\"url\");\n\
-        local.util = require(\"util\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -53200,24 +53110,14 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = "// usr/bin/env node\n\
         }\n\
         local.assert = require(\"assert\");\n\
         local.child_process = require(\"child_process\");\n\
-        local.cluster = require(\"cluster\");\n\
         local.crypto = require(\"crypto\");\n\
-        local.domain = require(\"domain\");\n\
-        local.events = require(\"events\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
         local.https = require(\"https\");\n\
-        local.net = require(\"net\");\n\
-        local.os = require(\"os\");\n\
         local.path = require(\"path\");\n\
-        local.querystring = require(\"querystring\");\n\
-        local.readline = require(\"readline\");\n\
         local.repl = require(\"repl\");\n\
         local.stream = require(\"stream\");\n\
-        local.string_decoder = require(\"string_decoder\");\n\
-        local.timers = require(\"timers\");\n\
         local.url = require(\"url\");\n\
-        local.util = require(\"util\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\
@@ -70672,24 +70572,14 @@ local.assetsDict["/assets.utility2.test.js"] = "/* istanbul instrument in packag
         }\n\
         local.assert = require(\"assert\");\n\
         local.child_process = require(\"child_process\");\n\
-        local.cluster = require(\"cluster\");\n\
         local.crypto = require(\"crypto\");\n\
-        local.domain = require(\"domain\");\n\
-        local.events = require(\"events\");\n\
         local.fs = require(\"fs\");\n\
         local.http = require(\"http\");\n\
         local.https = require(\"https\");\n\
-        local.net = require(\"net\");\n\
-        local.os = require(\"os\");\n\
         local.path = require(\"path\");\n\
-        local.querystring = require(\"querystring\");\n\
-        local.readline = require(\"readline\");\n\
         local.repl = require(\"repl\");\n\
         local.stream = require(\"stream\");\n\
-        local.string_decoder = require(\"string_decoder\");\n\
-        local.timers = require(\"timers\");\n\
         local.url = require(\"url\");\n\
-        local.util = require(\"util\");\n\
     }\n\
 }((typeof globalThis === \"object\" && globalThis) || window));\n\
 // assets.utility2.header.js - end\n\

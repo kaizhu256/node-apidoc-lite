@@ -1,9 +1,9 @@
-<svg height="15038" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="15038" fill="#555" width="720"></rect>
+<svg height="15198" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="15198" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-06-07T01:12:14.754Z - npm-testing /tmp/npmTe\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-06-07T01:18:52.876Z - npm-testing /tmp/npmTe\</tspan>
 <tspan x="10" y="58">stPublished/node_modules/apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -17,10 +17,10 @@
 
 <tspan x="10" y="154">jslint - 12ms - /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="170">--- /tmp/npmTestPublished/node_modules/apidoc-lite/package.json.autofix.old	2020-06-07 01:12:15.\</tspan>
-<tspan x="10" y="186">167208154 +0000</tspan>
+<tspan x="10" y="170">--- /tmp/npmTestPublished/node_modules/apidoc-lite/package.json.autofix.old	2020-06-07 01:18:53.\</tspan>
+<tspan x="10" y="186">266857376 +0000</tspan>
 
-<tspan x="10" y="202">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/package.json	2020-06-07 01:12:15.167208154 +0\</tspan>
+<tspan x="10" y="202">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/package.json	2020-06-07 01:18:53.266857376 +0\</tspan>
 <tspan x="10" y="218">000</tspan>
 
 <tspan x="10" y="234">@@ -1,78 +1,78 @@</tspan>
@@ -338,12 +338,12 @@
 <tspan x="10" y="2762">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/package.\</tspan>
 <tspan x="10" y="2778">json</tspan>
 
-<tspan x="10" y="2794">jslint - 40ms - /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="2794">jslint - 41ms - /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
 
-<tspan x="10" y="2810">--- /tmp/npmTestPublished/node_modules/apidoc-lite/test.js.autofix.old	2020-06-07 01:12:15.35120\</tspan>
-<tspan x="10" y="2826">8154 +0000</tspan>
+<tspan x="10" y="2810">--- /tmp/npmTestPublished/node_modules/apidoc-lite/test.js.autofix.old	2020-06-07 01:18:53.37480\</tspan>
+<tspan x="10" y="2826">3380 +0000</tspan>
 
-<tspan x="10" y="2842">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/test.js	2020-06-07 01:12:15.351208154 +0000</tspan>
+<tspan x="10" y="2842">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/test.js	2020-06-07 01:18:53.374803380 +0000</tspan>
 
 <tspan x="10" y="2858">@@ -1,35 +1,28 @@</tspan>
 
@@ -683,7 +683,7 @@
 
 <tspan x="10" y="5546">      * this function will return &lt;val&gt;</tspan>
 
-<tspan x="10" y="5562">@@ -155,52 +120,46 @@</tspan>
+<tspan x="10" y="5562">@@ -155,72 +120,52 @@</tspan>
 
 <tspan x="10" y="5578">      */</tspan>
 
@@ -837,7 +837,7 @@
 
 <tspan x="10" y="6778">         local.child_process = require("child_process");</tspan>
 
-<tspan x="10" y="6794">         local.cluster = require("cluster");</tspan>
+<tspan x="10" y="6794">-        local.cluster = require("cluster");</tspan>
 
 <tspan x="10" y="6810">         local.crypto = require("crypto");</tspan>
 
@@ -845,1003 +845,1025 @@
 
 <tspan x="10" y="6842">-        local.dns = require("dns");</tspan>
 
-<tspan x="10" y="6858">         local.domain = require("domain");</tspan>
+<tspan x="10" y="6858">-        local.domain = require("domain");</tspan>
 
-<tspan x="10" y="6874">         local.events = require("events");</tspan>
+<tspan x="10" y="6874">-        local.events = require("events");</tspan>
 
 <tspan x="10" y="6890">         local.fs = require("fs");</tspan>
 
-<tspan x="10" y="6906">@@ -215,12 +174,8 @@</tspan>
+<tspan x="10" y="6906">         local.http = require("http");</tspan>
 
-<tspan x="10" y="6922">         local.stream = require("stream");</tspan>
+<tspan x="10" y="6922">         local.https = require("https");</tspan>
 
-<tspan x="10" y="6938">         local.string_decoder = require("string_decoder");</tspan>
+<tspan x="10" y="6938">-        local.net = require("net");</tspan>
 
-<tspan x="10" y="6954">         local.timers = require("timers");</tspan>
+<tspan x="10" y="6954">-        local.os = require("os");</tspan>
 
-<tspan x="10" y="6970">-        local.tls = require("tls");</tspan>
+<tspan x="10" y="6970">         local.path = require("path");</tspan>
 
-<tspan x="10" y="6986">-        local.tty = require("tty");</tspan>
+<tspan x="10" y="6986">-        local.querystring = require("querystring");</tspan>
 
-<tspan x="10" y="7002">         local.url = require("url");</tspan>
+<tspan x="10" y="7002">-        local.readline = require("readline");</tspan>
 
-<tspan x="10" y="7018">         local.util = require("util");</tspan>
+<tspan x="10" y="7018">         local.repl = require("repl");</tspan>
 
-<tspan x="10" y="7034">-        local.vm = require("vm");</tspan>
+<tspan x="10" y="7034">         local.stream = require("stream");</tspan>
 
-<tspan x="10" y="7050">-        local.zlib = require("zlib");</tspan>
+<tspan x="10" y="7050">-        local.string_decoder = require("string_decoder");</tspan>
 
-<tspan x="10" y="7066">     }</tspan>
+<tspan x="10" y="7066">-        local.timers = require("timers");</tspan>
 
-<tspan x="10" y="7082"> }((typeof globalThis === "object" &amp;&amp; globalThis) || window));</tspan>
+<tspan x="10" y="7082">-        local.tls = require("tls");</tspan>
 
-<tspan x="10" y="7098"> // assets.utility2.header.js - end</tspan>
+<tspan x="10" y="7098">-        local.tty = require("tty");</tspan>
 
-<tspan x="10" y="7114">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="7114">         local.url = require("url");</tspan>
 
-<tspan x="10" y="7130">jslint - 228ms - /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="7130">-        local.util = require("util");</tspan>
 
-<tspan x="10" y="7146">http-server listening on port 8081</tspan>
+<tspan x="10" y="7146">-        local.vm = require("vm");</tspan>
 
-<tspan x="10" y="7162">--- /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js.autofix.old	2020-06-07 01:12:15\</tspan>
-<tspan x="10" y="7178">.735208154 +0000</tspan>
+<tspan x="10" y="7162">-        local.zlib = require("zlib");</tspan>
 
-<tspan x="10" y="7194">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js	2020-06-07 01:12:15.735208154 +\</tspan>
-<tspan x="10" y="7210">0000</tspan>
+<tspan x="10" y="7178">     }</tspan>
 
-<tspan x="10" y="7226">@@ -10,36 +10,29 @@</tspan>
+<tspan x="10" y="7194"> }((typeof globalThis === "object" &amp;&amp; globalThis) || window));</tspan>
 
-<tspan x="10" y="7242"> </tspan>
+<tspan x="10" y="7210"> // assets.utility2.header.js - end</tspan>
 
-<tspan x="10" y="7258"> /* istanbul instrument in package apidoc */</tspan>
+<tspan x="10" y="7226">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="7274"> // assets.utility2.header.js - start</tspan>
+<tspan x="10" y="7242">jslint - 145ms - /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="7290">-/* istanbul ignore next */</tspan>
+<tspan x="10" y="7258">http-server listening on port 8081</tspan>
 
-<tspan x="10" y="7306"> /* jslint utility2:true */</tspan>
+<tspan x="10" y="7274">--- /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js.autofix.old	2020-06-07 01:18:53\</tspan>
+<tspan x="10" y="7290">.750615394 +0000</tspan>
 
-<tspan x="10" y="7322">+/* istanbul ignore next */</tspan>
+<tspan x="10" y="7306">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js	2020-06-07 01:18:53.750615394 +\</tspan>
+<tspan x="10" y="7322">0000</tspan>
 
-<tspan x="10" y="7338">+// run shared js-env code - init-local</tspan>
+<tspan x="10" y="7338">@@ -10,36 +10,29 @@</tspan>
 
-<tspan x="10" y="7354"> (function (globalThis) {</tspan>
+<tspan x="10" y="7354"> </tspan>
 
-<tspan x="10" y="7370">     "use strict";</tspan>
+<tspan x="10" y="7370"> /* istanbul instrument in package apidoc */</tspan>
 
-<tspan x="10" y="7386">     let consoleError;</tspan>
+<tspan x="10" y="7386"> // assets.utility2.header.js - start</tspan>
 
-<tspan x="10" y="7402">-    let debugName;</tspan>
+<tspan x="10" y="7402">-/* istanbul ignore next */</tspan>
 
-<tspan x="10" y="7418">     let local;</tspan>
+<tspan x="10" y="7418"> /* jslint utility2:true */</tspan>
 
-<tspan x="10" y="7434">-    debugName = "debug" + String("Inline");</tspan>
+<tspan x="10" y="7434">+/* istanbul ignore next */</tspan>
 
-<tspan x="10" y="7450">     // init globalThis</tspan>
+<tspan x="10" y="7450">+// run shared js-env code - init-local</tspan>
 
-<tspan x="10" y="7466">     globalThis.globalThis = globalThis.globalThis || globalThis;</tspan>
+<tspan x="10" y="7466"> (function (globalThis) {</tspan>
 
-<tspan x="10" y="7482">-    // init debug_inline</tspan>
+<tspan x="10" y="7482">     "use strict";</tspan>
 
-<tspan x="10" y="7498">-    if (!globalThis[debugName]) {</tspan>
+<tspan x="10" y="7498">     let consoleError;</tspan>
 
-<tspan x="10" y="7514">+    // init debugInline</tspan>
+<tspan x="10" y="7514">-    let debugName;</tspan>
 
-<tspan x="10" y="7530">+    if (!globalThis.debugInline) {</tspan>
+<tspan x="10" y="7530">     let local;</tspan>
 
-<tspan x="10" y="7546">         consoleError = console.error;</tspan>
+<tspan x="10" y="7546">-    debugName = "debug" + String("Inline");</tspan>
 
-<tspan x="10" y="7562">-        globalThis[debugName] = function (...argList) {</tspan>
+<tspan x="10" y="7562">     // init globalThis</tspan>
 
-<tspan x="10" y="7578">+        globalThis.debugInline = function (...argList) {</tspan>
+<tspan x="10" y="7578">     globalThis.globalThis = globalThis.globalThis || globalThis;</tspan>
 
-<tspan x="10" y="7594">         /*</tspan>
+<tspan x="10" y="7594">-    // init debug_inline</tspan>
 
-<tspan x="10" y="7610">          * this function will both print &lt;argList&gt; to stderr</tspan>
+<tspan x="10" y="7610">-    if (!globalThis[debugName]) {</tspan>
 
-<tspan x="10" y="7626">          * and return &lt;argList&gt;[0]</tspan>
+<tspan x="10" y="7626">+    // init debugInline</tspan>
 
-<tspan x="10" y="7642">          */</tspan>
+<tspan x="10" y="7642">+    if (!globalThis.debugInline) {</tspan>
 
-<tspan x="10" y="7658">-            consoleError("\n\n" + debugName);</tspan>
+<tspan x="10" y="7658">         consoleError = console.error;</tspan>
 
-<tspan x="10" y="7674">+            consoleError("\n\ndebugInline");</tspan>
+<tspan x="10" y="7674">-        globalThis[debugName] = function (...argList) {</tspan>
 
-<tspan x="10" y="7690">             consoleError(...argList);</tspan>
+<tspan x="10" y="7690">+        globalThis.debugInline = function (...argList) {</tspan>
 
-<tspan x="10" y="7706">             consoleError("\n");</tspan>
+<tspan x="10" y="7706">         /*</tspan>
 
-<tspan x="10" y="7722">             return argList[0];</tspan>
+<tspan x="10" y="7722">          * this function will both print &lt;argList&gt; to stderr</tspan>
 
-<tspan x="10" y="7738">         };</tspan>
+<tspan x="10" y="7738">          * and return &lt;argList&gt;[0]</tspan>
 
-<tspan x="10" y="7754">     }</tspan>
+<tspan x="10" y="7754">          */</tspan>
 
-<tspan x="10" y="7770">-    String.prototype.trimEnd = (</tspan>
+<tspan x="10" y="7770">-            consoleError("\n\n" + debugName);</tspan>
 
-<tspan x="10" y="7786">-        String.prototype.trimEnd || String.prototype.trimRight</tspan>
+<tspan x="10" y="7786">+            consoleError("\n\ndebugInline");</tspan>
 
-<tspan x="10" y="7802">-    );</tspan>
+<tspan x="10" y="7802">             consoleError(...argList);</tspan>
 
-<tspan x="10" y="7818">-    String.prototype.trimStart = (</tspan>
+<tspan x="10" y="7818">             consoleError("\n");</tspan>
 
-<tspan x="10" y="7834">-        String.prototype.trimStart || String.prototype.trimLeft</tspan>
+<tspan x="10" y="7834">             return argList[0];</tspan>
 
-<tspan x="10" y="7850">-    );</tspan>
+<tspan x="10" y="7850">         };</tspan>
 
-<tspan x="10" y="7866">     // init local</tspan>
+<tspan x="10" y="7866">     }</tspan>
 
-<tspan x="10" y="7882">     local = {};</tspan>
+<tspan x="10" y="7882">-    String.prototype.trimEnd = (</tspan>
 
-<tspan x="10" y="7898">     local.local = local;</tspan>
+<tspan x="10" y="7898">-        String.prototype.trimEnd || String.prototype.trimRight</tspan>
 
-<tspan x="10" y="7914">@@ -55,9 +48,39 @@</tspan>
+<tspan x="10" y="7914">-    );</tspan>
 
-<tspan x="10" y="7930">         local.isBrowser &amp;&amp; typeof globalThis.importScripts === "function"</tspan>
+<tspan x="10" y="7930">-    String.prototype.trimStart = (</tspan>
 
-<tspan x="10" y="7946">     );</tspan>
+<tspan x="10" y="7946">-        String.prototype.trimStart || String.prototype.trimLeft</tspan>
 
-<tspan x="10" y="7962">     // init function</tspan>
+<tspan x="10" y="7962">-    );</tspan>
 
-<tspan x="10" y="7978">+    local.assertJsonEqual = function (aa, bb) {</tspan>
+<tspan x="10" y="7978">     // init local</tspan>
 
-<tspan x="10" y="7994">+    /*</tspan>
+<tspan x="10" y="7994">     local = {};</tspan>
 
-<tspan x="10" y="8010">+     * this function will assert JSON.stringify(&lt;aa&gt;) === JSON.stringify(&lt;bb&gt;)</tspan>
+<tspan x="10" y="8010">     local.local = local;</tspan>
 
-<tspan x="10" y="8026">+     */</tspan>
+<tspan x="10" y="8026">@@ -55,9 +48,39 @@</tspan>
 
-<tspan x="10" y="8042">+        let objectDeepCopyWithKeysSorted;</tspan>
+<tspan x="10" y="8042">         local.isBrowser &amp;&amp; typeof globalThis.importScripts === "function"</tspan>
 
-<tspan x="10" y="8058">+        objectDeepCopyWithKeysSorted = function (obj) {</tspan>
+<tspan x="10" y="8058">     );</tspan>
 
-<tspan x="10" y="8074">+        /*</tspan>
+<tspan x="10" y="8074">     // init function</tspan>
 
-<tspan x="10" y="8090">+         * this function will recursively deep-copy &lt;obj&gt; with keys sorted</tspan>
+<tspan x="10" y="8090">+    local.assertJsonEqual = function (aa, bb) {</tspan>
 
-<tspan x="10" y="8106">+         */</tspan>
+<tspan x="10" y="8106">+    /*</tspan>
 
-<tspan x="10" y="8122">+            let sorted;</tspan>
+<tspan x="10" y="8122">+     * this function will assert JSON.stringify(&lt;aa&gt;) === JSON.stringify(&lt;bb&gt;)</tspan>
 
-<tspan x="10" y="8138">+            if (typeof obj !== "object" || !obj) {</tspan>
+<tspan x="10" y="8138">+     */</tspan>
 
-<tspan x="10" y="8154">+                return obj;</tspan>
+<tspan x="10" y="8154">+        let objectDeepCopyWithKeysSorted;</tspan>
 
-<tspan x="10" y="8170">+            }</tspan>
+<tspan x="10" y="8170">+        objectDeepCopyWithKeysSorted = function (obj) {</tspan>
 
-<tspan x="10" y="8186">+            // recursively deep-copy list with child-keys sorted</tspan>
+<tspan x="10" y="8186">+        /*</tspan>
 
-<tspan x="10" y="8202">+            if (Array.isArray(obj)) {</tspan>
+<tspan x="10" y="8202">+         * this function will recursively deep-copy &lt;obj&gt; with keys sorted</tspan>
 
-<tspan x="10" y="8218">+                return obj.map(objectDeepCopyWithKeysSorted);</tspan>
+<tspan x="10" y="8218">+         */</tspan>
 
-<tspan x="10" y="8234">+            }</tspan>
+<tspan x="10" y="8234">+            let sorted;</tspan>
 
-<tspan x="10" y="8250">+            // recursively deep-copy obj with keys sorted</tspan>
+<tspan x="10" y="8250">+            if (typeof obj !== "object" || !obj) {</tspan>
 
-<tspan x="10" y="8266">+            sorted = {};</tspan>
+<tspan x="10" y="8266">+                return obj;</tspan>
 
-<tspan x="10" y="8282">+            Object.keys(obj).sort().forEach(function (key) {</tspan>
+<tspan x="10" y="8282">+            }</tspan>
 
-<tspan x="10" y="8298">+                sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);</tspan>
+<tspan x="10" y="8298">+            // recursively deep-copy list with child-keys sorted</tspan>
 
-<tspan x="10" y="8314">+            });</tspan>
+<tspan x="10" y="8314">+            if (Array.isArray(obj)) {</tspan>
 
-<tspan x="10" y="8330">+            return sorted;</tspan>
+<tspan x="10" y="8330">+                return obj.map(objectDeepCopyWithKeysSorted);</tspan>
 
-<tspan x="10" y="8346">+        };</tspan>
+<tspan x="10" y="8346">+            }</tspan>
 
-<tspan x="10" y="8362">+        aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));</tspan>
+<tspan x="10" y="8362">+            // recursively deep-copy obj with keys sorted</tspan>
 
-<tspan x="10" y="8378">+        bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));</tspan>
+<tspan x="10" y="8378">+            sorted = {};</tspan>
 
-<tspan x="10" y="8394">+        if (aa !== bb) {</tspan>
+<tspan x="10" y="8394">+            Object.keys(obj).sort().forEach(function (key) {</tspan>
 
-<tspan x="10" y="8410">+            throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));</tspan>
+<tspan x="10" y="8410">+                sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);</tspan>
 
-<tspan x="10" y="8426">+        }</tspan>
+<tspan x="10" y="8426">+            });</tspan>
 
-<tspan x="10" y="8442">+    };</tspan>
+<tspan x="10" y="8442">+            return sorted;</tspan>
 
-<tspan x="10" y="8458">     local.assertOrThrow = function (passed, msg) {</tspan>
+<tspan x="10" y="8458">+        };</tspan>
 
-<tspan x="10" y="8474">     /*</tspan>
+<tspan x="10" y="8474">+        aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));</tspan>
 
-<tspan x="10" y="8490">-     * this function will throw err.&lt;msg&gt; if &lt;passed&gt; is falsy</tspan>
+<tspan x="10" y="8490">+        bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));</tspan>
 
-<tspan x="10" y="8506">+     * this function will throw &lt;msg&gt; if &lt;passed&gt; is falsy</tspan>
+<tspan x="10" y="8506">+        if (aa !== bb) {</tspan>
 
-<tspan x="10" y="8522">      */</tspan>
+<tspan x="10" y="8522">+            throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));</tspan>
 
-<tspan x="10" y="8538">         if (passed) {</tspan>
+<tspan x="10" y="8538">+        }</tspan>
 
-<tspan x="10" y="8554">             return;</tspan>
+<tspan x="10" y="8554">+    };</tspan>
 
-<tspan x="10" y="8570">@@ -72,9 +95,9 @@</tspan>
+<tspan x="10" y="8570">     local.assertOrThrow = function (passed, msg) {</tspan>
 
-<tspan x="10" y="8586">             ? msg</tspan>
+<tspan x="10" y="8586">     /*</tspan>
 
-<tspan x="10" y="8602">             : new Error(</tspan>
+<tspan x="10" y="8602">-     * this function will throw err.&lt;msg&gt; if &lt;passed&gt; is falsy</tspan>
 
-<tspan x="10" y="8618">                 typeof msg === "string"</tspan>
+<tspan x="10" y="8618">+     * this function will throw &lt;msg&gt; if &lt;passed&gt; is falsy</tspan>
 
-<tspan x="10" y="8634">-                // if msg is a string, then leave as is</tspan>
+<tspan x="10" y="8634">      */</tspan>
 
-<tspan x="10" y="8650">+                // if msg is string, then leave as is</tspan>
+<tspan x="10" y="8650">         if (passed) {</tspan>
 
-<tspan x="10" y="8666">                 ? msg</tspan>
+<tspan x="10" y="8666">             return;</tspan>
 
-<tspan x="10" y="8682">-                // else JSON.stringify msg</tspan>
+<tspan x="10" y="8682">@@ -72,9 +95,9 @@</tspan>
 
-<tspan x="10" y="8698">+                // else JSON.stringify(msg)</tspan>
+<tspan x="10" y="8698">             ? msg</tspan>
 
-<tspan x="10" y="8714">                 : JSON.stringify(msg, undefined, 4)</tspan>
+<tspan x="10" y="8714">             : new Error(</tspan>
 
-<tspan x="10" y="8730">             )</tspan>
+<tspan x="10" y="8730">                 typeof msg === "string"</tspan>
 
-<tspan x="10" y="8746">         );</tspan>
+<tspan x="10" y="8746">-                // if msg is a string, then leave as is</tspan>
 
-<tspan x="10" y="8762">@@ -88,71 +111,13 @@</tspan>
+<tspan x="10" y="8762">+                // if msg is string, then leave as is</tspan>
 
-<tspan x="10" y="8778">         ii = 0;</tspan>
+<tspan x="10" y="8778">                 ? msg</tspan>
 
-<tspan x="10" y="8794">         while (ii &lt; argList.length) {</tspan>
+<tspan x="10" y="8794">-                // else JSON.stringify msg</tspan>
 
-<tspan x="10" y="8810">             arg = argList[ii];</tspan>
+<tspan x="10" y="8810">+                // else JSON.stringify(msg)</tspan>
 
-<tspan x="10" y="8826">-            if (arg !== null &amp;&amp; arg !== undefined &amp;&amp; arg !== "") {</tspan>
+<tspan x="10" y="8826">                 : JSON.stringify(msg, undefined, 4)</tspan>
 
-<tspan x="10" y="8842">-                break;</tspan>
+<tspan x="10" y="8842">             )</tspan>
 
-<tspan x="10" y="8858">+            if (arg !== undefined &amp;&amp; arg !== null &amp;&amp; arg !== "") {</tspan>
+<tspan x="10" y="8858">         );</tspan>
 
-<tspan x="10" y="8874">+                return arg;</tspan>
+<tspan x="10" y="8874">@@ -88,71 +111,13 @@</tspan>
 
-<tspan x="10" y="8890">             }</tspan>
+<tspan x="10" y="8890">         ii = 0;</tspan>
 
-<tspan x="10" y="8906">             ii += 1;</tspan>
+<tspan x="10" y="8906">         while (ii &lt; argList.length) {</tspan>
 
-<tspan x="10" y="8922">         }</tspan>
+<tspan x="10" y="8922">             arg = argList[ii];</tspan>
 
-<tspan x="10" y="8938">         return arg;</tspan>
+<tspan x="10" y="8938">-            if (arg !== null &amp;&amp; arg !== undefined &amp;&amp; arg !== "") {</tspan>
 
-<tspan x="10" y="8954">     };</tspan>
+<tspan x="10" y="8954">-                break;</tspan>
 
-<tspan x="10" y="8970">-    local.fsRmrfSync = function (dir) {</tspan>
+<tspan x="10" y="8970">+            if (arg !== undefined &amp;&amp; arg !== null &amp;&amp; arg !== "") {</tspan>
 
-<tspan x="10" y="8986">-    /*</tspan>
+<tspan x="10" y="8986">+                return arg;</tspan>
 
-<tspan x="10" y="9002">-     * this function will sync "rm -rf" &lt;dir&gt;</tspan>
+<tspan x="10" y="9002">             }</tspan>
 
-<tspan x="10" y="9018">-     */</tspan>
+<tspan x="10" y="9018">             ii += 1;</tspan>
 
-<tspan x="10" y="9034">-        let child_process;</tspan>
+<tspan x="10" y="9034">         }</tspan>
 
-<tspan x="10" y="9050">-        // do nothing if module does not exist</tspan>
+<tspan x="10" y="9050">         return arg;</tspan>
 
-<tspan x="10" y="9066">-        try {</tspan>
+<tspan x="10" y="9066">     };</tspan>
 
-<tspan x="10" y="9082">-            child_process = require("child_process");</tspan>
+<tspan x="10" y="9082">-    local.fsRmrfSync = function (dir) {</tspan>
 
-<tspan x="10" y="9098">-        } catch (ignore) {</tspan>
+<tspan x="10" y="9098">-    /*</tspan>
 
-<tspan x="10" y="9114">-            return;</tspan>
+<tspan x="10" y="9114">-     * this function will sync "rm -rf" &lt;dir&gt;</tspan>
 
-<tspan x="10" y="9130">-        }</tspan>
+<tspan x="10" y="9130">-     */</tspan>
 
-<tspan x="10" y="9146">-        child_process.spawnSync("rm", [</tspan>
+<tspan x="10" y="9146">-        let child_process;</tspan>
 
-<tspan x="10" y="9162">-            "-rf", dir</tspan>
+<tspan x="10" y="9162">-        // do nothing if module does not exist</tspan>
 
-<tspan x="10" y="9178">-        ], {</tspan>
+<tspan x="10" y="9178">-        try {</tspan>
 
-<tspan x="10" y="9194">-            stdio: [</tspan>
+<tspan x="10" y="9194">-            child_process = require("child_process");</tspan>
 
-<tspan x="10" y="9210">-                "ignore", 1, 2</tspan>
+<tspan x="10" y="9210">-        } catch (ignore) {</tspan>
 
-<tspan x="10" y="9226">-            ]</tspan>
+<tspan x="10" y="9226">-            return;</tspan>
 
-<tspan x="10" y="9242">-        });</tspan>
+<tspan x="10" y="9242">-        }</tspan>
 
-<tspan x="10" y="9258">-    };</tspan>
+<tspan x="10" y="9258">-        child_process.spawnSync("rm", [</tspan>
 
-<tspan x="10" y="9274">-    local.fsWriteFileWithMkdirpSync = function (file, data) {</tspan>
+<tspan x="10" y="9274">-            "-rf", dir</tspan>
 
-<tspan x="10" y="9290">-    /*</tspan>
+<tspan x="10" y="9290">-        ], {</tspan>
 
-<tspan x="10" y="9306">-     * this function will sync write &lt;data&gt; to &lt;file&gt; with "mkdir -p"</tspan>
+<tspan x="10" y="9306">-            stdio: [</tspan>
 
-<tspan x="10" y="9322">-     */</tspan>
+<tspan x="10" y="9322">-                "ignore", 1, 2</tspan>
 
-<tspan x="10" y="9338">-        let fs;</tspan>
+<tspan x="10" y="9338">-            ]</tspan>
 
-<tspan x="10" y="9354">-        // do nothing if module does not exist</tspan>
+<tspan x="10" y="9354">-        });</tspan>
 
-<tspan x="10" y="9370">-        try {</tspan>
+<tspan x="10" y="9370">-    };</tspan>
 
-<tspan x="10" y="9386">-            fs = require("fs");</tspan>
+<tspan x="10" y="9386">-    local.fsWriteFileWithMkdirpSync = function (file, data) {</tspan>
 
-<tspan x="10" y="9402">-        } catch (ignore) {</tspan>
+<tspan x="10" y="9402">-    /*</tspan>
 
-<tspan x="10" y="9418">-            return;</tspan>
+<tspan x="10" y="9418">-     * this function will sync write &lt;data&gt; to &lt;file&gt; with "mkdir -p"</tspan>
 
-<tspan x="10" y="9434">-        }</tspan>
+<tspan x="10" y="9434">-     */</tspan>
 
-<tspan x="10" y="9450">-        // try to write file</tspan>
+<tspan x="10" y="9450">-        let fs;</tspan>
 
-<tspan x="10" y="9466">-        try {</tspan>
+<tspan x="10" y="9466">-        // do nothing if module does not exist</tspan>
 
-<tspan x="10" y="9482">-            fs.writeFileSync(file, data);</tspan>
+<tspan x="10" y="9482">-        try {</tspan>
 
-<tspan x="10" y="9498">-        } catch (ignore) {</tspan>
+<tspan x="10" y="9498">-            fs = require("fs");</tspan>
 
-<tspan x="10" y="9514">-            // mkdir -p</tspan>
+<tspan x="10" y="9514">-        } catch (ignore) {</tspan>
 
-<tspan x="10" y="9530">-            require("child_process").spawnSync(</tspan>
+<tspan x="10" y="9530">-            return;</tspan>
 
-<tspan x="10" y="9546">-                "mkdir",</tspan>
+<tspan x="10" y="9546">-        }</tspan>
 
-<tspan x="10" y="9562">-                [</tspan>
+<tspan x="10" y="9562">-        // try to write file</tspan>
 
-<tspan x="10" y="9578">-                    "-p", require("path").dirname(file)</tspan>
+<tspan x="10" y="9578">-        try {</tspan>
 
-<tspan x="10" y="9594">-                ],</tspan>
+<tspan x="10" y="9594">-            fs.writeFileSync(file, data);</tspan>
 
-<tspan x="10" y="9610">-                {</tspan>
+<tspan x="10" y="9610">-        } catch (ignore) {</tspan>
 
-<tspan x="10" y="9626">-                    stdio: [</tspan>
+<tspan x="10" y="9626">-            // mkdir -p</tspan>
 
-<tspan x="10" y="9642">-                        "ignore", 1, 2</tspan>
+<tspan x="10" y="9642">-            require("child_process").spawnSync(</tspan>
 
-<tspan x="10" y="9658">-                    ]</tspan>
+<tspan x="10" y="9658">-                "mkdir",</tspan>
 
-<tspan x="10" y="9674">-                }</tspan>
+<tspan x="10" y="9674">-                [</tspan>
 
-<tspan x="10" y="9690">-            );</tspan>
+<tspan x="10" y="9690">-                    "-p", require("path").dirname(file)</tspan>
 
-<tspan x="10" y="9706">-            // rewrite file</tspan>
+<tspan x="10" y="9706">-                ],</tspan>
 
-<tspan x="10" y="9722">-            fs.writeFileSync(file, data);</tspan>
+<tspan x="10" y="9722">-                {</tspan>
 
-<tspan x="10" y="9738">-        }</tspan>
+<tspan x="10" y="9738">-                    stdio: [</tspan>
 
-<tspan x="10" y="9754">-    };</tspan>
+<tspan x="10" y="9754">-                        "ignore", 1, 2</tspan>
 
-<tspan x="10" y="9770">-    local.functionOrNop = function (fnc) {</tspan>
+<tspan x="10" y="9770">-                    ]</tspan>
 
-<tspan x="10" y="9786">-    /*</tspan>
+<tspan x="10" y="9786">-                }</tspan>
 
-<tspan x="10" y="9802">-     * this function will if &lt;fnc&gt; exists,</tspan>
+<tspan x="10" y="9802">-            );</tspan>
 
-<tspan x="10" y="9818">-     * return &lt;fnc&gt;,</tspan>
+<tspan x="10" y="9818">-            // rewrite file</tspan>
 
-<tspan x="10" y="9834">-     * else return &lt;nop&gt;</tspan>
+<tspan x="10" y="9834">-            fs.writeFileSync(file, data);</tspan>
 
-<tspan x="10" y="9850">-     */</tspan>
+<tspan x="10" y="9850">-        }</tspan>
 
-<tspan x="10" y="9866">-        return fnc || local.nop;</tspan>
+<tspan x="10" y="9866">-    };</tspan>
 
-<tspan x="10" y="9882">-    };</tspan>
+<tspan x="10" y="9882">-    local.functionOrNop = function (fnc) {</tspan>
 
-<tspan x="10" y="9898">     local.identity = function (val) {</tspan>
+<tspan x="10" y="9898">-    /*</tspan>
 
-<tspan x="10" y="9914">     /*</tspan>
+<tspan x="10" y="9914">-     * this function will if &lt;fnc&gt; exists,</tspan>
 
-<tspan x="10" y="9930">      * this function will return &lt;val&gt;</tspan>
+<tspan x="10" y="9930">-     * return &lt;fnc&gt;,</tspan>
 
-<tspan x="10" y="9946">@@ -165,52 +130,46 @@</tspan>
+<tspan x="10" y="9946">-     * else return &lt;nop&gt;</tspan>
 
-<tspan x="10" y="9962">      */</tspan>
+<tspan x="10" y="9962">-     */</tspan>
 
-<tspan x="10" y="9978">         return;</tspan>
+<tspan x="10" y="9978">-        return fnc || local.nop;</tspan>
 
-<tspan x="10" y="9994">     };</tspan>
+<tspan x="10" y="9994">-    };</tspan>
 
-<tspan x="10" y="10010">-    local.objectAssignDefault = function (target, source) {</tspan>
+<tspan x="10" y="10010">     local.identity = function (val) {</tspan>
 
-<tspan x="10" y="10026">+    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {</tspan>
+<tspan x="10" y="10026">     /*</tspan>
 
-<tspan x="10" y="10042">     /*</tspan>
+<tspan x="10" y="10042">      * this function will return &lt;val&gt;</tspan>
 
-<tspan x="10" y="10058">-     * this function will if items from &lt;target&gt; are null, undefined, or "",</tspan>
+<tspan x="10" y="10058">@@ -165,72 +130,52 @@</tspan>
 
-<tspan x="10" y="10074">-     * then overwrite them with items from &lt;source&gt;</tspan>
+<tspan x="10" y="10074">      */</tspan>
 
-<tspan x="10" y="10090">+     * this function will if items from &lt;tgt&gt; are null, undefined, or "",</tspan>
+<tspan x="10" y="10090">         return;</tspan>
 
-<tspan x="10" y="10106">+     * then overwrite them with items from &lt;src&gt;</tspan>
+<tspan x="10" y="10106">     };</tspan>
 
-<tspan x="10" y="10122">      */</tspan>
+<tspan x="10" y="10122">-    local.objectAssignDefault = function (target, source) {</tspan>
 
-<tspan x="10" y="10138">-        target = target || {};</tspan>
+<tspan x="10" y="10138">+    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {</tspan>
 
-<tspan x="10" y="10154">-        Object.keys(source || {}).forEach(function (key) {</tspan>
+<tspan x="10" y="10154">     /*</tspan>
 
-<tspan x="10" y="10170">-            if (</tspan>
+<tspan x="10" y="10170">-     * this function will if items from &lt;target&gt; are null, undefined, or "",</tspan>
 
-<tspan x="10" y="10186">-                target[key] === null</tspan>
+<tspan x="10" y="10186">-     * then overwrite them with items from &lt;source&gt;</tspan>
 
-<tspan x="10" y="10202">-                || target[key] === undefined</tspan>
+<tspan x="10" y="10202">+     * this function will if items from &lt;tgt&gt; are null, undefined, or "",</tspan>
 
-<tspan x="10" y="10218">-                || target[key] === ""</tspan>
+<tspan x="10" y="10218">+     * then overwrite them with items from &lt;src&gt;</tspan>
 
-<tspan x="10" y="10234">-            ) {</tspan>
+<tspan x="10" y="10234">      */</tspan>
 
-<tspan x="10" y="10250">-                target[key] = target[key] || source[key];</tspan>
+<tspan x="10" y="10250">-        target = target || {};</tspan>
 
-<tspan x="10" y="10266">-            }</tspan>
+<tspan x="10" y="10266">-        Object.keys(source || {}).forEach(function (key) {</tspan>
 
-<tspan x="10" y="10282">-        });</tspan>
+<tspan x="10" y="10282">-            if (</tspan>
 
-<tspan x="10" y="10298">-        return target;</tspan>
+<tspan x="10" y="10298">-                target[key] === null</tspan>
 
-<tspan x="10" y="10314">-    };</tspan>
+<tspan x="10" y="10314">-                || target[key] === undefined</tspan>
 
-<tspan x="10" y="10330">-    local.querySelector = function (selectors) {</tspan>
+<tspan x="10" y="10330">-                || target[key] === ""</tspan>
 
-<tspan x="10" y="10346">-    /*</tspan>
+<tspan x="10" y="10346">-            ) {</tspan>
 
-<tspan x="10" y="10362">-     * this function will return first dom-elem that match &lt;selectors&gt;</tspan>
+<tspan x="10" y="10362">-                target[key] = target[key] || source[key];</tspan>
 
-<tspan x="10" y="10378">-     */</tspan>
+<tspan x="10" y="10378">-            }</tspan>
 
-<tspan x="10" y="10394">-        return (</tspan>
+<tspan x="10" y="10394">-        });</tspan>
 
-<tspan x="10" y="10410">-            typeof document === "object" &amp;&amp; document</tspan>
+<tspan x="10" y="10410">-        return target;</tspan>
 
-<tspan x="10" y="10426">-            &amp;&amp; typeof document.querySelector === "function"</tspan>
+<tspan x="10" y="10426">-    };</tspan>
 
-<tspan x="10" y="10442">-            &amp;&amp; document.querySelector(selectors)</tspan>
+<tspan x="10" y="10442">-    local.querySelector = function (selectors) {</tspan>
 
-<tspan x="10" y="10458">-        ) || {};</tspan>
+<tspan x="10" y="10458">-    /*</tspan>
 
-<tspan x="10" y="10474">-    };</tspan>
+<tspan x="10" y="10474">-     * this function will return first dom-elem that match &lt;selectors&gt;</tspan>
 
-<tspan x="10" y="10490">-    local.querySelectorAll = function (selectors) {</tspan>
+<tspan x="10" y="10490">-     */</tspan>
 
-<tspan x="10" y="10506">-    /*</tspan>
+<tspan x="10" y="10506">-        return (</tspan>
 
-<tspan x="10" y="10522">-     * this function will return dom-elem-list that match &lt;selectors&gt;</tspan>
+<tspan x="10" y="10522">-            typeof document === "object" &amp;&amp; document</tspan>
 
-<tspan x="10" y="10538">-     */</tspan>
+<tspan x="10" y="10538">-            &amp;&amp; typeof document.querySelector === "function"</tspan>
 
-<tspan x="10" y="10554">-        return (</tspan>
+<tspan x="10" y="10554">-            &amp;&amp; document.querySelector(selectors)</tspan>
 
-<tspan x="10" y="10570">-            typeof document === "object" &amp;&amp; document</tspan>
+<tspan x="10" y="10570">-        ) || {};</tspan>
 
-<tspan x="10" y="10586">-            &amp;&amp; typeof document.querySelectorAll === "function"</tspan>
+<tspan x="10" y="10586">-    };</tspan>
 
-<tspan x="10" y="10602">-            &amp;&amp; Array.from(document.querySelectorAll(selectors))</tspan>
+<tspan x="10" y="10602">-    local.querySelectorAll = function (selectors) {</tspan>
 
-<tspan x="10" y="10618">-        ) || [];</tspan>
+<tspan x="10" y="10618">-    /*</tspan>
 
-<tspan x="10" y="10634">+        let recurse;</tspan>
+<tspan x="10" y="10634">-     * this function will return dom-elem-list that match &lt;selectors&gt;</tspan>
 
-<tspan x="10" y="10650">+        recurse = function (tgt, src, depth) {</tspan>
+<tspan x="10" y="10650">-     */</tspan>
 
-<tspan x="10" y="10666">+            Object.entries(src).forEach(function ([</tspan>
+<tspan x="10" y="10666">-        return (</tspan>
 
-<tspan x="10" y="10682">+                key, bb</tspan>
+<tspan x="10" y="10682">-            typeof document === "object" &amp;&amp; document</tspan>
 
-<tspan x="10" y="10698">+            ]) {</tspan>
+<tspan x="10" y="10698">-            &amp;&amp; typeof document.querySelectorAll === "function"</tspan>
 
-<tspan x="10" y="10714">+                let aa;</tspan>
+<tspan x="10" y="10714">-            &amp;&amp; Array.from(document.querySelectorAll(selectors))</tspan>
 
-<tspan x="10" y="10730">+                aa = tgt[key];</tspan>
+<tspan x="10" y="10730">-        ) || [];</tspan>
 
-<tspan x="10" y="10746">+                if (aa === undefined || aa === null || aa === "") {</tspan>
+<tspan x="10" y="10746">+        let recurse;</tspan>
 
-<tspan x="10" y="10762">+                    tgt[key] = bb;</tspan>
+<tspan x="10" y="10762">+        recurse = function (tgt, src, depth) {</tspan>
 
-<tspan x="10" y="10778">+                    return;</tspan>
+<tspan x="10" y="10778">+            Object.entries(src).forEach(function ([</tspan>
 
-<tspan x="10" y="10794">+                }</tspan>
+<tspan x="10" y="10794">+                key, bb</tspan>
 
-<tspan x="10" y="10810">+                if (</tspan>
+<tspan x="10" y="10810">+            ]) {</tspan>
 
-<tspan x="10" y="10826">+                    depth !== 0</tspan>
+<tspan x="10" y="10826">+                let aa;</tspan>
 
-<tspan x="10" y="10842">+                    &amp;&amp; typeof aa === "object" &amp;&amp; aa &amp;&amp; !Array.isArray(aa)</tspan>
+<tspan x="10" y="10842">+                aa = tgt[key];</tspan>
 
-<tspan x="10" y="10858">+                    &amp;&amp; typeof bb === "object" &amp;&amp; bb &amp;&amp; !Array.isArray(bb)</tspan>
+<tspan x="10" y="10858">+                if (aa === undefined || aa === null || aa === "") {</tspan>
 
-<tspan x="10" y="10874">+                ) {</tspan>
+<tspan x="10" y="10874">+                    tgt[key] = bb;</tspan>
 
-<tspan x="10" y="10890">+                    recurse(aa, bb, depth - 1);</tspan>
+<tspan x="10" y="10890">+                    return;</tspan>
 
 <tspan x="10" y="10906">+                }</tspan>
 
-<tspan x="10" y="10922">+            });</tspan>
+<tspan x="10" y="10922">+                if (</tspan>
 
-<tspan x="10" y="10938">+        };</tspan>
+<tspan x="10" y="10938">+                    depth !== 0</tspan>
 
-<tspan x="10" y="10954">+        recurse(tgt, src, depth | 0);</tspan>
+<tspan x="10" y="10954">+                    &amp;&amp; typeof aa === "object" &amp;&amp; aa &amp;&amp; !Array.isArray(aa)</tspan>
 
-<tspan x="10" y="10970">+        return tgt;</tspan>
+<tspan x="10" y="10970">+                    &amp;&amp; typeof bb === "object" &amp;&amp; bb &amp;&amp; !Array.isArray(bb)</tspan>
 
-<tspan x="10" y="10986">     };</tspan>
+<tspan x="10" y="10986">+                ) {</tspan>
 
-<tspan x="10" y="11002">     // require builtin</tspan>
+<tspan x="10" y="11002">+                    recurse(aa, bb, depth - 1);</tspan>
 
-<tspan x="10" y="11018">     if (!local.isBrowser) {</tspan>
+<tspan x="10" y="11018">+                }</tspan>
 
-<tspan x="10" y="11034">+        if (process.unhandledRejections !== "strict") {</tspan>
+<tspan x="10" y="11034">+            });</tspan>
 
-<tspan x="10" y="11050">+            process.unhandledRejections = "strict";</tspan>
+<tspan x="10" y="11050">+        };</tspan>
 
-<tspan x="10" y="11066">+            process.on("unhandledRejection", function (err) {</tspan>
+<tspan x="10" y="11066">+        recurse(tgt, src, depth | 0);</tspan>
 
-<tspan x="10" y="11082">+                throw err;</tspan>
+<tspan x="10" y="11082">+        return tgt;</tspan>
 
-<tspan x="10" y="11098">+            });</tspan>
+<tspan x="10" y="11098">     };</tspan>
 
-<tspan x="10" y="11114">+        }</tspan>
+<tspan x="10" y="11114">     // require builtin</tspan>
 
-<tspan x="10" y="11130">         local.assert = require("assert");</tspan>
+<tspan x="10" y="11130">     if (!local.isBrowser) {</tspan>
 
-<tspan x="10" y="11146">-        local.buffer = require("buffer");</tspan>
+<tspan x="10" y="11146">+        if (process.unhandledRejections !== "strict") {</tspan>
 
-<tspan x="10" y="11162">         local.child_process = require("child_process");</tspan>
+<tspan x="10" y="11162">+            process.unhandledRejections = "strict";</tspan>
 
-<tspan x="10" y="11178">         local.cluster = require("cluster");</tspan>
+<tspan x="10" y="11178">+            process.on("unhandledRejection", function (err) {</tspan>
 
-<tspan x="10" y="11194">         local.crypto = require("crypto");</tspan>
+<tspan x="10" y="11194">+                throw err;</tspan>
 
-<tspan x="10" y="11210">-        local.dgram = require("dgram");</tspan>
+<tspan x="10" y="11210">+            });</tspan>
 
-<tspan x="10" y="11226">-        local.dns = require("dns");</tspan>
+<tspan x="10" y="11226">+        }</tspan>
 
-<tspan x="10" y="11242">         local.domain = require("domain");</tspan>
+<tspan x="10" y="11242">         local.assert = require("assert");</tspan>
 
-<tspan x="10" y="11258">         local.events = require("events");</tspan>
+<tspan x="10" y="11258">-        local.buffer = require("buffer");</tspan>
 
-<tspan x="10" y="11274">         local.fs = require("fs");</tspan>
+<tspan x="10" y="11274">         local.child_process = require("child_process");</tspan>
 
-<tspan x="10" y="11290">@@ -225,12 +184,8 @@</tspan>
+<tspan x="10" y="11290">-        local.cluster = require("cluster");</tspan>
 
-<tspan x="10" y="11306">         local.stream = require("stream");</tspan>
+<tspan x="10" y="11306">         local.crypto = require("crypto");</tspan>
 
-<tspan x="10" y="11322">         local.string_decoder = require("string_decoder");</tspan>
+<tspan x="10" y="11322">-        local.dgram = require("dgram");</tspan>
 
-<tspan x="10" y="11338">         local.timers = require("timers");</tspan>
+<tspan x="10" y="11338">-        local.dns = require("dns");</tspan>
 
-<tspan x="10" y="11354">-        local.tls = require("tls");</tspan>
+<tspan x="10" y="11354">-        local.domain = require("domain");</tspan>
 
-<tspan x="10" y="11370">-        local.tty = require("tty");</tspan>
+<tspan x="10" y="11370">-        local.events = require("events");</tspan>
 
-<tspan x="10" y="11386">         local.url = require("url");</tspan>
+<tspan x="10" y="11386">         local.fs = require("fs");</tspan>
 
-<tspan x="10" y="11402">         local.util = require("util");</tspan>
+<tspan x="10" y="11402">         local.http = require("http");</tspan>
 
-<tspan x="10" y="11418">-        local.vm = require("vm");</tspan>
+<tspan x="10" y="11418">         local.https = require("https");</tspan>
 
-<tspan x="10" y="11434">-        local.zlib = require("zlib");</tspan>
+<tspan x="10" y="11434">-        local.net = require("net");</tspan>
 
-<tspan x="10" y="11450">     }</tspan>
+<tspan x="10" y="11450">-        local.os = require("os");</tspan>
 
-<tspan x="10" y="11466"> }((typeof globalThis === "object" &amp;&amp; globalThis) || window));</tspan>
+<tspan x="10" y="11466">         local.path = require("path");</tspan>
 
-<tspan x="10" y="11482"> // assets.utility2.header.js - end</tspan>
+<tspan x="10" y="11482">-        local.querystring = require("querystring");</tspan>
 
-<tspan x="10" y="11498">@@ -275,7 +230,7 @@</tspan>
+<tspan x="10" y="11498">-        local.readline = require("readline");</tspan>
 
-<tspan x="10" y="11514">      * will eval &lt;code&gt;</tspan>
+<tspan x="10" y="11514">         local.repl = require("repl");</tspan>
 
-<tspan x="10" y="11530">      */</tspan>
+<tspan x="10" y="11530">         local.stream = require("stream");</tspan>
 
-<tspan x="10" y="11546">         globalThis.local = local;</tspan>
+<tspan x="10" y="11546">-        local.string_decoder = require("string_decoder");</tspan>
 
-<tspan x="10" y="11562">-        local.vm.runInThisContext(process.argv[3]);</tspan>
+<tspan x="10" y="11562">-        local.timers = require("timers");</tspan>
 
-<tspan x="10" y="11578">+        require("vm").runInThisContext(process.argv[3]);</tspan>
+<tspan x="10" y="11578">-        local.tls = require("tls");</tspan>
 
-<tspan x="10" y="11594">     };</tspan>
+<tspan x="10" y="11594">-        local.tty = require("tty");</tspan>
 
-<tspan x="10" y="11610">     local.cliDict._help = local.cliDict._help || function () {</tspan>
+<tspan x="10" y="11610">         local.url = require("url");</tspan>
 
-<tspan x="10" y="11626">     /*</tspan>
+<tspan x="10" y="11626">-        local.util = require("util");</tspan>
 
-<tspan x="10" y="11642">@@ -432,9 +387,9 @@</tspan>
+<tspan x="10" y="11642">-        local.vm = require("vm");</tspan>
 
-<tspan x="10" y="11658">  * this function will search &lt;pathList&gt; for &lt;module&gt;'s __dirname</tspan>
+<tspan x="10" y="11658">-        local.zlib = require("zlib");</tspan>
 
-<tspan x="10" y="11674">  */</tspan>
+<tspan x="10" y="11674">     }</tspan>
 
-<tspan x="10" y="11690">     let result;</tspan>
+<tspan x="10" y="11690"> }((typeof globalThis === "object" &amp;&amp; globalThis) || window));</tspan>
 
-<tspan x="10" y="11706">-    // search process.cwd()</tspan>
+<tspan x="10" y="11706"> // assets.utility2.header.js - end</tspan>
 
-<tspan x="10" y="11722">+    // search "."</tspan>
+<tspan x="10" y="11722">@@ -275,7 +220,7 @@</tspan>
 
-<tspan x="10" y="11738">     if (!module || module === "." || module.indexOf("/") &gt;= 0) {</tspan>
+<tspan x="10" y="11738">      * will eval &lt;code&gt;</tspan>
 
-<tspan x="10" y="11754">-        return require("path").resolve(process.cwd(), module || "");</tspan>
+<tspan x="10" y="11754">      */</tspan>
 
-<tspan x="10" y="11770">+        return require("path").resolve(module || "");</tspan>
+<tspan x="10" y="11770">         globalThis.local = local;</tspan>
 
-<tspan x="10" y="11786">     }</tspan>
+<tspan x="10" y="11786">-        local.vm.runInThisContext(process.argv[3]);</tspan>
 
-<tspan x="10" y="11802">     // search pathList</tspan>
+<tspan x="10" y="11802">+        require("vm").runInThisContext(process.argv[3]);</tspan>
 
-<tspan x="10" y="11818">     Array.from([</tspan>
+<tspan x="10" y="11818">     };</tspan>
 
-<tspan x="10" y="11834">@@ -445,10 +400,7 @@</tspan>
+<tspan x="10" y="11834">     local.cliDict._help = local.cliDict._help || function () {</tspan>
 
-<tspan x="10" y="11850">         ]</tspan>
+<tspan x="10" y="11850">     /*</tspan>
 
-<tspan x="10" y="11866">     ]).flat().some(function (path) {</tspan>
+<tspan x="10" y="11866">@@ -432,9 +377,9 @@</tspan>
 
-<tspan x="10" y="11882">         try {</tspan>
+<tspan x="10" y="11882">  * this function will search &lt;pathList&gt; for &lt;module&gt;'s __dirname</tspan>
 
-<tspan x="10" y="11898">-            result = require("path").resolve(</tspan>
+<tspan x="10" y="11898">  */</tspan>
 
-<tspan x="10" y="11914">-                process.cwd(),</tspan>
+<tspan x="10" y="11914">     let result;</tspan>
 
-<tspan x="10" y="11930">-                path + "/" + module</tspan>
+<tspan x="10" y="11930">-    // search process.cwd()</tspan>
 
-<tspan x="10" y="11946">-            );</tspan>
+<tspan x="10" y="11946">+    // search "."</tspan>
 
-<tspan x="10" y="11962">+            result = require("path").resolve(path + "/" + module);</tspan>
+<tspan x="10" y="11962">     if (!module || module === "." || module.indexOf("/") &gt;= 0) {</tspan>
 
-<tspan x="10" y="11978">             result = require("fs").statSync(result).isDirectory() &amp;&amp; result;</tspan>
+<tspan x="10" y="11978">-        return require("path").resolve(process.cwd(), module || "");</tspan>
 
-<tspan x="10" y="11994">             return result;</tspan>
+<tspan x="10" y="11994">+        return require("path").resolve(module || "");</tspan>
 
-<tspan x="10" y="12010">         } catch (ignore) {</tspan>
+<tspan x="10" y="12010">     }</tspan>
 
-<tspan x="10" y="12026">@@ -628,7 +580,7 @@</tspan>
+<tspan x="10" y="12026">     // search pathList</tspan>
 
-<tspan x="10" y="12042"> ';</tspan>
+<tspan x="10" y="12042">     Array.from([</tspan>
 
-<tspan x="10" y="12058"> /* jslint ignore:end */</tspan>
+<tspan x="10" y="12058">@@ -445,10 +390,7 @@</tspan>
 
-<tspan x="10" y="12074"> </tspan>
+<tspan x="10" y="12074">         ]</tspan>
 
-<tspan x="10" y="12090">-local.templateRender = function (template, dict, opt, ii) {</tspan>
+<tspan x="10" y="12090">     ]).flat().some(function (path) {</tspan>
 
-<tspan x="10" y="12106">+local.templateRender = function (template, dict, opt = {}, ii = 0) {</tspan>
+<tspan x="10" y="12106">         try {</tspan>
 
-<tspan x="10" y="12122"> /*</tspan>
+<tspan x="10" y="12122">-            result = require("path").resolve(</tspan>
 
-<tspan x="10" y="12138">  * this function will render &lt;template&gt; with given &lt;dict&gt;</tspan>
+<tspan x="10" y="12138">-                process.cwd(),</tspan>
 
-<tspan x="10" y="12154">  */</tspan>
+<tspan x="10" y="12154">-                path + "/" + module</tspan>
 
-<tspan x="10" y="12170">@@ -642,7 +594,6 @@</tspan>
+<tspan x="10" y="12170">-            );</tspan>
 
-<tspan x="10" y="12186">     if (dict === null || dict === undefined) {</tspan>
+<tspan x="10" y="12186">+            result = require("path").resolve(path + "/" + module);</tspan>
 
-<tspan x="10" y="12202">         dict = {};</tspan>
+<tspan x="10" y="12202">             result = require("fs").statSync(result).isDirectory() &amp;&amp; result;</tspan>
 
-<tspan x="10" y="12218">     }</tspan>
+<tspan x="10" y="12218">             return result;</tspan>
 
-<tspan x="10" y="12234">-    opt = opt || {};</tspan>
+<tspan x="10" y="12234">         } catch (ignore) {</tspan>
 
-<tspan x="10" y="12250">     getVal = function (key) {</tspan>
+<tspan x="10" y="12250">@@ -628,7 +570,7 @@</tspan>
 
-<tspan x="10" y="12266">         argList = key.split(" ");</tspan>
+<tspan x="10" y="12266"> ';</tspan>
 
-<tspan x="10" y="12282">         val = dict;</tspan>
+<tspan x="10" y="12282"> /* jslint ignore:end */</tspan>
 
-<tspan x="10" y="12298">@@ -683,7 +634,7 @@</tspan>
+<tspan x="10" y="12298"> </tspan>
 
-<tspan x="10" y="12314">             partial = (</tspan>
+<tspan x="10" y="12314">-local.templateRender = function (template, dict, opt, ii) {</tspan>
 
-<tspan x="10" y="12330">                 getVal(key)</tspan>
+<tspan x="10" y="12330">+local.templateRender = function (template, dict, opt = {}, ii = 0) {</tspan>
 
-<tspan x="10" y="12346">                 ? partial[0]</tspan>
+<tspan x="10" y="12346"> /*</tspan>
 
-<tspan x="10" y="12362">-                // handle 'unless' case</tspan>
+<tspan x="10" y="12362">  * this function will render &lt;template&gt; with given &lt;dict&gt;</tspan>
 
-<tspan x="10" y="12378">+                // handle "unless" case</tspan>
+<tspan x="10" y="12378">  */</tspan>
 
-<tspan x="10" y="12394">                 : partial.slice(1).join("{{#unless " + key + "}}")</tspan>
+<tspan x="10" y="12394">@@ -642,7 +584,6 @@</tspan>
 
-<tspan x="10" y="12410">             );</tspan>
+<tspan x="10" y="12410">     if (dict === null || dict === undefined) {</tspan>
 
-<tspan x="10" y="12426">             // recurse with partial</tspan>
+<tspan x="10" y="12426">         dict = {};</tspan>
 
-<tspan x="10" y="12442">@@ -718,7 +669,7 @@</tspan>
+<tspan x="10" y="12442">     }</tspan>
 
-<tspan x="10" y="12458">         );</tspan>
+<tspan x="10" y="12458">-    opt = opt || {};</tspan>
 
-<tspan x="10" y="12474">         match = rgx.exec(template);</tspan>
+<tspan x="10" y="12474">     getVal = function (key) {</tspan>
 
-<tspan x="10" y="12490">     }</tspan>
+<tspan x="10" y="12490">         argList = key.split(" ");</tspan>
 
-<tspan x="10" y="12506">-    // search for keys in the template</tspan>
+<tspan x="10" y="12506">         val = dict;</tspan>
 
-<tspan x="10" y="12522">+    // search for keys in template</tspan>
+<tspan x="10" y="12522">@@ -683,7 +624,7 @@</tspan>
 
-<tspan x="10" y="12538">     return template.replace((</tspan>
+<tspan x="10" y="12538">             partial = (</tspan>
 
-<tspan x="10" y="12554">         /\{\{[^}]+?\}\}/g</tspan>
+<tspan x="10" y="12554">                 getVal(key)</tspan>
 
-<tspan x="10" y="12570">     ), function (match0) {</tspan>
+<tspan x="10" y="12570">                 ? partial[0]</tspan>
 
-<tspan x="10" y="12586">@@ -841,7 +792,7 @@</tspan>
+<tspan x="10" y="12586">-                // handle 'unless' case</tspan>
 
-<tspan x="10" y="12602"> </tspan>
+<tspan x="10" y="12602">+                // handle "unless" case</tspan>
 
-<tspan x="10" y="12618"> local.tryCatchOnError = function (fnc, onError) {</tspan>
+<tspan x="10" y="12618">                 : partial.slice(1).join("{{#unless " + key + "}}")</tspan>
 
-<tspan x="10" y="12634"> /*</tspan>
+<tspan x="10" y="12634">             );</tspan>
 
-<tspan x="10" y="12650">- * this function will run the fnc in a tryCatch block,</tspan>
+<tspan x="10" y="12650">             // recurse with partial</tspan>
 
-<tspan x="10" y="12666">+ * this function will run &lt;fnc&gt; in tryCatch block,</tspan>
+<tspan x="10" y="12666">@@ -718,7 +659,7 @@</tspan>
 
-<tspan x="10" y="12682">  * else call onError with errCaught</tspan>
+<tspan x="10" y="12682">         );</tspan>
 
-<tspan x="10" y="12698">  */</tspan>
+<tspan x="10" y="12698">         match = rgx.exec(template);</tspan>
 
-<tspan x="10" y="12714">     let result;</tspan>
+<tspan x="10" y="12714">     }</tspan>
 
-<tspan x="10" y="12730">@@ -849,9 +800,9 @@</tspan>
+<tspan x="10" y="12730">-    // search for keys in the template</tspan>
 
-<tspan x="10" y="12746">     local.assertOrThrow(typeof onError === "function", typeof onError);</tspan>
+<tspan x="10" y="12746">+    // search for keys in template</tspan>
 
-<tspan x="10" y="12762">     try {</tspan>
+<tspan x="10" y="12762">     return template.replace((</tspan>
 
-<tspan x="10" y="12778">         // reset errCaught</tspan>
+<tspan x="10" y="12778">         /\{\{[^}]+?\}\}/g</tspan>
 
-<tspan x="10" y="12794">-        local._debugTryCatchError = null;</tspan>
+<tspan x="10" y="12794">     ), function (match0) {</tspan>
 
-<tspan x="10" y="12810">+        delete local._debugTryCatchError;</tspan>
+<tspan x="10" y="12810">@@ -841,7 +782,7 @@</tspan>
 
-<tspan x="10" y="12826">         result = fnc();</tspan>
+<tspan x="10" y="12826"> </tspan>
 
-<tspan x="10" y="12842">-        local._debugTryCatchError = null;</tspan>
+<tspan x="10" y="12842"> local.tryCatchOnError = function (fnc, onError) {</tspan>
 
-<tspan x="10" y="12858">+        delete local._debugTryCatchError;</tspan>
+<tspan x="10" y="12858"> /*</tspan>
 
-<tspan x="10" y="12874">         return result;</tspan>
+<tspan x="10" y="12874">- * this function will run the fnc in a tryCatch block,</tspan>
 
-<tspan x="10" y="12890">     } catch (errCaught) {</tspan>
+<tspan x="10" y="12890">+ * this function will run &lt;fnc&gt; in tryCatch block,</tspan>
 
-<tspan x="10" y="12906">         // debug errCaught</tspan>
+<tspan x="10" y="12906">  * else call onError with errCaught</tspan>
 
-<tspan x="10" y="12922">@@ -1003,7 +954,7 @@</tspan>
+<tspan x="10" y="12922">  */</tspan>
 
-<tspan x="10" y="12938">         opt.dir,</tspan>
+<tspan x="10" y="12938">     let result;</tspan>
 
-<tspan x="10" y="12954">         opt.modulePathList || require("module").paths</tspan>
+<tspan x="10" y="12954">@@ -849,9 +790,9 @@</tspan>
 
-<tspan x="10" y="12970">     );</tspan>
+<tspan x="10" y="12970">     local.assertOrThrow(typeof onError === "function", typeof onError);</tspan>
 
-<tspan x="10" y="12986">-    local.objectSetDefault(opt, {</tspan>
+<tspan x="10" y="12986">     try {</tspan>
 
-<tspan x="10" y="13002">+    local.objectAssignDefault(opt, {</tspan>
+<tspan x="10" y="13002">         // reset errCaught</tspan>
 
-<tspan x="10" y="13018">         env: {</tspan>
+<tspan x="10" y="13018">-        local._debugTryCatchError = null;</tspan>
 
-<tspan x="10" y="13034">             npm_package_description: ""</tspan>
+<tspan x="10" y="13034">+        delete local._debugTryCatchError;</tspan>
 
-<tspan x="10" y="13050">         },</tspan>
+<tspan x="10" y="13050">         result = fnc();</tspan>
 
-<tspan x="10" y="13066">@@ -1036,7 +987,7 @@</tspan>
+<tspan x="10" y="13066">-        local._debugTryCatchError = null;</tspan>
 
-<tspan x="10" y="13082">             opt.env["npm_package_" + key] = tmp;</tspan>
+<tspan x="10" y="13082">+        delete local._debugTryCatchError;</tspan>
 
-<tspan x="10" y="13098">         }</tspan>
+<tspan x="10" y="13098">         return result;</tspan>
 
-<tspan x="10" y="13114">     });</tspan>
+<tspan x="10" y="13114">     } catch (errCaught) {</tspan>
 
-<tspan x="10" y="13130">-    local.objectSetDefault(opt, {</tspan>
+<tspan x="10" y="13130">         // debug errCaught</tspan>
 
-<tspan x="10" y="13146">+    local.objectAssignDefault(opt, {</tspan>
+<tspan x="10" y="13146">@@ -1003,7 +944,7 @@</tspan>
 
-<tspan x="10" y="13162">         blacklistDict: {</tspan>
+<tspan x="10" y="13162">         opt.dir,</tspan>
 
-<tspan x="10" y="13178">             globalThis</tspan>
+<tspan x="10" y="13178">         opt.modulePathList || require("module").paths</tspan>
 
-<tspan x="10" y="13194">         },</tspan>
+<tspan x="10" y="13194">     );</tspan>
 
-<tspan x="10" y="13210">@@ -1128,7 +1079,7 @@</tspan>
+<tspan x="10" y="13210">-    local.objectSetDefault(opt, {</tspan>
 
-<tspan x="10" y="13226">         }());</tspan>
+<tspan x="10" y="13226">+    local.objectAssignDefault(opt, {</tspan>
 
-<tspan x="10" y="13242">     }</tspan>
+<tspan x="10" y="13242">         env: {</tspan>
 
-<tspan x="10" y="13258">     // normalize moduleMain</tspan>
+<tspan x="10" y="13258">             npm_package_description: ""</tspan>
 
-<tspan x="10" y="13274">-    moduleMain = local.objectSetDefault(tmp, moduleMain);</tspan>
+<tspan x="10" y="13274">         },</tspan>
 
-<tspan x="10" y="13290">+    moduleMain = local.objectAssignDefault(tmp, moduleMain);</tspan>
+<tspan x="10" y="13290">@@ -1036,7 +977,7 @@</tspan>
 
-<tspan x="10" y="13306">     opt.moduleDict[opt.env.npm_package_name] = moduleMain;</tspan>
+<tspan x="10" y="13306">             opt.env["npm_package_" + key] = tmp;</tspan>
 
-<tspan x="10" y="13322">     // init circularSet - builtins</tspan>
+<tspan x="10" y="13322">         }</tspan>
 
-<tspan x="10" y="13338">     [</tspan>
+<tspan x="10" y="13338">     });</tspan>
 
-<tspan x="10" y="13354">@@ -1178,18 +1129,6 @@</tspan>
+<tspan x="10" y="13354">-    local.objectSetDefault(opt, {</tspan>
 
-<tspan x="10" y="13370">     });</tspan>
+<tspan x="10" y="13370">+    local.objectAssignDefault(opt, {</tspan>
 
-<tspan x="10" y="13386">     // init moduleDict child</tspan>
+<tspan x="10" y="13386">         blacklistDict: {</tspan>
 
-<tspan x="10" y="13402">     local.apidocModuleDictAdd(opt, opt.moduleDict);</tspan>
+<tspan x="10" y="13402">             globalThis</tspan>
 
-<tspan x="10" y="13418">-    // init swgg.apiDict</tspan>
+<tspan x="10" y="13418">         },</tspan>
 
-<tspan x="10" y="13434">-    Object.keys(</tspan>
+<tspan x="10" y="13434">@@ -1128,7 +1069,7 @@</tspan>
 
-<tspan x="10" y="13450">-        (moduleMain.swgg &amp;&amp; moduleMain.swgg.apiDict) || {}</tspan>
+<tspan x="10" y="13450">         }());</tspan>
 
-<tspan x="10" y="13466">-    ).forEach(function (key) {</tspan>
+<tspan x="10" y="13466">     }</tspan>
 
-<tspan x="10" y="13482">-        tmp = "swgg.apiDict";</tspan>
+<tspan x="10" y="13482">     // normalize moduleMain</tspan>
 
-<tspan x="10" y="13498">-        opt.moduleDict[tmp] = opt.moduleDict[tmp] || {};</tspan>
+<tspan x="10" y="13498">-    moduleMain = local.objectSetDefault(tmp, moduleMain);</tspan>
 
-<tspan x="10" y="13514">-        tmp = opt.moduleDict[tmp];</tspan>
+<tspan x="10" y="13514">+    moduleMain = local.objectAssignDefault(tmp, moduleMain);</tspan>
 
-<tspan x="10" y="13530">-        tmp[key + ".ajax"] = (</tspan>
+<tspan x="10" y="13530">     opt.moduleDict[opt.env.npm_package_name] = moduleMain;</tspan>
 
-<tspan x="10" y="13546">-            moduleMain.swgg.apiDict[key]</tspan>
+<tspan x="10" y="13546">     // init circularSet - builtins</tspan>
 
-<tspan x="10" y="13562">-            &amp;&amp; moduleMain.swgg.apiDict[key].ajax</tspan>
+<tspan x="10" y="13562">     [</tspan>
 
-<tspan x="10" y="13578">-        );</tspan>
+<tspan x="10" y="13578">@@ -1178,18 +1119,6 @@</tspan>
 
-<tspan x="10" y="13594">-    });</tspan>
+<tspan x="10" y="13594">     });</tspan>
 
-<tspan x="10" y="13610">     // init moduleExtraDict</tspan>
+<tspan x="10" y="13610">     // init moduleDict child</tspan>
 
-<tspan x="10" y="13626">     opt.moduleExtraDict[opt.env.npm_package_name] = (</tspan>
+<tspan x="10" y="13626">     local.apidocModuleDictAdd(opt, opt.moduleDict);</tspan>
 
-<tspan x="10" y="13642">         opt.moduleExtraDict[opt.env.npm_package_name] || {}</tspan>
+<tspan x="10" y="13642">-    // init swgg.apiDict</tspan>
 
-<tspan x="10" y="13658">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apid\</tspan>
-<tspan x="10" y="13674">oc.js</tspan>
+<tspan x="10" y="13658">-    Object.keys(</tspan>
 
-<tspan x="10" y="13690">jslint - 600ms - /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="13674">-        (moduleMain.swgg &amp;&amp; moduleMain.swgg.apiDict) || {}</tspan>
 
-<tspan x="10" y="13706">testRunDefault - 472 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
+<tspan x="10" y="13690">-    ).forEach(function (key) {</tspan>
 
-<tspan x="10" y="13722">testRunDefault - 473 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="13706">-        tmp = "swgg.apiDict";</tspan>
 
-<tspan x="10" y="13738">testRunDefault - 486 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="13722">-        opt.moduleDict[tmp] = opt.moduleDict[tmp] || {};</tspan>
 
-<tspan x="10" y="13754">testRunDefault - 493 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="13738">-        tmp = opt.moduleDict[tmp];</tspan>
 
-<tspan x="10" y="13770">testRunDefault - 493 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="13754">-        tmp[key + ".ajax"] = (</tspan>
 
-<tspan x="10" y="13786">testRunDefault - 494 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="13770">-            moduleMain.swgg.apiDict[key]</tspan>
 
-<tspan x="10" y="13802">jslint - 4ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.apidoc.html</tspan>
+<tspan x="10" y="13786">-            &amp;&amp; moduleMain.swgg.apiDict[key].ajax</tspan>
 
-<tspan x="10" y="13818">jslint - 6ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.example.html</tspan>
+<tspan x="10" y="13802">-        );</tspan>
 
-<tspan x="10" y="13834">jslint - 6ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/index.html</tspan>
+<tspan x="10" y="13818">-    });</tspan>
 
-<tspan x="10" y="13850">jslint - 9ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.utility2.html</tspan>
+<tspan x="10" y="13834">     // init moduleExtraDict</tspan>
 
-<tspan x="10" y="13866">jslint - 10ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.test.js</tspan>
+<tspan x="10" y="13850">     opt.moduleExtraDict[opt.env.npm_package_name] = (</tspan>
 
-<tspan x="10" y="13882">jslint - 12ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.example.js</tspan>
+<tspan x="10" y="13866">         opt.moduleExtraDict[opt.env.npm_package_name] || {}</tspan>
 
-<tspan x="10" y="13898">jslint - 14ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.apidoc.js</tspan>
+<tspan x="10" y="13882">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apid\</tspan>
+<tspan x="10" y="13898">oc.js</tspan>
 
-<tspan x="10" y="13914">&gt; </tspan>
+<tspan x="10" y="13914">jslint - 518ms - /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
 
-<tspan x="10" y="13930">DevTools listening on ws://127.0.0.1:36349/devtools/browser/ffe061e8-2a00-4b25-ab7d-8ff801016813</tspan>
+<tspan x="10" y="13930">testRunDefault - 557 ms - [node test-case 1 of 8 passed] - testCase_apidocCreate_default</tspan>
 
-<tspan x="10" y="13946">http-server listening on port 34804</tspan>
+<tspan x="10" y="13946">testRunDefault - 559 ms - [node test-case 2 of 8 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="13962">[0607/011216.766367:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
-<tspan x="10" y="13978">th unconsumed attachments: 0/1</tspan>
+<tspan x="10" y="13962">testRunDefault - 573 ms - [node test-case 3 of 8 passed] - testCase_buildLib_default</tspan>
 
-<tspan x="10" y="13994">[0607/011216.769267:ERROR:command_buffer_proxy_impl.cc(122)] ContextResult::kTransientFailure: F\</tspan>
-<tspan x="10" y="14010">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
+<tspan x="10" y="13978">testRunDefault - 579 ms - [node test-case 4 of 8 passed] - testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="14026">[0607/011216.765944:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
-<tspan x="10" y="14042">th unconsumed attachments: 0/1</tspan>
+<tspan x="10" y="13994">testRunDefault - 580 ms - [node test-case 5 of 8 passed] - testCase_buildTest_default</tspan>
 
-<tspan x="10" y="14058">[0607/011217.058954:INFO:CONSOLE(8)] "testRunDefault - 4 ms - [browser test-case 1 of 2 passed] \</tspan>
-<tspan x="10" y="14074">- testCase_apidocCreate_default", source: http://127.0.0.1:8081/assets.example.js (8)</tspan>
+<tspan x="10" y="14010">testRunDefault - 580 ms - [node test-case 6 of 8 passed] - testCase_nop_default</tspan>
 
-<tspan x="10" y="14090">[0607/011217.065804:INFO:CONSOLE(8)] "testRunDefault - 11 ms - [browser test-case 2 of 2 passed]\</tspan>
-<tspan x="10" y="14106"> - testCase_nop_default", source: http://127.0.0.1:8081/assets.example.js (8)</tspan>
+<tspan x="10" y="14026">jslint - 6ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.apidoc.html</tspan>
 
-<tspan x="10" y="14122">[0607/011217.150721:INFO:CONSOLE(8)] "domOnEventWindowOnloadTimeElapsed = 205", source: http://1\</tspan>
-<tspan x="10" y="14138">27.0.0.1:8081/assets.example.js (8)</tspan>
+<tspan x="10" y="14042">jslint - 9ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.example.html</tspan>
 
-<tspan x="10" y="14154">testRunDefault - 1535 ms - [node test-case 7 of 8 passed] - testCase_webpage_default</tspan>
+<tspan x="10" y="14058">jslint - 11ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/index.html</tspan>
 
-<tspan x="10" y="14170">testRunDefault - 5888 ms - [node test-case 8 of 8 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="14074">jslint - 13ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.utility2.htm\</tspan>
+<tspan x="10" y="14090">l</tspan>
 
-<tspan x="10" y="14186">----------------|---------|---------|---------|---------|</tspan>
+<tspan x="10" y="14106">jslint - 15ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.test.js</tspan>
 
-<tspan x="10" y="14202">File            | % Stmts | % Brchs | % Funcs | % Lines |</tspan>
+<tspan x="10" y="14122">jslint - 16ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.example.js</tspan>
 
-<tspan x="10" y="14218">----------------|---------|---------|---------|---------|</tspan>
+<tspan x="10" y="14138">jslint - 18ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.apidoc.js</tspan>
 
-<tspan x="10" y="14234">All files       |    99.2 |   96.99 |   97.67 |    99.2 |</tspan>
+<tspan x="10" y="14154"></tspan>
 
-<tspan x="10" y="14250">apidoc-lite/    |    99.2 |   96.99 |   97.67 |    99.2 |</tspan>
+<tspan x="10" y="14170">DevTools listening on ws://127.0.0.1:38217/devtools/browser/1bf3a882-bf1d-4f5a-be8a-847d801f142a</tspan>
 
-<tspan x="10" y="14266">  example.js    |     100 |     100 |     100 |     100 |</tspan>
+<tspan x="10" y="14186">&gt; http-server listening on port 56791</tspan>
 
-<tspan x="10" y="14282">  lib.apidoc.js |   98.77 |    98.7 |   96.63 |   98.77 |</tspan>
+<tspan x="10" y="14202">[0607/011855.089984:INFO:CONSOLE(8)] "testRunDefault - 6 ms - [browser test-case 1 of 2 passed] \</tspan>
+<tspan x="10" y="14218">- testCase_apidocCreate_default", source: http://127.0.0.1:8081/assets.example.js (8)</tspan>
 
-<tspan x="10" y="14298">  test.js       |     100 |   85.51 |     100 |     100 |</tspan>
+<tspan x="10" y="14234">[0607/011855.097696:INFO:CONSOLE(8)] "testRunDefault - 15 ms - [browser test-case 2 of 2 passed]\</tspan>
+<tspan x="10" y="14250"> - testCase_nop_default", source: http://127.0.0.1:8081/assets.example.js (8)</tspan>
 
-<tspan x="10" y="14314">----------------|---------|---------|---------|---------|</tspan>
+<tspan x="10" y="14266">[0607/011855.176576:INFO:CONSOLE(8)] "domOnEventWindowOnloadTimeElapsed = 233", source: http://1\</tspan>
+<tspan x="10" y="14282">27.0.0.1:8081/assets.example.js (8)</tspan>
 
-<tspan x="10" y="14330"></tspan>
+<tspan x="10" y="14298">testRunDefault - 1576 ms - [node test-case 7 of 8 passed] - testCase_webpage_default</tspan>
 
-<tspan x="10" y="14346">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14362">.html/coverage.txt</tspan>
+<tspan x="10" y="14314">testRunDefault - 6012 ms - testCase pending - testCase_buildApp_default ...</tspan>
 
-<tspan x="10" y="14378">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14394">.html/index.html</tspan>
+<tspan x="10" y="14330">testRunDefault - 6093 ms - [node test-case 8 of 8 passed] - testCase_buildApp_default</tspan>
 
-<tspan x="10" y="14410">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14426">.html/apidoc-lite/index.html</tspan>
+<tspan x="10" y="14346">----------------|---------|---------|---------|---------|</tspan>
 
-<tspan x="10" y="14442">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14458">.html/apidoc-lite/example.js.html</tspan>
+<tspan x="10" y="14362">File            | % Stmts | % Brchs | % Funcs | % Lines |</tspan>
 
-<tspan x="10" y="14474">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14490">.html/apidoc-lite/lib.apidoc.js.html</tspan>
+<tspan x="10" y="14378">----------------|---------|---------|---------|---------|</tspan>
+
+<tspan x="10" y="14394">All files       |   99.19 |   96.99 |   97.67 |   99.19 |</tspan>
+
+<tspan x="10" y="14410">apidoc-lite/    |   99.19 |   96.99 |   97.67 |   99.19 |</tspan>
+
+<tspan x="10" y="14426">  example.js    |     100 |     100 |     100 |     100 |</tspan>
+
+<tspan x="10" y="14442">  lib.apidoc.js |   98.77 |    98.7 |   96.63 |   98.77 |</tspan>
+
+<tspan x="10" y="14458">  test.js       |     100 |   85.51 |     100 |     100 |</tspan>
+
+<tspan x="10" y="14474">----------------|---------|---------|---------|---------|</tspan>
+
+<tspan x="10" y="14490"></tspan>
 
 <tspan x="10" y="14506">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14522">.html/apidoc-lite/test.js.html</tspan>
+<tspan x="10" y="14522">.html/coverage.txt</tspan>
 
 <tspan x="10" y="14538">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14554">.html/coverage.all.html</tspan>
+<tspan x="10" y="14554">.html/index.html</tspan>
 
 <tspan x="10" y="14570">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14586">.html/coverage.json</tspan>
+<tspan x="10" y="14586">.html/apidoc-lite/index.html</tspan>
 
 <tspan x="10" y="14602">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14618">.html/coverage.include.json</tspan>
+<tspan x="10" y="14618">.html/apidoc-lite/example.js.html</tspan>
 
 <tspan x="10" y="14634">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="14650">.badge.svg</tspan>
+<tspan x="10" y="14650">.html/apidoc-lite/lib.apidoc.js.html</tspan>
 
-<tspan x="10" y="14666">istanbul - created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/covera\</tspan>
-<tspan x="10" y="14682">ge.html/index.html</tspan>
+<tspan x="10" y="14666">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="14682">.html/apidoc-lite/test.js.html</tspan>
 
-<tspan x="10" y="14698"></tspan>
+<tspan x="10" y="14698">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="14714">.html/coverage.all.html</tspan>
 
-<tspan x="10" y="14714">-------------------------------------------------------</tspan>
+<tspan x="10" y="14730">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="14746">.html/coverage.json</tspan>
 
-<tspan x="10" y="14730">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
-<tspan x="10" y="14746">.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-07T01:12:17.003Z</tspan>
+<tspan x="10" y="14762">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="14778">.html/coverage.include.json</tspan>
 
-<tspan x="10" y="14762">|      14 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="14794">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="14810">.badge.svg</tspan>
 
-<tspan x="10" y="14778">-------------------------------------------------------</tspan>
+<tspan x="10" y="14826">istanbul - created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/covera\</tspan>
+<tspan x="10" y="14842">ge.html/index.html</tspan>
 
-<tspan x="10" y="14794">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-07T01:12:14.904Z</tspan>
+<tspan x="10" y="14858"></tspan>
 
-<tspan x="10" y="14810">|    5888 ms            0 failed        8 passed      |</tspan>
+<tspan x="10" y="14874">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="14826">-------------------------------------------------------</tspan>
+<tspan x="10" y="14890">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
+<tspan x="10" y="14906">.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-07T01:18:55.014Z</tspan>
 
-<tspan x="10" y="14842"></tspan>
+<tspan x="10" y="14922">|      17 ms            0 failed        2 passed      |</tspan>
 
-<tspan x="10" y="14858">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.\</tspan>
-<tspan x="10" y="14874">html</tspan>
+<tspan x="10" y="14938">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="14890">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/build.badge.\</tspan>
-<tspan x="10" y="14906">svg</tspan>
+<tspan x="10" y="14954">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-07T01:18:53.024Z</tspan>
 
-<tspan x="10" y="14922">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.\</tspan>
-<tspan x="10" y="14938">badge.svg</tspan>
+<tspan x="10" y="14970">|    6093 ms            0 failed        8 passed      |</tspan>
 
-<tspan x="10" y="14954"></tspan>
-
-<tspan x="10" y="14970">npmTestPublished - 0 failed tests</tspan>
-
-<tspan x="10" y="14986"></tspan>
+<tspan x="10" y="14986">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="15002"></tspan>
 
-<tspan x="10" y="15018">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-06-07T01:12:21.791Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="15018">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.\</tspan>
+<tspan x="10" y="15034">html</tspan>
+
+<tspan x="10" y="15050">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/build.badge.\</tspan>
+<tspan x="10" y="15066">svg</tspan>
+
+<tspan x="10" y="15082">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.\</tspan>
+<tspan x="10" y="15098">badge.svg</tspan>
+
+<tspan x="10" y="15114"></tspan>
+
+<tspan x="10" y="15130">npmTestPublished - 0 failed tests</tspan>
+
+<tspan x="10" y="15146"></tspan>
+
+<tspan x="10" y="15162"></tspan>
+
+<tspan x="10" y="15178">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-06-07T01:19:00.016Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
