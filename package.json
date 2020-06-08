@@ -5,7 +5,6 @@
     },
     "description": "this zero-dependency package will auto-generate documentation for your npm-package with zero-config",
     "devDependencies": {
-        "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
     "engines": {
@@ -42,5 +41,5 @@
         "test": "./npm_scripts.sh",
         "utility2": "./npm_scripts.sh"
     },
-    "version": "2020.3.16"
+    "version": "2020.6.8"
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * lib.apidoc.js (2020.3.16)
+ * lib.apidoc.js (2020.6.8)
  * https://github.com/kaizhu256/node-apidoc-lite
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
@@ -10,36 +10,29 @@
 
 /* istanbul instrument in package apidoc */
 // assets.utility2.header.js - start
-/* istanbul ignore next */
 /* jslint utility2:true */
+/* istanbul ignore next */
+// run shared js-env code - init-local
 (function (globalThis) {
     "use strict";
     let consoleError;
-    let debugName;
     let local;
-    debugName = "debug" + String("Inline");
     // init globalThis
     globalThis.globalThis = globalThis.globalThis || globalThis;
-    // init debug_inline
-    if (!globalThis[debugName]) {
+    // init debugInline
+    if (!globalThis.debugInline) {
         consoleError = console.error;
-        globalThis[debugName] = function (...argList) {
+        globalThis.debugInline = function (...argList) {
         /*
          * this function will both print <argList> to stderr
          * and return <argList>[0]
          */
-            consoleError("\n\n" + debugName);
+            consoleError("\n\ndebugInline");
             consoleError(...argList);
             consoleError("\n");
             return argList[0];
         };
     }
-    String.prototype.trimEnd = (
-        String.prototype.trimEnd || String.prototype.trimRight
-    );
-    String.prototype.trimStart = (
-        String.prototype.trimStart || String.prototype.trimLeft
-    );
     // init local
     local = {};
     local.local = local;
@@ -55,9 +48,39 @@
         local.isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
+    local.assertJsonEqual = function (aa, bb) {
+    /*
+     * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)
+     */
+        let objectDeepCopyWithKeysSorted;
+        objectDeepCopyWithKeysSorted = function (obj) {
+        /*
+         * this function will recursively deep-copy <obj> with keys sorted
+         */
+            let sorted;
+            if (typeof obj !== "object" || !obj) {
+                return obj;
+            }
+            // recursively deep-copy list with child-keys sorted
+            if (Array.isArray(obj)) {
+                return obj.map(objectDeepCopyWithKeysSorted);
+            }
+            // recursively deep-copy obj with keys sorted
+            sorted = {};
+            Object.keys(obj).sort().forEach(function (key) {
+                sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
+            });
+            return sorted;
+        };
+        aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
+        bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
+        if (aa !== bb) {
+            throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));
+        }
+    };
     local.assertOrThrow = function (passed, msg) {
     /*
-     * this function will throw err.<msg> if <passed> is falsy
+     * this function will throw <msg> if <passed> is falsy
      */
         if (passed) {
             return;
@@ -72,9 +95,9 @@
             ? msg
             : new Error(
                 typeof msg === "string"
-                // if msg is a string, then leave as is
+                // if msg is string, then leave as is
                 ? msg
-                // else JSON.stringify msg
+                // else JSON.stringify(msg)
                 : JSON.stringify(msg, undefined, 4)
             )
         );
@@ -88,70 +111,12 @@
         ii = 0;
         while (ii < argList.length) {
             arg = argList[ii];
-            if (arg !== null && arg !== undefined && arg !== "") {
-                break;
+            if (arg !== undefined && arg !== null && arg !== "") {
+                return arg;
             }
             ii += 1;
         }
         return arg;
-    };
-    local.fsRmrfSync = function (dir) {
-    /*
-     * this function will sync "rm -rf" <dir>
-     */
-        let child_process;
-        // do nothing if module does not exist
-        try {
-            child_process = require("child_process");
-        } catch (ignore) {
-            return;
-        }
-        child_process.spawnSync("rm", [
-            "-rf", dir
-        ], {
-            stdio: [
-                "ignore", 1, 2
-            ]
-        });
-    };
-    local.fsWriteFileWithMkdirpSync = function (file, data) {
-    /*
-     * this function will sync write <data> to <file> with "mkdir -p"
-     */
-        let fs;
-        // do nothing if module does not exist
-        try {
-            fs = require("fs");
-        } catch (ignore) {
-            return;
-        }
-        // try to write file
-        try {
-            fs.writeFileSync(file, data);
-        } catch (ignore) {
-            // mkdir -p
-            require("child_process").spawnSync(
-                "mkdir",
-                [
-                    "-p", require("path").dirname(file)
-                ],
-                {
-                    stdio: [
-                        "ignore", 1, 2
-                    ]
-                }
-            );
-            // rewrite file
-            fs.writeFileSync(file, data);
-        }
-    };
-    local.functionOrNop = function (fnc) {
-    /*
-     * this function will if <fnc> exists,
-     * return <fnc>,
-     * else return <nop>
-     */
-        return fnc || local.nop;
     };
     local.identity = function (val) {
     /*
@@ -165,72 +130,44 @@
      */
         return;
     };
-    local.objectAssignDefault = function (target, source) {
+    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
     /*
-     * this function will if items from <target> are null, undefined, or "",
-     * then overwrite them with items from <source>
+     * this function will if items from <tgt> are null, undefined, or "",
+     * then overwrite them with items from <src>
      */
-        target = target || {};
-        Object.keys(source || {}).forEach(function (key) {
-            if (
-                target[key] === null
-                || target[key] === undefined
-                || target[key] === ""
-            ) {
-                target[key] = target[key] || source[key];
-            }
+        let recurse;
+        recurse = function (tgt, src, depth) {
+            Object.entries(src).forEach(function ([
+                key, bb
+            ]) {
+                let aa;
+                aa = tgt[key];
+                if (aa === undefined || aa === null || aa === "") {
+                    tgt[key] = bb;
+                    return;
+                }
+                if (
+                    depth !== 0
+                    && typeof aa === "object" && aa && !Array.isArray(aa)
+                    && typeof bb === "object" && bb && !Array.isArray(bb)
+                ) {
+                    recurse(aa, bb, depth - 1);
+                }
+            });
+        };
+        recurse(tgt, src, depth | 0);
+        return tgt;
+    };
+    // bug-workaround - throw unhandledRejections in node-process
+    if (
+        typeof process === "object" && process
+        && typeof process.on === "function"
+        && process.unhandledRejections !== "strict"
+    ) {
+        process.unhandledRejections = "strict";
+        process.on("unhandledRejection", function (err) {
+            throw err;
         });
-        return target;
-    };
-    local.querySelector = function (selectors) {
-    /*
-     * this function will return first dom-elem that match <selectors>
-     */
-        return (
-            typeof document === "object" && document
-            && typeof document.querySelector === "function"
-            && document.querySelector(selectors)
-        ) || {};
-    };
-    local.querySelectorAll = function (selectors) {
-    /*
-     * this function will return dom-elem-list that match <selectors>
-     */
-        return (
-            typeof document === "object" && document
-            && typeof document.querySelectorAll === "function"
-            && Array.from(document.querySelectorAll(selectors))
-        ) || [];
-    };
-    // require builtin
-    if (!local.isBrowser) {
-        local.assert = require("assert");
-        local.buffer = require("buffer");
-        local.child_process = require("child_process");
-        local.cluster = require("cluster");
-        local.crypto = require("crypto");
-        local.dgram = require("dgram");
-        local.dns = require("dns");
-        local.domain = require("domain");
-        local.events = require("events");
-        local.fs = require("fs");
-        local.http = require("http");
-        local.https = require("https");
-        local.net = require("net");
-        local.os = require("os");
-        local.path = require("path");
-        local.querystring = require("querystring");
-        local.readline = require("readline");
-        local.repl = require("repl");
-        local.stream = require("stream");
-        local.string_decoder = require("string_decoder");
-        local.timers = require("timers");
-        local.tls = require("tls");
-        local.tty = require("tty");
-        local.url = require("url");
-        local.util = require("util");
-        local.vm = require("vm");
-        local.zlib = require("zlib");
     }
 }((typeof globalThis === "object" && globalThis) || window));
 // assets.utility2.header.js - end
@@ -269,15 +206,17 @@ local.cliRun = function (opt) {
 /*
  * this function will run cli with given <opt>
  */
-    local.cliDict._eval = local.cliDict._eval || function () {
+    let cliDict;
+    cliDict = local.cliDict;
+    cliDict._eval = cliDict._eval || function () {
     /*
      * <code>
      * will eval <code>
      */
         globalThis.local = local;
-        local.vm.runInThisContext(process.argv[3]);
+        require("vm").runInThisContext(process.argv[3]);
     };
-    local.cliDict._help = local.cliDict._help || function () {
+    cliDict._help = cliDict._help || function () {
     /*
      *
      * will print help
@@ -312,11 +251,11 @@ local.cliRun = function (opt) {
             /\)\u0020\{\n(?:|\u0020{4})\/\*\n(?:\u0020|\u0020{5})\*((?:\u0020<[^>]*?>|\u0020\.\.\.)*?)\n(?:\u0020|\u0020{5})\*\u0020(will\u0020.*?\S)\n(?:\u0020|\u0020{5})\*\/\n(?:\u0020{4}|\u0020{8})\S/
         );
         strDict = {};
-        Object.keys(local.cliDict).sort().forEach(function (key, ii) {
+        Object.keys(cliDict).sort().forEach(function (key, ii) {
             if (key[0] === "_" && key !== "_default") {
                 return;
             }
-            str = String(local.cliDict[key]);
+            str = String(cliDict[key]);
             if (key === "_default") {
                 key = "";
             }
@@ -382,13 +321,13 @@ local.cliRun = function (opt) {
         }).join("\n\n");
         console.log(str);
     };
-    local.cliDict["--eval"] = local.cliDict["--eval"] || local.cliDict._eval;
-    local.cliDict["--help"] = local.cliDict["--help"] || local.cliDict._help;
-    local.cliDict["-e"] = local.cliDict["-e"] || local.cliDict._eval;
-    local.cliDict["-h"] = local.cliDict["-h"] || local.cliDict._help;
-    local.cliDict._default = local.cliDict._default || local.cliDict._help;
-    local.cliDict.help = local.cliDict.help || local.cliDict._help;
-    local.cliDict._interactive = local.cliDict._interactive || function () {
+    cliDict["--eval"] = cliDict["--eval"] || cliDict._eval;
+    cliDict["--help"] = cliDict["--help"] || cliDict._help;
+    cliDict["-e"] = cliDict["-e"] || cliDict._eval;
+    cliDict["-h"] = cliDict["-h"] || cliDict._help;
+    cliDict._default = cliDict._default || cliDict._help;
+    cliDict.help = cliDict.help || cliDict._help;
+    cliDict._interactive = cliDict._interactive || function () {
     /*
      *
      * will start interactive-mode
@@ -398,33 +337,27 @@ local.cliRun = function (opt) {
             useGlobal: true
         });
     };
-    local.cliDict["--interactive"] = (
-        local.cliDict["--interactive"]
-        || local.cliDict._interactive
-    );
-    local.cliDict["-i"] = local.cliDict["-i"] || local.cliDict._interactive;
-    local.cliDict._version = local.cliDict._version || function () {
+    cliDict["--interactive"] = cliDict["--interactive"] || cliDict._interactive;
+    cliDict["-i"] = cliDict["-i"] || cliDict._interactive;
+    cliDict._version = cliDict._version || function () {
     /*
      *
      * will print version
      */
         console.log(require(__dirname + "/package.json").version);
     };
-    local.cliDict["--version"] = (
-        local.cliDict["--version"]
-        || local.cliDict._version
-    );
-    local.cliDict["-v"] = local.cliDict["-v"] || local.cliDict._version;
+    cliDict["--version"] = cliDict["--version"] || cliDict._version;
+    cliDict["-v"] = cliDict["-v"] || cliDict._version;
     // default to --help command if no arguments are given
     if (process.argv.length <= 2) {
-        local.cliDict._help();
+        cliDict._help();
         return;
     }
-    if (local.cliDict[process.argv[2]]) {
-        local.cliDict[process.argv[2]]();
+    if (cliDict[process.argv[2]]) {
+        cliDict[process.argv[2]]();
         return;
     }
-    local.cliDict._default();
+    cliDict._default();
 };
 
 local.moduleDirname = function (module, pathList) {
@@ -432,23 +365,20 @@ local.moduleDirname = function (module, pathList) {
  * this function will search <pathList> for <module>'s __dirname
  */
     let result;
-    // search process.cwd()
+    // search "."
     if (!module || module === "." || module.indexOf("/") >= 0) {
-        return require("path").resolve(process.cwd(), module || "");
+        return require("path").resolve(module || "");
     }
     // search pathList
-    Array.from([
+    [].concat(
         pathList,
         require("module").globalPaths,
         [
             process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"
         ]
-    ]).flat().some(function (path) {
+    ).some(function (path) {
         try {
-            result = require("path").resolve(
-                process.cwd(),
-                path + "/" + module
-            );
+            result = require("path").resolve(path + "/" + module);
             result = require("fs").statSync(result).isDirectory() && result;
             return result;
         } catch (ignore) {
@@ -456,48 +386,6 @@ local.moduleDirname = function (module, pathList) {
         }
     });
     return result;
-};
-
-local.objectSetDefault = function (dict, defaults, depth) {
-/*
- * this function will recursively set defaults for undefined-items in dict
- */
-    dict = dict || {};
-    defaults = defaults || {};
-    Object.keys(defaults).forEach(function (key) {
-        let defaults2;
-        let dict2;
-        dict2 = dict[key];
-        // handle misbehaving getter
-        try {
-            defaults2 = defaults[key];
-        } catch (ignore) {}
-        if (defaults2 === undefined) {
-            return;
-        }
-        // init dict[key] to default value defaults[key]
-        switch (dict2) {
-        case "":
-        case null:
-        case undefined:
-            dict[key] = defaults2;
-            return;
-        }
-        // if dict2 and defaults2 are both non-undefined and non-array objects,
-        // then recurse with dict2 and defaults2
-        if (
-            depth > 1
-            // dict2 is a non-undefined and non-array object
-            && typeof dict2 === "object" && dict2 && !Array.isArray(dict2)
-            // defaults2 is a non-undefined and non-array object
-            && typeof defaults2 === "object" && defaults2
-            && !Array.isArray(defaults2)
-        ) {
-            // recurse
-            local.objectSetDefault(dict2, defaults2, depth - 1);
-        }
-    });
-    return dict;
 };
 
 local.stringHtmlSafe = function (str) {
@@ -628,7 +516,7 @@ local.templateApidocHtml = '\
 ';
 /* jslint ignore:end */
 
-local.templateRender = function (template, dict, opt, ii) {
+local.templateRender = function (template, dict, opt = {}, ii = 0) {
 /*
  * this function will render <template> with given <dict>
  */
@@ -642,7 +530,6 @@ local.templateRender = function (template, dict, opt, ii) {
     if (dict === null || dict === undefined) {
         dict = {};
     }
-    opt = opt || {};
     getVal = function (key) {
         argList = key.split(" ");
         val = dict;
@@ -683,7 +570,7 @@ local.templateRender = function (template, dict, opt, ii) {
             partial = (
                 getVal(key)
                 ? partial[0]
-                // handle 'unless' case
+                // handle "unless" case
                 : partial.slice(1).join("{{#unless " + key + "}}")
             );
             // recurse with partial
@@ -718,7 +605,7 @@ local.templateRender = function (template, dict, opt, ii) {
         );
         match = rgx.exec(template);
     }
-    // search for keys in the template
+    // search for keys in template
     return template.replace((
         /\{\{[^}]+?\}\}/g
     ), function (match0) {
@@ -841,7 +728,7 @@ local.templateRender = function (template, dict, opt, ii) {
 
 local.tryCatchOnError = function (fnc, onError) {
 /*
- * this function will run the fnc in a tryCatch block,
+ * this function will run <fnc> in tryCatch block,
  * else call onError with errCaught
  */
     let result;
@@ -849,9 +736,9 @@ local.tryCatchOnError = function (fnc, onError) {
     local.assertOrThrow(typeof onError === "function", typeof onError);
     try {
         // reset errCaught
-        local._debugTryCatchError = null;
+        delete local._debugTryCatchError;
         result = fnc();
-        local._debugTryCatchError = null;
+        delete local._debugTryCatchError;
         return result;
     } catch (errCaught) {
         // debug errCaught
@@ -876,6 +763,9 @@ local.apidocCreate = function (opt) {
     let tmp;
     let toString;
     let trimStart;
+    if (opt.modeNop) {
+        return "";
+    }
     elemCreate = function (module, prefix, key) {
     /*
      * this function will create the apidoc-elem in given <module>
@@ -948,13 +838,13 @@ local.apidocCreate = function (opt) {
      */
         let result;
         local.tryCatchOnError(function () {
-            file = local.path.resolve(opt.dir, file);
+            file = require("path").resolve(opt.dir, file);
             console.error("apidocCreate - readExample " + file);
             result = "";
             result = local.identity(
                 "\n\n\n\n\n\n\n\n"
                 // bug-workaround - truncate example to manageable size
-                + local.fs.readFileSync(file, "utf8").slice(0, 262144)
+                + require("fs").readFileSync(file, "utf8").slice(0, 262144)
                 + "\n\n\n\n\n\n\n\n"
             ).replace((
                 /\r\n*/g
@@ -1003,7 +893,7 @@ local.apidocCreate = function (opt) {
         opt.dir,
         opt.modulePathList || require("module").paths
     );
-    local.objectSetDefault(opt, {
+    local.objectAssignDefault(opt, {
         env: {
             npm_package_description: ""
         },
@@ -1036,7 +926,7 @@ local.apidocCreate = function (opt) {
             opt.env["npm_package_" + key] = tmp;
         }
     });
-    local.objectSetDefault(opt, {
+    local.objectAssignDefault(opt, {
         blacklistDict: {
             globalThis
         },
@@ -1062,7 +952,7 @@ local.apidocCreate = function (opt) {
         opt.exampleList = opt.exampleList.concat(
             // find . -maxdepth 1 -mindepth 1 -name "*.js" -type f
             // https://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list
-            local.child_process.execSync(
+            require("child_process").execSync(
                 "find \"" + opt.dir
                 + "\" -maxdepth " + depth + " -mindepth " + depth
                 + " -type f | sed -e \"s|" + opt.dir
@@ -1128,7 +1018,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
         }());
     }
     // normalize moduleMain
-    moduleMain = local.objectSetDefault(tmp, moduleMain);
+    moduleMain = local.objectAssignDefault(tmp, moduleMain);
     opt.moduleDict[opt.env.npm_package_name] = moduleMain;
     // init circularSet - builtins
     [
@@ -1178,18 +1068,6 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
     });
     // init moduleDict child
     local.apidocModuleDictAdd(opt, opt.moduleDict);
-    // init swgg.apiDict
-    Object.keys(
-        (moduleMain.swgg && moduleMain.swgg.apiDict) || {}
-    ).forEach(function (key) {
-        tmp = "swgg.apiDict";
-        opt.moduleDict[tmp] = opt.moduleDict[tmp] || {};
-        tmp = opt.moduleDict[tmp];
-        tmp[key + ".ajax"] = (
-            moduleMain.swgg.apiDict[key]
-            && moduleMain.swgg.apiDict[key].ajax
-        );
-    });
     // init moduleExtraDict
     opt.moduleExtraDict[opt.env.npm_package_name] = (
         opt.moduleExtraDict[opt.env.npm_package_name] || {}
@@ -1201,7 +1079,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
         opt.libFileList = opt.libFileList.concat(
             // find . -maxdepth 1 -mindepth 1 -name "*.js" -type f
             // https://stackoverflow.com/questions/4509624/how-to-limit-depth-for-recursive-file-list
-            local.child_process.execSync(
+            require("child_process").execSync(
                 "find \"" + opt.dir
                 + "\" -maxdepth " + depth + " -mindepth " + depth
                 + " -name \"*.js\" -type f | sed -e \"s|" + opt.dir
@@ -1233,7 +1111,10 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
     opt.libFileList.every(function (file) {
         local.tryCatchOnError(function () {
             tmp = {};
-            tmp.name = local.path.basename(file).replace("lib.", "").replace((
+            tmp.name = require("path").basename(file).replace(
+                "lib.",
+                ""
+            ).replace((
                 /\.[^.]*?$/
             ), "").replace((
                 /\W/g
