@@ -3,7 +3,7 @@
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-06-08T02:50:03.507Z - npm-testing /home/travis/bu\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-06-08T07:19:17.886Z - npm-testing /home/travis/bu\</tspan>
 <tspan x="10" y="58">ild/kaizhu256/node-apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -13,7 +13,7 @@
 <tspan x="10" y="106">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/bui\</tspan>
 <tspan x="10" y="122">ld/test-report.json</tspan>
 
-<tspan x="10" y="138">&gt; http-server listening on port 42064</tspan>
+<tspan x="10" y="138">&gt; http-server listening on port 46604</tspan>
 
 <tspan x="10" y="154">apidocCreate - readExample /home/travis/build/kaizhu256/node-apidoc-lite/package.json</tspan>
 
@@ -44,22 +44,22 @@
 <tspan x="10" y="362">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/bui\</tspan>
 <tspan x="10" y="378">ld/test-report.json</tspan>
 
-<tspan x="10" y="394">jslint - 4ms - /home/travis/build/kaizhu256/node-apidoc-lite/README.md</tspan>
+<tspan x="10" y="394">jslint - 3ms - /home/travis/build/kaizhu256/node-apidoc-lite/README.md</tspan>
 
-<tspan x="10" y="410">jslint - 10ms - /home/travis/build/kaizhu256/node-apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="410">jslint - 7ms - /home/travis/build/kaizhu256/node-apidoc-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="426">jslint - 17ms - /home/travis/build/kaizhu256/node-apidoc-lite/package.json</tspan>
+<tspan x="10" y="426">jslint - 16ms - /home/travis/build/kaizhu256/node-apidoc-lite/package.json</tspan>
 
-<tspan x="10" y="442">jslint - 55ms - /home/travis/build/kaizhu256/node-apidoc-lite/test.js</tspan>
+<tspan x="10" y="442">fsWriteFileWithMkdirp - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/apidoc.html</tspan>
 
-<tspan x="10" y="458">fsWriteFileWithMkdirp - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/apidoc.html</tspan>
+<tspan x="10" y="458">testRunDefault - 173 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="474">testRunDefault - 269 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="474">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.j\</tspan>
+<tspan x="10" y="490">son</tspan>
 
-<tspan x="10" y="490">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.j\</tspan>
-<tspan x="10" y="506">son</tspan>
+<tspan x="10" y="506">jslint - 68ms - /home/travis/build/kaizhu256/node-apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="522">jslint - 277ms - /home/travis/build/kaizhu256/node-apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="522">jslint - 216ms - /home/travis/build/kaizhu256/node-apidoc-lite/lib.apidoc.js</tspan>
 
 <tspan x="10" y="538"></tspan>
 
@@ -70,35 +70,35 @@
 
 <tspan x="10" y="602">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="618">| test-report - buildApidoc - node - linux v14.4.0 - 2020-06-08T02:50:03.608Z</tspan>
+<tspan x="10" y="618">| test-report - buildApidoc - node - linux v14.4.0 - 2020-06-08T07:19:17.977Z</tspan>
 
-<tspan x="10" y="634">|     274 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="634">|     174 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="650">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="666">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="682">L, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T02:49:57.626Z</tspan>
+<tspan x="10" y="682">L, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T07:19:12.152Z</tspan>
 
-<tspan x="10" y="698">|      20 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="698">|      29 ms            0 failed        2 passed      |</tspan>
 
 <tspan x="10" y="714">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="730">| test-report - npmTest - node - linux v14.4.0 - 2020-06-08T02:49:56.101Z</tspan>
+<tspan x="10" y="730">| test-report - npmTest - node - linux v14.4.0 - 2020-06-08T07:19:10.749Z</tspan>
 
-<tspan x="10" y="746">|    6055 ms            0 failed        9 passed      |</tspan>
+<tspan x="10" y="746">|    5871 ms            0 failed        9 passed      |</tspan>
 
 <tspan x="10" y="762">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="778">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
-<tspan x="10" y="794">.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T02:49:50.355Z</tspan>
+<tspan x="10" y="794">.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T07:19:05.093Z</tspan>
 
-<tspan x="10" y="810">|      13 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="810">|      15 ms            0 failed        2 passed      |</tspan>
 
 <tspan x="10" y="826">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="842">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-08T02:49:48.139Z</tspan>
+<tspan x="10" y="842">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-08T07:19:02.982Z</tspan>
 
-<tspan x="10" y="858">|    5958 ms            0 failed        9 passed      |</tspan>
+<tspan x="10" y="858">|    5827 ms            0 failed        9 passed      |</tspan>
 
 <tspan x="10" y="874">-------------------------------------------------------</tspan>
 
@@ -121,7 +121,7 @@
 
 <tspan x="10" y="1050"></tspan>
 
-<tspan x="10" y="1066">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-06-08T02:50:04.230Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="1066">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-06-08T07:19:18.524Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>

@@ -370,13 +370,13 @@ local.moduleDirname = function (module, pathList) {
         return require("path").resolve(module || "");
     }
     // search pathList
-    Array.from([
+    [].concat(
         pathList,
         require("module").globalPaths,
         [
             process.env.HOME + "/node_modules", "/usr/local/lib/node_modules"
         ]
-    ]).flat().some(function (path) {
+    ).some(function (path) {
         try {
             result = require("path").resolve(path + "/" + module);
             result = require("fs").statSync(result).isDirectory() && result;

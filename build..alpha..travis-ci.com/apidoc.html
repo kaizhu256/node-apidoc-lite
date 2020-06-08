@@ -815,13 +815,13 @@ cliDict._version = cliDict._version || function () {
         return require(&quot;path&quot;).resolve(module || &quot;&quot;);
     }
     // search pathList
-    Array.from([
+    [].concat(
         pathList,
         require(&quot;module&quot;).globalPaths,
         [
             process.env.HOME + &quot;/node_modules&quot;, &quot;/usr/local/lib/node_modules&quot;
         ]
-    ]).flat().some(function (path) {
+    ).some(function (path) {
         try {
             result = require(&quot;path&quot;).resolve(path + &quot;/&quot; + module);
             result = require(&quot;fs&quot;).statSync(result).isDirectory() &amp;&amp; result;
