@@ -185,6 +185,8 @@ local.testRunDefault(local);
 
 // run shared js-env code - function
 (function () {
+let assertJsonEqual;
+assertJsonEqual = local.assertJsonEqual;
 local.testCase_apidocCreate_default = function (options, onError) {
 /*
  * this function will test apidocCreate's default handling-behavior-behavior
@@ -235,11 +237,11 @@ local.testCase_apidocCreate_default = function (options, onError) {
     options.moduleDict.undefined.toString = local.throwError;
     local.apidocCreate(options);
     // validate options
-    local.assertJsonEqual(options.packageJson._, undefined);
-    local.assertJsonEqual(options.packageJson.aa, "bb");
-    local.assertJsonEqual(options.packageJson.emailDict.email, undefined);
-    local.assertJsonEqual(options.packageJson.emailList[0].email, undefined);
-    local.assertJsonEqual(options.packageJson.readme, undefined);
+    assertJsonEqual(options.packageJson._, undefined);
+    assertJsonEqual(options.packageJson.aa, "bb");
+    assertJsonEqual(options.packageJson.emailDict.email, undefined);
+    assertJsonEqual(options.packageJson.emailList[0].email, undefined);
+    assertJsonEqual(options.packageJson.readme, undefined);
     // test swgg.apiDict handling-behavior
     options = {
         moduleDict: {
@@ -265,6 +267,45 @@ local.testCase_apidocCreate_default = function (options, onError) {
     };
     local.apidocCreate(options);
     onError(null, options);
+};
+
+local.testCase_moduleDirname_default = function (opt, onError) {
+/*
+ * this function will test moduleDirname's default handling-behavior
+ */
+    if (local.isBrowser) {
+        onError(undefined, opt);
+        return;
+    }
+    // test null-case handling-behavior
+    assertJsonEqual(
+        local.moduleDirname(undefined, module.paths),
+        process.cwd()
+    );
+    // test path handling-behavior
+    assertJsonEqual(
+        local.moduleDirname(".", module.paths),
+        process.cwd()
+    );
+    assertJsonEqual(
+        local.moduleDirname("./", module.paths),
+        process.cwd()
+    );
+    assertJsonEqual(
+        local.moduleDirname(
+            require("path").basename(process.cwd()),
+            [
+                require("path").dirname(process.cwd())
+            ]
+        ),
+        process.cwd()
+    );
+    // test module-does-not-exist handling-behavior
+    assertJsonEqual(
+        local.moduleDirname("syntax-err", module.paths),
+        ""
+    );
+    onError(undefined, opt);
 };
 }());
 }());

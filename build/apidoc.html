@@ -509,23 +509,7 @@ module = opt.moduleExtraDict[opt.env.npm_package_name];
         throw new Error(JSON.stringify(aa) + &quot; !== &quot; + JSON.stringify(bb));
     }
 }</pre></li>
-    <li>example use<pre class="apidocCodePre">...
-Object.defineProperty(options.moduleDict.undefined, &quot;error&quot;, {
-    get: local.throwError,
-    set: local.throwError
-});
-options.moduleDict.undefined.toString = local.throwError;
-local.apidocCreate(options);
-// validate options
-local.<span class="apidocCodeKeywordSpan">assertJsonEqual</span>(options.packageJson._, undefined);
-local.assertJsonEqual(options.packageJson.aa, &quot;bb&quot;);
-local.assertJsonEqual(options.packageJson.emailDict.email, undefined);
-local.assertJsonEqual(options.packageJson.emailList[0].email, undefined);
-local.assertJsonEqual(options.packageJson.readme, undefined);
-// test swgg.apiDict handling-behavior
-options = {
-    moduleDict: {
-...</pre></li>
+    <li>example use<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
