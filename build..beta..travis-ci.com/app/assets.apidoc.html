@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- "" -->
-<title>test-report</title>
+<!-- "assets.utility2.template.html" -->
+<title>apidoc-lite (2020.6.8)</title>
 <style>
 /* jslint utility2:true */
 /*csslint
@@ -97,55 +97,6 @@ pre {
     margin: 0;
     padding: 0;
     width: 0;
-}
-/* jslint utility2:true */
-/*csslint
-*/
-.testReportDiv img {
-    border: 1px solid #999;
-    margin: 5px 0 5px 0;
-    max-height: 256px;
-    max-width: 512px;
-}
-.testReportDiv pre {
-    background: #fdd;
-    border-top: 1px solid #999;
-    margin-bottom: 0;
-    padding: 10px;
-}
-.testReportDiv span {
-    display: inline-block;
-    width: 120px;
-}
-.testReportDiv table {
-    border-top: 1px solid #999;
-    text-align: left;
-    width: 100%;
-}
-.testReportDiv table > tbody > tr:nth-child(odd) {
-    background: #bfb;
-}
-.testReportDiv .displayNone {
-    display: none;
-}
-.testReportDiv .footer {
-    text-align: center;
-}
-.testReportDiv .platform {
-    background: #fff;
-    border: 1px solid #999;
-    margin-bottom: 20px;
-    padding: 0 10px 10px 10px;
-    text-align: left;
-}
-.testReportDiv .summary {
-    background: #bfb;
-}
-.testReportDiv .testFailed {
-    background: #f99;
-}
-.testReportDiv .testPending {
-    background: #99f;
 }
 </style>
 </head>
@@ -456,365 +407,60 @@ pre {
     );
 }());
 </script>
-<div class="testReportDiv">
-<h1>test-report for
-    <a
-        
-        href="https://github.com/kaizhu256/node-apidoc-lite"
-        
-    >
-        apidoc-lite (2020.6.8)
-    </a>
+<h1>
+
+<a
+    
+    href="https://github.com/kaizhu256/node-apidoc-lite"
+    
+    target="_blank"
+>
+
+    apidoc-lite (2020.6.8)
+
+</a>
+
 </h1>
-<div class="platform summary">
-<h2>summary</h2>
-<h4>
-    <span>version</span>-
-        2020.6.8<br>
-    <span>test date</span>- 2020-06-08T23:06:03.547Z<br>
-    <span>commit info</span>-
-        
-        9a826a1c8fec44acc86608770b5f18d00cf6f51f - <br>
-        
-</h4>
-<table>
-<thead>
-    <tr>
-        <th>total time-elapsed</th>
-        <th>total tests failed</th>
-        <th>total tests passed</th>
-        <th>total tests pending</th>
-    </tr>
-</thead>
-<tbody><tr>
-    <td>24964 ms</td>
-    <td class="testPassed">0</td>
-    <td>25</td>
-    <td>0</td>
-</tr></tbody>
-</table>
-</div>
+<h3>this zero-dependency package will auto-generate documentation for your npm-package with zero-config</h3>
 
-<div class="platform">
-<h4>
-    1. buildApidoc - node - linux v14.4.0 - 2020-06-08T23:05:58.499Z<br>
-    
-    
-    <span>time-elapsed</span>- 10699 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 1<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
+<a class="button" download href="assets.app.js">download standalone app</a><br>
+<button class="button" data-onevent="testRunBrowser" id="buttonTestRun1">run browser-tests</button><br>
+<div class="uiAnimateSlide" id="htmlTestReport1" style="border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;"></div>
 
-<tr>
-    <td>1</td>
-    <td>5543 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApp_default</td>
-</tr>
 
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
 
-</pre>
-</div>
 
-<div class="platform">
-<h4>
-    2. npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T23:05:52.591Z<br>
-    
-    <a href="screenshot.npmTest.browser.%252F.png">
-        <img alt="screenshot.npmTest.browser.%252F.png" src="screenshot.npmTest.browser.%252F.png">
-    </a>
-    <br>
-    
-    
-    <span>time-elapsed</span>- 16636 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 3<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
+<!-- custom-html-start -->
+<label>stderr and stdout</label>
+<textarea class="onevent-reset-output readonly textarea" id="outputStdout1" readonly></textarea>
+<!-- custom-html-end -->
 
-<tr>
-    <td>2</td>
-    <td>1 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_apidocCreate_default</td>
-</tr>
 
-<tr>
-    <td>3</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_moduleDirname_default</td>
-</tr>
 
-<tr>
-    <td>4</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_nop_default</td>
-</tr>
 
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
 
-</pre>
-</div>
+<script src="assets.utility2.rollup.js"></script>
+<script>window.utility2_onReadyBefore.cnt += 1;</script>
+<script src="jsonp.utility2.stateInit?callback=window.utility2.stateInit"></script>
 
-<div class="platform">
-<h4>
-    3. npmTest - node - linux v14.4.0 - 2020-06-08T23:05:51.184Z<br>
-    
-    
-    <span>time-elapsed</span>- 17620 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 9<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
+<script src="assets.apidoc.js"></script>
+<script src="assets.example.js"></script>
+<script src="assets.test.js"></script>
+<script>
+if (window.utility2_onReadyBefore) {
+    window.utility2_onReadyBefore();
+}
+</script>
 
-<tr>
-    <td>5</td>
-    <td>399 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_apidocCreate_default</td>
-</tr>
 
-<tr>
-    <td>6</td>
-    <td>67 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApidoc_default</td>
-</tr>
 
-<tr>
-    <td>7</td>
-    <td>5516 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApp_default</td>
-</tr>
-
-<tr>
-    <td>8</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildLib_default</td>
-</tr>
-
-<tr>
-    <td>9</td>
-    <td>6 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildReadme_default</td>
-</tr>
-
-<tr>
-    <td>10</td>
-    <td>1 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildTest_default</td>
-</tr>
-
-<tr>
-    <td>11</td>
-    <td>1 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_moduleDirname_default</td>
-</tr>
-
-<tr>
-    <td>12</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_nop_default</td>
-</tr>
-
-<tr>
-    <td>13</td>
-    <td>781 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_webpage_default</td>
-</tr>
-
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
-
-</pre>
-</div>
-
-<div class="platform">
-<h4>
-    4. npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T23:05:45.415Z<br>
-    
-    <a href="screenshot.npmTestPublished.browser.%252F.png">
-        <img alt="screenshot.npmTestPublished.browser.%252F.png" src="screenshot.npmTestPublished.browser.%252F.png">
-    </a>
-    <br>
-    
-    
-    <span>time-elapsed</span>- 23836 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 3<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
-
-<tr>
-    <td>14</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_apidocCreate_default</td>
-</tr>
-
-<tr>
-    <td>15</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_moduleDirname_default</td>
-</tr>
-
-<tr>
-    <td>16</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_nop_default</td>
-</tr>
-
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
-
-</pre>
-</div>
-
-<div class="platform">
-<h4>
-    5. npmTestPublished - node - linux v14.4.0 - 2020-06-08T23:05:43.638Z<br>
-    
-    
-    <span>time-elapsed</span>- 24964 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 9<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
-
-<tr>
-    <td>17</td>
-    <td>340 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_apidocCreate_default</td>
-</tr>
-
-<tr>
-    <td>18</td>
-    <td>125 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApidoc_default</td>
-</tr>
-
-<tr>
-    <td>19</td>
-    <td>5385 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApp_default</td>
-</tr>
-
-<tr>
-    <td>20</td>
-    <td>1 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildLib_default</td>
-</tr>
-
-<tr>
-    <td>21</td>
-    <td>8 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildReadme_default</td>
-</tr>
-
-<tr>
-    <td>22</td>
-    <td>3 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildTest_default</td>
-</tr>
-
-<tr>
-    <td>23</td>
-    <td>2 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_moduleDirname_default</td>
-</tr>
-
-<tr>
-    <td>24</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_nop_default</td>
-</tr>
-
-<tr>
-    <td>25</td>
-    <td>949 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_webpage_default</td>
-</tr>
-
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
-
-</pre>
-</div>
-
-<div class="footer">
-    [ this document was created with
-    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+<div style="text-align: center;">
+    [
+    this app was created with
+    <a
+        href="https://github.com/kaizhu256/node-utility2" target="_blank"
+    >utility2</a>
     ]
-</div>
 </div>
 </body>
 </html>
