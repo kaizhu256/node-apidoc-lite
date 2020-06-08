@@ -1153,6 +1153,9 @@ local.apidocCreate = function (opt) {
     let tmp;
     let toString;
     let trimStart;
+    if (opt.modeNop) {
+        return "";
+    }
     elemCreate = function (module, prefix, key) {
     /*
      * this function will create the apidoc-elem in given <module>
@@ -12518,22 +12521,22 @@ let fileWrite;
 let path;
 let reportHtmlWrite;
 let reportTextWrite;
-// mock module path
-path = (
-    local.isBrowser
-    ? {
-        dirname: function (file) {
-            return file.replace((
-                /\/[\w\-.]+?$/
-            ), "");
-        },
-        resolve: function (...argList) {
-            return argList[argList.length - 1];
-        },
-        sep: "/"
-    }
-    : require("path")
-);
+// mock path
+path = {
+    dirname: function (file) {
+        return file.replace((
+            /\/[\w\-.]+?$/
+        ), "");
+    },
+    resolve: function (...argList) {
+        return argList[argList.length - 1];
+    },
+    sep: "/"
+};
+// require path
+try {
+    path = require("path");
+} catch (ignore) {}
 // init function
 fileWrite = function (file, data) {
 /*
@@ -45851,8 +45854,8 @@ local.cliDict["utility2.start"] = function () {
     globalThis.local = local;
     local.replStart();
     local.testRunServer({});
-    if (local.env.npm_config_runme) {
-        require(require("path").resolve(local.env.npm_config_runme));
+    if (process.env.npm_config_runme) {
+        require(require("path").resolve(process.env.npm_config_runme));
     }
 };
 
@@ -45866,7 +45869,7 @@ local.cliDict["utility2.testReportCreate"] = function () {
             JSON.parse(
                 require("fs").readFileSync(
                     require("path").resolve(
-                        local.env.npm_config_dir_build + "/test-report.json"
+                        process.env.npm_config_dir_build + "/test-report.json"
                     ),
                     "utf8"
                 )
@@ -45899,124 +45902,6 @@ local.Blob = globalThis.Blob || function (list, opt) {
         return String(elem);
     }));
     this.type = (opt && opt.type) || "";
-};
-
-// init lib FormData
-local.FormData = function () {
-/*
- * this function will create serverLocal-compatible FormData instance
- * The FormData(form) constructor must run these steps:
- * 1. Let fd be a new FormData object.
- * 2. If form is given, set fd's entries to the result
- *    of constructing the form data set for form. (not implemented)
- * 3. Return fd.
- * https://xhr.spec.whatwg.org/#dom-formdata
- */
-    this.entryList = [];
-};
-
-local.FormData.prototype.append = function (name, value, filename) {
-/*
- * The append(name, value, filename) method, when invoked, must run these steps:
- * 1. If the filename argument is given, set value to a new File object
- *    whose contents are value and name is filename.
- * 2. Append a new entry whose name is name, and value is value,
- *    to context object's list of entries.
- * https://xhr.spec.whatwg.org/#dom-formdata-append
- */
-    if (filename) {
-        // bug-workaround - chromium cannot assign name to Blob instance
-        local.tryCatchOnError(function () {
-            value.name = filename;
-        }, local.nop);
-    }
-    this.entryList.push({
-        name,
-        value
-    });
-};
-
-local.FormData.prototype.read = function (onError) {
-/*
- * this function will read from formData as buffer, e.g.
- * --Boundary\r\n
- * Content-Disposition: form-data; name="key"\r\n
- * \r\n
- * value\r\n
- * --Boundary\r\n
- * Content-Disposition: form-data; name="input1"; filename="file1.png"\r\n
- * Content-Type: image/jpeg\r\n
- * \r\n
- * <data1>\r\n
- * --Boundary\r\n
- * Content-Disposition: form-data; name="input2"; filename="file2.png"\r\n
- * Content-Type: image/jpeg\r\n
- * \r\n
- * <data2>\r\n
- * --Boundary--\r\n
- * https://tools.ietf.org/html/rfc7578
- */
-    let boundary;
-    let result;
-    // handle null-case
-    if (!this.entryList.length) {
-        onError();
-        return;
-    }
-    // init boundary
-    boundary = "--" + Date.now().toString(16) + Math.random().toString(16);
-    // init result
-    result = [];
-    local.onParallelList({
-        list: this.entryList
-    }, function (opt2, onParallel) {
-        let value;
-        value = opt2.elem.value;
-        if (!(value && value.constructor === local.Blob)) {
-            result[opt2.ii] = [
-                (
-                    boundary + "\r\nContent-Disposition: form-data; name=\""
-                    + opt2.elem.name + "\"\r\n\r\n"
-                ), value, "\r\n"
-            ];
-            onParallel.cnt += 1;
-            onParallel();
-            return;
-        }
-        // read from blob in parallel
-        onParallel.cnt += 1;
-        local.blobRead(value, function (err, data) {
-            result[opt2.ii] = !err && [
-                (
-                    boundary + "\r\nContent-Disposition: form-data; name=\""
-                    + opt2.elem.name + "\"" + (
-                        (value && value.name)
-                        // read param filename
-                        ? "; filename=\"" + value.name + "\""
-                        : ""
-                    ) + "\r\n" + (
-                        (value && value.type)
-                        // read param Content-Type
-                        ? "Content-Type: " + value.type + "\r\n"
-                        : ""
-                    ) + "\r\n"
-                ), data, "\r\n"
-            ];
-            onParallel(err);
-        });
-    }, function (err) {
-        // add closing boundary
-        result.push([
-            boundary + "--\r\n"
-        ]);
-        // concatenate result
-        onError(
-            err,
-            // flatten result
-            !err
-            && local.bufferConcat(result.flat())
-        );
-    });
 };
 
 // init lib _http
@@ -46135,11 +46020,49 @@ local._http.request = function (xhr, onResponse) {
     return xhr;
 };
 
+local._testCase_assetsAppJs_standalone = function (opt, onError) {
+/*
+ * this function will test assets.app.js's standalone handling-behavior
+ */
+    if (local.isBrowser) {
+        onError(undefined, opt);
+        return;
+    }
+    // test standalone assets.app.js
+    local.fsWriteFileWithMkdirp({
+        data: local.assetsDict["/assets.app.js"],
+        modeDebug: true,
+        modeUncaughtException: true,
+        pathname: "tmp/buildApp/assets.app.js"
+    }, function () {
+        require("child_process").spawn("node", [
+            "assets.app.js"
+        ], {
+            cwd: "tmp/buildApp",
+            env: {
+                PATH: process.env.PATH,
+                PORT: (Math.random() * 0x10000) | 0x8000,
+                npm_config_timeout_exit: 5000
+            },
+            stdio: [
+                "ignore", 1, 2
+            ]
+        }).on("error", onError).on("exit", function (exitCode) {
+            local.assertOrThrow(!exitCode, exitCode);
+            onError();
+        });
+    });
+};
+
 local._testCase_buildApidoc_default = function (opt, onError) {
 /*
  * this function will test buildApidoc's default handling-behavior
  */
     let require2;
+    if (local.isBrowser) {
+        onError(undefined, opt);
+        return;
+    }
     require2 = function (file) {
     /*
      * this function will require <file> in sandbox-env
@@ -46147,52 +46070,62 @@ local._testCase_buildApidoc_default = function (opt, onError) {
         let exports;
         let mockDict;
         let mockList;
+        let nop;
+        nop = function () {
+        /*
+         * this function will do nothing
+         */
+            return;
+        };
+        // coverage-hack
+        nop();
         mockList = [
             [
                 globalThis, {
-                    setImmediate: local.nop,
-                    setInterval: local.nop,
-                    setTimeout: local.nop
+                    setImmediate: nop,
+                    setInterval: nop,
+                    setTimeout: nop
                 }
             ]
         ];
+        // disable io and side-effect
         [
-            [
-                process, "process"
-            ], [
-                process.stdin, "stdin"
-            ], [
-                require("child_process"), "child_process"
-            ], [
-                require("cluster"), "cluster"
-            ], [
-                require("fs"), "cluster"
-            ], [
-                require("http"), "http"
-            ], [
-                require("https"), "https"
-            ], [
-                require("net"), "net"
-            ], [
-                require("repl"), "repl"
-            ], [
-                require("events").prototype, "prototype"
-            ], [
-                require("stream").prototype, "prototype"
-            ]
-        ].forEach(function ([
-            dict, name
-        ]) {
+            process,
+            process.stdin,
+            process.stdout,
+            require("child_process"),
+            require("cluster"),
+            require("crypto"),
+            require("dgram"),
+            require("dns"),
+            require("domain"),
+            require("events").prototype,
+            require("http"),
+            require("https"),
+            require("net"),
+            require("os"),
+            require("readline"),
+            require("repl"),
+            require("stream").prototype,
+            require("timers"),
+            require("tls"),
+            require("tty"),
+            require("util"),
+            require("v8"),
+            require("vm"),
+            {
+                "__zjqx1234__": nop
+            }
+        ].forEach(function (dict) {
             mockDict = {};
-            Object.entries(dict).forEach(function ([
-                key, val
-            ]) {
-                if (typeof val === "function" && !(
-                    /^(?:fs\.Read|fs\.read|process\.binding|process\.dlopen)/
-                ).test(name + "." + key)) {
-                    mockDict[key] = function () {
-                        return;
-                    };
+            Object.keys(dict).forEach(function (key) {
+                if (typeof dict[key] === "function" && (
+                    process.env.npm_config_mode_test_case
+                    === "testCase_buildApidoc_default"
+                    // coverage-hack
+                    || key === "__zjqx1234__"
+                )) {
+                    mockDict[key] = nop;
                 }
             });
             mockList.push([
@@ -46209,25 +46142,22 @@ local._testCase_buildApidoc_default = function (opt, onError) {
         }, local.onErrorThrow);
         return exports;
     };
-    if (
-        local.isBrowser
-        || local.env.npm_config_mode_coverage
-        || local.env.npm_config_mode_test_case
-        !== "testCase_buildApidoc_default"
-    ) {
-        onError(undefined, opt);
-        return;
-    }
+    // coverage-hack
+    require2();
     // save apidoc.html
-    local.fsWriteFileWithMkdirpSync(
-        "tmp/build/apidoc.html",
-        local.apidocCreate(local.objectAssignDefault(opt, {
+    local.fsWriteFileWithMkdirp({
+        data: local.apidocCreate(local.objectAssignDefault(opt, {
             blacklistDict: local,
+            modeNop: (
+                process.env.npm_config_mode_test_case
+                !== "testCase_buildApidoc_default"
+            ),
             require: require2
         })),
-        "wrote file apidoc - {{pathname}}"
-    );
-    onError();
+        modeDebug: true,
+        modeUncaughtException: true,
+        pathname: "tmp/build/apidoc.html"
+    }, onError);
 };
 
 local._testCase_buildApp_default = function (opt, onError) {
@@ -46288,8 +46218,8 @@ local._testCase_webpage_default = function (opt, onError) {
     local.domStyleValidate();
     local.browserTest({
         fileScreenshot: (
-            local.env.npm_config_dir_build
-            + "/screenshot." + local.env.MODE_BUILD + ".browser.%2F.png"
+            process.env.npm_config_dir_build
+            + "/screenshot." + process.env.MODE_BUILD + ".browser.%2F.png"
         ),
         url: (
             local.serverLocalHost
@@ -46641,9 +46571,6 @@ local.ajax = function (opt, onError) {
     // Blob
     // https://developer.mozilla.org/en-US/docs/Web/API/Blob
     case local2.Blob:
-    // FormData
-    // https://developer.mozilla.org/en-US/docs/Web/API/FormData
-    case local2.FormData:
         local2.blobRead(xhr.data, function (err, data) {
             if (err) {
                 xhr.onEvent(err);
@@ -46765,10 +46692,6 @@ local.blobRead = function (blob, onError) {
  */
     let isDone;
     let reader;
-    if (blob && blob.constructor && blob.constructor === local.FormData) {
-        blob.read(onError);
-        return;
-    }
     if (!local.isBrowser) {
         onError(undefined, local.bufferValidateAndCoerce(blob.buf));
         return;
@@ -47058,113 +46981,94 @@ local.bufferValidateAndCoerce = function (buf, mode) {
     return buf;
 };
 
-local.buildApp = async function (opt, onError) {
+local.buildApp = function (opt, onError) {
 /*
  * this function will build app with given <opt>
  */
-    let exitCode;
     // cleanup app
-    exitCode = await new Promise(function (resolve, reject) {
-        require("child_process").spawn((
-            "rm -rf tmp/build/app; mkdir -p tmp/build/app"
-        ), {
-            shell: true,
-            stdio: [
-                "ignore", 1, 2
-            ]
-        }).on("error", reject).on("exit", resolve);
-    });
-    local.assertOrThrow(!exitCode, exitCode);
-    // build app
-    await Promise.all([
-        {
-            file: "/LICENSE",
-            url: "/LICENSE"
-        }, {
-            file: "/assets." + process.env.npm_package_nameLib + ".html",
-            url: "/index.html"
-        }, {
-            file: "/assets." + process.env.npm_package_nameLib + ".js",
-            url: "/assets." + process.env.npm_package_nameLib + ".js"
-        }, {
-            file: "/assets.app.js",
-            url: "/assets.app.js"
-        }, {
-            file: "/assets.example.html",
-            url: "/assets.example.html"
-        }, {
-            file: "/assets.example.js",
-            url: "/assets.example.js"
-        }, {
-            file: "/assets.test.js",
-            url: "/assets.test.js"
-        }, {
-            file: "/assets.utility2.html",
-            url: "/assets.utility2.html"
-        }, {
-            file: "/assets.utility2.rollup.js",
-            url: "/assets.utility2.rollup.js"
-        }, {
-            file: "/index.html",
-            url: "/index.html"
-        }, {
-            file: "/index.rollup.html",
-            url: "/index.rollup.html"
-        }, {
-            file: "/jsonp.utility2.stateInit",
-            url: (
-                "/jsonp.utility2.stateInit"
-                + "?callback=window.utility2.stateInit"
-            )
-        }
-    ].concat(opt.assetsList).map(async function (elem) {
-        let xhr;
-        if (!elem) {
-            return;
-        }
-        xhr = await local.httpFetch(
-            "http://127.0.0.1:" + process.env.PORT + elem.url,
-            {
-                responseType: "raw"
-            }
-        );
-        await local.fsWriteFileWithMkdirp(
-            "tmp/build/app/" + elem.file,
-            xhr.data,
-            "wrote file - app - {{pathname}}"
-        );
-    }));
-    // jslint app
-    await local.childProcessEval((
-        local.assetsDict["/assets.utility2.lib.jslint.js"]
-        + ";module.exports.jslintAndPrintDir(\".\","
-        + "{conditional:true});"
+    require("child_process").spawn((
+        "rm -rf tmp/build/app; mkdir -p tmp/build/app"
     ), {
-        cwd: "tmp/build/app"
+        shell: true,
+        stdio: [
+            "ignore", 1, 2
+        ]
+    }).on("error", onError).on("exit", function (exitCode) {
+        // validate exitCode
+        local.assertOrThrow(!exitCode, exitCode);
+        // build app
+        Promise.all([
+            {
+                file: "/LICENSE",
+                url: "/LICENSE"
+            }, {
+                file: "/assets." + process.env.npm_package_nameLib + ".html",
+                url: "/index.html"
+            }, {
+                file: "/assets." + process.env.npm_package_nameLib + ".js",
+                url: "/assets." + process.env.npm_package_nameLib + ".js"
+            }, {
+                file: "/assets.app.js",
+                url: "/assets.app.js"
+            }, {
+                file: "/assets.example.html",
+                url: "/assets.example.html"
+            }, {
+                file: "/assets.example.js",
+                url: "/assets.example.js"
+            }, {
+                file: "/assets.test.js",
+                url: "/assets.test.js"
+            }, {
+                file: "/assets.utility2.html",
+                url: "/assets.utility2.html"
+            }, {
+                file: "/assets.utility2.rollup.js",
+                url: "/assets.utility2.rollup.js"
+            }, {
+                file: "/index.html",
+                url: "/index.html"
+            }, {
+                file: "/index.rollup.html",
+                url: "/index.rollup.html"
+            }, {
+                file: "/jsonp.utility2.stateInit",
+                url: (
+                    "/jsonp.utility2.stateInit"
+                    + "?callback=window.utility2.stateInit"
+                )
+            }
+        ].concat(opt.assetsList).map(function (elem) {
+            return new Promise(function (resolve) {
+                if (!elem) {
+                    resolve();
+                    return;
+                }
+                local.httpFetch(
+                    "http://127.0.0.1:" + process.env.PORT + elem.url,
+                    {
+                        responseType: "raw"
+                    }
+                ).then(function (xhr) {
+                    local.fsWriteFileWithMkdirp({
+                        data: xhr.data,
+                        modeDebug: true,
+                        modeUncaughtException: true,
+                        pathname: "tmp/build/app/" + elem.file
+                    }, resolve);
+                });
+            });
+        })).then(function () {
+            // jslint app
+            local.local.childProcessEval((
+                local.assetsDict["/assets.utility2.lib.jslint.js"]
+                + ";module.exports.jslintAndPrintDir(\".\","
+                + "{conditional:true});"
+            ), {
+                cwd: "tmp/build/app"
+            }).then(onError);
+        });
     });
-    // test standalone assets.app.js
-    await local.fsWriteFileWithMkdirp(
-        "tmp/buildApp/assets.app.js",
-        local.assetsDict["/assets.app.js"],
-        "wrote file - assets.app.js - {{pathname}}"
-    );
-    exitCode = await new Promise(function (resolve, reject) {
-        require("child_process").spawn("node", [
-            "assets.app.js"
-        ], {
-            cwd: "tmp/buildApp",
-            env: {
-                PATH: process.env.PATH,
-                PORT: (Math.random() * 0x10000) | 0x8000,
-                npm_config_timeout_exit: 5000
-            },
-            stdio: [
-                "ignore", 1, 2
-            ]
-        }).on("error", reject).on("exit", resolve);
-    });
-    local.assertOrThrow(!exitCode, exitCode);
-    onError();
 };
 
 local.buildLib = function (opt, onError) {
@@ -47175,7 +47079,7 @@ local.buildLib = function (opt, onError) {
     local.objectAssignDefault(opt, {
         customize: local.nop,
         dataFrom: require("fs").readFileSync(
-            "lib." + local.env.npm_package_nameLib + ".js",
+            "lib." + process.env.npm_package_nameLib + ".js",
             "utf8"
         ),
         dataTo: local.templateRenderMyApp(
@@ -47209,9 +47113,9 @@ local.buildLib = function (opt, onError) {
     }
     // save lib
     result = opt.dataTo;
-    if (!local.env.npm_config_mode_coverage) {
+    if (!process.env.npm_config_mode_coverage) {
         local.fsWriteFileWithMkdirpSync(
-            "lib." + local.env.npm_package_nameLib + ".js",
+            "lib." + process.env.npm_package_nameLib + ".js",
             result,
             "wrote file - lib - {{pathname}}"
         );
@@ -47342,13 +47246,13 @@ local.buildReadme = function (opt, onError) {
         opt.dataTo = local.stringMerge(opt.dataTo, opt.dataFrom, rgx);
     });
     // customize private-repository
-    if (local.env.npm_package_private) {
+    if (process.env.npm_package_private) {
         opt.dataTo = opt.dataTo.replace((
             /\n\[!\[NPM\]\(https:\/\/nodei.co\/npm\/.*?\n/
         ), "");
         opt.dataTo = opt.dataTo.replace("$ npm install ", (
             "$ git clone \\\n"
-            + local.env.npm_package_repository_url.replace(
+            + process.env.npm_package_repository_url.replace(
                 "git+https://github.com/",
                 "git@github.com:"
             ) + " \\\n--single-branch -b beta node_modules/"
@@ -47413,13 +47317,13 @@ local.buildReadme = function (opt, onError) {
     }
     // customize shNpmTestPublished
     opt.dataTo = opt.dataTo.replace(
-        "$ npm install " + local.env.GITHUB_REPO + "#alpha",
-        "$ npm install " + local.env.npm_package_name
+        "$ npm install " + process.env.GITHUB_REPO + "#alpha",
+        "$ npm install " + process.env.npm_package_name
     );
     if (opt.dataFrom.indexOf("    shNpmTestPublished\n") < 0) {
         opt.dataTo = opt.dataTo.replace(
-            "$ npm install " + local.env.npm_package_name,
-            "$ npm install " + local.env.GITHUB_REPO + "#alpha"
+            "$ npm install " + process.env.npm_package_name,
+            "$ npm install " + process.env.GITHUB_REPO + "#alpha"
         );
         [
             (
@@ -48118,36 +48022,52 @@ local.fsRmrfSync = function (pathname) {
     } catch (ignore) {}
 };
 
-local.fsWriteFileWithMkdirp = async function (pathname, data, msg) {
+local.fsWriteFileWithMkdirp = function ({
+    data,
+    modeDebug,
+    modeUncaughtException,
+    pathname
+}, onError) {
 /*
  * this function will async write <data> to <pathname> with "mkdir -p"
  */
     let fs;
-    let success;
     // do nothing if module does not exist
     try {
-        fs = require("fs").promises;
+        fs = require("fs");
     } catch (ignore) {
-        return;
+        onError();
     }
     pathname = require("path").resolve(pathname);
-    // try to write pathname
-    try {
-        await fs.writeFile(pathname, data);
-        success = true;
-    } catch (ignore) {
+    // write pathname
+    fs.writeFile(pathname, data, function (err) {
+        if (!err) {
+            if (modeDebug) {
+                console.error("fsWriteFileWithMkdirp - " + pathname);
+            }
+            onError(undefined, true);
+            return;
+        }
         // mkdir -p
-        await fs.mkdir(require("path").dirname(pathname), {
+        fs.mkdir(require("path").dirname(pathname), {
             recursive: true
+        }, function (ignore) {
+            // re-write pathname
+            fs.writeFile(pathname, data, function (err) {
+                if (!err) {
+                    if (modeDebug) {
+                        console.error("fsWriteFileWithMkdirp - " + pathname);
+                    }
+                    onError(undefined, true);
+                    return;
+                }
+                if (modeUncaughtException) {
+                    throw err;
+                }
+                onError(err);
+            });
         });
-        // re-write pathname
-        await fs.writeFile(pathname, data);
-        success = true;
-    }
-    if (success && msg) {
-        console.error(msg.replace("{{pathname}}", pathname));
-    }
-    return success;
+    });
 };
 
 local.fsWriteFileWithMkdirpSync = function (pathname, data, msg) {
@@ -49289,8 +49209,8 @@ local.requireReadme = function () {
     let module;
     let tmp;
     // init env
+    env = (typeof process === "object" && process && process.env) || {};
     // init module.exports
-    env = (typeof process === "object" && process && process.env) || local.env;
     module = {};
     // if file is modified, then restart process
     if (env.npm_config_mode_auto_restart) {
@@ -49564,6 +49484,7 @@ instruction\n\
     Object.keys(local).forEach(function (key) {
         if (
             key.indexOf("_testCase_build") === 0
+            || key === "_testCase_assetsAppJs_standalone"
             || key === "_testCase_webpage_default"
         ) {
             module.exports[key.slice(1)] = (
@@ -49814,22 +49735,6 @@ local.stringHtmlSafe = function (str) {
     ), "&gt;").replace((
         /&amp;(amp;|apos;|gt;|lt;|quot;)/igu
     ), "&$1");
-};
-
-local.stringLineCount = function (str, start, end) {
-/*
- * this function will count number of "\n" in <str>
- * from <start> to <end>
- */
-    let count;
-    count = 0;
-    while (true) {
-        start = str.indexOf("\n", start) + 1;
-        if (start === 0 || start >= end) {
-            return count;
-        }
-        count += 1;
-    }
 };
 
 local.stringMerge = function (str1, str2, rgx) {
@@ -50228,7 +50133,7 @@ local.testReportCreate = function (testReport) {
             /0000-00-00\u002000:00:00\u0020UTC\u0020-\u0020master\u0020-\u0020aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/g
         ), (
             new Date().toISOString().slice(0, 19).replace("T", " ")
-            + " - " + local.env.CI_BRANCH + " - " + local.env.CI_COMMIT_ID
+            + " - " + process.env.CI_BRANCH + " - " + process.env.CI_COMMIT_ID
         )),
         "wrote file - test-report - {{pathname}}"
     );
@@ -50250,7 +50155,7 @@ local.testReportCreate = function (testReport) {
     );
     // if any test failed, then exit with non-zero exitCode
     console.error(
-        "\n" + local.env.MODE_BUILD
+        "\n" + process.env.MODE_BUILD
         + " - " + testReport.testsFailed + " failed tests\n"
     );
     // print failed testCase
@@ -50983,10 +50888,10 @@ local.urlParse = function (url) {
                 "/" + urlParsed.href.split("/").slice(3).join("/").split("#")[0]
             );
         } else {
-            local.env.PORT = local.env.PORT || "8081";
+            process.env.PORT = process.env.PORT || "8081";
             local.serverLocalHost = (
                 local.serverLocalHost
-                || ("http://127.0.0.1:" + local.env.PORT)
+                || ("http://127.0.0.1:" + process.env.PORT)
             );
             // resolve absolute path
             if (url[0] === "/") {
@@ -51236,24 +51141,24 @@ local.http = require("http");
 /* validateLineSortedReset */
 local.Module = require("module");
 // init env
-local.objectAssignDefault(local.env, {
+local.objectAssignDefault(process.env, {
     npm_config_dir_build: require("path").resolve("tmp/build"),
     npm_config_dir_tmp: require("path").resolve("tmp")
 });
 // merge previous test-report
-if (local.env.npm_config_file_test_report_merge) {
+if (process.env.npm_config_file_test_report_merge) {
     local.testReportMerge(
         globalThis.utility2_testReport,
         local.fsReadFileOrDefaultSync(
-            local.env.npm_config_file_test_report_merge,
+            process.env.npm_config_file_test_report_merge,
             "json",
             {}
         )
     );
     if (process.argv[2] !== "--help") {
         console.error(
-            "\n" + local.env.MODE_BUILD + " - merged test-report from file "
-            + local.env.npm_config_file_test_report_merge
+            "\n" + process.env.MODE_BUILD + " - merged test-report from file "
+            + process.env.npm_config_file_test_report_merge
         );
     }
 }
@@ -70710,92 +70615,6 @@ let assertJsonEqual;\n\
 let assertOrThrow;\n\
 assertJsonEqual = local.assertJsonEqual;\n\
 assertOrThrow = local.assertOrThrow;\n\
-local.testCase_FormData_default = function (opt, onError) {\n\
-/*\n\
- * this function will test FormData's default handling-behavior\n\
- */\n\
-    opt = {};\n\
-    opt.blob1 = new local.Blob([\n\
-        \"aa\", \"bb\", local.stringHelloEmoji, 0\n\
-    ]);\n\
-    opt.blob2 = new local.Blob([\n\
-        \"aa\", \"bb\", local.stringHelloEmoji, 0\n\
-    ], {\n\
-        type: \"text/plain; charset=utf-8\"\n\
-    });\n\
-    opt.data = new local.FormData();\n\
-    opt.data.append(\"text1\", \"aabb\" + local.stringHelloEmoji + \"0\");\n\
-    // test file-upload handling-behavior\n\
-    opt.data.append(\"file1\", opt.blob1);\n\
-    // test file-upload and filename handling-behavior\n\
-    opt.data.append(\"file2\", opt.blob2, \"filename2.txt\");\n\
-    opt.method = \"POST\";\n\
-    opt.url = \"/test.echo\";\n\
-    local.ajax(opt, function (err, xhr) {\n\
-        // handle err\n\
-        assertOrThrow(!err, err);\n\
-        // validate responseText\n\
-        assertOrThrow(xhr.responseText.indexOf(\n\
-            \"\\r\\nContent-Disposition: form-data; \"\n\
-            + \"name=\\\"text1\\\"\\r\\n\\r\\naabbhello \\ud83d\\ude01\\n0\\r\\n\"\n\
-        ) >= 0, xhr.responseText);\n\
-        assertOrThrow(xhr.responseText.indexOf(\n\
-            \"\\r\\nContent-Disposition: form-data; \"\n\
-            + \"name=\\\"file1\\\"\\r\\n\\r\\naabbhello \\ud83d\\ude01\\n0\\r\\n\"\n\
-        ) >= 0, xhr.responseText);\n\
-        assertOrThrow(xhr.responseText.indexOf(\n\
-            \"\\r\\nContent-Disposition: form-data; name=\\\"file2\\\"; \"\n\
-            + \"filename=\\\"filename2.txt\\\"\\r\\nContent-Type: text/plain; \"\n\
-            + \"charset=utf-8\\r\\n\\r\\naabbhello \\ud83d\\ude01\\n0\\r\\n\"\n\
-        ) >= 0, xhr.responseText);\n\
-        onError(undefined, opt);\n\
-    });\n\
-};\n\
-\n\
-local.testCase_FormData_err = function (opt, onError) {\n\
-/*\n\
- * this function will test FormData's err handling-behavior\n\
- */\n\
-    local.testMock([\n\
-        [\n\
-            local.FormData.prototype, {\n\
-                read: function (onError) {\n\
-                    onError(new Error());\n\
-                }\n\
-            }\n\
-        ]\n\
-    ], function (onError) {\n\
-        local.ajax({\n\
-            data: new local.FormData(),\n\
-            method: \"POST\",\n\
-            url: \"/test.echo\"\n\
-        }, function (err) {\n\
-            // handle err\n\
-            assertOrThrow(err, err);\n\
-            onError(undefined, opt);\n\
-        });\n\
-    }, onError);\n\
-};\n\
-\n\
-local.testCase_FormData_nullCase = function (opt, onError) {\n\
-/*\n\
- * this function will test FormData's null-case handling-behavior\n\
- */\n\
-    local.ajax({\n\
-        data: new local.FormData(),\n\
-        method: \"POST\",\n\
-        url: \"/test.echo\"\n\
-    }, function (err, xhr) {\n\
-        // handle err\n\
-        assertOrThrow(!err, err);\n\
-        // validate responseText\n\
-        assertOrThrow((\n\
-            /\\r\\n\\r\\n$/\n\
-        ).test(xhr.responseText), xhr.responseText);\n\
-        onError(undefined, opt);\n\
-    });\n\
-};\n\
-\n\
 local.testCase_ajax_cache = function (opt, onError) {\n\
 /*\n\
  * this function will test ajax's cache handling-behavior\n\
@@ -71256,53 +71075,6 @@ local.testCase_buildApp_default = function (opt, onError) {\n\
     }, onError);\n\
 };\n\
 \n\
-local.testCase_buildLib_default = function (opt, onError) {\n\
-/*\n\
- * this function will test buildLib's default handling-behavior\n\
- */\n\
-    if (local.isBrowser) {\n\
-        onError(undefined, opt);\n\
-        return;\n\
-    }\n\
-    local.testMock([\n\
-        [\n\
-            local, {\n\
-                templateRenderMyApp: function () {\n\
-                    return local.assetsDict[\"/assets.my_app.template.js\"];\n\
-                }\n\
-            }\n\
-        ], [\n\
-            require(\"fs\"), {\n\
-                // test customize-local handling-behavior\n\
-                existsSync: function () {\n\
-                    return true;\n\
-                },\n\
-                // test duplicate local function handling-behavior\n\
-                readFileSync: function () {\n\
-                    return (\n\
-                        \"local.nop = function () {\\n\"\n\
-                        + \"/*\\n\"\n\
-                        + \" * this function will do nothing\\n\"\n\
-                        + \" */\\n\"\n\
-                        + \"    return;\\n\"\n\
-                        + \"};\\n\"\n\
-                        + \"local.nop = function () {\\n\"\n\
-                        + \"/*\\n\"\n\
-                        + \" * this function will do nothing\\n\"\n\
-                        + \" */\\n\"\n\
-                        + \"    return;\\n\"\n\
-                        + \"};\\n\"\n\
-                    );\n\
-                },\n\
-                writeFileSync: local.nop\n\
-            }\n\
-        ]\n\
-    ], function (onError) {\n\
-        local.buildLib({}, onError);\n\
-    }, local.onErrorThrow);\n\
-    local.buildLib({}, onError);\n\
-};\n\
-\n\
 local.testCase_buildReadme_default = function (opt, onError) {\n\
 /*\n\
  * this function will test buildReadme's default handling-behavior\n\
@@ -71311,12 +71083,6 @@ local.testCase_buildReadme_default = function (opt, onError) {\n\
         onError(undefined, opt);\n\
         return;\n\
     }\n\
-    opt = {};\n\
-    // test shNpmTestPublished handling-behavior\n\
-    opt.dataFrom = require(\"fs\").readFileSync(\"README.md\", \"utf8\").replace(\n\
-        \"#\\u0021! shNpmTestPublished\",\n\
-        \"shNpmTestPublished\"\n\
-    );\n\
     opt = {};\n\
     opt.customize = function () {\n\
         // search-and-replace - customize dataTo\n\
@@ -71338,9 +71104,7 @@ local.testCase_buildReadme_default = function (opt, onError) {\n\
                 /\\n#\\u0020internal\\u0020build\\u0020script\\n[\\S\\s]*?\\nshBuildCi\\n/\n\
             )\n\
         ].forEach(function (rgx) {\n\
-            opt.dataFrom.replace(rgx, function (match0) {\n\
-                opt.dataTo = opt.dataTo.replace(rgx, match0);\n\
-            });\n\
+            opt.dataTo = local.stringMerge(opt.dataTo, opt.dataFrom, rgx);\n\
         });\n\
     };\n\
     local.buildReadme(opt, onError);\n\
@@ -71682,137 +71446,6 @@ local.testCase_moduleDirname_default = function (opt, onError) {\n\
         local.moduleDirname(\"syntax-err\", module.paths),\n\
         \"\"\n\
     );\n\
-    onError(undefined, opt);\n\
-};\n\
-\n\
-local.testCase_objectAssignRecurse_default = function (opt, onError) {\n\
-/*\n\
- * this function will test objectAssignRecurse's default handling-behavior\n\
- */\n\
-    // test null-case handling-behavior\n\
-    local.objectAssignRecurse();\n\
-    local.objectAssignRecurse({});\n\
-    // test falsy handling-behavior\n\
-    [\n\
-        \"\", 0, false, null, undefined\n\
-    ].forEach(function (aa) {\n\
-        [\n\
-            \"\", 0, false, null, undefined\n\
-        ].forEach(function (bb) {\n\
-            assertJsonEqual(\n\
-                local.objectAssignRecurse({\n\
-                    data: aa\n\
-                }, {\n\
-                    data: bb\n\
-                }).data,\n\
-                bb === undefined\n\
-                ? aa\n\
-                : bb\n\
-            );\n\
-        });\n\
-    });\n\
-    // test non-recursive handling-behavior\n\
-    assertJsonEqual(local.objectAssignRecurse({\n\
-        aa: 1,\n\
-        bb: {\n\
-            cc: 1\n\
-        },\n\
-        cc: {\n\
-            dd: 1\n\
-        },\n\
-        dd: [\n\
-            1, 1\n\
-        ],\n\
-        ee: [\n\
-            1, 1\n\
-        ]\n\
-    }, {\n\
-        aa: 2,\n\
-        bb: {\n\
-            dd: 2\n\
-        },\n\
-        cc: {\n\
-            ee: 2\n\
-        },\n\
-        dd: [\n\
-            2, 2\n\
-        ],\n\
-        ee: {\n\
-            ff: 2\n\
-        }\n\
-    // test default-depth handling-behavior\n\
-    }, null), {\n\
-        aa: 2,\n\
-        bb: {\n\
-            dd: 2\n\
-        },\n\
-        cc: {\n\
-            ee: 2\n\
-        },\n\
-        dd: [\n\
-            2, 2\n\
-        ],\n\
-        ee: {\n\
-            ff: 2\n\
-        }\n\
-    });\n\
-    // test recursive handling-behavior\n\
-    assertJsonEqual(local.objectAssignRecurse({\n\
-        aa: 1,\n\
-        bb: {\n\
-            cc: 1\n\
-        },\n\
-        cc: {\n\
-            dd: 1\n\
-        },\n\
-        dd: [\n\
-            1, 1\n\
-        ],\n\
-        ee: [\n\
-            1, 1\n\
-        ]\n\
-    }, {\n\
-        aa: 2,\n\
-        bb: {\n\
-            dd: 2\n\
-        },\n\
-        cc: {\n\
-            ee: 2\n\
-        },\n\
-        dd: [\n\
-            2, 2\n\
-        ],\n\
-        ee: {\n\
-            ff: 2\n\
-        }\n\
-    // test depth handling-behavior\n\
-    }, 2), {\n\
-        aa: 2,\n\
-        bb: {\n\
-            cc: 1,\n\
-            dd: 2\n\
-        },\n\
-        cc: {\n\
-            dd: 1,\n\
-            ee: 2\n\
-        },\n\
-        dd: [\n\
-            2, 2\n\
-        ],\n\
-        ee: {\n\
-            ff: 2\n\
-        }\n\
-    });\n\
-    // test env with empty-string handling-behavior\n\
-    assertJsonEqual(local.objectAssignRecurse(\n\
-        local.env,\n\
-        {\n\
-            \"emptyString\": null\n\
-        },\n\
-        // test default-depth handling-behavior\n\
-        null,\n\
-        local.env\n\
-    ).emptyString, \"\");\n\
     onError(undefined, opt);\n\
 };\n\
 \n\
@@ -72566,7 +72199,7 @@ if (local.isBrowser) {\n\
 \n\
 \n\
 (function () {\n\
-    switch (local.env.HEROKU_APP_NAME) {\n\
+    switch (process.env.HEROKU_APP_NAME) {\n\
     case \"h1-cron1\":\n\
         // heroku-keepalive\n\
         setInterval(function () {\n\
@@ -72636,7 +72269,7 @@ local.assetsDict[\"/assets.script_only.html\"] = (\n\
 );\n\
 if (process.argv[2]) {\n\
     // start with coverage\n\
-    if (local.env.npm_config_mode_coverage) {\n\
+    if (process.env.npm_config_mode_coverage) {\n\
         process.argv.splice(1, 1, __dirname + \"/lib.istanbul.js\", \"cover\");\n\
         local.istanbul.cliDict[process.argv[2]]();\n\
         return;\n\
@@ -72647,8 +72280,8 @@ if (process.argv[2]) {\n\
     local.Module.runMain();\n\
 }\n\
 // runme\n\
-if (local.env.npm_config_runme) {\n\
-    require(require(\"path\").resolve(local.env.npm_config_runme));\n\
+if (process.env.npm_config_runme) {\n\
+    require(require(\"path\").resolve(process.env.npm_config_runme));\n\
 }\n\
 }());\n\
 }());\n\
@@ -73653,6 +73286,9 @@ local.apidocCreate = function (opt) {\n\
     let tmp;\n\
     let toString;\n\
     let trimStart;\n\
+    if (opt.modeNop) {\n\
+        return \"\";\n\
+    }\n\
     elemCreate = function (module, prefix, key) {\n\
     /*\n\
      * this function will create the apidoc-elem in given <module>\n\
@@ -74961,6 +74597,9 @@ local.apidocCreate = function (opt) {
     let tmp;
     let toString;
     let trimStart;
+    if (opt.modeNop) {
+        return "";
+    }
     elemCreate = function (module, prefix, key) {
     /*
      * this function will create the apidoc-elem in given <module>

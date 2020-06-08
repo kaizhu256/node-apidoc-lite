@@ -763,6 +763,9 @@ local.apidocCreate = function (opt) {
     let tmp;
     let toString;
     let trimStart;
+    if (opt.modeNop) {
+        return "";
+    }
     elemCreate = function (module, prefix, key) {
     /*
      * this function will create the apidoc-elem in given <module>

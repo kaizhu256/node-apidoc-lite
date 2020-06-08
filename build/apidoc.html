@@ -254,6 +254,9 @@
     let tmp;
     let toString;
     let trimStart;
+    if (opt.modeNop) {
+        return &quot;&quot;;
+    }
     elemCreate = function (module, prefix, key) {
     /*
      * this function will create the apidoc-elem in given &lt;module&gt;
@@ -347,11 +350,7 @@
         let result;
         local.tryCatchOnError(function () {
             result = &quot;&quot;;
-            result = String(value);
-        }, console.error);
-        return result;
-    };
-    trimS...</pre></li>
+            result = String(value);...</pre></li>
     <li>example use<pre class="apidocCodePre">...
 
 local.cliDict._default = function () {
