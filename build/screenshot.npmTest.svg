@@ -1,9 +1,9 @@
-<svg height="1774" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="1774" fill="#555" width="720"></rect>
+<svg height="1742" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="1742" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2020-06-08T07:19:10.629Z - npm-testing /home/travis/build/\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2020-06-08T09:48:09.525Z - npm-testing /home/travis/build/\</tspan>
 <tspan x="10" y="58">kaizhu256/node-apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -23,176 +23,173 @@
 <tspan x="10" y="202">npmTest - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/t\</tspan>
 <tspan x="10" y="218">est-report.json</tspan>
 
-<tspan x="10" y="234">jslint - 3ms - /home/travis/build/kaizhu256/node-apidoc-lite/README.md</tspan>
+<tspan x="10" y="234">jslint - 4ms - /home/travis/build/kaizhu256/node-apidoc-lite/README.md</tspan>
 
 <tspan x="10" y="250">jslint - 7ms - /home/travis/build/kaizhu256/node-apidoc-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="266">jslint - 15ms - /home/travis/build/kaizhu256/node-apidoc-lite/package.json</tspan>
+<tspan x="10" y="266">jslint - 16ms - /home/travis/build/kaizhu256/node-apidoc-lite/package.json</tspan>
 
-<tspan x="10" y="282">jslint - 51ms - /home/travis/build/kaizhu256/node-apidoc-lite/test.js</tspan>
+<tspan x="10" y="282">jslint - 49ms - /home/travis/build/kaizhu256/node-apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="298">http-server listening on port 48116</tspan>
+<tspan x="10" y="298">http-server listening on port 43925</tspan>
 
-<tspan x="10" y="314">jslint - 260ms - /home/travis/build/kaizhu256/node-apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="314">jslint - 238ms - /home/travis/build/kaizhu256/node-apidoc-lite/lib.apidoc.js</tspan>
 
-<tspan x="10" y="330">testRunDefault - 367 ms - [node test-case 1 of 9 passed] - testCase_apidocCreate_default</tspan>
+<tspan x="10" y="330">testRunDefault - 445 ms - [node test-case 1 of 9 passed] - testCase_apidocCreate_default</tspan>
 
-<tspan x="10" y="346">testRunDefault - 393 ms - [node test-case 2 of 9 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="346">testRunDefault - 473 ms - [node test-case 2 of 9 passed] - testCase_buildLib_default</tspan>
 
-<tspan x="10" y="362">testRunDefault - 400 ms - [node test-case 3 of 9 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="362">testRunDefault - 481 ms - [node test-case 3 of 9 passed] - testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="378">testRunDefault - 401 ms - [node test-case 4 of 9 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="378">testRunDefault - 482 ms - [node test-case 4 of 9 passed] - testCase_buildTest_default</tspan>
 
-<tspan x="10" y="394">testRunDefault - 401 ms - [node test-case 5 of 9 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="394">testRunDefault - 482 ms - [node test-case 5 of 9 passed] - testCase_nop_default</tspan>
 
-<tspan x="10" y="410">testRunDefault - 444 ms - [node test-case 6 of 9 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="410">testRunDefault - 528 ms - [node test-case 6 of 9 passed] - testCase_buildApidoc_default</tspan>
 
 <tspan x="10" y="426"></tspan>
 
-<tspan x="10" y="442">DevTools listening on ws://127.0.0.1:37059/devtools/browser/efddad6a-a380-4dcb-9e93-6c3ab4ea89a9</tspan>
+<tspan x="10" y="442">DevTools listening on ws://127.0.0.1:40239/devtools/browser/c7ee8b4e-ee11-4da9-b675-e7a70b648a0a</tspan>
 
-<tspan x="10" y="458">[0608/071911.800445:ERROR:command_buffer_proxy_impl.cc(122)] ContextResult::kTransientFailure: F\</tspan>
-<tspan x="10" y="474">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
+<tspan x="10" y="458">jslint - 9ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.apidoc.html</tspan>
 
-<tspan x="10" y="490">jslint - 9ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.apidoc.html</tspan>
+<tspan x="10" y="474">jslint - 8ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.example.html</tspan>
 
-<tspan x="10" y="506">jslint - 18ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.example.html</tspan>
+<tspan x="10" y="490">jslint - 13ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/index.html</tspan>
 
-<tspan x="10" y="522">jslint - 21ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/index.html</tspan>
+<tspan x="10" y="506">jslint - 13ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.utility2.html</tspan>
 
-<tspan x="10" y="538">jslint - 24ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.utility2.html</tspan>
+<tspan x="10" y="522">jslint - 14ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.test.js</tspan>
 
-<tspan x="10" y="554">jslint - 32ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.test.js</tspan>
+<tspan x="10" y="538">jslint - 19ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.example.js</tspan>
 
-<tspan x="10" y="570">jslint - 37ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.example.js</tspan>
+<tspan x="10" y="554">jslint - 21ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.apidoc.js</tspan>
 
-<tspan x="10" y="586">jslint - 41ms - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/app/assets.apidoc.js</tspan>
+<tspan x="10" y="570">testRunDefault - 957 ms - [node test-case 7 of 9 passed] - testCase_buildApp_default</tspan>
 
-<tspan x="10" y="602">testRunDefault - 852 ms - [node test-case 7 of 9 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="586">&gt; http-server listening on port 64114</tspan>
 
-<tspan x="10" y="618">&gt; http-server listening on port 46343</tspan>
+<tspan x="10" y="602">[0608/094811.231366:INFO:CONSOLE(8)] "testRunDefault - 6 ms - [browser test-case 1 of 2 passed] \</tspan>
+<tspan x="10" y="618">- testCase_apidocCreate_default", source: http://127.0.0.1:43925/assets.example.js (8)</tspan>
 
-<tspan x="10" y="634">[0608/071912.224665:INFO:CONSOLE(8)] "testRunDefault - 6 ms - [browser test-case 1 of 2 passed] \</tspan>
-<tspan x="10" y="650">- testCase_apidocCreate_default", source: http://127.0.0.1:48116/assets.example.js (8)</tspan>
+<tspan x="10" y="634">[0608/094811.246486:INFO:CONSOLE(8)] "testRunDefault - 22 ms - [browser test-case 2 of 2 passed]\</tspan>
+<tspan x="10" y="650"> - testCase_nop_default", source: http://127.0.0.1:43925/assets.example.js (8)</tspan>
 
-<tspan x="10" y="666">[0608/071912.239375:INFO:CONSOLE(8)] "testRunDefault - 22 ms - [browser test-case 2 of 2 passed]\</tspan>
-<tspan x="10" y="682"> - testCase_nop_default", source: http://127.0.0.1:48116/assets.example.js (8)</tspan>
+<tspan x="10" y="666">[0608/094811.315166:INFO:CONSOLE(8)] "domOnEventWindowOnloadTimeElapsed = 255", source: http://1\</tspan>
+<tspan x="10" y="682">27.0.0.1:43925/assets.example.js (8)</tspan>
 
-<tspan x="10" y="698">[0608/071912.310466:INFO:CONSOLE(8)] "domOnEventWindowOnloadTimeElapsed = 230", source: http://1\</tspan>
-<tspan x="10" y="714">27.0.0.1:48116/assets.example.js (8)</tspan>
+<tspan x="10" y="698">testRunDefault - 1344 ms - [node test-case 8 of 9 passed] - testCase_webpage_default</tspan>
 
-<tspan x="10" y="730">testRunDefault - 1246 ms - [node test-case 8 of 9 passed] - testCase_webpage_default</tspan>
+<tspan x="10" y="714">testRunDefault - 5985 ms - [node test-case 9 of 9 passed] - testCase_assetsAppJs_standalone</tspan>
 
-<tspan x="10" y="746">testRunDefault - 5871 ms - [node test-case 9 of 9 passed] - testCase_assetsAppJs_standalone</tspan>
+<tspan x="10" y="730">------------------|---------|---------|---------|---------|</tspan>
+
+<tspan x="10" y="746">File              | % Stmts | % Brchs | % Funcs | % Lines |</tspan>
 
 <tspan x="10" y="762">------------------|---------|---------|---------|---------|</tspan>
 
-<tspan x="10" y="778">File              | % Stmts | % Brchs | % Funcs | % Lines |</tspan>
+<tspan x="10" y="778">All files         |   98.94 |   98.84 |   97.62 |   98.94 |</tspan>
 
-<tspan x="10" y="794">------------------|---------|---------|---------|---------|</tspan>
+<tspan x="10" y="794">node-apidoc-lite/ |   98.94 |   98.84 |   97.62 |   98.94 |</tspan>
 
-<tspan x="10" y="810">All files         |   98.94 |   98.84 |   97.62 |   98.94 |</tspan>
+<tspan x="10" y="810">  example.js      |     100 |     100 |     100 |     100 |</tspan>
 
-<tspan x="10" y="826">node-apidoc-lite/ |   98.94 |   98.84 |   97.62 |   98.94 |</tspan>
+<tspan x="10" y="826">  lib.apidoc.js   |   98.41 |   98.23 |   96.51 |   98.41 |</tspan>
 
-<tspan x="10" y="842">  example.js      |     100 |     100 |     100 |     100 |</tspan>
+<tspan x="10" y="842">  test.js         |     100 |     100 |     100 |     100 |</tspan>
 
-<tspan x="10" y="858">  lib.apidoc.js   |   98.41 |   98.23 |   96.51 |   98.41 |</tspan>
+<tspan x="10" y="858">------------------|---------|---------|---------|---------|</tspan>
 
-<tspan x="10" y="874">  test.js         |     100 |     100 |     100 |     100 |</tspan>
+<tspan x="10" y="874"></tspan>
 
-<tspan x="10" y="890">------------------|---------|---------|---------|---------|</tspan>
-
-<tspan x="10" y="906"></tspan>
+<tspan x="10" y="890">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
+<tspan x="10" y="906">html/coverage.txt</tspan>
 
 <tspan x="10" y="922">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="938">html/coverage.txt</tspan>
+<tspan x="10" y="938">html/index.html</tspan>
 
 <tspan x="10" y="954">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="970">html/index.html</tspan>
+<tspan x="10" y="970">html/node-apidoc-lite/index.html</tspan>
 
 <tspan x="10" y="986">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="1002">html/node-apidoc-lite/index.html</tspan>
+<tspan x="10" y="1002">html/node-apidoc-lite/example.js.html</tspan>
 
 <tspan x="10" y="1018">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="1034">html/node-apidoc-lite/example.js.html</tspan>
+<tspan x="10" y="1034">html/node-apidoc-lite/lib.apidoc.js.html</tspan>
 
 <tspan x="10" y="1050">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="1066">html/node-apidoc-lite/lib.apidoc.js.html</tspan>
+<tspan x="10" y="1066">html/node-apidoc-lite/test.js.html</tspan>
 
 <tspan x="10" y="1082">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="1098">html/node-apidoc-lite/test.js.html</tspan>
+<tspan x="10" y="1098">html/coverage.all.html</tspan>
 
 <tspan x="10" y="1114">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="1130">html/coverage.all.html</tspan>
+<tspan x="10" y="1130">html/coverage.json</tspan>
 
 <tspan x="10" y="1146">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="1162">html/coverage.json</tspan>
+<tspan x="10" y="1162">html/coverage.include.json</tspan>
 
 <tspan x="10" y="1178">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="1194">html/coverage.include.json</tspan>
+<tspan x="10" y="1194">badge.svg</tspan>
 
-<tspan x="10" y="1210">wrote file - coverage-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverage.\</tspan>
-<tspan x="10" y="1226">badge.svg</tspan>
+<tspan x="10" y="1210">istanbul - created coverage file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverag\</tspan>
+<tspan x="10" y="1226">e.html/index.html</tspan>
 
-<tspan x="10" y="1242">istanbul - created coverage file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/coverag\</tspan>
-<tspan x="10" y="1258">e.html/index.html</tspan>
+<tspan x="10" y="1242"></tspan>
 
-<tspan x="10" y="1274"></tspan>
+<tspan x="10" y="1258">npmTest - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/t\</tspan>
+<tspan x="10" y="1274">est-report.json</tspan>
 
-<tspan x="10" y="1290">npmTest - merged test-report from file /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/t\</tspan>
-<tspan x="10" y="1306">est-report.json</tspan>
+<tspan x="10" y="1290"></tspan>
 
-<tspan x="10" y="1322"></tspan>
+<tspan x="10" y="1306">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1338">-------------------------------------------------------</tspan>
+<tspan x="10" y="1322">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
+<tspan x="10" y="1338">L, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T09:48:11.144Z</tspan>
 
-<tspan x="10" y="1354">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="1370">L, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T07:19:12.152Z</tspan>
+<tspan x="10" y="1354">|      30 ms            0 failed        2 passed      |</tspan>
 
-<tspan x="10" y="1386">|      29 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="1370">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1402">-------------------------------------------------------</tspan>
+<tspan x="10" y="1386">| test-report - npmTest - node - linux v14.4.0 - 2020-06-08T09:48:09.655Z</tspan>
 
-<tspan x="10" y="1418">| test-report - npmTest - node - linux v14.4.0 - 2020-06-08T07:19:10.749Z</tspan>
+<tspan x="10" y="1402">|    5986 ms            0 failed        9 passed      |</tspan>
 
-<tspan x="10" y="1434">|    5871 ms            0 failed        9 passed      |</tspan>
+<tspan x="10" y="1418">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1450">-------------------------------------------------------</tspan>
+<tspan x="10" y="1434">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
+<tspan x="10" y="1450">.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T09:48:03.923Z</tspan>
 
-<tspan x="10" y="1466">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
-<tspan x="10" y="1482">.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-08T07:19:05.093Z</tspan>
+<tspan x="10" y="1466">|      14 ms            0 failed        2 passed      |</tspan>
 
-<tspan x="10" y="1498">|      15 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="1482">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1514">-------------------------------------------------------</tspan>
+<tspan x="10" y="1498">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-08T09:48:01.717Z</tspan>
 
-<tspan x="10" y="1530">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-08T07:19:02.982Z</tspan>
+<tspan x="10" y="1514">|    5886 ms            0 failed        9 passed      |</tspan>
 
-<tspan x="10" y="1546">|    5827 ms            0 failed        9 passed      |</tspan>
+<tspan x="10" y="1530">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1562">-------------------------------------------------------</tspan>
+<tspan x="10" y="1546"></tspan>
 
-<tspan x="10" y="1578"></tspan>
+<tspan x="10" y="1562">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.h\</tspan>
+<tspan x="10" y="1578">tml</tspan>
 
-<tspan x="10" y="1594">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.h\</tspan>
-<tspan x="10" y="1610">tml</tspan>
+<tspan x="10" y="1594">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/build.badge.s\</tspan>
+<tspan x="10" y="1610">vg</tspan>
 
-<tspan x="10" y="1626">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/build.badge.s\</tspan>
-<tspan x="10" y="1642">vg</tspan>
+<tspan x="10" y="1626">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.b\</tspan>
+<tspan x="10" y="1642">adge.svg</tspan>
 
-<tspan x="10" y="1658">wrote file - test-report - /home/travis/build/kaizhu256/node-apidoc-lite/tmp/build/test-report.b\</tspan>
-<tspan x="10" y="1674">adge.svg</tspan>
+<tspan x="10" y="1658"></tspan>
+
+<tspan x="10" y="1674">npmTest - 0 failed tests</tspan>
 
 <tspan x="10" y="1690"></tspan>
 
-<tspan x="10" y="1706">npmTest - 0 failed tests</tspan>
+<tspan x="10" y="1706"></tspan>
 
-<tspan x="10" y="1722"></tspan>
-
-<tspan x="10" y="1738"></tspan>
-
-<tspan x="10" y="1754">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2020-06-08T07:19:17.270Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="1722">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2020-06-08T09:48:16.298Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
