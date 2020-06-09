@@ -280,7 +280,7 @@
 <div class="header high">
 
     <h2 style="font-weight: bold;">
-        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2020.6.8)</a>
+        <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2020.6.9)</a>
     </h2>
 
     <h2>Code coverage report for <span class="entity">node-apidoc-lite/lib.apidoc.js</span></h2>
@@ -297,16 +297,16 @@
     <tbody>
         <td>
             Statements: 128<br>
-            Branches: 111<br>
+            Branches: 109<br>
             Functions: 14
         </td>
         <td>
             98.41%<br>
-            (434 / 441)
+            (433 / 440)
         </td>
         <td>
-            98.23%<br>
-            (277 / 282)
+            98.19%<br>
+            (272 / 277)
         </td>
         <td>
             96.51%<br>
@@ -314,7 +314,7 @@
         </td>
         <td>
             98.41%<br>
-            (434 / 441)
+            (433 / 440)
         </td>
     </tbody>
     </table>
@@ -1627,8 +1627,6 @@
 <a href="#l1302" id="l1302">1302</a>
 <a href="#l1303" id="l1303">1303</a>
 <a href="#l1304" id="l1304">1304</a>
-<a href="#l1305" id="l1305">1305</a>
-<a href="#l1306" id="l1306">1306</a>
 </td>
         <td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1648,8 +1646,6 @@
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
@@ -2940,7 +2936,7 @@
         <td class="text"><pre class="prettyprint lang-js" tabIndex="0">
 //#!/usr/bin/env node
 /*
- * lib.apidoc.js (2020.6.8)
+ * lib.apidoc.js (2020.6.9)
  * https://github.com/kaizhu256/node-apidoc-lite
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
@@ -2953,12 +2949,10 @@
 /* jslint utility2:true */
 /* istanbul ignore next */
 // run shared js-env code - init-local
-(function (globalThis) {
+(function () {
     "use strict";
     let consoleError;
     let local;
-    // init globalThis
-    globalThis.globalThis = globalThis.globalThis || <span class="branch-1 cbranch-skip" title="branch not covered">globalThis;</span>
     // init debugInline
     <span class="skip-if-branch" title="if path not taken">I</span>if (!globalThis.debugInline) {
 <span class="cstat-skip" title="statement not covered">        consoleError = console.error;</span>
@@ -3109,7 +3103,7 @@
 <span class="cstat-skip" title="statement not covered">            throw err;</span>
         });
     }
-}((typeof globalThis === "object" &amp;&amp; globalThis) || <span class="branch-2 cbranch-skip" title="branch not covered">window)</span>);
+}());
 // assets.utility2.header.js - end
 
 
