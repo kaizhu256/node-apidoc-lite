@@ -1,9 +1,9 @@
-<svg height="4206" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="4206" fill="#555" width="720"></rect>
+<svg height="5006" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="5006" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-06-09T06:48:55.472Z - npm-testing /tmp/npmTe\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-06-09T14:17:54.332Z - npm-testing /tmp/npmTe\</tspan>
 <tspan x="10" y="58">stPublished/node_modules/apidoc-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -15,12 +15,12 @@
 
 <tspan x="10" y="138">&gt; jslint - 4ms - /tmp/npmTestPublished/node_modules/apidoc-lite/README.md</tspan>
 
-<tspan x="10" y="154">jslint - 12ms - /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="154">jslint - 13ms - /tmp/npmTestPublished/node_modules/apidoc-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="170">--- /tmp/npmTestPublished/node_modules/apidoc-lite/package.json.autofix.old	2020-06-09 06:48:55.\</tspan>
-<tspan x="10" y="186">878432475 +0000</tspan>
+<tspan x="10" y="170">--- /tmp/npmTestPublished/node_modules/apidoc-lite/package.json.autofix.old	2020-06-09 14:17:54.\</tspan>
+<tspan x="10" y="186">739125916 +0000</tspan>
 
-<tspan x="10" y="202">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/package.json	2020-06-09 06:48:55.878432475 +0\</tspan>
+<tspan x="10" y="202">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/package.json	2020-06-09 14:17:54.739125916 +0\</tspan>
 <tspan x="10" y="218">000</tspan>
 
 <tspan x="10" y="234">@@ -1,77 +1,77 @@</tspan>
@@ -334,163 +334,262 @@
 <tspan x="10" y="2730">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/package.\</tspan>
 <tspan x="10" y="2746">json</tspan>
 
-<tspan x="10" y="2762">jslint - 41ms - /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
+<tspan x="10" y="2762">jslint - 33ms - /tmp/npmTestPublished/node_modules/apidoc-lite/package.json</tspan>
 
-<tspan x="10" y="2778">jslint - 122ms - /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
+<tspan x="10" y="2778">--- /tmp/npmTestPublished/node_modules/apidoc-lite/test.js.autofix.old	2020-06-09 14:17:54.85512\</tspan>
+<tspan x="10" y="2794">5916 +0000</tspan>
 
-<tspan x="10" y="2794">jslint - 356ms - /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
+<tspan x="10" y="2810">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/test.js	2020-06-09 14:17:54.855125916 +0000</tspan>
 
-<tspan x="10" y="2810">http-server listening on port 35839</tspan>
+<tspan x="10" y="2826">@@ -3,12 +3,10 @@</tspan>
 
-<tspan x="10" y="2826">testRunDefault - 371 ms - [node test-case 1 of 9 passed] - testCase_apidocCreate_default</tspan>
+<tspan x="10" y="2842"> /* jslint utility2:true */</tspan>
 
-<tspan x="10" y="2842">testRunDefault - 392 ms - [node test-case 2 of 9 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="2858"> /* istanbul ignore next */</tspan>
 
-<tspan x="10" y="2858">testRunDefault - 402 ms - [node test-case 3 of 9 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="2874"> // run shared js-env code - init-local</tspan>
 
-<tspan x="10" y="2874">testRunDefault - 403 ms - [node test-case 4 of 9 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="2890">-(function (globalThis) {</tspan>
 
-<tspan x="10" y="2890">testRunDefault - 407 ms - [node test-case 5 of 9 passed] - testCase_moduleDirname_default</tspan>
+<tspan x="10" y="2906">+(function () {</tspan>
 
-<tspan x="10" y="2906">testRunDefault - 408 ms - [node test-case 6 of 9 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="2922">     "use strict";</tspan>
 
-<tspan x="10" y="2922">testRunDefault - 495 ms - [node test-case 7 of 9 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="2938">     let consoleError;</tspan>
 
-<tspan x="10" y="2938">&gt; http-server listening on port 60147</tspan>
+<tspan x="10" y="2954">     let local;</tspan>
 
-<tspan x="10" y="2954"></tspan>
+<tspan x="10" y="2970">-    // init globalThis</tspan>
 
-<tspan x="10" y="2970">DevTools listening on ws://127.0.0.1:46757/devtools/browser/dca2a1af-68d9-4689-bb1e-7f6563e53268</tspan>
+<tspan x="10" y="2986">-    globalThis.globalThis = globalThis.globalThis || globalThis;</tspan>
 
-<tspan x="10" y="2986">[0609/064857.162458:ERROR:command_buffer_proxy_impl.cc(122)] ContextResult::kTransientFailure: F\</tspan>
-<tspan x="10" y="3002">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
+<tspan x="10" y="3002">     // init debugInline</tspan>
 
-<tspan x="10" y="3018">[0609/064857.162585:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
-<tspan x="10" y="3034">th unconsumed attachments: 0/1</tspan>
+<tspan x="10" y="3018">     if (!globalThis.debugInline) {</tspan>
 
-<tspan x="10" y="3050">[0609/064857.162257:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
-<tspan x="10" y="3066">th unconsumed attachments: 0/1</tspan>
+<tspan x="10" y="3034">         consoleError = console.error;</tspan>
 
-<tspan x="10" y="3082">[0609/064857.415398:INFO:CONSOLE(8)] "testRunDefault - 4 ms - [browser test-case 1 of 3 passed] \</tspan>
-<tspan x="10" y="3098">- testCase_apidocCreate_default", source: http://127.0.0.1:35839/assets.example.js (8)</tspan>
+<tspan x="10" y="3050">@@ -159,7 +157,7 @@</tspan>
 
-<tspan x="10" y="3114">[0609/064857.424880:INFO:CONSOLE(8)] "testRunDefault - 14 ms - [browser test-case 2 of 3 passed]\</tspan>
-<tspan x="10" y="3130"> - testCase_moduleDirname_default", source: http://127.0.0.1:35839/assets.example.js (8)</tspan>
+<tspan x="10" y="3066">             throw err;</tspan>
 
-<tspan x="10" y="3146">[0609/064857.430661:INFO:CONSOLE(8)] "testRunDefault - 18 ms - [browser test-case 3 of 3 passed]\</tspan>
-<tspan x="10" y="3162"> - testCase_nop_default", source: http://127.0.0.1:35839/assets.example.js (8)</tspan>
+<tspan x="10" y="3082">         });</tspan>
 
-<tspan x="10" y="3178">[0609/064857.505276:INFO:CONSOLE(8)] "domOnEventWindowOnloadTimeElapsed = 152", source: http://1\</tspan>
-<tspan x="10" y="3194">27.0.0.1:35839/assets.example.js (8)</tspan>
+<tspan x="10" y="3098">     }</tspan>
 
-<tspan x="10" y="3210">testRunDefault - 1388 ms - [node test-case 8 of 9 passed] - testCase_webpage_default</tspan>
+<tspan x="10" y="3114">-}((typeof globalThis === "object" &amp;&amp; globalThis) || window));</tspan>
 
-<tspan x="10" y="3226">jslint - 4ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.apidoc.html</tspan>
+<tspan x="10" y="3130">+}());</tspan>
 
-<tspan x="10" y="3242">jslint - 5ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.example.html</tspan>
+<tspan x="10" y="3146"> // assets.utility2.header.js - end</tspan>
 
-<tspan x="10" y="3258">jslint - 5ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/index.html</tspan>
+<tspan x="10" y="3162"> </tspan>
 
-<tspan x="10" y="3274">jslint - 6ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.utility2.html</tspan>
+<tspan x="10" y="3178"> </tspan>
 
-<tspan x="10" y="3290">jslint - 7ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.test.js</tspan>
+<tspan x="10" y="3194">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="3306">jslint - 8ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.example.js</tspan>
+<tspan x="10" y="3210">jslint - 159ms - /tmp/npmTestPublished/node_modules/apidoc-lite/test.js</tspan>
 
-<tspan x="10" y="3322">jslint - 9ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.apidoc.js</tspan>
+<tspan x="10" y="3226">--- /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js.autofix.old	2020-06-09 14:17:55\</tspan>
+<tspan x="10" y="3242">.167125916 +0000</tspan>
 
-<tspan x="10" y="3338">testRunDefault - 5741 ms - [node test-case 9 of 9 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="3258">+++ /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js	2020-06-09 14:17:55.167125916 +\</tspan>
+<tspan x="10" y="3274">0000</tspan>
 
-<tspan x="10" y="3354">----------------|---------|---------|---------|---------|</tspan>
+<tspan x="10" y="3290">@@ -13,12 +13,10 @@</tspan>
 
-<tspan x="10" y="3370">File            | % Stmts | % Brchs | % Funcs | % Lines |</tspan>
+<tspan x="10" y="3306"> /* jslint utility2:true */</tspan>
 
-<tspan x="10" y="3386">----------------|---------|---------|---------|---------|</tspan>
+<tspan x="10" y="3322"> /* istanbul ignore next */</tspan>
 
-<tspan x="10" y="3402">All files       |   98.96 |   98.84 |   97.64 |   98.96 |</tspan>
+<tspan x="10" y="3338"> // run shared js-env code - init-local</tspan>
 
-<tspan x="10" y="3418">apidoc-lite/    |   98.96 |   98.84 |   97.64 |   98.96 |</tspan>
+<tspan x="10" y="3354">-(function (globalThis) {</tspan>
 
-<tspan x="10" y="3434">  example.js    |     100 |     100 |     100 |     100 |</tspan>
+<tspan x="10" y="3370">+(function () {</tspan>
 
-<tspan x="10" y="3450">  lib.apidoc.js |   98.41 |   98.23 |   96.51 |   98.41 |</tspan>
+<tspan x="10" y="3386">     "use strict";</tspan>
 
-<tspan x="10" y="3466">  test.js       |     100 |     100 |     100 |     100 |</tspan>
+<tspan x="10" y="3402">     let consoleError;</tspan>
 
-<tspan x="10" y="3482">----------------|---------|---------|---------|---------|</tspan>
+<tspan x="10" y="3418">     let local;</tspan>
 
-<tspan x="10" y="3498"></tspan>
+<tspan x="10" y="3434">-    // init globalThis</tspan>
 
-<tspan x="10" y="3514">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3530">.html/coverage.txt</tspan>
+<tspan x="10" y="3450">-    globalThis.globalThis = globalThis.globalThis || globalThis;</tspan>
 
-<tspan x="10" y="3546">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3562">.html/index.html</tspan>
+<tspan x="10" y="3466">     // init debugInline</tspan>
 
-<tspan x="10" y="3578">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3594">.html/apidoc-lite/index.html</tspan>
+<tspan x="10" y="3482">     if (!globalThis.debugInline) {</tspan>
 
-<tspan x="10" y="3610">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3626">.html/apidoc-lite/example.js.html</tspan>
+<tspan x="10" y="3498">         consoleError = console.error;</tspan>
 
-<tspan x="10" y="3642">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3658">.html/apidoc-lite/lib.apidoc.js.html</tspan>
+<tspan x="10" y="3514">@@ -169,7 +167,7 @@</tspan>
 
-<tspan x="10" y="3674">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3690">.html/apidoc-lite/test.js.html</tspan>
+<tspan x="10" y="3530">             throw err;</tspan>
 
-<tspan x="10" y="3706">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3722">.html/coverage.all.html</tspan>
+<tspan x="10" y="3546">         });</tspan>
 
-<tspan x="10" y="3738">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3754">.html/coverage.json</tspan>
+<tspan x="10" y="3562">     }</tspan>
 
-<tspan x="10" y="3770">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3786">.html/coverage.include.json</tspan>
+<tspan x="10" y="3578">-}((typeof globalThis === "object" &amp;&amp; globalThis) || window));</tspan>
 
-<tspan x="10" y="3802">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
-<tspan x="10" y="3818">.badge.svg</tspan>
+<tspan x="10" y="3594">+}());</tspan>
 
-<tspan x="10" y="3834">istanbul - created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/covera\</tspan>
-<tspan x="10" y="3850">ge.html/index.html</tspan>
+<tspan x="10" y="3610"> // assets.utility2.header.js - end</tspan>
 
-<tspan x="10" y="3866"></tspan>
+<tspan x="10" y="3626"> </tspan>
 
-<tspan x="10" y="3882">-------------------------------------------------------</tspan>
+<tspan x="10" y="3642"> </tspan>
 
-<tspan x="10" y="3898">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
-<tspan x="10" y="3914">.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-09T06:48:57.364Z</tspan>
+<tspan x="10" y="3658">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apid\</tspan>
+<tspan x="10" y="3674">oc.js</tspan>
 
-<tspan x="10" y="3930">|      20 ms            0 failed        3 passed      |</tspan>
+<tspan x="10" y="3690">jslint - 463ms - /tmp/npmTestPublished/node_modules/apidoc-lite/lib.apidoc.js</tspan>
 
-<tspan x="10" y="3946">-------------------------------------------------------</tspan>
+<tspan x="10" y="3706">http-server listening on port 36287</tspan>
 
-<tspan x="10" y="3962">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-09T06:48:55.617Z</tspan>
+<tspan x="10" y="3722">testRunDefault - 372 ms - [node test-case 1 of 9 passed] - testCase_apidocCreate_default</tspan>
 
-<tspan x="10" y="3978">|    5741 ms            0 failed        9 passed      |</tspan>
+<tspan x="10" y="3738">testRunDefault - 393 ms - [node test-case 2 of 9 passed] - testCase_buildLib_default</tspan>
 
-<tspan x="10" y="3994">-------------------------------------------------------</tspan>
+<tspan x="10" y="3754">testRunDefault - 403 ms - [node test-case 3 of 9 passed] - testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="4010"></tspan>
+<tspan x="10" y="3770">testRunDefault - 404 ms - [node test-case 4 of 9 passed] - testCase_buildTest_default</tspan>
 
-<tspan x="10" y="4026">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.\</tspan>
-<tspan x="10" y="4042">html</tspan>
+<tspan x="10" y="3786">testRunDefault - 406 ms - [node test-case 5 of 9 passed] - testCase_moduleDirname_default</tspan>
 
-<tspan x="10" y="4058">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/build.badge.\</tspan>
-<tspan x="10" y="4074">svg</tspan>
+<tspan x="10" y="3802">testRunDefault - 407 ms - [node test-case 6 of 9 passed] - testCase_nop_default</tspan>
 
-<tspan x="10" y="4090">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.\</tspan>
-<tspan x="10" y="4106">badge.svg</tspan>
+<tspan x="10" y="3818">testRunDefault - 499 ms - [node test-case 7 of 9 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="4122"></tspan>
+<tspan x="10" y="3834">&gt; http-server listening on port 44667</tspan>
 
-<tspan x="10" y="4138">npmTestPublished - 0 failed tests</tspan>
+<tspan x="10" y="3850"></tspan>
 
-<tspan x="10" y="4154"></tspan>
+<tspan x="10" y="3866">DevTools listening on ws://127.0.0.1:37883/devtools/browser/9e5be92c-d1a8-4014-90d0-08aa3d7916b8</tspan>
 
-<tspan x="10" y="4170"></tspan>
+<tspan x="10" y="3882">[0609/141756.384270:INFO:CONSOLE(8)] "testRunDefault - 4 ms - [browser test-case 1 of 3 passed] \</tspan>
+<tspan x="10" y="3898">- testCase_apidocCreate_default", source: http://127.0.0.1:36287/assets.example.js (8)</tspan>
 
-<tspan x="10" y="4186">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-06-09T06:49:02.156Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="3914">[0609/141756.393689:INFO:CONSOLE(8)] "testRunDefault - 14 ms - [browser test-case 2 of 3 passed]\</tspan>
+<tspan x="10" y="3930"> - testCase_moduleDirname_default", source: http://127.0.0.1:36287/assets.example.js (8)</tspan>
+
+<tspan x="10" y="3946">[0609/141756.396658:INFO:CONSOLE(8)] "testRunDefault - 17 ms - [browser test-case 3 of 3 passed]\</tspan>
+<tspan x="10" y="3962"> - testCase_nop_default", source: http://127.0.0.1:36287/assets.example.js (8)</tspan>
+
+<tspan x="10" y="3978">[0609/141756.475024:INFO:CONSOLE(8)] "domOnEventWindowOnloadTimeElapsed = 159", source: http://1\</tspan>
+<tspan x="10" y="3994">27.0.0.1:36287/assets.example.js (8)</tspan>
+
+<tspan x="10" y="4010">testRunDefault - 1376 ms - [node test-case 8 of 9 passed] - testCase_webpage_default</tspan>
+
+<tspan x="10" y="4026">jslint - 4ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.apidoc.html</tspan>
+
+<tspan x="10" y="4042">jslint - 6ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.example.html</tspan>
+
+<tspan x="10" y="4058">jslint - 6ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/index.html</tspan>
+
+<tspan x="10" y="4074">jslint - 7ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.utility2.html</tspan>
+
+<tspan x="10" y="4090">jslint - 7ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.test.js</tspan>
+
+<tspan x="10" y="4106">jslint - 8ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.example.js</tspan>
+
+<tspan x="10" y="4122">jslint - 9ms - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/app/assets.apidoc.js</tspan>
+
+<tspan x="10" y="4138">testRunDefault - 5758 ms - [node test-case 9 of 9 passed] - testCase_buildApp_default</tspan>
+
+<tspan x="10" y="4154">----------------|---------|---------|---------|---------|</tspan>
+
+<tspan x="10" y="4170">File            | % Stmts | % Brchs | % Funcs | % Lines |</tspan>
+
+<tspan x="10" y="4186">----------------|---------|---------|---------|---------|</tspan>
+
+<tspan x="10" y="4202">All files       |   98.96 |   96.35 |   97.64 |   98.96 |</tspan>
+
+<tspan x="10" y="4218">apidoc-lite/    |   98.96 |   96.35 |   97.64 |   98.96 |</tspan>
+
+<tspan x="10" y="4234">  example.js    |     100 |     100 |     100 |     100 |</tspan>
+
+<tspan x="10" y="4250">  lib.apidoc.js |   98.41 |   98.23 |   96.51 |   98.41 |</tspan>
+
+<tspan x="10" y="4266">  test.js       |     100 |   84.51 |     100 |     100 |</tspan>
+
+<tspan x="10" y="4282">----------------|---------|---------|---------|---------|</tspan>
+
+<tspan x="10" y="4298"></tspan>
+
+<tspan x="10" y="4314">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4330">.html/coverage.txt</tspan>
+
+<tspan x="10" y="4346">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4362">.html/index.html</tspan>
+
+<tspan x="10" y="4378">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4394">.html/apidoc-lite/index.html</tspan>
+
+<tspan x="10" y="4410">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4426">.html/apidoc-lite/example.js.html</tspan>
+
+<tspan x="10" y="4442">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4458">.html/apidoc-lite/lib.apidoc.js.html</tspan>
+
+<tspan x="10" y="4474">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4490">.html/apidoc-lite/test.js.html</tspan>
+
+<tspan x="10" y="4506">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4522">.html/coverage.all.html</tspan>
+
+<tspan x="10" y="4538">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4554">.html/coverage.json</tspan>
+
+<tspan x="10" y="4570">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4586">.html/coverage.include.json</tspan>
+
+<tspan x="10" y="4602">wrote file - coverage-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/coverage\</tspan>
+<tspan x="10" y="4618">.badge.svg</tspan>
+
+<tspan x="10" y="4634">istanbul - created coverage file /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/covera\</tspan>
+<tspan x="10" y="4650">ge.html/index.html</tspan>
+
+<tspan x="10" y="4666"></tspan>
+
+<tspan x="10" y="4682">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="4698">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
+<tspan x="10" y="4714">.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-09T14:17:56.334Z</tspan>
+
+<tspan x="10" y="4730">|      18 ms            0 failed        3 passed      |</tspan>
+
+<tspan x="10" y="4746">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="4762">| test-report - npmTestPublished - node - linux v14.4.0 - 2020-06-09T14:17:54.476Z</tspan>
+
+<tspan x="10" y="4778">|    5758 ms            0 failed        9 passed      |</tspan>
+
+<tspan x="10" y="4794">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="4810"></tspan>
+
+<tspan x="10" y="4826">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.\</tspan>
+<tspan x="10" y="4842">html</tspan>
+
+<tspan x="10" y="4858">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/build.badge.\</tspan>
+<tspan x="10" y="4874">svg</tspan>
+
+<tspan x="10" y="4890">wrote file - test-report - /tmp/npmTestPublished/node_modules/apidoc-lite/tmp/build/test-report.\</tspan>
+<tspan x="10" y="4906">badge.svg</tspan>
+
+<tspan x="10" y="4922"></tspan>
+
+<tspan x="10" y="4938">npmTestPublished - 0 failed tests</tspan>
+
+<tspan x="10" y="4954"></tspan>
+
+<tspan x="10" y="4970"></tspan>
+
+<tspan x="10" y="4986">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-06-09T14:18:01.193Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
