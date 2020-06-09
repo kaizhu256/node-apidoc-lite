@@ -1,0 +1,1218 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    overflow-wrap: break-word;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/kaizhu256/node-apidoc-lite"
+
+    >apidoc-lite (2020.6.8)</a>
+</h1>
+<h4>this zero-dependency package will auto-generate documentation for your npm-package with zero-config</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apidoc-lite">module apidoc-lite</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.apidocCreate">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>apidocCreate
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.apidocModuleDictAdd">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>apidocModuleDictAdd
+            <span class="apidocSignatureSpan">(opt, moduleDict)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.assertJsonEqual">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>assertJsonEqual
+            <span class="apidocSignatureSpan">(aa, bb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.assertOrThrow">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>assertOrThrow
+            <span class="apidocSignatureSpan">(passed, msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.cliRun">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>cliRun
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.coalesce">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>coalesce
+            <span class="apidocSignatureSpan">(...argList)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.identity">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>identity
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.moduleDirname">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>moduleDirname
+            <span class="apidocSignatureSpan">(module, pathList)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.nop">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>nop
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.objectAssignDefault">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>objectAssignDefault
+            <span class="apidocSignatureSpan">(tgt = {}, src = {}, depth = 0)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.stringHtmlSafe">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>stringHtmlSafe
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.templateRender">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>templateRender
+            <span class="apidocSignatureSpan">(template, dict, opt = {}, ii = 0)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.tryCatchOnError">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>tryCatchOnError
+            <span class="apidocSignatureSpan">(fnc, onError)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">apidoc-lite.</span>timeExit</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apidoc-lite.</span>apidoc</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apidoc-lite.</span>cliDict</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apidoc-lite.</span>local</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">apidoc-lite.</span>__dirname</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">apidoc-lite.</span>templateApidocHtml</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apidoc-lite.cliDict">module apidoc-lite.cliDict</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.cliDict._default">
+            function <span class="apidocSignatureSpan">apidoc-lite.cliDict.</span>_default
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apidoc-lite" id="apidoc.module.apidoc-lite">module apidoc-lite</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.apidocCreate" id="apidoc.elem.apidoc-lite.apidocCreate">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>apidocCreate
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">apidocCreate = function (opt) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will create the apidoc from &lt;opt&gt;.dir
+ */
+</span>    let elemCreate;
+    let module;
+    let moduleMain;
+    let readExample;
+    let tmp;
+    let toString;
+    let trimStart;
+    if (opt.modeNop) {
+        return &quot;&quot;;
+    }
+    elemCreate = function (module, prefix, key) {
+    /*
+     * this function will create the apidoc-elem in given &lt;module&gt;
+     */
+        let elem;
+        if (opt.modeNoApidoc) {
+            return elem;
+        }
+        elem = {};
+        elem.moduleName = prefix.split(&quot;.&quot;);
+        // handle case where module is a function
+        if (elem.moduleName.slice(-1)[0] === key) {
+            elem.moduleName.pop();
+        }
+        elem.moduleName = elem.moduleName.join(&quot;.&quot;);
+        elem.id = encodeURIComponent(&quot;apidoc.elem.&quot; + prefix + &quot;.&quot; + key);
+        elem.typeof = typeof module[key];
+        elem.name = (
+            elem.typeof + &quot; &lt;span class=\&quot;apidocSignatureSpan\&quot;&gt;&quot;
+            + elem.moduleName + &quot;.&lt;/span&gt;&quot; + key
+        );
+        // handle case where module is a function
+        elem.name = elem.name.replace(&quot;&gt;.&lt;&quot;, &quot;&gt;&lt;&quot;);
+        if (elem.typeof !== &quot;function&quot;) {
+            return elem;
+        }
+        // init source
+        elem.source = local.stringHtmlSafe(
+            trimStart(toString(module[key])) || &quot;n/a&quot;
+        ).replace((
+            /\([\S\s]*?\)/
+        ), function (match0) {
+            // init signature
+            elem.signature = match0.replace((
+                /\u0020*?\/\*[\S\s]*?\*\/\u0020*/g
+            ), &quot;&quot;).replace((
+                /,/g
+            ), &quot;, &quot;).replace((
+                /\s+/g
+            ), &quot; &quot;);
+            return elem.signature;
+        }).replace((
+            /(\u0020*?\/\*[\S\s]*?\*\/\n)/
+        ), &quot;&lt;span class=\&quot;apidocCodeCommentSpan\&quot;&gt;$1&lt;/span&gt;&quot;).replace((
+            /^function\u0020\(/
+        ), key + &quot; = function (&quot;);
+        // init example
+        opt.exampleList.some(function (example) {
+            example.replace(
+                new RegExp(&quot;((?:\n.*?){8}\\.)(&quot; + key + &quot;)(\\((?:.*?\n){8})&quot;),
+                function (ignore, match1, match2, match3) {
+                    elem.example = &quot;...&quot; + trimStart(
+                        local.stringHtmlSafe(match1)
+                        + &quot;&lt;span class=\&quot;apidocCodeKeywordSpan\&quot;&gt;&quot;
+                        + local.stringHtmlSafe(match2)
+                        + &quot;&lt;/span&gt;&quot;
+                        + local.stringHtmlSafe(match3)
+                    ).trimEnd() + &quot;\n...&quot;;
+                    return &quot;&quot;;
+                }
+            );
+            return elem.example;
+        });
+        elem.example = elem.example || &quot;n/a&quot;;
+        return elem;
+    };
+    readExample = function (file) {
+    /*
+     * this function will read the example from given file
+     */
+        let result;
+        local.tryCatchOnError(function () {
+            file = require(&quot;path&quot;).resolve(opt.dir, file);
+            console.error(&quot;apidocCreate - readExample &quot; + file);
+            result = &quot;&quot;;
+            result = local.identity(
+                &quot;\n\n\n\n\n\n\n\n&quot;
+                // bug-workaround - truncate example to manageable size
+                + require(&quot;fs&quot;).readFileSync(file, &quot;utf8&quot;).slice(0, 262144)
+                + &quot;\n\n\n\n\n\n\n\n&quot;
+            ).replace((
+                /\r\n*/g
+            ), &quot;\n&quot;);
+        }, console.error);
+        return result;
+    };
+    toString = function (value) {
+    /*
+     * this function will try to return the string form of the value
+     */
+        let result;
+        local.tryCatchOnError(function () {
+            result = &quot;&quot;;
+            result = String(value);...</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+
+local.cliDict._default = function () {
+/*
+ * &lt;moduleDirectory&gt;
+ * will create apidoc from &lt;moduleDirectory&gt;
+ */
+    // jslint files
+    process.stdout.write(local.<span class="apidocCodeKeywordSpan">apidocCreate</span>({
+        dir: process.argv[2],
+        modulePathList: module.paths
+    }));
+};
+
+// run the cli
+if (module === require.main &amp;&amp; !globalThis.utility2_rollup) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.apidocModuleDictAdd" id="apidoc.elem.apidoc-lite.apidocModuleDictAdd">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>apidocModuleDictAdd
+        <span class="apidocSignatureSpan">(opt, moduleDict)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">apidocModuleDictAdd = function (opt, moduleDict) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will add the modules in &lt;moduleDict&gt; to &lt;opt&gt;.moduleDict
+ */
+</span>    let isModule;
+    let objectKeys;
+    let tmp;
+    objectKeys = function (dict) {
+    /*
+     * this function will return a list of the dict&apos;s keys, with valid getters
+     */
+        return Object.keys(dict).sort().filter(function (key) {
+            return local.tryCatchOnError(function () {
+                return dict[key] || true;
+            }, local.nop);
+        });
+    };
+    [
+        &quot;child&quot;, &quot;prototype&quot;, &quot;grandchild&quot;, &quot;prototype&quot;
+    ].forEach(function (elem) {
+        objectKeys(moduleDict).forEach(function (prefix) {
+            if (!(
+                /^\w[\w\-.]*?$/
+            ).test(prefix)) {
+                return;
+            }
+            objectKeys(moduleDict[prefix]).forEach(function (key) {
+                if (!(
+                    /^\w[\w\-.]*?$/
+                ).test(key) || !moduleDict[prefix][key]) {
+                    return;
+                }
+                tmp = (
+                    elem === &quot;prototype&quot;
+                    ? {
+                        module: moduleDict[prefix][key].prototype,
+                        name: prefix + &quot;.&quot; + key + &quot;.prototype&quot;
+                    }
+                    : {
+                        module: moduleDict[prefix][key],
+                        name: prefix + &quot;.&quot; + key
+                    }
+                );
+                if (
+                    !tmp.module
+                    || !(
+                        typeof tmp.module === &quot;function&quot;
+                        || typeof tmp.module === &quot;object&quot;
+                    )
+                    || Array.isArray(tmp.module)
+                    || opt.moduleDict[tmp.name]
+                    || opt.circularSet.has(tmp.module)
+                ) {
+                    return;
+                }
+                isModule = Array.from([
+                    tmp.module,
+                    tmp.module.prototype
+                ]).some(function (dict) {
+                    return objectKeys(dict || {}).some(function (key) {
+                        return typeof dict[key] === &quot;function&quot;;
+                    });
+                });
+                if (!isModule) {
+                    return;
+                }
+                opt.circularSet.add(tmp.module);
+                opt.moduleDict[tmp.name] = tmp.module;
+            });
+        });
+    });
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+    opt.circularSet.add(opt.moduleDict[key]);
+});
+// init circularSet - prototype
+opt.circularSet.forEach(function (elem) {
+    opt.circularSet.add(elem &amp;&amp; elem.prototype);
+});
+// init moduleDict child
+local.<span class="apidocCodeKeywordSpan">apidocModuleDictAdd</span>(opt, opt.moduleDict);
+// init moduleExtraDict
+opt.moduleExtraDict[opt.env.npm_package_name] = (
+    opt.moduleExtraDict[opt.env.npm_package_name] || {}
+);
+module = opt.moduleExtraDict[opt.env.npm_package_name];
+([
+    1, 2, 3, 4
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.assertJsonEqual" id="apidoc.elem.apidoc-lite.assertJsonEqual">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>assertJsonEqual
+        <span class="apidocSignatureSpan">(aa, bb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">assertJsonEqual = function (aa, bb) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will assert JSON.stringify(&lt;aa&gt;) === JSON.stringify(&lt;bb&gt;)
+ */
+</span>    let objectDeepCopyWithKeysSorted;
+    objectDeepCopyWithKeysSorted = function (obj) {
+    /*
+     * this function will recursively deep-copy &lt;obj&gt; with keys sorted
+     */
+        let sorted;
+        if (typeof obj !== &quot;object&quot; || !obj) {
+            return obj;
+        }
+        // recursively deep-copy list with child-keys sorted
+        if (Array.isArray(obj)) {
+            return obj.map(objectDeepCopyWithKeysSorted);
+        }
+        // recursively deep-copy obj with keys sorted
+        sorted = {};
+        Object.keys(obj).sort().forEach(function (key) {
+            sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
+        });
+        return sorted;
+    };
+    aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
+    bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
+    if (aa !== bb) {
+        throw new Error(JSON.stringify(aa) + &quot; !== &quot; + JSON.stringify(bb));
+    }
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.assertOrThrow" id="apidoc.elem.apidoc-lite.assertOrThrow">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>assertOrThrow
+        <span class="apidocSignatureSpan">(passed, msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">assertOrThrow = function (passed, msg) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will throw &lt;msg&gt; if &lt;passed&gt; is falsy
+ */
+</span>    if (passed) {
+        return;
+    }
+    throw (
+        (
+            msg
+            &amp;&amp; typeof msg.message === &quot;string&quot;
+            &amp;&amp; typeof msg.stack === &quot;string&quot;
+        )
+        // if msg is err, then leave as is
+        ? msg
+        : new Error(
+            typeof msg === &quot;string&quot;
+            // if msg is string, then leave as is
+            ? msg
+            // else JSON.stringify(msg)
+            : JSON.stringify(msg, undefined, 4)
+        )
+    );
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+        argList: local.coalesce(commandList[ii][1], &quot;&quot;).trim(),
+        command: [
+            key
+        ],
+        description: commandList[ii][2]
+    };
+} catch (ignore) {
+    local.<span class="apidocCodeKeywordSpan">assertOrThrow</span>(undefined, new Error(
+        &quot;cliRun - cannot parse comment in COMMAND &quot;
+        + key
+        + &quot;:\nnew RegExp(&quot;
+        + JSON.stringify(opt.rgxComment.source)
+        + &quot;).exec(&quot; + JSON.stringify(str).replace((
+            /\\\\/g
+        ), &quot;\u0000&quot;).replace((
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.cliRun" id="apidoc.elem.apidoc-lite.cliRun">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>cliRun
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cliRun = function (opt) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will run cli with given &lt;opt&gt;
+ */
+</span>    let cliDict;
+    cliDict = local.cliDict;
+    cliDict._eval = cliDict._eval || function () {
+    /*
+     * &lt;code&gt;
+     * will eval &lt;code&gt;
+     */
+        globalThis.local = local;
+        require(&quot;vm&quot;).runInThisContext(process.argv[3]);
+    };
+    cliDict._help = cliDict._help || function () {
+    /*
+     *
+     * will print help
+     */
+        let commandList;
+        let file;
+        let packageJson;
+        let str;
+        let strDict;
+        commandList = [
+            {
+                argList: &quot;&lt;arg2&gt;  ...&quot;,
+                description: &quot;usage:&quot;,
+                command: [
+                    &quot;&lt;arg1&gt;&quot;
+                ]
+            }, {
+                argList: &quot;&apos;console.log(\&quot;hello world\&quot;)&apos;&quot;,
+                description: &quot;example:&quot;,
+                command: [
+                    &quot;--eval&quot;
+                ]
+            }
+        ];
+        file = __filename.replace((
+            /.*\//
+        ), &quot;&quot;);
+        opt = Object.assign({}, opt);
+        packageJson = require(&quot;./package.json&quot;);
+        // validate comment
+        opt.rgxComment = opt.rgxComment || (
+            /\)\u0020\{\n(?:|\u0020{4})\/\*\n(?:\u0020|\u0020{5})\*((?:\u0020&lt;[^&gt;]*?&gt;|\u0020\.\.\.)*?)\n(?:\u0020|\u0020{5})\*\u0020
+(will\u0020.*?\S)\n(?:\u0020|\u0020{5})\*\/\n(?:\u0020{4}|\u0020{8})\S/
+        );
+        strDict = {};
+        Object.keys(cliDict).sort().forEach(function (key, ii) {
+            if (key[0] === &quot;_&quot; &amp;&amp; key !== &quot;_default&quot;) {
+                return;
+            }
+            str = String(cliDict[key]);
+            if (key === &quot;_default&quot;) {
+                key = &quot;&quot;;
+            }
+            strDict[str] = strDict[str] || (ii + 2);
+            ii = strDict[str];
+            if (commandList[ii]) {
+                commandList[ii].command.push(key);
+                return;
+            }
+            try {
+                commandList[ii] = opt.rgxComment.exec(str);
+                commandList[ii] = {
+                    argList: local.coalesce(commandList[ii][1], &quot;&quot;).trim(),
+                    command: [
+                        key
+                    ],
+                    description: commandList[ii][2]
+                };
+            } catch (ignore) {
+                local.assertOrThrow(undefined, new Error(
+                    &quot;cliRun - cannot parse comment in COMMAND &quot;
+                    + key
+                    + &quot;:\nnew RegExp(&quot;
+                    + JSON.stringify(opt.rgxComment.source)
+                    + &quot;).exec(&quot; + JSON.stringify(str).replace((
+                        /\\\\/g
+                    ), &quot;\u0000&quot;).replace((
+                        /\\n/g
+                    ), &quot;\\n\\\n&quot;).replace((
+                        /\u0000/g
+                    ), &quot;\\\\&quot;) + &quot;);&quot;
+                ));
+            }
+        });
+        str = &quot;&quot;;
+        str += packageJson.name + &quot; (&quot; + packageJson.version + &quot;)\n\n&quot;;
+        str += commandList.filter(function (elem) {
+            return elem;
+        }).map(function (elem, ii) {
+            elem.command = elem.command.filter(function (elem) {
+                return elem;
+            });
+            switch (ii) {
+            case 0:
+            case 1:
+                elem.argList = [
+                    elem.argList
+                ];
+                break;
+            default:
+                elem.argList = elem.argList.split(&quot; &quot;);
+                elem.description = (
+                    &quot;# COMMAND &quot;
+                    + (elem.command[0] || &quot;&lt;none&gt;&quot;) + &quot;\n# &quot;
+                    + elem.description
+                );
+            }
+            return (
+                elem.description + &quot;\n  &quot; + file...</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+        dir: process.argv[2],
+        modulePathList: module.paths
+    }));
+};
+
+// run the cli
+if (module === require.main &amp;&amp; !globalThis.utility2_rollup) {
+    local.<span class="apidocCodeKeywordSpan">cliRun</span>();
+}
+}());
+}());
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.coalesce" id="apidoc.elem.apidoc-lite.coalesce">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>coalesce
+        <span class="apidocSignatureSpan">(...argList)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">coalesce = function (...argList) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will coalesce null, undefined, or &quot;&quot; in &lt;argList&gt;
+ */
+</span>    let arg;
+    let ii;
+    ii = 0;
+    while (ii &lt; argList.length) {
+        arg = argList[ii];
+        if (arg !== undefined &amp;&amp; arg !== null &amp;&amp; arg !== &quot;&quot;) {
+            return arg;
+        }
+        ii += 1;
+    }
+    return arg;
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+if (commandList[ii]) {
+    commandList[ii].command.push(key);
+    return;
+}
+try {
+    commandList[ii] = opt.rgxComment.exec(str);
+    commandList[ii] = {
+        argList: local.<span class="apidocCodeKeywordSpan">coalesce</span>(commandList[ii][1], &quot;&quot;).trim(),
+        command: [
+            key
+        ],
+        description: commandList[ii][2]
+    };
+} catch (ignore) {
+    local.assertOrThrow(undefined, new Error(
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.identity" id="apidoc.elem.apidoc-lite.identity">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>identity
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">identity = function (val) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will return &lt;val&gt;
+ */
+</span>    return val;
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+cliDict.help = cliDict.help || cliDict._help;
+cliDict._interactive = cliDict._interactive || function () {
+/*
+ *
+ * will start interactive-mode
+ */
+    globalThis.local = local;
+    local.<span class="apidocCodeKeywordSpan">identity</span>(local.replStart || require(&quot;repl&quot;).start)({
+        useGlobal: true
+    });
+};
+cliDict[&quot;--interactive&quot;] = cliDict[&quot;--interactive&quot;] || cliDict._interactive;
+cliDict[&quot;-i&quot;] = cliDict[&quot;-i&quot;] || cliDict._interactive;
+cliDict._version = cliDict._version || function () {
+/*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.moduleDirname" id="apidoc.elem.apidoc-lite.moduleDirname">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>moduleDirname
+        <span class="apidocSignatureSpan">(module, pathList)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">moduleDirname = function (module, pathList) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will search &lt;pathList&gt; for &lt;module&gt;&apos;s __dirname
+ */
+</span>    let result;
+    // search &quot;.&quot;
+    if (!module || module === &quot;.&quot; || module.indexOf(&quot;/&quot;) &gt;= 0) {
+        return require(&quot;path&quot;).resolve(module || &quot;&quot;);
+    }
+    // search pathList
+    [].concat(
+        pathList,
+        require(&quot;module&quot;).globalPaths,
+        [
+            process.env.HOME + &quot;/node_modules&quot;, &quot;/usr/local/lib/node_modules&quot;
+        ]
+    ).some(function (path) {
+        try {
+            result = require(&quot;path&quot;).resolve(path + &quot;/&quot; + module);
+            result = require(&quot;fs&quot;).statSync(result).isDirectory() &amp;&amp; result;
+            return result;
+        } catch (ignore) {
+            result = &quot;&quot;;
+        }
+    });
+    return result;
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+        return match0.replace((
+            /(.{128}(?:\b|\w+))/g
+        ), &quot;$1\n&quot;).trimEnd();
+    });
+    return str;
+};
+// init opt
+opt.dir = local.<span class="apidocCodeKeywordSpan">moduleDirname</span>(
+    opt.dir,
+    opt.modulePathList || require(&quot;module&quot;).paths
+);
+local.objectAssignDefault(opt, {
+    env: {
+        npm_package_description: &quot;&quot;
+    },
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.nop" id="apidoc.elem.apidoc-lite.nop">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>nop
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nop = function () {
+<span class="apidocCodeCommentSpan">/*
+ * this function will do nothing
+ */
+</span>    return;
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.objectAssignDefault" id="apidoc.elem.apidoc-lite.objectAssignDefault">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>objectAssignDefault
+        <span class="apidocSignatureSpan">(tgt = {}, src = {}, depth = 0)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will if items from &lt;tgt&gt; are null, undefined, or &quot;&quot;,
+ * then overwrite them with items from &lt;src&gt;
+ */
+</span>    let recurse;
+    recurse = function (tgt, src, depth) {
+        Object.entries(src).forEach(function ([
+            key, bb
+        ]) {
+            let aa;
+            aa = tgt[key];
+            if (aa === undefined || aa === null || aa === &quot;&quot;) {
+                tgt[key] = bb;
+                return;
+            }
+            if (
+                depth !== 0
+                &amp;&amp; typeof aa === &quot;object&quot; &amp;&amp; aa &amp;&amp; !Array.isArray(aa)
+                &amp;&amp; typeof bb === &quot;object&quot; &amp;&amp; bb &amp;&amp; !Array.isArray(bb)
+            ) {
+                recurse(aa, bb, depth - 1);
+            }
+        });
+    };
+    recurse(tgt, src, depth | 0);
+    return tgt;
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+    return str;
+};
+// init opt
+opt.dir = local.moduleDirname(
+    opt.dir,
+    opt.modulePathList || require(&quot;module&quot;).paths
+);
+local.<span class="apidocCodeKeywordSpan">objectAssignDefault</span>(opt, {
+    env: {
+        npm_package_description: &quot;&quot;
+    },
+    packageJson: JSON.parse(readExample(&quot;package.json&quot;)),
+    require: function (file) {
+        return local.tryCatchOnError(function () {
+            return require(file);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.stringHtmlSafe" id="apidoc.elem.apidoc-lite.stringHtmlSafe">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>stringHtmlSafe
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringHtmlSafe = function (str) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will make &lt;str&gt; html-safe
+ * https://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html
+ */
+</span>    return str.replace((
+        /&amp;/gu
+    ), &quot;&amp;&quot;).replace((
+        /&quot;/gu
+    ), &quot;&quot;&quot;).replace((
+        /&apos;/gu
+    ), &quot;&apos;&quot;).replace((
+        /&lt;/gu
+    ), &quot;&lt;&quot;).replace((
+        /&gt;/gu
+    ), &quot;&gt;&quot;).replace((
+        /&amp;(amp;|apos;|gt;|lt;|quot;)/igu
+    ), &quot;&amp;$1&quot;);
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+);
+// handle case where module is a function
+elem.name = elem.name.replace(&quot;&gt;.&lt;&quot;, &quot;&gt;&lt;&quot;);
+if (elem.typeof !== &quot;function&quot;) {
+    return elem;
+}
+// init source
+elem.source = local.<span class="apidocCodeKeywordSpan">stringHtmlSafe</span>(
+    trimStart(toString(module[key])) || &quot;n/a&quot;
+).replace((
+    /\([\S\s]*?\)/
+), function (match0) {
+    // init signature
+    elem.signature = match0.replace((
+        /\u0020*?\/\*[\S\s]*?\*\/\u0020*/g
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.templateRender" id="apidoc.elem.apidoc-lite.templateRender">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>templateRender
+        <span class="apidocSignatureSpan">(template, dict, opt = {}, ii = 0)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">templateRender = function (template, dict, opt = {}, ii = 0) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will render &lt;template&gt; with given &lt;dict&gt;
+ */
+</span>    let argList;
+    let getVal;
+    let match;
+    let renderPartial;
+    let rgx;
+    let skip;
+    let val;
+    if (dict === null || dict === undefined) {
+        dict = {};
+    }
+    getVal = function (key) {
+        argList = key.split(&quot; &quot;);
+        val = dict;
+        if (argList[0] === &quot;#this/&quot;) {
+            return val;
+        }
+        if (argList[0] === &quot;#ii/&quot;) {
+            return ii;
+        }
+        // iteratively lookup nested val in dict
+        argList[0].split(&quot;.&quot;).forEach(function (key) {
+            val = val &amp;&amp; val[key];
+        });
+        return val;
+    };
+    renderPartial = function (match0, helper, key, partial) {
+        switch (helper) {
+        case &quot;each&quot;:
+        case &quot;eachTrimEndComma&quot;:
+            val = getVal(key);
+            val = (
+                Array.isArray(val)
+                ? val.map(function (dict, ii) {
+                    // recurse with partial
+                    return local.templateRender(partial, dict, opt, ii);
+                }).join(&quot;&quot;)
+                : &quot;&quot;
+            );
+            // remove trailing-comma from last elem
+            if (helper === &quot;eachTrimEndComma&quot;) {
+                val = val.trimEnd().replace((
+                    /,$/
+                ), &quot;&quot;);
+            }
+            return val;
+        case &quot;if&quot;:
+            partial = partial.split(&quot;{{#unless &quot; + key + &quot;}}&quot;);
+            partial = (
+                getVal(key)
+                ? partial[0]
+                // handle &quot;unless&quot; case
+                : partial.slice(1).join(&quot;{{#unless &quot; + key + &quot;}}&quot;)
+            );
+            // recurse with partial
+            return local.templateRender(partial, dict, opt);
+        case &quot;unless&quot;:
+            return (
+                getVal(key)
+                ? &quot;&quot;
+                // recurse with partial
+                : local.templateRender(partial, dict, opt)
+            );
+        default:
+            // recurse with partial
+            return match0[0] + local.templateRender(match0.slice(1), dict, opt);
+        }
+    };
+    // render partials
+    rgx = (
+        /\{\{#(\w+)\u0020([^}]+?)\}\}/g
+    );
+    template = template || &quot;&quot;;
+    match = rgx.exec(template);
+    while (match) {
+        rgx.lastIndex += 1 - match[0].length;
+        template = template.replace(
+            new RegExp(
+                &quot;\\{\\{#(&quot; + match[1] + &quot;) (&quot; + match[2]
+                + &quot;)\\}\\}([\\S\\s]*?)\\{\\{/&quot; + match[1] + &quot; &quot; + match[2]
+                + &quot;\\}\\}&quot;
+            ),
+            renderPartial
+        );
+        match = rgx.exec(template);
+    }
+    // search for keys in template
+    return template.replace((
+        /\{\{[^}]+?\}\}/g
+    ), function (match0) {
+        let markdownToHtml;
+        let notHtmlSafe;
+        notHtmlSafe = opt.notHtmlSafe;
+        try {
+            val = getVal(match0.slice(2, -2));
+            if (val === undefined) {
+                return match0;
+            }
+            argList.slice(1).forEach(function (fmt, ii, list) {
+                switch (fmt) {
+                case &quot;*&quot;:
+                case &quot;+&quot;:
+                case &quot;-&quot;:
+                case &quot;/&quot;:
+                    skip = ii + 1;
+                    val = String(
+                        fmt === &quot;*&quot;
+                        ? Number(val) * Number(list[skip])
+                        : fmt === &quot;+&quot;
+                        ? Number(val) + Number(list[skip])
+                        : fmt === &quot;-&quot;
+                        ? Number(val) - Number(list[skip])
+                        : Number(val) / Number(list[skip])
+                    );
+                    break;
+                case &quot;a...</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+case &quot;each&quot;:
+case &quot;eachTrimEndComma&quot;:
+    val = getVal(key);
+    val = (
+        Array.isArray(val)
+        ? val.map(function (dict, ii) {
+            // recurse with partial
+            return local.<span class="apidocCodeKeywordSpan">templateRender</span>(partial, dict, opt, ii);
+        }).join(&quot;&quot;)
+        : &quot;&quot;
+    );
+    // remove trailing-comma from last elem
+    if (helper === &quot;eachTrimEndComma&quot;) {
+        val = val.trimEnd().replace((
+            /,$/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.tryCatchOnError" id="apidoc.elem.apidoc-lite.tryCatchOnError">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>tryCatchOnError
+        <span class="apidocSignatureSpan">(fnc, onError)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tryCatchOnError = function (fnc, onError) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will run &lt;fnc&gt; in tryCatch block,
+ * else call onError with errCaught
+ */
+</span>    let result;
+    // validate onError
+    local.assertOrThrow(typeof onError === &quot;function&quot;, typeof onError);
+    try {
+        // reset errCaught
+        delete local._debugTryCatchError;
+        result = fnc();
+        delete local._debugTryCatchError;
+        return result;
+    } catch (errCaught) {
+        // debug errCaught
+        local._debugTryCatchError = errCaught;
+        return onError(errCaught);
+    }
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+    return elem;
+};
+readExample = function (file) {
+/*
+ * this function will read the example from given file
+ */
+    let result;
+    local.<span class="apidocCodeKeywordSpan">tryCatchOnError</span>(function () {
+        file = require(&quot;path&quot;).resolve(opt.dir, file);
+        console.error(&quot;apidocCreate - readExample &quot; + file);
+        result = &quot;&quot;;
+        result = local.identity(
+            &quot;\n\n\n\n\n\n\n\n&quot;
+            // bug-workaround - truncate example to manageable size
+            + require(&quot;fs&quot;).readFileSync(file, &quot;utf8&quot;).slice(0, 262144)
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apidoc-lite.cliDict" id="apidoc.module.apidoc-lite.cliDict">module apidoc-lite.cliDict</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.cliDict._default" id="apidoc.elem.apidoc-lite.cliDict._default">
+        function <span class="apidocSignatureSpan">apidoc-lite.cliDict.</span>_default
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_default = function () {
+<span class="apidocCodeCommentSpan">/*
+ * &lt;moduleDirectory&gt;
+ * will create apidoc from &lt;moduleDirectory&gt;
+ */
+</span>    // jslint files
+    process.stdout.write(local.apidocCreate({
+        dir: process.argv[2],
+        modulePathList: module.paths
+    }));
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">...
+       cliDict._help();
+       return;
+   }
+   if (cliDict[process.argv[2]]) {
+       cliDict[process.argv[2]]();
+       return;
+   }
+   cliDict.<span class="apidocCodeKeywordSpan">_default</span>();
+};
+
+local.moduleDirname = function (module, pathList) {
+/*
+* this function will search &lt;pathList&gt; for &lt;module&gt;&apos;s __dirname
+*/
+   let result;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

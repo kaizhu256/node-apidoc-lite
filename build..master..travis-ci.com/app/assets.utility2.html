@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- "" -->
-<title>test-report</title>
+<!-- "assets.utility2.template.html" -->
+<title>utility2 (0.0.1)</title>
 <style>
 /* jslint utility2:true */
 /*csslint
@@ -97,55 +97,6 @@ pre {
     margin: 0;
     padding: 0;
     width: 0;
-}
-/* jslint utility2:true */
-/*csslint
-*/
-.testReportDiv img {
-    border: 1px solid #999;
-    margin: 5px 0 5px 0;
-    max-height: 256px;
-    max-width: 512px;
-}
-.testReportDiv pre {
-    background: #fdd;
-    border-top: 1px solid #999;
-    margin-bottom: 0;
-    padding: 10px;
-}
-.testReportDiv span {
-    display: inline-block;
-    width: 120px;
-}
-.testReportDiv table {
-    border-top: 1px solid #999;
-    text-align: left;
-    width: 100%;
-}
-.testReportDiv table > tbody > tr:nth-child(odd) {
-    background: #bfb;
-}
-.testReportDiv .displayNone {
-    display: none;
-}
-.testReportDiv .footer {
-    text-align: center;
-}
-.testReportDiv .platform {
-    background: #fff;
-    border: 1px solid #999;
-    margin-bottom: 20px;
-    padding: 0 10px 10px 10px;
-    text-align: left;
-}
-.testReportDiv .summary {
-    background: #bfb;
-}
-.testReportDiv .testFailed {
-    background: #f99;
-}
-.testReportDiv .testPending {
-    background: #99f;
 }
 </style>
 </head>
@@ -456,365 +407,176 @@ pre {
     );
 }());
 </script>
-<div class="testReportDiv">
-<h1>test-report for
-    <a
-        
-        href="https://github.com/kaizhu256/node-apidoc-lite"
-        
-    >
-        apidoc-lite (2020.6.8)
-    </a>
+<h1>
+
+<a
+    
+    href="https://github.com/kaizhu256/node-utility2"
+    
+    target="_blank"
+>
+
+    utility2 (0.0.1)
+
+</a>
+
 </h1>
-<div class="platform summary">
-<h2>summary</h2>
-<h4>
-    <span>version</span>-
-        2020.6.8<br>
-    <span>test date</span>- 2020-06-09T06:49:15.571Z<br>
-    <span>commit info</span>-
-        
-        9a826a1c8fec44acc86608770b5f18d00cf6f51f - <br>
-        
-</h4>
-<table>
-<thead>
-    <tr>
-        <th>total time-elapsed</th>
-        <th>total tests failed</th>
-        <th>total tests passed</th>
-        <th>total tests pending</th>
-    </tr>
-</thead>
-<tbody><tr>
-    <td>25068 ms</td>
-    <td class="testPassed">0</td>
-    <td>25</td>
-    <td>0</td>
-</tr></tbody>
-</table>
-</div>
+<h3>this zero-dependency package will provide high-level functions to to build, test, and deploy webapps</h3>
 
-<div class="platform">
-<h4>
-    1. buildApidoc - node - linux v14.4.0 - 2020-06-09T06:49:10.469Z<br>
-    
-    
-    <span>time-elapsed</span>- 10736 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 1<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
+<a class="button" download href="assets.app.js">download standalone app</a><br>
+<button class="button" data-onevent="testRunBrowser" id="buttonTestRun1">run browser-tests</button><br>
+<div class="uiAnimateSlide" id="htmlTestReport1" style="border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;"></div>
 
-<tr>
-    <td>1</td>
-    <td>5519 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApp_default</td>
-</tr>
 
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
 
-</pre>
-</div>
 
-<div class="platform">
-<h4>
-    2. npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-09T06:49:04.514Z<br>
-    
-    <a href="screenshot.npmTest.browser.%252F.png">
-        <img alt="screenshot.npmTest.browser.%252F.png" src="screenshot.npmTest.browser.%252F.png">
-    </a>
-    <br>
-    
-    
-    <span>time-elapsed</span>- 16711 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 3<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
+<!-- custom-html-start -->
+<label>edit or paste script below to cover and test</label>
+<textarea class="textarea" data-onevent="domOnEventInputChange" id="inputTextarea1">
+// remove comment below to disable jslint
+/*jslint browser, devel*/
+/*global window*/
+(function () {
+    "use strict";
+    var testCaseDict;
+    testCaseDict = {};
+    testCaseDict.modeTest = 1;
 
-<tr>
-    <td>2</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_apidocCreate_default</td>
-</tr>
+    // comment this testCase to disable failed error demo
+    testCaseDict.testCase_failed_error_demo = function (opt, onError) {
+    /*
+     * this function will run a failed error demo
+     */
+        // hack-jslint
+        window.utility2.nop(opt);
+        onError(new Error("this is a failed error demo"));
+    };
 
-<tr>
-    <td>3</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_moduleDirname_default</td>
-</tr>
+    testCaseDict.testCase_passed_ajax_demo = function (opt, onError) {
+    /*
+     * this function will demo a passed ajax test
+     */
+        var data;
+        opt = {url: "/"};
+        // test ajax-req for main-page "/"
+        window.utility2.ajax(opt, function (err, xhr) {
+            try {
+                // handle err
+                console.assert(!err, err);
+                // validate "200 ok" status
+                console.assert(xhr.statusCode === 200, xhr.statusCode);
+                // validate non-empty data
+                data = xhr.responseText;
+                console.assert(data && data.length > 0, data);
+                onError();
+            } catch (errCaught) {
+                onError(errCaught);
+            }
+        });
+    };
 
-<tr>
-    <td>4</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_nop_default</td>
-</tr>
+    window.utility2.testRunDefault(testCaseDict);
+}());
+</textarea>
+<button class="button" data-onevent="domOnEventInputChange" id="buttonJslintAutofix1">jslint autofix</button><br>
+<pre class= "colorError" id="outputJslintPre1" tabindex="0"></pre>
+<label>instrumented-code</label>
+<textarea class="readonly textarea" id="outputTextarea1" readonly tabindex="0"></textarea>
+<label>stderr and stdout</label>
+<textarea class="onevent-reset-output readonly textarea" id="outputStdout1" readonly></textarea>
+<div id="htmlTestReport2"></div>
+<div id="htmlCoverageReport1"></div>
+<script>
+/* jslint utility2:true */
+window.addEventListener("load", function (local) {
+"use strict";
+local = window.utility2;
+document.querySelectorAll(
+    "#buttonTestRun1, #htmlTestReport1"
+).forEach(function (elem) {
+    elem.style.display = "none";
+});
+local.domOnEventInputChange = function (evt) {
+    switch (evt.type + "." + evt.target.id) {
+    case "click.buttonJslintAutofix1":
+    case "keyup.inputTextarea1":
+        // jslint #inputTextarea1
+        local.jslintAndPrint(document.querySelector(
+            "#inputTextarea1"
+        ).value, "inputTextarea1.js", {
+            autofix: evt.target.id === "buttonJslintAutofix1",
+            conditional: evt.target.id !== "buttonJslintAutofix1"
+        });
+        if (local.jslint.jslintResult.autofix) {
+            document.querySelector(
+                "#inputTextarea1"
+            ).value = local.jslint.jslintResult.code;
+        }
+        document.querySelector(
+            "#outputJslintPre1"
+        ).textContent = local.jslint.jslintResult.errMsg.replace((
+            /\\u001b\\[\\d*m/g
+        ), "").trim();
+        // try to cleanup __coverage__
+        try {
+            delete globalThis.__coverage__["/inputTextarea1.js"];
+        } catch (ignore) {}
+        // try to cover and eval #inputTextarea1
+        try {
+            document.querySelector(
+                "#outputTextarea1"
+            ).value = local.istanbul.instrumentSync(
+                document.querySelector("#inputTextarea1").value,
+                "/inputTextarea1.js"
+            );
+            eval( // jslint ignore:line
+                document.querySelector("#outputTextarea1").value
+            );
+        } catch (errCaught) {
+            console.error(errCaught);
+        }
+        break;
+    }
+};
+// handle evt
+local.eventListenerAdd("utility2.testRunEnd", function () {
+    document.querySelector(
+        "#htmlCoverageReport1"
+    ).innerHTML = local.istanbul.coverageReportCreate({
+        coverage: globalThis.__coverage__
+    });
+});
+local.eventListenerAdd("utility2.testRunProgressUpdate", function (testReport) {
+    document.querySelector(
+        "#htmlTestReport2"
+    ).innerHTML = local.testReportMerge(testReport, {});
+});
+local.domOnEventInputChange({
+    target: {
+        id: "inputTextarea1"
+    },
+    type: "keyup"
+});
+});
+</script>
+<!-- custom-html-end -->
 
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
 
-</pre>
-</div>
 
-<div class="platform">
-<h4>
-    3. npmTest - node - linux v14.4.0 - 2020-06-09T06:49:03.077Z<br>
-    
-    
-    <span>time-elapsed</span>- 17745 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 9<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
 
-<tr>
-    <td>5</td>
-    <td>433 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_apidocCreate_default</td>
-</tr>
 
-<tr>
-    <td>6</td>
-    <td>68 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApidoc_default</td>
-</tr>
+<script src="assets.utility2.rollup.js"></script>
+<script src="assets.utility2.example.js"></script>
+<script src="assets.utility2.test.js"></script>
 
-<tr>
-    <td>7</td>
-    <td>5527 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApp_default</td>
-</tr>
 
-<tr>
-    <td>8</td>
-    <td>1 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildLib_default</td>
-</tr>
-
-<tr>
-    <td>9</td>
-    <td>6 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildReadme_default</td>
-</tr>
-
-<tr>
-    <td>10</td>
-    <td>1 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildTest_default</td>
-</tr>
-
-<tr>
-    <td>11</td>
-    <td>2 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_moduleDirname_default</td>
-</tr>
-
-<tr>
-    <td>12</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_nop_default</td>
-</tr>
-
-<tr>
-    <td>13</td>
-    <td>789 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_webpage_default</td>
-</tr>
-
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
-
-</pre>
-</div>
-
-<div class="platform">
-<h4>
-    4. npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/83.0.4103.97 Safari/537.36 - 2020-06-09T06:48:57.364Z<br>
-    
-    <a href="screenshot.npmTestPublished.browser.%252F.png">
-        <img alt="screenshot.npmTestPublished.browser.%252F.png" src="screenshot.npmTestPublished.browser.%252F.png">
-    </a>
-    <br>
-    
-    
-    <span>time-elapsed</span>- 23890 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 3<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
-
-<tr>
-    <td>14</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_apidocCreate_default</td>
-</tr>
-
-<tr>
-    <td>15</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_moduleDirname_default</td>
-</tr>
-
-<tr>
-    <td>16</td>
-    <td>0 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_nop_default</td>
-</tr>
-
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
-
-</pre>
-</div>
-
-<div class="platform">
-<h4>
-    5. npmTestPublished - node - linux v14.4.0 - 2020-06-09T06:48:55.617Z<br>
-    
-    
-    <span>time-elapsed</span>- 25068 ms<br>
-    <span>tests failed</span>- 0<br>
-    <span>tests passed</span>- 9<br>
-    <span>tests pending</span>- 0<br>
-</h4>
-<table>
-<thead><tr>
-    <th>#</th>
-    <th>time-elapsed</th>
-    <th>status</th>
-    <th>test-case</th>
-</tr></thead>
-<tbody>
-
-<tr>
-    <td>17</td>
-    <td>363 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_apidocCreate_default</td>
-</tr>
-
-<tr>
-    <td>18</td>
-    <td>123 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApidoc_default</td>
-</tr>
-
-<tr>
-    <td>19</td>
-    <td>5363 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildApp_default</td>
-</tr>
-
-<tr>
-    <td>20</td>
-    <td>1 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildLib_default</td>
-</tr>
-
-<tr>
-    <td>21</td>
-    <td>10 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildReadme_default</td>
-</tr>
-
-<tr>
-    <td>22</td>
-    <td>1 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_buildTest_default</td>
-</tr>
-
-<tr>
-    <td>23</td>
-    <td>2 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_moduleDirname_default</td>
-</tr>
-
-<tr>
-    <td>24</td>
-    <td>1 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_nop_default</td>
-</tr>
-
-<tr>
-    <td>25</td>
-    <td>980 ms</td>
-    <td class="testPassed">passed</td>
-    <td>testCase_webpage_default</td>
-</tr>
-
-</tbody>
-</table>
-<pre class="displayNone" tabIndex="0">
-
-</pre>
-</div>
-
-<div class="footer">
-    [ this document was created with
-    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+<div style="text-align: center;">
+    [
+    this app was created with
+    <a
+        href="https://github.com/kaizhu256/node-utility2" target="_blank"
+    >utility2</a>
     ]
-</div>
 </div>
 </body>
 </html>
