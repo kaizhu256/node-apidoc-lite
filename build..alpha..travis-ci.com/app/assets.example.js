@@ -13,7 +13,6 @@ instruction
 */
 
 
-
 /* istanbul instrument in package apidoc */
 // assets.utility2.header.js - start
 /* jslint utility2:true */
@@ -177,11 +176,9 @@ instruction
 // assets.utility2.header.js - end
 
 
-
 /* jslint utility2:true */
 (function (local) {
 "use strict";
-
 
 
 // run shared js-env code - init-before
@@ -195,7 +192,6 @@ local = (
 // init exports
 globalThis.local = local;
 }());
-
 
 
 /* istanbul ignore next */
@@ -232,7 +228,6 @@ if (!local.isBrowser) {
 local.objectAssignDefault(local, globalThis.domOnEventDelegateDict);
 globalThis.domOnEventDelegateDict = local;
 }());
-
 
 
 /* istanbul ignore next */
@@ -379,7 +374,6 @@ pre {\n\
         }, 100);\n\
     });\n\
 }());\n\
-\n\
 \n\
 \n\
 // init domOnEventAjaxProgressUpdate\n\
@@ -536,7 +530,6 @@ pre {\n\
 }());\n\
 \n\
 \n\
-\n\
 // init domOnEventDelegateDict\n\
 (function () {\n\
 /*\n\
@@ -620,7 +613,6 @@ pre {\n\
 }());\n\
 \n\
 \n\
-\n\
 // init domOnEventSelectAllWithinPre\n\
 (function () {\n\
 /*\n\
@@ -678,12 +670,10 @@ utility2-comment -->\n\
 utility2-comment -->\n\
 \n\
 \n\
-\n\
 <!-- custom-html-start -->\n\
 <label>stderr and stdout</label>\n\
 <textarea class="onevent-reset-output readonly textarea" id="outputStdout1" readonly></textarea>\n\
 <!-- custom-html-end -->\n\
-\n\
 \n\
 \n\
 <!-- utility2-comment\n\

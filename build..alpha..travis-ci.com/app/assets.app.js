@@ -3,7 +3,6 @@
  */
 
 
-
 /*
 assets.app.js
 
@@ -178,7 +177,6 @@ instruction
     }
 }());
 // assets.utility2.header.js - end
-
 
 
 /* jslint utility2:true */
@@ -367,7 +365,6 @@ instruction
 // assets.utility2.header.js - end
 
 
-
 /* jslint utility2:true */
 (function () {
     "use strict";
@@ -391,7 +388,6 @@ instruction
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
  */
-
 
 
 /* istanbul instrument in package apidoc */
@@ -557,10 +553,8 @@ instruction
 // assets.utility2.header.js - end
 
 
-
 (function (local) {
 "use strict";
-
 
 
 /* istanbul ignore next */
@@ -582,7 +576,6 @@ if (local.isBrowser) {
 }
 // init lib main
 local.apidoc = local;
-
 
 
 /* validateLineSortedReset */
@@ -1133,7 +1126,6 @@ local.tryCatchOnError = function (fnc, onError) {
 }());
 
 
-
 // run shared js-env code - function
 (function () {
 local.apidocCreate = function (opt) {
@@ -1658,14 +1650,12 @@ local.apidocModuleDictAdd = function (opt, moduleDict) {
 }());
 
 
-
 // run node js-env code - init-after
 /* istanbul ignore next */
 (function () {
 if (local.isBrowser) {
     return;
 }
-
 
 
 local.cliDict = {};
@@ -1700,7 +1690,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
  * this zero-dependency package will provide browser-compatible version of istanbul coverage-tool (v0.4.5), with working web-demo
  *
  */
-
 
 
 /* istanbul instrument in package istanbul */
@@ -1866,10 +1855,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
 // assets.utility2.header.js - end
 
 
-
 (function (local) {
 "use strict";
-
 
 
 /* istanbul ignore next */
@@ -1891,7 +1878,6 @@ if (local.isBrowser) {
 }
 // init lib main
 local.istanbul = local;
-
 
 
 /* validateLineSortedReset */
@@ -2321,7 +2307,6 @@ local.templateRender = function (template, dict, opt = {}, ii = 0) {
 }());
 
 
-
 // run shared js-env code - function
 (function () {
 let escodegen;
@@ -2357,12 +2342,10 @@ require2 = function (key) {
 require2(escodegen, esprima);
 
 
-
 /*
 repo https://github.com/acornjs/acorn/tree/6.3.0
 committed 2019-08-12T09:40:59Z
 */
-
 
 
 /*
@@ -7341,12 +7324,10 @@ file https://github.com/acornjs/acorn/blob/6.3.0/acorn/dist/acorn.js
 }());
 
 
-
 /*
 repo https://github.com/estools/estraverse/tree/4.2.0
 committed 2016-03-10T21:51:59Z
 */
-
 
 
 /*
@@ -8206,12 +8187,10 @@ file https://github.com/estools/estraverse/blob/4.2.0/estraverse.js
 }());
 
 
-
 /*
 repo https://github.com/estools/esutils/tree/2.0.3
 committed 2019-07-31T01:06:44Z
 */
-
 
 
 /*
@@ -8357,12 +8336,10 @@ file https://github.com/estools/esutils/blob/2.0.3/lib/code.js
 esutils = { code: module.exports }; }());
 
 
-
 /*
 repo https://github.com/estools/escodegen/tree/v1.12.0
 committed 2019-08-13T02:08:40Z
 */
-
 
 
 /*
@@ -10980,12 +10957,10 @@ file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
 }());
 
 
-
 /*
 repo https://github.com/gotwarlost/istanbul/tree/v0.4.5
 committed 2016-08-21T19:53:22Z
 */
-
 
 
 /*
@@ -12098,7 +12073,6 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
 }());
 
 
-
 /*
 file https://github.com/gotwarlost/istanbul/blob/v0.2.16/lib/report/templates/head.txt
 */
@@ -12493,7 +12467,6 @@ local.templateCoverageReport = '\
 ';
 
 
-
 /*
 file https://img.shields.io/badge/coverage-100.0%-00dd00.svg?style=flat
 */
@@ -12502,11 +12475,9 @@ local.templateCoverageBadgeSvg =
 /* jslint ignore:end */
 
 
-
 /*
 file none
 */
-
 
 
 let fileWrite;
@@ -12993,7 +12964,6 @@ reportTextWrite = function (node, dircoverage) {
 };
 
 
-
 // init local
 local.coverageMerge = function (coverage1 = {}, coverage2 = {}) {
 /*
@@ -13462,14 +13432,12 @@ local.instrumentSync = function (code, file) {
 }());
 
 
-
 // run node js-env code - init-after
 /* istanbul ignore next */
 (function () {
 if (local.isBrowser) {
     return;
 }
-
 
 
 local.cliDict = {};
@@ -13599,7 +13567,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
  * this zero-dependency package will provide browser-compatible versions of jslint (v2020.3.28) and csslint (v2018.2.25), with working web-demo
  *
  */
-
 
 
 /* istanbul instrument in package jslint */
@@ -13765,10 +13732,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
 // assets.utility2.header.js - end
 
 
-
 (function (local) {
 "use strict";
-
 
 
 /* istanbul ignore next */
@@ -13790,7 +13755,6 @@ if (local.isBrowser) {
 }
 // init lib main
 local.jslint = local;
-
 
 
 /* validateLineSortedReset */
@@ -13981,7 +13945,6 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
 }());
 
 
-
 /* istanbul ignore next */
 // run shared js-env code - function
 /* jslint ignore:start */
@@ -13990,7 +13953,6 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
 repo https://github.com/CSSLint/csslint/tree/e8aeeda06c928636e21428e09b1af93f66621209
 committed 2018-02-25T11:28:16Z
 */
-
 
 
 /*
@@ -24708,12 +24670,10 @@ return CSSLint;
 })();
 
 
-
 /*
 repo https://github.com/douglascrockford/JSLint/tree/686716b71f6d45d3c233e1cfa026a1e5f46747aa
 committed 2020-03-28T12:46:58Z
 */
-
 
 
 /*
@@ -29954,14 +29914,12 @@ local.jslint_export = Object.freeze(function (
 });
 
 
-
 /*
 file none
 */
 local.CSSLint = CSSLint;
 }());
 /* jslint ignore:end */
-
 
 
 // run shared js-env code - function
@@ -30293,14 +30251,11 @@ local.jslintAutofix = function (code, file, opt) {
         code = code.replace((
             /\n+?(\n\u0020*?[)\]}])/g
         ), "$1");
-        // autofix-all - normalize newlines to \n\n
+        // autofix-all - eslint - no-multiple-empty-lines
+        // https://github.com/eslint/eslint/blob/v7.2.0/docs/rules/no-multiple-empty-lines.md
         code = code.replace((
-            /([^\n])\n{3}([^\n])/g
-        ), "$1\n\n$2");
-        // autofix-all - normalize newlines to \n\n\n\n
-        code = code.replace((
-            /\n{5,}/g
-        ), "\n\n\n\n");
+            /\n{4,}/g
+        ), "\n\n\n");
         // autofix-all - recurse <script>...</script>, <style>...</style>
         code = code.replace((
             /(^\/\*\u0020jslint\u0020utility2:true\u0020\*\/\\n\\\n(?:^.*?\\n\\\n)*?)(';$|<\/script>\\n\\$|<\/style>\\n\\$)/gm
@@ -30541,10 +30496,10 @@ local.jslintAutofix = function (code, file, opt) {
         code = code.replace((
             /\/\/_([^\n])/g
         ), "//_\n$1");
-        // autofix-js-whitespace - normalize (function { to \n\n\n\n(function {
+        // autofix-js-whitespace - normalize (function { to \n\n\n(function {
         code = code.replace((
             /\n+((?:\/\*_\*\/\n|\/\/_\n)*?\(function\u0020.*?)\n+/g
-        ), "\n\n\n\n$1\n");
+        ), "\n\n\n$1\n");
         // autofix-js-whitespace - remove double-whitespace
         code = code.replace((
             /(\S\u0020)\u0020+/g
@@ -30990,7 +30945,6 @@ local.jslintUtility2 = function (code, ignore, opt) {
 }());
 
 
-
 /* istanbul ignore next */
 // run node js-env code - init-after
 (function () {
@@ -31046,7 +31000,6 @@ if (module === require.main && !globalThis.utility2_rollup) {
 
 /* script-begin /assets.utility2.lib.marked.js */
 // usr/bin/env node
-
 
 
 /* istanbul instrument in package marked */
@@ -31212,10 +31165,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
 // assets.utility2.header.js - end
 
 
-
 (function (local) {
 "use strict";
-
 
 
 /* istanbul ignore next */
@@ -31239,11 +31190,9 @@ if (local.isBrowser) {
 local.marked = local;
 
 
-
 /* validateLineSortedReset */
 return;
 }());
-
 
 
 /* jslint ignore:start */
@@ -31465,7 +31414,6 @@ if (local.isBrowser) {
  */
 
 
-
 /* istanbul instrument in package puppeteer */
 // assets.utility2.header.js - start
 /* jslint utility2:true */
@@ -31629,10 +31577,8 @@ if (local.isBrowser) {
 // assets.utility2.header.js - end
 
 
-
 (function (local) {
 "use strict";
-
 
 
 /* istanbul ignore next */
@@ -31654,7 +31600,6 @@ if (local.isBrowser) {
 }
 // init lib main
 local.puppeteer = local;
-
 
 
 /* validateLineSortedReset */
@@ -31818,7 +31763,6 @@ local.cliRun = function (opt) {
 }());
 
 
-
 /* istanbul ignore next */
 // run node js-env code - function
 (function () {
@@ -31957,7 +31901,6 @@ repo https://github.com/websockets/ws/tree/6.2.1
 */
 
 
-
 /*
 file https://github.com/websockets/ws/blob/6.2.1/package.json
 */
@@ -32008,7 +31951,6 @@ exports_websockets_ws_package_json = {
 }
 
 
-
 /*
 file https://github.com/websockets/ws/blob/6.2.1/lib/constants.js
 */
@@ -32022,7 +31964,6 @@ exports_websockets_ws_lib_constants = {
   EMPTY_BUFFER: Buffer.alloc(0),
   NOOP: () => {}
 };
-
 
 
 /*
@@ -32058,7 +31999,6 @@ exports_websockets_ws_lib_validation.isValidStatusCode = (code) => {
     (code >= 3000 && code <= 4999)
   );
 };
-
 
 
 /*
@@ -32208,7 +32148,6 @@ try {
     unmask: _unmask
   };
 }
-
 
 
 /*
@@ -32384,7 +32323,6 @@ const EventTarget = {
 };
 
 exports_websockets_ws_lib_event_target = EventTarget;
-
 
 
 /*
@@ -32612,7 +32550,6 @@ function format(extensions) {
 }
 
 exports_websockets_ws_lib_extension = { format, parse };
-
 
 
 /*
@@ -33112,7 +33049,6 @@ function error(ErrorCtor, message, prefix, statusCode) {
 }
 
 
-
 /*
 file https://github.com/websockets/ws/blob/6.2.1/lib/sender.js
 */
@@ -33474,7 +33410,6 @@ class Sender {
 }
 
 exports_websockets_ws_lib_sender = Sender;
-
 
 
 /*
@@ -33881,7 +33816,6 @@ function abortHandshake(socket, code, message, headers) {
   socket.removeListener('error', socketOnError);
   socket.destroy();
 }
-
 
 
 /*
@@ -34784,7 +34718,6 @@ function socketOnError() {
 }
 
 
-
 /*
 file https://github.com/websockets/ws/blob/6.2.1/index.js
 */
@@ -34799,11 +34732,9 @@ WebSocket.Sender = exports_websockets_ws_lib_sender;
 exports_websockets_ws_index = WebSocket;
 
 
-
 /*
 repo https://github.com/puppeteer/puppeteer/tree/v1.19.0
 */
-
 
 
 /*
@@ -34882,7 +34813,6 @@ exports_puppeteer_puppeteer_package_json = {
     "readline": false
   }
 }
-
 
 
 /*
@@ -35166,7 +35096,6 @@ exports_puppeteer_puppeteer_lib_helper = {
   debugError
 };
 let helper = exports_puppeteer_puppeteer_lib_helper.helper;
-
 
 
 /*
@@ -35595,7 +35524,6 @@ class AXNode {
 exports_puppeteer_puppeteer_lib_Accessibility = {Accessibility};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/Browser.js
 */
@@ -35984,7 +35912,6 @@ class BrowserContext extends EventEmitter {
 exports_puppeteer_puppeteer_lib_Browser = {Browser, BrowserContext};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/Connection.js
 */
@@ -36230,7 +36157,6 @@ function rewriteError(error, message) {
 }
 
 exports_puppeteer_puppeteer_lib_Connection = {Connection, CDPSession};
-
 
 
 /*
@@ -36548,7 +36474,6 @@ function convertToDisjointRanges(nestedRanges) {
   // Filter out empty ranges.
   return results.filter(range => range.end - range.start > 1);
 }
-
 
 
 /*
@@ -37273,7 +37198,6 @@ async function waitForPredicatePageFunction(predicateBody, polling, timeout, ...
 }
 
 exports_puppeteer_puppeteer_lib_DOMWorld = {DOMWorld};
-
 
 
 /*
@@ -38129,7 +38053,6 @@ for (const device of exports_puppeteer_puppeteer_lib_DeviceDescriptors)
   exports_puppeteer_puppeteer_lib_DeviceDescriptors[device.name] = device;
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/Dialog.js
 */
@@ -38218,7 +38141,6 @@ Dialog.Type = {
 exports_puppeteer_puppeteer_lib_Dialog = {Dialog};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/EmulationManager.js
 */
@@ -38278,7 +38200,6 @@ class EmulationManager {
 exports_puppeteer_puppeteer_lib_EmulationManager = {EmulationManager};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/Errors.js
 */
@@ -38311,7 +38232,6 @@ class TimeoutError extends CustomError {}
 exports_puppeteer_puppeteer_lib_Errors = {
   TimeoutError,
 };
-
 
 
 /*
@@ -38397,7 +38317,6 @@ const Events = {
 };
 
 exports_puppeteer_puppeteer_lib_Events = { Events };
-
 
 
 /*
@@ -38608,7 +38527,6 @@ class ExecutionContext {
 }
 
 exports_puppeteer_puppeteer_lib_ExecutionContext = {ExecutionContext, EVALUATION_SCRIPT_URL};
-
 
 
 /*
@@ -39334,7 +39252,6 @@ function assertNoLegacyNavigationOptions(options) {
 exports_puppeteer_puppeteer_lib_FrameManager = {FrameManager, Frame};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/Input.js
 */
@@ -39651,7 +39568,6 @@ class Touchscreen {
 }
 
 exports_puppeteer_puppeteer_lib_Input = { Keyboard, Mouse, Touchscreen};
-
 
 
 /*
@@ -40184,7 +40100,6 @@ function computeQuadArea(quad) {
 exports_puppeteer_puppeteer_lib_JSHandle = {createJSHandle, JSHandle, ElementHandle};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/Launcher.js
 */
@@ -40633,7 +40548,6 @@ function getWSEndpoint(browserURL) {
 exports_puppeteer_puppeteer_lib_Launcher = Launcher;
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/LifecycleWatcher.js
 */
@@ -40837,7 +40751,6 @@ const puppeteerToProtocolLifecycle = {
 exports_puppeteer_puppeteer_lib_LifecycleWatcher = {LifecycleWatcher};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/Multimap.js
 */
@@ -40977,7 +40890,6 @@ class Multimap {
 }
 
 exports_puppeteer_puppeteer_lib_Multimap = Multimap;
-
 
 
 /*
@@ -41780,7 +41692,6 @@ const STATUS_TEXTS = {
 };
 
 exports_puppeteer_puppeteer_lib_NetworkManager = {Request, Response, NetworkManager, SecurityDetails};
-
 
 
 /*
@@ -43137,7 +43048,6 @@ class FileChooser {
 exports_puppeteer_puppeteer_lib_Page = {Page, ConsoleMessage, FileChooser};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/PipeTransport.js
 */
@@ -43221,7 +43131,6 @@ class PipeTransport {
 }
 
 exports_puppeteer_puppeteer_lib_PipeTransport = PipeTransport;
-
 
 
 /*
@@ -43311,7 +43220,6 @@ exports_puppeteer_puppeteer_lib_Puppeteer = class {
     return new BrowserFetcher(this._projectRoot, options);
   }
 };
-
 
 
 /*
@@ -43475,7 +43383,6 @@ class Target {
 exports_puppeteer_puppeteer_lib_Target = {Target};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/TaskQueue.js
 */
@@ -43496,7 +43403,6 @@ class TaskQueue {
 }
 
 exports_puppeteer_puppeteer_lib_TaskQueue = {TaskQueue};
-
 
 
 /*
@@ -43559,7 +43465,6 @@ class TimeoutSettings {
 }
 
 exports_puppeteer_puppeteer_lib_TimeoutSettings = {TimeoutSettings};
-
 
 
 /*
@@ -43637,7 +43542,6 @@ class Tracing {
 }
 
 exports_puppeteer_puppeteer_lib_Tracing = Tracing;
-
 
 
 /*
@@ -43933,7 +43837,6 @@ exports_puppeteer_puppeteer_lib_USKeyboardLayout = {
 };
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/WebSocketTransport.js
 */
@@ -44005,7 +43908,6 @@ class WebSocketTransport {
 }
 
 exports_puppeteer_puppeteer_lib_WebSocketTransport = WebSocketTransport;
-
 
 
 /*
@@ -44093,7 +43995,6 @@ class Worker extends EventEmitter {
 exports_puppeteer_puppeteer_lib_Worker = {Worker};
 
 
-
 /*
 file https://github.com/puppeteer/puppeteer/blob/v1.19.0/lib/api.js
 */
@@ -44140,7 +44041,6 @@ exports_puppeteer_puppeteer_lib_api = {
   Tracing: exports_puppeteer_puppeteer_lib_Tracing,
   Worker: exports_puppeteer_puppeteer_lib_Worker.Worker,
 };
-
 
 
 /*
@@ -44249,7 +44149,6 @@ local.puppeteerLaunch = local._puppeteer.launch.bind(local._puppeteer);
 local.nop(local.puppeteerLaunch);
 
 
-
 /*
 file none
 */
@@ -44267,12 +44166,11 @@ if (module === require.main && !globalThis.utility2_rollup) {
 /* script-begin /assets.utility2.js */
 // usr/bin/env node
 /*
- * lib.utility2.js (2020.6.9)
+ * lib.utility2.js (2020.6.11)
  * https://github.com/kaizhu256/node-utility2
  * this zero-dependency package will provide high-level functions to to build, test, and deploy webapps
  *
  */
-
 
 
 /* istanbul instrument in package utility2 */
@@ -44438,10 +44336,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
 // assets.utility2.header.js - end
 
 
-
 (function (local) {
 "use strict";
-
 
 
 /* istanbul ignore next */
@@ -44463,7 +44359,6 @@ if (local.isBrowser) {
 }
 // init lib main
 local.utility2 = local;
-
 
 
 /* validateLineSortedReset */
@@ -44490,10 +44385,8 @@ globalThis.utility2 = local;
 });
 
 
-
 // run shared js-env code - assets
 local.assetsDict = local.assetsDict || {};
-
 
 
 /* jslint ignore:start */
@@ -44661,7 +44554,6 @@ local.assetsDict["/assets.utility2.header.js"] = '\
 '
 
 
-
 local.assetsDict["/assets.index.template.html"] =
 local.assetsDict["/assets.utility2.template.html"] = '\
 <!doctype html>\n\
@@ -44796,7 +44688,6 @@ pre {\n\
         }, 100);\n\
     });\n\
 }());\n\
-\n\
 \n\
 \n\
 // init domOnEventAjaxProgressUpdate\n\
@@ -44953,7 +44844,6 @@ pre {\n\
 }());\n\
 \n\
 \n\
-\n\
 // init domOnEventDelegateDict\n\
 (function () {\n\
 /*\n\
@@ -45037,7 +44927,6 @@ pre {\n\
 }());\n\
 \n\
 \n\
-\n\
 // init domOnEventSelectAllWithinPre\n\
 (function () {\n\
 /*\n\
@@ -45095,12 +44984,10 @@ utility2-comment -->\n\
 utility2-comment -->\n\
 \n\
 \n\
-\n\
 <!-- custom-html-start -->\n\
 <label>stderr and stdout</label>\n\
 <textarea class="onevent-reset-output readonly textarea" id="outputStdout1" readonly></textarea>\n\
 <!-- custom-html-end -->\n\
-\n\
 \n\
 \n\
 <!-- utility2-comment\n\
@@ -45135,15 +45022,12 @@ utility2-comment -->\n\
 ';
 
 
-
 // https://img.shields.io/badge/last_build-0000_00_00_00_00_00_UTC_--_master_--_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-0077ff.svg?style=flat
 local.assetsDict["/assets.buildBadge.template.svg"] =
 '<svg xmlns="http://www.w3.org/2000/svg" width="563" height="20"><linearGradient id="a" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><rect rx="0" width="563" height="20" fill="#555"/><rect rx="0" x="61" width="502" height="20" fill="#07f"/><path fill="#07f" d="M61 0h4v20h-4z"/><rect rx="0" width="563" height="20" fill="url(#a)"/><g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11"><text x="31.5" y="15" fill="#010101" fill-opacity=".3">last build</text><text x="31.5" y="14">last build</text><text x="311" y="15" fill="#010101" fill-opacity=".3">0000-00-00 00:00:00 UTC - master - aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</text><text x="311" y="14">0000-00-00 00:00:00 UTC - master - aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</text></g></svg>';
 
 
-
 local.assetsDict["/assets.example.html"] = "";
-
 
 
 local.assetsDict["/assets.example.template.js"] = '\
@@ -45162,16 +45046,13 @@ instruction\n\
 */\n\
 \n\
 \n\
-\n\
 /* istanbul instrument in package my_app */\n\
 ' + local.assetsDict["/assets.utility2.header.js"] + '\
-\n\
 \n\
 \n\
 /* jslint utility2:true */\n\
 (function (local) {\n\
 "use strict";\n\
-\n\
 \n\
 \n\
 // run shared js\-env code - init-before\n\
@@ -45185,7 +45066,6 @@ local = (\n\
 // init exports\n\
 globalThis.local = local;\n\
 }());\n\
-\n\
 \n\
 \n\
 /* istanbul ignore next */\n\
@@ -45222,7 +45102,6 @@ if (!local.isBrowser) {\n\
 local.objectAssignDefault(local, globalThis.domOnEventDelegateDict);\n\
 globalThis.domOnEventDelegateDict = local;\n\
 }());\n\
-\n\
 \n\
 \n\
 /* istanbul ignore next */\n\
@@ -45306,7 +45185,6 @@ require("http").createServer(function (req, res) {\n\
 ';
 
 
-
 local.assetsDict["/assets.my_app.template.js"] = '\
 #!/usr/bin/env node\n\
 /*\n\
@@ -45317,15 +45195,12 @@ local.assetsDict["/assets.my_app.template.js"] = '\
  */\n\
 \n\
 \n\
-\n\
 /* istanbul instrument in package my_app */\n\
 ' + local.assetsDict["/assets.utility2.header.js"] + '\
 \n\
 \n\
-\n\
 (function (local) {\n\
 "use strict";\n\
-\n\
 \n\
 \n\
 /* istanbul ignore next */\n\
@@ -45349,13 +45224,11 @@ if (local.isBrowser) {\n\
 local.my_app = local;\n\
 \n\
 \n\
-\n\
 /* validateLineSortedReset */\n\
 return;\n\
 }());\n\
 }());\n\
 ';
-
 
 
 local.assetsDict["/assets.readme.template.md"] = '\
@@ -45366,7 +45239,6 @@ the greatest app in the world!\n\
 - [https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/app](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/app)\n\
 \n\
 [![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.deployGithub.browser.%252Fnode-my-app-lite%252Fbuild%252Fapp.png)](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/app)\n\
-\n\
 \n\
 \n\
 [![travis-ci.com build-status](https://api.travis-ci.com/kaizhu256/node-my-app-lite.svg)](https://travis-ci.com/kaizhu256/node-my-app-lite) [![coverage](https://kaizhu256.github.io/node-my-app-lite/build/coverage.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build/coverage.html/index.html)\n\
@@ -45388,14 +45260,11 @@ the greatest app in the world!\n\
 ![npmPackageDependencyTree](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.npmPackageDependencyTree.svg)\n\
 \n\
 \n\
-\n\
 # table of contents\n\
-\n\
 \n\
 \n\
 # cdn download\n\
 - [https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/app/assets.my_app.js](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/app/assets.my_app.js)\n\
-\n\
 \n\
 \n\
 # documentation\n\
@@ -45414,7 +45283,6 @@ the greatest app in the world!\n\
 \n\
 #### todo\n\
 - none\n\
-\n\
 \n\
 \n\
 # quickstart standalone app\n\
@@ -45440,7 +45308,6 @@ PORT=8081 node ./assets.app.js\n\
 ![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.testExampleSh.svg)\n\
 \n\
 \n\
-\n\
 # quickstart example.js\n\
 [![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.testExampleJs.browser.%252F.png)](https://kaizhu256.github.io/node-my-app-lite/build/app/assets.example.html)\n\
 \n\
@@ -45453,7 +45320,6 @@ PORT=8081 node ./assets.app.js\n\
 \n\
 #### output from shell\n\
 ![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.testExampleJs.svg)\n\
-\n\
 \n\
 \n\
 # extra screenshots\n\
@@ -45486,7 +45352,6 @@ PORT=8081 node ./assets.app.js\n\
 \n\
 1. [https://kaizhu256.github.io/node-my-app-lite/build/screenshot.testExampleSh.browser.%252F.png](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.testExampleSh.browser.%252F.png)\n\
 [![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.testExampleSh.browser.%252F.png)](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.testExampleSh.browser.%252F.png)\n\
-\n\
 \n\
 \n\
 # package.json\n\
@@ -45526,10 +45391,8 @@ PORT=8081 node ./assets.app.js\n\
 ```\n\
 \n\
 \n\
-\n\
 # changelog of last 50 commits\n\
 [![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.gitLog.svg)](https://github.com/kaizhu256/node-my-app-lite/commits)\n\
-\n\
 \n\
 \n\
 # internal build script\n\
@@ -45557,11 +45420,9 @@ shBuildCi\n\
 ```\n\
 \n\
 \n\
-\n\
 # misc\n\
 - this package was created with [utility2](https://github.com/kaizhu256/node-utility2)\n\
 ';
-
 
 
 local.assetsDict["/assets.test.template.js"] = '\
@@ -45569,12 +45430,10 @@ local.assetsDict["/assets.test.template.js"] = '\
 ' + local.assetsDict["/assets.utility2.header.js"] + '\
 \n\
 \n\
-\n\
 /* jslint utility2:true */\n\
 /* istanbul ignore next */\n\
 (function (local) {\n\
 "use strict";\n\
-\n\
 \n\
 \n\
 // run shared js\-env code - init-before\n\
@@ -45588,14 +45447,12 @@ local.testRunDefault(local);\n\
 }());\n\
 \n\
 \n\
-\n\
 // run shared js\-env code - function\n\
 (function () {\n\
 return;\n\
 }());\n\
 }());\n\
 ';
-
 
 
 local.assetsDict["/assets.testReport.template.html"] =
@@ -45748,18 +45605,15 @@ local.assetsDict["/assets.testReport.template.html"] =
 </body>');
 
 
-
 // https://img.shields.io/badge/tests_failed-999-dd0000.svg?style=flat
 local.assetsDict["/assets.testReportBadge.template.svg"] =
 '<svg xmlns="http://www.w3.org/2000/svg" width="103" height="20"><linearGradient id="a" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><rect rx="0" width="103" height="20" fill="#555"/><rect rx="0" x="72" width="31" height="20" fill="#d00"/><path fill="#d00" d="M72 0h4v20h-4z"/><rect rx="0" width="103" height="20" fill="url(#a)"/><g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11"><text x="37" y="15" fill="#010101" fill-opacity=".3">tests failed</text><text x="37" y="14">tests failed</text><text x="86.5" y="15" fill="#010101" fill-opacity=".3">999</text><text x="86.5" y="14">999</text></g></svg>';
-
 
 
 local.assetsDict["/assets.utility2.rollup.start.js"] = '\
 /* utility2.rollup.js begin */\n\
 /* istanbul ignore all */\n\
 ' + local.assetsDict["/assets.utility2.header.js"] + '\
-\n\
 \n\
 \n\
 /* jslint utility2:true */\n\
@@ -45776,7 +45630,6 @@ local.assetsDict["/assets.utility2.rollup.start.js"] = '\
 ';
 
 
-
 local.assetsDict["/assets.utility2.rollup.content.js"] = '\
 (function (local) {\n\
     "use strict";\n\
@@ -45786,7 +45639,6 @@ local.assetsDict["/assets.utility2.rollup.content.js"] = '\
     return local;\n\
 }(globalThis.utility2_rollup));\n\
 ';
-
 
 
 local.assetsDict["/assets.utility2.rollup.end.js"] = '\
@@ -45799,10 +45651,8 @@ local.assetsDict["/assets.utility2.rollup.end.js"] = '\
 ';
 
 
-
 local.assetsDict["/favicon.ico"] = "";
 /* jslint ignore:end */
-
 
 
 // run shared js-env code - cli
@@ -45854,7 +45704,6 @@ local.cliDict["utility2.testReportCreate"] = function () {
     );
 };
 }());
-
 
 
 // run shared js-env code - function
@@ -46969,6 +46818,9 @@ local.buildApp = function (opt, onError) {
                 file: "/assets." + process.env.npm_package_nameLib + ".html",
                 url: "/index.html"
             }, {
+                file: "/assets." + process.env.npm_package_nameLib + ".css",
+                url: "/assets." + process.env.npm_package_nameLib + ".css"
+            }, {
                 file: "/assets." + process.env.npm_package_nameLib + ".js",
                 url: "/assets." + process.env.npm_package_nameLib + ".js"
             }, {
@@ -47010,10 +46862,6 @@ local.buildApp = function (opt, onError) {
                 ), function (res) {
                     let data;
                     data = [];
-                    if (!(res.statusCode < 400)) {
-                        resolve();
-                        return;
-                    }
                     res.on("data", function (chunk) {
                         data.push(chunk);
                     }).on("end", function () {
@@ -47104,8 +46952,8 @@ local.buildReadme = function (opt, onError) {
             "README.md",
             "utf8"
         ).replace((
-            /\n#\u0020table\u0020of\u0020contents$[\S\s]*?\n\n\n\n/m
-        ), "\n# table of contents\n\n\n\n"),
+            /\n#\u0020table\u0020of\u0020contents$[\S\s]*?\n\n\n/m
+        ), "\n# table of contents\n\n\n"),
         packageJsonRgx: (
             /\n#\u0020package.json\n```json\n([\S\s]*?)\n```\n/
         )
@@ -47183,15 +47031,15 @@ local.buildReadme = function (opt, onError) {
         ),
         // customize cdn-download
         (
-            /\n#\u0020cdn\u0020download\n[\S\s]*?\n\n\n\n/
+            /\n#\u0020cdn\u0020download\n[\S\s]*?\n\n\n/
         ),
         // customize live-web-demo
         (
-            /\n#\u0020live\u0020web\u0020demo\n[\S\s]*?\n\n\n\n/
+            /\n#\u0020live\u0020web\u0020demo\n[\S\s]*?\n\n\n/
         ),
         // customize changelog
         (
-            /\n####\u0020changelog\u0020[\S\s]*?\n\n\n\n/
+            /\n####\u0020changelog\u0020[\S\s]*?\n\n\n/
         ),
         // customize example.js - shared js\u002denv code - init-before
         (
@@ -47341,7 +47189,7 @@ local.buildReadme = function (opt, onError) {
     // customize toc
     opt.toc = "\n# table of contents\n";
     opt.dataTo.replace((
-        /\n\n\n\n#\u0020(.*)/g
+        /\n\n\n#\u0020(.*)/g
     ), function (ignore, match1) {
         if (match1 === "table of contents") {
             return;
@@ -47356,7 +47204,7 @@ local.buildReadme = function (opt, onError) {
     // customize whitespace
     opt.dataTo = opt.dataTo.replace((
         /\n{5,}/g
-    ), "\n\n\n\n");
+    ), "\n\n\n");
     // save README.md
     result = opt.dataTo;
     local.fsWriteFileWithMkdirpSync(
@@ -47384,7 +47232,7 @@ local.buildTest = function (opt, onError) {
     [
         // customize shared js\u002denv code - function
         (
-            /\n\}\(\)\);\n\n\n\n\/\/\u0020run\u0020shared\u0020js\u002denv\u0020code\u0020-\u0020function\n[\S\s]*?$/
+            /\n\}\(\)\);\n\n\n\/\/\u0020run\u0020shared\u0020js\u002denv\u0020code\u0020-\u0020function\n[\S\s]*?$/
         )
     ].forEach(function (rgx) {
         opt.dataTo = local.stringMerge(opt.dataTo, opt.dataFrom, rgx);
@@ -48910,7 +48758,7 @@ local.requireReadme = function () {
     // if file is modified, then restart process
     if (env.npm_config_mode_auto_restart) {
         require("fs").readdir(".", function (ignore, fileList) {
-            fileList.forEach(function (file) {
+            fileList.concat(__filename).forEach(function (file) {
                 require("fs").stat(file, function (ignore, data) {
                     if (!data.isFile()) {
                         return;
@@ -49014,15 +48862,21 @@ local.requireReadme = function () {
         globalThis.utility2_moduleExports
     );
     // init assets lib.xxx.js
-    local.assetsDict[
-        "/assets." + env.npm_package_nameLib + ".js"
-    ] = local.fsReadFileOrDefaultSync(
-        env.npm_package_main,
-        "utf8",
-        ""
-    ).replace((
-        /^#!\//
-    ), "// ");
+    [
+        ".css", ".js"
+    ].forEach(function (extname) {
+        local.assetsDict[
+            "/assets." + env.npm_package_nameLib + extname
+        ] = local.fsReadFileOrDefaultSync(
+            require("path").resolve(env.npm_package_main).replace((
+                /\.\w+$/
+            ), extname),
+            "utf8",
+            ""
+        ).replace((
+            /^#!\//
+        ), "// ");
+    });
     Object.assign(local.assetsDict, module.exports.assetsDict);
     // instrument assets lib.xxx.js
     local.assetsDict["/assets." + env.npm_package_nameLib + ".js"] = (
@@ -49081,6 +48935,7 @@ local.requireReadme = function () {
         "/assets.utility2.rollup.js",
         "/assets.utility2.rollup.start.js",
         "local.stateInit",
+        "/assets.my_app.css",
         "/assets.my_app.js",
         "/assets.example.js",
         "/assets.test.js",
@@ -49093,7 +48948,6 @@ return '\
 /* this rollup was created with utility2\n\
  * https://github.com/kaizhu256/node-utility2\n\
  */\n\
-\n\
 \n\
 \n\
 /*\n\
@@ -49112,6 +48966,25 @@ instruction\n\
     /utility2_rollup/g
 ), "utility2_app");
 /* jslint ignore:end */
+        case "/assets.my_app.css":
+            tmp = "/assets." + env.npm_package_nameLib + ".css";
+            // handle large string-replace
+            code = local.assetsDict[
+                "/assets.utility2.rollup.content.js"
+            ].replace("/* utility2.rollup.js content */", function () {
+                return (
+                    "local.assetsDict[\"" + tmp + "\"] = (\n"
+                    + JSON.stringify(local.assetsDict[tmp]).replace((
+                        /\\\\/g
+                    ), "\u0000").replace((
+                        /\\n/g
+                    ), "\\n\\\n").replace((
+                        /\u0000/g
+                    ), "\\\\")
+                    + ");\n"
+                );
+            });
+            break;
         case "/assets.my_app.js":
             tmp = "/assets." + env.npm_package_nameLib + ".js";
             // handle large string-replace
@@ -50683,7 +50556,6 @@ local.uuid4Create = function () {
 }());
 
 
-
 /* istanbul ignore next */
 // run shared js-env code - init-after
 (function () {
@@ -50820,7 +50692,6 @@ globalThis.utility2_onReadyAfter(local.nop);
 }());
 
 
-
 // run browser js-env code - init-after
 (function () {
 if (!local.isBrowser) {
@@ -50829,7 +50700,6 @@ if (!local.isBrowser) {
 // require modules
 local.http = local._http;
 }());
-
 
 
 /* istanbul ignore next */
@@ -51088,7 +50958,6 @@ instruction\n\
 */\n\
 \n\
 \n\
-\n\
 /* istanbul instrument in package utility2 */\n\
 // assets.utility2.header.js - start\n\
 /* jslint utility2:true */\n\
@@ -51252,11 +51121,9 @@ instruction\n\
 // assets.utility2.header.js - end\n\
 \n\
 \n\
-\n\
 /* jslint utility2:true */\n\
 (function (local) {\n\
 \"use strict\";\n\
-\n\
 \n\
 \n\
 // run shared js-env code - init-before\n\
@@ -51275,7 +51142,6 @@ local.testRunServer(local);\n\
 local.assetsDict[\"/assets.hello.txt\"] = \"hello \\ud83d\\ude01\\n\";\n\
 local.assetsDict[\"/assets.index.template.html\"] = \"\";\n\
 }());\n\
-\n\
 \n\
 \n\
 // run shared js-env code - function\n\
@@ -51347,7 +51213,6 @@ local.testCase_webpage_default = function (opt, onError) {\n\
 }());\n\
 \n\
 \n\
-\n\
 /* istanbul ignore next */\n\
 // run browser js-env code - init-test\n\
 (function () {\n\
@@ -51382,7 +51247,6 @@ if (!local.isBrowser) {\n\
 local.objectAssignDefault(local, globalThis.domOnEventDelegateDict);\n\
 globalThis.domOnEventDelegateDict = local;\n\
 }());\n\
-\n\
 \n\
 \n\
 /* istanbul ignore next */\n\
@@ -51529,7 +51393,6 @@ pre {\\n\\\n\
         }, 100);\\n\\\n\
     });\\n\\\n\
 }());\\n\\\n\
-\\n\\\n\
 \\n\\\n\
 \\n\\\n\
 // init domOnEventAjaxProgressUpdate\\n\\\n\
@@ -51686,7 +51549,6 @@ pre {\\n\\\n\
 }());\\n\\\n\
 \\n\\\n\
 \\n\\\n\
-\\n\\\n\
 // init domOnEventDelegateDict\\n\\\n\
 (function () {\\n\\\n\
 /*\\n\\\n\
@@ -51770,7 +51632,6 @@ pre {\\n\\\n\
 }());\\n\\\n\
 \\n\\\n\
 \\n\\\n\
-\\n\\\n\
 // init domOnEventSelectAllWithinPre\\n\\\n\
 (function () {\\n\\\n\
 /*\\n\\\n\
@@ -51826,7 +51687,6 @@ utility2-comment -->\\n\\\n\
 <button class=\"button\" data-onevent=\"testRunBrowser\" id=\"buttonTestRun1\">run browser-tests</button><br>\\n\\\n\
 <div class=\"uiAnimateSlide\" id=\"htmlTestReport1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\\n\\\n\
 utility2-comment -->\\n\\\n\
-\\n\\\n\
 \\n\\\n\
 \\n\\\n\
 <!-- custom-html-start -->\\n\\\n\
@@ -51959,7 +51819,6 @@ local.domOnEventInputChange({\\n\\\n\
 });\\n\\\n\
 </script>\\n\\\n\
 <!-- custom-html-end -->\\n\\\n\
-\\n\\\n\
 \\n\\\n\
 \\n\\\n\
 <!-- utility2-comment\\n\\\n\
@@ -52205,7 +52064,6 @@ pre {\n\
 }());\n\
 \n\
 \n\
-\n\
 // init domOnEventAjaxProgressUpdate\n\
 (function () {\n\
 /*\n\
@@ -52360,7 +52218,6 @@ pre {\n\
 }());\n\
 \n\
 \n\
-\n\
 // init domOnEventDelegateDict\n\
 (function () {\n\
 /*\n\
@@ -52444,7 +52301,6 @@ pre {\n\
 }());\n\
 \n\
 \n\
-\n\
 // init domOnEventSelectAllWithinPre\n\
 (function () {\n\
 /*\n\
@@ -52499,7 +52355,6 @@ pre {\n\
 <a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n\
 <button class=\"button\" data-onevent=\"testRunBrowser\" id=\"buttonTestRun1\">run browser-tests</button><br>\n\
 <div class=\"uiAnimateSlide\" id=\"htmlTestReport1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\n\
-\n\
 \n\
 \n\
 \n\
@@ -52637,7 +52492,6 @@ local.domOnEventInputChange({\n\
 \n\
 \n\
 \n\
-\n\
 <script src=\"assets.utility2.rollup.js\"></script>\n\
 <script src=\"assets.utility2.example.js\"></script>\n\
 <script src=\"assets.utility2.test.js\"></script>\n\
@@ -52674,7 +52528,6 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = (
  * this zero-dependency package will provide browser-compatible versions of jslint (v2020.3.28) and csslint (v2018.2.25), with working web-demo\n\
  *\n\
  */\n\
-\n\
 \n\
 \n\
 /* istanbul instrument in package jslint */\n\
@@ -52840,10 +52693,8 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = (
 // assets.utility2.header.js - end\n\
 \n\
 \n\
-\n\
 (function (local) {\n\
 \"use strict\";\n\
-\n\
 \n\
 \n\
 /* istanbul ignore next */\n\
@@ -52865,7 +52716,6 @@ if (local.isBrowser) {\n\
 }\n\
 // init lib main\n\
 local.jslint = local;\n\
-\n\
 \n\
 \n\
 /* validateLineSortedReset */\n\
@@ -53056,7 +52906,6 @@ local.objectDeepCopyWithKeysSorted = function (obj) {\n\
 }());\n\
 \n\
 \n\
-\n\
 /* istanbul ignore next */\n\
 // run shared js-env code - function\n\
 /* jslint ignore:start */\n\
@@ -53065,7 +52914,6 @@ local.objectDeepCopyWithKeysSorted = function (obj) {\n\
 repo https://github.com/CSSLint/csslint/tree/e8aeeda06c928636e21428e09b1af93f66621209\n\
 committed 2018-02-25T11:28:16Z\n\
 */\n\
-\n\
 \n\
 \n\
 /*\n\
@@ -63783,12 +63631,10 @@ return CSSLint;\n\
 })();\n\
 \n\
 \n\
-\n\
 /*\n\
 repo https://github.com/douglascrockford/JSLint/tree/686716b71f6d45d3c233e1cfa026a1e5f46747aa\n\
 committed 2020-03-28T12:46:58Z\n\
 */\n\
-\n\
 \n\
 \n\
 /*\n\
@@ -69029,14 +68875,12 @@ local.jslint_export = Object.freeze(function (\n\
 });\n\
 \n\
 \n\
-\n\
 /*\n\
 file none\n\
 */\n\
 local.CSSLint = CSSLint;\n\
 }());\n\
 /* jslint ignore:end */\n\
-\n\
 \n\
 \n\
 // run shared js-env code - function\n\
@@ -69368,14 +69212,11 @@ local.jslintAutofix = function (code, file, opt) {\n\
         code = code.replace((\n\
             /\\n+?(\\n\\u0020*?[)\\]}])/g\n\
         ), \"$1\");\n\
-        // autofix-all - normalize newlines to \\n\\n\n\
+        // autofix-all - eslint - no-multiple-empty-lines\n\
+        // https://github.com/eslint/eslint/blob/v7.2.0/docs/rules/no-multiple-empty-lines.md\n\
         code = code.replace((\n\
-            /([^\\n])\\n{3}([^\\n])/g\n\
-        ), \"$1\\n\\n$2\");\n\
-        // autofix-all - normalize newlines to \\n\\n\\n\\n\n\
-        code = code.replace((\n\
-            /\\n{5,}/g\n\
-        ), \"\\n\\n\\n\\n\");\n\
+            /\\n{4,}/g\n\
+        ), \"\\n\\n\\n\");\n\
         // autofix-all - recurse <script>...</script>, <style>...</style>\n\
         code = code.replace((\n\
             /(^\\/\\*\\u0020jslint\\u0020utility2:true\\u0020\\*\\/\\\\n\\\\\\n(?:^.*?\\\\n\\\\\\n)*?)(';$|<\\/script>\\\\n\\\\$|<\\/style>\\\\n\\\\$)/gm\n\
@@ -69616,10 +69457,10 @@ local.jslintAutofix = function (code, file, opt) {\n\
         code = code.replace((\n\
             /\\/\\/_([^\\n])/g\n\
         ), \"//_\\n$1\");\n\
-        // autofix-js-whitespace - normalize (function { to \\n\\n\\n\\n(function {\n\
+        // autofix-js-whitespace - normalize (function { to \\n\\n\\n(function {\n\
         code = code.replace((\n\
             /\\n+((?:\\/\\*_\\*\\/\\n|\\/\\/_\\n)*?\\(function\\u0020.*?)\\n+/g\n\
-        ), \"\\n\\n\\n\\n$1\\n\");\n\
+        ), \"\\n\\n\\n$1\\n\");\n\
         // autofix-js-whitespace - remove double-whitespace\n\
         code = code.replace((\n\
             /(\\S\\u0020)\\u0020+/g\n\
@@ -70065,7 +69906,6 @@ local.jslintUtility2 = function (code, ignore, opt) {\n\
 }());\n\
 \n\
 \n\
-\n\
 /* istanbul ignore next */\n\
 // run node js-env code - init-after\n\
 (function () {\n\
@@ -70292,12 +70132,10 @@ local.assetsDict["/assets.utility2.test.js"] = (
 // assets.utility2.header.js - end\n\
 \n\
 \n\
-\n\
 /* jslint utility2:true */\n\
 /* istanbul ignore next */\n\
 (function (local) {\n\
 \"use strict\";\n\
-\n\
 \n\
 \n\
 // run shared js-env code - init-before\n\
@@ -70309,7 +70147,6 @@ globalThis.local = local;\n\
 // init test\n\
 local.testRunDefault(local);\n\
 }());\n\
-\n\
 \n\
 \n\
 // run shared js-env code - function\n\
@@ -70792,7 +70629,7 @@ local.testCase_buildReadme_default = function (opt, onError) {\n\
         [\n\
             // customize quickstart-example-js-instruction\n\
             (\n\
-                /#\\u0020quickstart\\u0020example.js[\\S\\s]*?\\n\\n\\n\\n/\n\
+                /#\\u0020quickstart\\u0020example.js[\\S\\s]*?\\n\\n\\n/\n\
             ),\n\
             // customize quickstart-example-js-script\n\
             (\n\
@@ -71808,7 +71645,6 @@ local.utility2.serverLocalUrlTest = function (url) {\n\
 }());\n\
 \n\
 \n\
-\n\
 // run shared js-env code - init-after\n\
 (function () {\n\
 // hack-coverage - test testRunServer's multiple-call handling-behavior\n\
@@ -71880,14 +71716,12 @@ local.middlewareList.push(function (req, res, next) {\n\
 }());\n\
 \n\
 \n\
-\n\
 // run node js-env code - init-after\n\
 /* istanbul ignore next */\n\
 (function () {\n\
 if (local.isBrowser) {\n\
     return;\n\
 }\n\
-\n\
 \n\
 \n\
 (function () {\n\
@@ -71944,7 +71778,6 @@ if (local.isBrowser) {\n\
         break;\n\
     }\n\
 }());\n\
-\n\
 \n\
 \n\
 // init cli\n\
@@ -72163,7 +71996,6 @@ if (process.env.npm_config_runme) {\n\
 // assets.utility2.header.js - end
 
 
-
 /* jslint utility2:true */
 (function () {
     "use strict";
@@ -72190,13 +72022,27 @@ utility2.env = utility2.env || {};
 Object.assign(utility2.assetsDict, state.assetsDict);
 Object.assign(utility2.env, state.env);
 }(
-{"assetsDict":{"/assets.example.html":"<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>apidoc-lite (0.0.1)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #f7f7f7;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > .readonly {\n    background: #ddd;\n}\nbody > .textarea {\n    height: 10rem;\n    resize: vertical;\n    width: 100%;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    let opt;\n    let styleBar0;\n    let styleBar;\n    let styleModal0;\n    let styleModal;\n    let timeStart;\n    let timerInterval;\n    let timerTimeout;\n    let tmp;\n    let width;\n    try {\n        if (\n            window.domOnEventAjaxProgressUpdate\n            || !document.getElementById(\"domElementAjaxProgressBar1\").style\n        ) {\n            return;\n        }\n    } catch (ignore) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            if (!timerTimeout) {\n                timeStart = Date.now();\n                timerInterval = setInterval(opt, 2000, 1, onError);\n                timerTimeout = setTimeout(opt, opt.timeout, 2, onError);\n            }\n            // show ajaxProgressBar\n            if (width !== -1) {\n                styleBar.background = styleBar0.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgressBar\n            if (width === -1) {\n                break;\n            }\n            styleBar.background = styleBar0.background;\n            // reset ajaxProgress if it reaches end\n            if ((styleBar.width.slice(0, -1) | 0) > 95) {\n                width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without reaching 100%\n            width += 1;\n            styleBar.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * width),\n                styleBar.width.slice(0, -1) | 0\n            ) + \"%\";\n            // show ajaxProgressModal\n            styleModal.height = \"100%\";\n            styleModal.opacity = styleModal0.opacity;\n            if (!opt.cnt) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            width = -1;\n            styleBar.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // debug timeElapsed\n            tmp = Date.now();\n            console.error(\n                \"domOnEventAjaxProgressUpdate - timeElapsed - \"\n                + (tmp - timeStart)\n                + \" ms\"\n            );\n            // cleanup timerInterval and timerTimeout\n            timeStart = tmp;\n            clearInterval(timerInterval);\n            timerInterval = undefined;\n            clearTimeout(timerTimeout);\n            timerTimeout = undefined;\n            // hide ajaxProgressBar\n            styleBar.background = \"transparent\";\n            // hide ajaxProgressModal\n            styleModal.opacity = \"0\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            opt.cnt = 0;\n            width = 0;\n            styleBar.width = \"0%\";\n            styleModal.height = \"0\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.cnt = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    // init styleBar\n    styleBar = document.getElementById(\"domElementAjaxProgressBar1\").style;\n    styleBar0 = Object.assign({}, styleBar);\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        styleBar[entry[0]] = styleBar[entry[0]] || entry[1];\n    });\n    // init styleModal\n    styleModal = document.getElementById(\"domElementAjaxProgressModal1\") || {};\n    styleModal = styleModal.style || {};\n    styleModal0 = Object.assign({}, styleModal);\n    Object.entries({\n        height: \"0\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"opacity 125ms\",\n        width: \"100%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        styleModal[entry[0]] = styleModal[entry[0]] || entry[1];\n    });\n    // init state\n    width = 0;\n    opt.cnt = 0;\n    opt.timeout = 30000;\n    // init ajaxProgress\n    window.domOnEventAjaxProgressUpdate();\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-evt\n */\n    \"use strict\";\n    let debounce;\n    let timerTimeout;\n    debounce = function () {\n        return setTimeout(function () {\n            timerTimeout = undefined;\n        }, 30);\n    };\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\"[data-onevent]\");\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\".disabled,.readonly\")\n        ) {\n            return;\n        }\n        // filter evt-change\n        switch (evt.type !== \"change\" && evt.target.type) {\n        case \"checkbox\":\n        case \"file\":\n        case \"select-one\":\n        case \"radio\":\n            return;\n        }\n        // filter evt-keyup\n        switch (evt.type) {\n        case \"keyup\":\n            if (!timerTimeout && (\n                evt.target.tagName === \"INPUT\"\n                || evt.target.tagName === \"TEXTAREA\"\n            )) {\n                timerTimeout = debounce();\n                if (evt.target.dataset.valueOld !== evt.target.value) {\n                    evt.target.dataset.valueOld = evt.target.value;\n                    break;\n                }\n            }\n            return;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        // handle domOnEventClickTarget\n        if (evt.targetOnEvent.dataset.onevent === \"domOnEventClickTarget\") {\n            document.querySelector(\n                evt.targetOnEvent.dataset.clickTarget\n            ).click();\n            return;\n        }\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);\n    };\n    // handle evt\n    [\n        \"change\",\n        \"click\",\n        \"keyup\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elem\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        let range;\n        let selection;\n        if (\n            evt && (evt.ctrlKey || evt.metaKey) && evt.key === \"a\"\n            && evt.target.closest(\"pre\")\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\"pre\"));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // handle evt\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n<!-- utility2-comment\n<a\n    {{#if env.npm_package_homepage}}\n    href=\"{{env.npm_package_homepage}}\"\n    {{/if env.npm_package_homepage}}\n    target=\"_blank\"\n>\nutility2-comment -->\n    apidoc-lite (0.0.1)\n<!-- utility2-comment\n</a>\nutility2-comment -->\n</h1>\n<h3>the greatest app in the world!</h3>\n<!-- utility2-comment\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"buttonTestRun1\">run browser-tests</button><br>\n<div class=\"uiAnimateSlide\" id=\"htmlTestReport1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\nutility2-comment -->\n\n\n\n<!-- custom-html-start -->\n<label>stderr and stdout</label>\n<textarea class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" readonly></textarea>\n<!-- custom-html-end -->\n\n\n\n<!-- utility2-comment\n{{#if isRollup}}\n<script src=\"assets.app.js\"></script>\n{{#unless isRollup}}\n<script src=\"assets.utility2.rollup.js\"></script>\n<script>window.utility2_onReadyBefore.cnt += 1;</script>\n<script src=\"utility2.state.init.js\"></script>\nutility2-comment -->\n<script src=\"assets.apidoc.js\"></script>\n<script src=\"assets.example.js\"></script>\n<script src=\"assets.test.js\"></script>\n<script>\nif (window.utility2_onReadyBefore) {\n    window.utility2_onReadyBefore();\n}\n</script>\n<!-- utility2-comment\n{{/if isRollup}}\nutility2-comment -->\n<div style=\"text-align: center;\">\n    [\n    this app was created with\n    <a\n        href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\"\n    >utility2</a>\n    ]\n</div>\n</body>\n</html>\n","/assets.example.js":"/*\nexample.js\n\nthis script will run web-demo of apidoc-lite\n\ninstruction\n    1. save this script as example.js\n    2. run shell-command:\n        $ npm install apidoc-lite && \\\n            PORT=8081 node example.js\n    3. open browser to http://127.0.0.1:8081 and play with web-demo\n    4. edit this script to suit your needs\n*/\n\n\n\n/* istanbul instrument in package apidoc */\n// assets.utility2.header.js - start\n/* jslint utility2:true */\n/* istanbul ignore next */\n// run shared js-env code - init-local\n(function () {\n    \"use strict\";\n    let consoleError;\n    let local;\n    // init debugInline\n    if (!globalThis.debugInline) {\n        consoleError = console.error;\n        globalThis.debugInline = function (...argList) {\n        /*\n         * this function will both print <argList> to stderr\n         * and return <argList>[0]\n         */\n            consoleError(\"\\n\\ndebugInline\");\n            consoleError(...argList);\n            consoleError(\"\\n\");\n            return argList[0];\n        };\n    }\n    // init local\n    local = {};\n    local.local = local;\n    globalThis.globalLocal = local;\n    // init isBrowser\n    local.isBrowser = (\n        typeof globalThis.XMLHttpRequest === \"function\"\n        && globalThis.navigator\n        && typeof globalThis.navigator.userAgent === \"string\"\n    );\n    // init isWebWorker\n    local.isWebWorker = (\n        local.isBrowser && typeof globalThis.importScripts === \"function\"\n    );\n    // init function\n    local.assertJsonEqual = function (aa, bb) {\n    /*\n     * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)\n     */\n        let objectDeepCopyWithKeysSorted;\n        objectDeepCopyWithKeysSorted = function (obj) {\n        /*\n         * this function will recursively deep-copy <obj> with keys sorted\n         */\n            let sorted;\n            if (typeof obj !== \"object\" || !obj) {\n                return obj;\n            }\n            // recursively deep-copy list with child-keys sorted\n            if (Array.isArray(obj)) {\n                return obj.map(objectDeepCopyWithKeysSorted);\n            }\n            // recursively deep-copy obj with keys sorted\n            sorted = {};\n            Object.keys(obj).sort().forEach(function (key) {\n                sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);\n            });\n            return sorted;\n        };\n        aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));\n        bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));\n        if (aa !== bb) {\n            throw new Error(JSON.stringify(aa) + \" !== \" + JSON.stringify(bb));\n        }\n    };\n    local.assertOrThrow = function (passed, msg) {\n    /*\n     * this function will throw <msg> if <passed> is falsy\n     */\n        if (passed) {\n            return;\n        }\n        throw (\n            (\n                msg\n                && typeof msg.message === \"string\"\n                && typeof msg.stack === \"string\"\n            )\n            // if msg is err, then leave as is\n            ? msg\n            : new Error(\n                typeof msg === \"string\"\n                // if msg is string, then leave as is\n                ? msg\n                // else JSON.stringify(msg)\n                : JSON.stringify(msg, undefined, 4)\n            )\n        );\n    };\n    local.coalesce = function (...argList) {\n    /*\n     * this function will coalesce null, undefined, or \"\" in <argList>\n     */\n        let arg;\n        let ii;\n        ii = 0;\n        while (ii < argList.length) {\n            arg = argList[ii];\n            if (arg !== undefined && arg !== null && arg !== \"\") {\n                return arg;\n            }\n            ii += 1;\n        }\n        return arg;\n    };\n    local.identity = function (val) {\n    /*\n     * this function will return <val>\n     */\n        return val;\n    };\n    local.nop = function () {\n    /*\n     * this function will do nothing\n     */\n        return;\n    };\n    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {\n    /*\n     * this function will if items from <tgt> are null, undefined, or \"\",\n     * then overwrite them with items from <src>\n     */\n        let recurse;\n        recurse = function (tgt, src, depth) {\n            Object.entries(src).forEach(function ([\n                key, bb\n            ]) {\n                let aa;\n                aa = tgt[key];\n                if (aa === undefined || aa === null || aa === \"\") {\n                    tgt[key] = bb;\n                    return;\n                }\n                if (\n                    depth !== 0\n                    && typeof aa === \"object\" && aa && !Array.isArray(aa)\n                    && typeof bb === \"object\" && bb && !Array.isArray(bb)\n                ) {\n                    recurse(aa, bb, depth - 1);\n                }\n            });\n        };\n        recurse(tgt, src, depth | 0);\n        return tgt;\n    };\n    // bug-workaround - throw unhandledRejections in node-process\n    if (\n        typeof process === \"object\" && process\n        && typeof process.on === \"function\"\n        && process.unhandledRejections !== \"strict\"\n    ) {\n        process.unhandledRejections = \"strict\";\n        process.on(\"unhandledRejection\", function (err) {\n            throw err;\n        });\n    }\n}());\n// assets.utility2.header.js - end\n\n\n\n/* jslint utility2:true */\n(function (local) {\n\"use strict\";\n\n\n\n// run shared js-env code - init-before\n(function () {\n// init local\nlocal = (\n    globalThis.utility2_rollup\n    || globalThis.utility2_apidoc\n    || globalThis.utility2_moduleExports\n);\n// init exports\nglobalThis.local = local;\n}());\n\n\n\n/* istanbul ignore next */\n// run browser js-env code - init-test\n(function () {\nif (!local.isBrowser) {\n    return;\n}\n// log stderr and stdout to #outputStdout1\n[\"error\", \"log\"].forEach(function (key) {\n    let elem;\n    let fnc;\n    elem = document.querySelector(\"#outputStdout1\");\n    if (!elem) {\n        return;\n    }\n    fnc = console[key];\n    console[key] = function (...argList) {\n        fnc(...argList);\n        // append text to #outputStdout1\n        elem.textContent += argList.map(function (arg) {\n            return (\n                typeof arg === \"string\"\n                ? arg\n                : JSON.stringify(arg, undefined, 4)\n            );\n        }).join(\" \").replace((\n            /\\u001b\\[\\d*m/g\n        ), \"\") + \"\\n\";\n        // scroll textarea to bottom\n        elem.scrollTop = elem.scrollHeight;\n    };\n});\nlocal.objectAssignDefault(local, globalThis.domOnEventDelegateDict);\nglobalThis.domOnEventDelegateDict = local;\n}());\n\n\n\n/* istanbul ignore next */\n// run node js-env code - init-test\n(function () {\nif (local.isBrowser) {\n    return;\n}\n// init exports\nmodule.exports = local;\n// init assetsDict\nlocal.assetsDict = local.assetsDict || {};\n/* jslint ignore:start */\nlocal.assetsDict[\"/assets.index.template.html\"] = '\\\n<!doctype html>\\n\\\n<html lang=\"en\">\\n\\\n<head>\\n\\\n<meta charset=\"utf-8\">\\n\\\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n\\\n<!-- \"assets.utility2.template.html\" -->\\n\\\n<title>{{env.npm_package_name}} ({{env.npm_package_version}})</title>\\n\\\n<style>\\n\\\n/* jslint utility2:true */\\n\\\n/*csslint\\n\\\n*/\\n\\\n/* csslint ignore:start */\\n\\\n*,\\n\\\n*:after,\\n\\\n*:before {\\n\\\n    box-sizing: border-box;\\n\\\n}\\n\\\n.uiAnimateSlide {\\n\\\n    overflow-y: hidden;\\n\\\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\\n\\\n}\\n\\\n/* csslint ignore:end */\\n\\\n@keyframes uiAnimateSpin {\\n\\\n0% {\\n\\\n    transform: rotate(0deg);\\n\\\n}\\n\\\n100% {\\n\\\n    transform: rotate(360deg);\\n\\\n}\\n\\\n}\\n\\\na {\\n\\\n    overflow-wrap: break-word;\\n\\\n}\\n\\\nbody {\\n\\\n    background: #f7f7f7;\\n\\\n    font-family: Arial, Helvetica, sans-serif;\\n\\\n    font-size: small;\\n\\\n    margin: 0 40px;\\n\\\n}\\n\\\nbody > div,\\n\\\nbody > input,\\n\\\nbody > pre,\\n\\\nbody > .button,\\n\\\nbody > .textarea {\\n\\\n    margin-bottom: 20px;\\n\\\n    margin-top: 0;\\n\\\n}\\n\\\nbody > input,\\n\\\nbody > .button {\\n\\\n    width: 20rem;\\n\\\n}\\n\\\nbody > .readonly {\\n\\\n    background: #ddd;\\n\\\n}\\n\\\nbody > .textarea {\\n\\\n    height: 10rem;\\n\\\n    resize: vertical;\\n\\\n    width: 100%;\\n\\\n}\\n\\\ncode,\\n\\\npre,\\n\\\n.textarea {\\n\\\n    font-family: Consolas, Menlo, monospace;\\n\\\n    font-size: smaller;\\n\\\n}\\n\\\npre {\\n\\\n    overflow-wrap: break-word;\\n\\\n    white-space: pre-wrap;\\n\\\n}\\n\\\n.button {\\n\\\n    background: #ddd;\\n\\\n    border: 1px solid #999;\\n\\\n    color: #000;\\n\\\n    cursor: pointer;\\n\\\n    display: inline-block;\\n\\\n    padding: 2px 5px;\\n\\\n    text-align: center;\\n\\\n    text-decoration: none;\\n\\\n}\\n\\\n.button:hover {\\n\\\n    background: #bbb;\\n\\\n}\\n\\\n.colorError {\\n\\\n    color: #d00;\\n\\\n}\\n\\\n.textarea {\\n\\\n    background: #fff;\\n\\\n    border: 1px solid #999;\\n\\\n    border-radius: 0;\\n\\\n    cursor: auto;\\n\\\n    overflow: auto;\\n\\\n    padding: 2px;\\n\\\n}\\n\\\n.zeroPixel {\\n\\\n    border: 0;\\n\\\n    height: 0;\\n\\\n    margin: 0;\\n\\\n    padding: 0;\\n\\\n    width: 0;\\n\\\n}\\n\\\n</style>\\n\\\n</head>\\n\\\n<body>\\n\\\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\\n\\\n<script>\\n\\\n/* jslint utility2:true */\\n\\\n// init domOnEventWindowOnloadTimeElapsed\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will measure and print time-elapsed for window.onload\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    if (!(\\n\\\n        typeof window === \"object\" && window && window.document\\n\\\n        && typeof document.addEventListener === \"function\"\\n\\\n    ) || window.domOnEventWindowOnloadTimeElapsed) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\\n\\\n    window.addEventListener(\"load\", function () {\\n\\\n        setTimeout(function () {\\n\\\n            window.domOnEventWindowOnloadTimeElapsed = (\\n\\\n                Date.now()\\n\\\n                - window.domOnEventWindowOnloadTimeElapsed\\n\\\n            );\\n\\\n            console.error(\\n\\\n                \"domOnEventWindowOnloadTimeElapsed = \"\\n\\\n                + window.domOnEventWindowOnloadTimeElapsed\\n\\\n            );\\n\\\n        }, 100);\\n\\\n    });\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n\\n\\\n// init domOnEventAjaxProgressUpdate\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will display incrementing ajax-progress-bar\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    let opt;\\n\\\n    let styleBar0;\\n\\\n    let styleBar;\\n\\\n    let styleModal0;\\n\\\n    let styleModal;\\n\\\n    let timeStart;\\n\\\n    let timerInterval;\\n\\\n    let timerTimeout;\\n\\\n    let tmp;\\n\\\n    let width;\\n\\\n    try {\\n\\\n        if (\\n\\\n            window.domOnEventAjaxProgressUpdate\\n\\\n            || !document.getElementById(\"domElementAjaxProgressBar1\").style\\n\\\n        ) {\\n\\\n            return;\\n\\\n        }\\n\\\n    } catch (ignore) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\\n\\\n        gotoState = (gotoState | 0) + 1;\\n\\\n        switch (gotoState) {\\n\\\n        // ajaxProgress - show\\n\\\n        case 1:\\n\\\n            // init timerInterval and timerTimeout\\n\\\n            if (!timerTimeout) {\\n\\\n                timeStart = Date.now();\\n\\\n                timerInterval = setInterval(opt, 2000, 1, onError);\\n\\\n                timerTimeout = setTimeout(opt, opt.timeout, 2, onError);\\n\\\n            }\\n\\\n            // show ajaxProgressBar\\n\\\n            if (width !== -1) {\\n\\\n                styleBar.background = styleBar0.background;\\n\\\n            }\\n\\\n            setTimeout(opt, 50, gotoState, onError);\\n\\\n            break;\\n\\\n        // ajaxProgress - increment\\n\\\n        case 2:\\n\\\n            // show ajaxProgressBar\\n\\\n            if (width === -1) {\\n\\\n                break;\\n\\\n            }\\n\\\n            styleBar.background = styleBar0.background;\\n\\\n            // reset ajaxProgress if it reaches end\\n\\\n            if ((styleBar.width.slice(0, -1) | 0) > 95) {\\n\\\n                width = 0;\\n\\\n            }\\n\\\n            // this algorithm will indefinitely increment ajaxProgress\\n\\\n            // with successively smaller increments without reaching 100%\\n\\\n            width += 1;\\n\\\n            styleBar.width = Math.max(\\n\\\n                100 - 75 * Math.exp(-0.125 * width),\\n\\\n                styleBar.width.slice(0, -1) | 0\\n\\\n            ) + \"%\";\\n\\\n            // show ajaxProgressModal\\n\\\n            styleModal.height = \"100%\";\\n\\\n            styleModal.opacity = styleModal0.opacity;\\n\\\n            if (!opt.cnt) {\\n\\\n                setTimeout(opt, 0, gotoState, onError);\\n\\\n            }\\n\\\n            break;\\n\\\n        // ajaxProgress - 100%\\n\\\n        case 3:\\n\\\n            width = -1;\\n\\\n            styleBar.width = \"100%\";\\n\\\n            setTimeout(opt, 1000, gotoState, onError);\\n\\\n            break;\\n\\\n        // ajaxProgress - hide\\n\\\n        case 4:\\n\\\n            // debug timeElapsed\\n\\\n            tmp = Date.now();\\n\\\n            console.error(\\n\\\n                \"domOnEventAjaxProgressUpdate - timeElapsed - \"\\n\\\n                + (tmp - timeStart)\\n\\\n                + \" ms\"\\n\\\n            );\\n\\\n            // cleanup timerInterval and timerTimeout\\n\\\n            timeStart = tmp;\\n\\\n            clearInterval(timerInterval);\\n\\\n            timerInterval = undefined;\\n\\\n            clearTimeout(timerTimeout);\\n\\\n            timerTimeout = undefined;\\n\\\n            // hide ajaxProgressBar\\n\\\n            styleBar.background = \"transparent\";\\n\\\n            // hide ajaxProgressModal\\n\\\n            styleModal.opacity = \"0\";\\n\\\n            if (onError) {\\n\\\n                onError();\\n\\\n            }\\n\\\n            setTimeout(opt, 250, gotoState);\\n\\\n            break;\\n\\\n        // ajaxProgress - reset\\n\\\n        default:\\n\\\n            opt.cnt = 0;\\n\\\n            width = 0;\\n\\\n            styleBar.width = \"0%\";\\n\\\n            styleModal.height = \"0\";\\n\\\n        }\\n\\\n    };\\n\\\n    opt = window.domOnEventAjaxProgressUpdate;\\n\\\n    opt.end = function (onError) {\\n\\\n        opt.cnt = 0;\\n\\\n        window.domOnEventAjaxProgressUpdate(2, onError);\\n\\\n    };\\n\\\n    // init styleBar\\n\\\n    styleBar = document.getElementById(\"domElementAjaxProgressBar1\").style;\\n\\\n    styleBar0 = Object.assign({}, styleBar);\\n\\\n    Object.entries({\\n\\\n        background: \"#d00\",\\n\\\n        height: \"2px\",\\n\\\n        left: \"0\",\\n\\\n        margin: \"0\",\\n\\\n        padding: \"0\",\\n\\\n        position: \"fixed\",\\n\\\n        top: \"0\",\\n\\\n        transition: \"background 250ms, width 750ms\",\\n\\\n        width: \"0%\",\\n\\\n        \"z-index\": \"1\"\\n\\\n    }).forEach(function (entry) {\\n\\\n        styleBar[entry[0]] = styleBar[entry[0]] || entry[1];\\n\\\n    });\\n\\\n    // init styleModal\\n\\\n    styleModal = document.getElementById(\"domElementAjaxProgressModal1\") || {};\\n\\\n    styleModal = styleModal.style || {};\\n\\\n    styleModal0 = Object.assign({}, styleModal);\\n\\\n    Object.entries({\\n\\\n        height: \"0\",\\n\\\n        left: \"0\",\\n\\\n        margin: \"0\",\\n\\\n        padding: \"0\",\\n\\\n        position: \"fixed\",\\n\\\n        top: \"0\",\\n\\\n        transition: \"opacity 125ms\",\\n\\\n        width: \"100%\",\\n\\\n        \"z-index\": \"1\"\\n\\\n    }).forEach(function (entry) {\\n\\\n        styleModal[entry[0]] = styleModal[entry[0]] || entry[1];\\n\\\n    });\\n\\\n    // init state\\n\\\n    width = 0;\\n\\\n    opt.cnt = 0;\\n\\\n    opt.timeout = 30000;\\n\\\n    // init ajaxProgress\\n\\\n    window.domOnEventAjaxProgressUpdate();\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n\\n\\\n// init domOnEventDelegateDict\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will handle delegated dom-evt\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    let debounce;\\n\\\n    let timerTimeout;\\n\\\n    debounce = function () {\\n\\\n        return setTimeout(function () {\\n\\\n            timerTimeout = undefined;\\n\\\n        }, 30);\\n\\\n    };\\n\\\n    if (!(\\n\\\n        typeof window === \"object\" && window && window.document\\n\\\n        && typeof document.addEventListener === \"function\"\\n\\\n    ) || window.domOnEventDelegateDict) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventDelegateDict = {};\\n\\\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\\n\\\n        evt.targetOnEvent = evt.target.closest(\"[data-onevent]\");\\n\\\n        if (\\n\\\n            !evt.targetOnEvent\\n\\\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\\n\\\n            || evt.target.closest(\".disabled,.readonly\")\\n\\\n        ) {\\n\\\n            return;\\n\\\n        }\\n\\\n        // filter evt-change\\n\\\n        switch (evt.type !== \"change\" && evt.target.type) {\\n\\\n        case \"checkbox\":\\n\\\n        case \"file\":\\n\\\n        case \"select-one\":\\n\\\n        case \"radio\":\\n\\\n            return;\\n\\\n        }\\n\\\n        // filter evt-keyup\\n\\\n        switch (evt.type) {\\n\\\n        case \"keyup\":\\n\\\n            if (!timerTimeout && (\\n\\\n                evt.target.tagName === \"INPUT\"\\n\\\n                || evt.target.tagName === \"TEXTAREA\"\\n\\\n            )) {\\n\\\n                timerTimeout = debounce();\\n\\\n                if (evt.target.dataset.valueOld !== evt.target.value) {\\n\\\n                    evt.target.dataset.valueOld = evt.target.value;\\n\\\n                    break;\\n\\\n                }\\n\\\n            }\\n\\\n            return;\\n\\\n        }\\n\\\n        switch (evt.targetOnEvent.tagName) {\\n\\\n        case \"BUTTON\":\\n\\\n        case \"FORM\":\\n\\\n            evt.preventDefault();\\n\\\n            break;\\n\\\n        }\\n\\\n        evt.stopPropagation();\\n\\\n        // handle domOnEventClickTarget\\n\\\n        if (evt.targetOnEvent.dataset.onevent === \"domOnEventClickTarget\") {\\n\\\n            document.querySelector(\\n\\\n                evt.targetOnEvent.dataset.clickTarget\\n\\\n            ).click();\\n\\\n            return;\\n\\\n        }\\n\\\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);\\n\\\n    };\\n\\\n    // handle evt\\n\\\n    [\\n\\\n        \"change\",\\n\\\n        \"click\",\\n\\\n        \"keyup\",\\n\\\n        \"submit\"\\n\\\n    ].forEach(function (eventType) {\\n\\\n        document.addEventListener(\\n\\\n            eventType,\\n\\\n            window.domOnEventDelegateDict.domOnEventDelegate\\n\\\n        );\\n\\\n    });\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n\\n\\\n// init domOnEventSelectAllWithinPre\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will limit select-all within <pre tabIndex=\"0\"> elem\\n\\\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    if (!(\\n\\\n        typeof window === \"object\" && window && window.document\\n\\\n        && typeof document.addEventListener === \"function\"\\n\\\n    ) || window.domOnEventSelectAllWithinPre) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventSelectAllWithinPre = function (evt) {\\n\\\n        let range;\\n\\\n        let selection;\\n\\\n        if (\\n\\\n            evt && (evt.ctrlKey || evt.metaKey) && evt.key === \"a\"\\n\\\n            && evt.target.closest(\"pre\")\\n\\\n        ) {\\n\\\n            range = document.createRange();\\n\\\n            range.selectNodeContents(evt.target.closest(\"pre\"));\\n\\\n            selection = window.getSelection();\\n\\\n            selection.removeAllRanges();\\n\\\n            selection.addRange(range);\\n\\\n            evt.preventDefault();\\n\\\n        }\\n\\\n    };\\n\\\n    // handle evt\\n\\\n    document.addEventListener(\\n\\\n        \"keydown\",\\n\\\n        window.domOnEventSelectAllWithinPre\\n\\\n    );\\n\\\n}());\\n\\\n</script>\\n\\\n<h1>\\n\\\n<!-- utility2-comment\\n\\\n<a\\n\\\n    {{#if env.npm_package_homepage}}\\n\\\n    href=\"{{env.npm_package_homepage}}\"\\n\\\n    {{/if env.npm_package_homepage}}\\n\\\n    target=\"_blank\"\\n\\\n>\\n\\\nutility2-comment -->\\n\\\n    {{env.npm_package_name}} ({{env.npm_package_version}})\\n\\\n<!-- utility2-comment\\n\\\n</a>\\n\\\nutility2-comment -->\\n\\\n</h1>\\n\\\n<h3>{{env.npm_package_description}}</h3>\\n\\\n<!-- utility2-comment\\n\\\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\\n\\\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"buttonTestRun1\">run browser-tests</button><br>\\n\\\n<div class=\"uiAnimateSlide\" id=\"htmlTestReport1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\\n\\\nutility2-comment -->\\n\\\n\\n\\\n\\n\\\n\\n\\\n<!-- custom-html-start -->\\n\\\n<label>stderr and stdout</label>\\n\\\n<textarea class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" readonly></textarea>\\n\\\n<!-- custom-html-end -->\\n\\\n\\n\\\n\\n\\\n\\n\\\n<!-- utility2-comment\\n\\\n{{#if isRollup}}\\n\\\n<script src=\"assets.app.js\"></script>\\n\\\n{{#unless isRollup}}\\n\\\n<script src=\"assets.utility2.rollup.js\"></script>\\n\\\n<script>window.utility2_onReadyBefore.cnt += 1;</script>\\n\\\n<script src=\"utility2.state.init.js\"></script>\\n\\\nutility2-comment -->\\n\\\n<script src=\"assets.apidoc.js\"></script>\\n\\\n<script src=\"assets.example.js\"></script>\\n\\\n<script src=\"assets.test.js\"></script>\\n\\\n<script>\\n\\\nif (window.utility2_onReadyBefore) {\\n\\\n    window.utility2_onReadyBefore();\\n\\\n}\\n\\\n</script>\\n\\\n<!-- utility2-comment\\n\\\n{{/if isRollup}}\\n\\\nutility2-comment -->\\n\\\n<div style=\"text-align: center;\">\\n\\\n    [\\n\\\n    this app was created with\\n\\\n    <a\\n\\\n        href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\"\\n\\\n    >utility2</a>\\n\\\n    ]\\n\\\n</div>\\n\\\n</body>\\n\\\n</html>\\n\\\n';\n/* jslint ignore:end */\nlocal.assetsDict[\"/assets.apidoc.js\"] = (\n    local.assetsDict[\"/assets.apidoc.js\"]\n    || require(\"fs\").readFileSync(\n        require(\"path\").resolve(local.__dirname + \"/lib.apidoc.js\"),\n        \"utf8\"\n    ).replace((\n        /^#!\\//\n    ), \"// \")\n);\n/* validateLineSortedReset */\nlocal.assetsDict[\"/\"] = local.assetsDict[\n    \"/assets.index.template.html\"\n].replace((\n    /\\{\\{env\\.(\\w+?)\\}\\}/g\n), function (match0, match1) {\n    switch (match1) {\n    case \"npm_package_description\":\n        return \"the greatest app in the world!\";\n    case \"npm_package_name\":\n        return \"apidoc-lite\";\n    case \"npm_package_nameLib\":\n        return \"apidoc\";\n    case \"npm_package_version\":\n        return \"0.0.1\";\n    default:\n        return match0;\n    }\n});\nlocal.assetsDict[\"/assets.example.html\"] = local.assetsDict[\"/\"];\n// init cli\nif (module !== require.main || globalThis.utility2_rollup) {\n    return;\n}\nlocal.assetsDict[\"/assets.example.js\"] = (\n    local.assetsDict[\"/assets.example.js\"]\n    || require(\"fs\").readFileSync(__filename, \"utf8\")\n);\nlocal.assetsDict[\"/favicon.ico\"] = local.assetsDict[\"/favicon.ico\"] || \"\";\nlocal.assetsDict[\"/index.html\"] = local.assetsDict[\"/\"];\n// if $npm_config_timeout_exit exists,\n// then exit this process after $npm_config_timeout_exit ms\nif (Number(process.env.npm_config_timeout_exit)) {\n    setTimeout(process.exit, Number(process.env.npm_config_timeout_exit));\n}\n// start server\nif (globalThis.utility2_serverHttp1) {\n    return;\n}\nprocess.env.PORT = process.env.PORT || \"8081\";\nconsole.error(\"http-server listening on port \" + process.env.PORT);\nrequire(\"http\").createServer(function (req, res) {\n    let data;\n    data = local.assetsDict[require(\"url\").parse(req.url).pathname];\n    if (data !== undefined) {\n        res.end(data);\n        return;\n    }\n    res.statusCode = 404;\n    res.end();\n}).listen(process.env.PORT);\n}());\n}());\n","/assets.test.js":"/* istanbul instrument in package apidoc */\n// assets.utility2.header.js - start\n/* jslint utility2:true */\n/* istanbul ignore next */\n// run shared js-env code - init-local\n(function () {\n    \"use strict\";\n    let consoleError;\n    let local;\n    // init debugInline\n    if (!globalThis.debugInline) {\n        consoleError = console.error;\n        globalThis.debugInline = function (...argList) {\n        /*\n         * this function will both print <argList> to stderr\n         * and return <argList>[0]\n         */\n            consoleError(\"\\n\\ndebugInline\");\n            consoleError(...argList);\n            consoleError(\"\\n\");\n            return argList[0];\n        };\n    }\n    // init local\n    local = {};\n    local.local = local;\n    globalThis.globalLocal = local;\n    // init isBrowser\n    local.isBrowser = (\n        typeof globalThis.XMLHttpRequest === \"function\"\n        && globalThis.navigator\n        && typeof globalThis.navigator.userAgent === \"string\"\n    );\n    // init isWebWorker\n    local.isWebWorker = (\n        local.isBrowser && typeof globalThis.importScripts === \"function\"\n    );\n    // init function\n    local.assertJsonEqual = function (aa, bb) {\n    /*\n     * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)\n     */\n        let objectDeepCopyWithKeysSorted;\n        objectDeepCopyWithKeysSorted = function (obj) {\n        /*\n         * this function will recursively deep-copy <obj> with keys sorted\n         */\n            let sorted;\n            if (typeof obj !== \"object\" || !obj) {\n                return obj;\n            }\n            // recursively deep-copy list with child-keys sorted\n            if (Array.isArray(obj)) {\n                return obj.map(objectDeepCopyWithKeysSorted);\n            }\n            // recursively deep-copy obj with keys sorted\n            sorted = {};\n            Object.keys(obj).sort().forEach(function (key) {\n                sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);\n            });\n            return sorted;\n        };\n        aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));\n        bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));\n        if (aa !== bb) {\n            throw new Error(JSON.stringify(aa) + \" !== \" + JSON.stringify(bb));\n        }\n    };\n    local.assertOrThrow = function (passed, msg) {\n    /*\n     * this function will throw <msg> if <passed> is falsy\n     */\n        if (passed) {\n            return;\n        }\n        throw (\n            (\n                msg\n                && typeof msg.message === \"string\"\n                && typeof msg.stack === \"string\"\n            )\n            // if msg is err, then leave as is\n            ? msg\n            : new Error(\n                typeof msg === \"string\"\n                // if msg is string, then leave as is\n                ? msg\n                // else JSON.stringify(msg)\n                : JSON.stringify(msg, undefined, 4)\n            )\n        );\n    };\n    local.coalesce = function (...argList) {\n    /*\n     * this function will coalesce null, undefined, or \"\" in <argList>\n     */\n        let arg;\n        let ii;\n        ii = 0;\n        while (ii < argList.length) {\n            arg = argList[ii];\n            if (arg !== undefined && arg !== null && arg !== \"\") {\n                return arg;\n            }\n            ii += 1;\n        }\n        return arg;\n    };\n    local.identity = function (val) {\n    /*\n     * this function will return <val>\n     */\n        return val;\n    };\n    local.nop = function () {\n    /*\n     * this function will do nothing\n     */\n        return;\n    };\n    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {\n    /*\n     * this function will if items from <tgt> are null, undefined, or \"\",\n     * then overwrite them with items from <src>\n     */\n        let recurse;\n        recurse = function (tgt, src, depth) {\n            Object.entries(src).forEach(function ([\n                key, bb\n            ]) {\n                let aa;\n                aa = tgt[key];\n                if (aa === undefined || aa === null || aa === \"\") {\n                    tgt[key] = bb;\n                    return;\n                }\n                if (\n                    depth !== 0\n                    && typeof aa === \"object\" && aa && !Array.isArray(aa)\n                    && typeof bb === \"object\" && bb && !Array.isArray(bb)\n                ) {\n                    recurse(aa, bb, depth - 1);\n                }\n            });\n        };\n        recurse(tgt, src, depth | 0);\n        return tgt;\n    };\n    // bug-workaround - throw unhandledRejections in node-process\n    if (\n        typeof process === \"object\" && process\n        && typeof process.on === \"function\"\n        && process.unhandledRejections !== \"strict\"\n    ) {\n        process.unhandledRejections = \"strict\";\n        process.on(\"unhandledRejection\", function (err) {\n            throw err;\n        });\n    }\n}());\n// assets.utility2.header.js - end\n\n\n\n/* jslint utility2:true */\n/* istanbul ignore next */\n(function (local) {\n\"use strict\";\n\n\n\n// run shared js-env code - init-before\n(function () {\n// init local\nlocal = globalThis.utility2 || require(\"utility2\");\nlocal = local.requireReadme();\nglobalThis.local = local;\n// init test\nlocal.testRunDefault(local);\n}());\n\n\n\n// run shared js-env code - function\n(function () {\nlet assertJsonEqual;\nassertJsonEqual = local.assertJsonEqual;\nlocal.testCase_apidocCreate_default = function (options, onError) {\n/*\n * this function will test apidocCreate's default handling-behavior-behavior\n */\n    if (local.isBrowser) {\n        onError(null, options);\n        return;\n    }\n    options = {\n        // test invalid-exampleFile handling-behavior\n        exampleFileList: [\n            \"undefined\"\n        ],\n        libFileList: [\n            // test invalid-libFile handling-behavior\n            \"lib.undefined.js\"\n        ],\n        moduleDict: {\n            // test invalid-module-name handling-behavior\n            \"invalid name\": {}\n        },\n        // test packageJson handling-behavior\n        packageJson: {\n            _: \"\",\n            aa: \"bb\",\n            emailDict: {\n                email: \"a@a.com\"\n            },\n            emailList: [\n                {\n                    email: \"a@a.com\"\n                }\n            ],\n            readme: \"\"\n        }\n    };\n    // test weird-module handling-behavior\n    options.moduleDict.undefined = function () {\n        return;\n    };\n    options.moduleDict.undefined();\n    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/\n    // Working_with_Objects#Defining_getters_and_setters\n    Object.defineProperty(options.moduleDict.undefined, \"error\", {\n        get: local.throwError,\n        set: local.throwError\n    });\n    options.moduleDict.undefined.toString = local.throwError;\n    local.apidocCreate(options);\n    // validate options\n    assertJsonEqual(options.packageJson._, undefined);\n    assertJsonEqual(options.packageJson.aa, \"bb\");\n    assertJsonEqual(options.packageJson.emailDict.email, undefined);\n    assertJsonEqual(options.packageJson.emailList[0].email, undefined);\n    assertJsonEqual(options.packageJson.readme, undefined);\n    // test swgg.apiDict handling-behavior\n    options = {\n        moduleDict: {\n            undefined: {\n                swgg: {\n                    apiDict: {\n                        \"aa bb\": {}\n                    }\n                }\n            }\n        },\n        packageJson: {}\n    };\n    local.apidocCreate(options);\n    // test modeNoApidoc handling-behavior\n    options = {\n        modeNoApidoc: true\n    };\n    local.apidocCreate(options);\n    // test invalid-require handling-behavior\n    options = {\n        require: local.nop\n    };\n    local.apidocCreate(options);\n    onError(null, options);\n};\n\nlocal.testCase_moduleDirname_default = function (opt, onError) {\n/*\n * this function will test moduleDirname's default handling-behavior\n */\n    if (local.isBrowser) {\n        onError(undefined, opt);\n        return;\n    }\n    // test null-case handling-behavior\n    assertJsonEqual(\n        local.moduleDirname(undefined, module.paths),\n        process.cwd()\n    );\n    // test path handling-behavior\n    assertJsonEqual(\n        local.moduleDirname(\".\", module.paths),\n        process.cwd()\n    );\n    assertJsonEqual(\n        local.moduleDirname(\"./\", module.paths),\n        process.cwd()\n    );\n    assertJsonEqual(\n        local.moduleDirname(\n            require(\"path\").basename(process.cwd()),\n            [\n                require(\"path\").dirname(process.cwd())\n            ]\n        ),\n        process.cwd()\n    );\n    // test module-does-not-exist handling-behavior\n    assertJsonEqual(\n        local.moduleDirname(\"syntax-err\", module.paths),\n        \"\"\n    );\n    onError(undefined, opt);\n};\n}());\n}());\n","/index.rollup.html":"<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>apidoc-lite (2020.6.9)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #f7f7f7;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > .readonly {\n    background: #ddd;\n}\nbody > .textarea {\n    height: 10rem;\n    resize: vertical;\n    width: 100%;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    let opt;\n    let styleBar0;\n    let styleBar;\n    let styleModal0;\n    let styleModal;\n    let timeStart;\n    let timerInterval;\n    let timerTimeout;\n    let tmp;\n    let width;\n    try {\n        if (\n            window.domOnEventAjaxProgressUpdate\n            || !document.getElementById(\"domElementAjaxProgressBar1\").style\n        ) {\n            return;\n        }\n    } catch (ignore) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            if (!timerTimeout) {\n                timeStart = Date.now();\n                timerInterval = setInterval(opt, 2000, 1, onError);\n                timerTimeout = setTimeout(opt, opt.timeout, 2, onError);\n            }\n            // show ajaxProgressBar\n            if (width !== -1) {\n                styleBar.background = styleBar0.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgressBar\n            if (width === -1) {\n                break;\n            }\n            styleBar.background = styleBar0.background;\n            // reset ajaxProgress if it reaches end\n            if ((styleBar.width.slice(0, -1) | 0) > 95) {\n                width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without reaching 100%\n            width += 1;\n            styleBar.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * width),\n                styleBar.width.slice(0, -1) | 0\n            ) + \"%\";\n            // show ajaxProgressModal\n            styleModal.height = \"100%\";\n            styleModal.opacity = styleModal0.opacity;\n            if (!opt.cnt) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            width = -1;\n            styleBar.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // debug timeElapsed\n            tmp = Date.now();\n            console.error(\n                \"domOnEventAjaxProgressUpdate - timeElapsed - \"\n                + (tmp - timeStart)\n                + \" ms\"\n            );\n            // cleanup timerInterval and timerTimeout\n            timeStart = tmp;\n            clearInterval(timerInterval);\n            timerInterval = undefined;\n            clearTimeout(timerTimeout);\n            timerTimeout = undefined;\n            // hide ajaxProgressBar\n            styleBar.background = \"transparent\";\n            // hide ajaxProgressModal\n            styleModal.opacity = \"0\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            opt.cnt = 0;\n            width = 0;\n            styleBar.width = \"0%\";\n            styleModal.height = \"0\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.cnt = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    // init styleBar\n    styleBar = document.getElementById(\"domElementAjaxProgressBar1\").style;\n    styleBar0 = Object.assign({}, styleBar);\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        styleBar[entry[0]] = styleBar[entry[0]] || entry[1];\n    });\n    // init styleModal\n    styleModal = document.getElementById(\"domElementAjaxProgressModal1\") || {};\n    styleModal = styleModal.style || {};\n    styleModal0 = Object.assign({}, styleModal);\n    Object.entries({\n        height: \"0\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"opacity 125ms\",\n        width: \"100%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        styleModal[entry[0]] = styleModal[entry[0]] || entry[1];\n    });\n    // init state\n    width = 0;\n    opt.cnt = 0;\n    opt.timeout = 30000;\n    // init ajaxProgress\n    window.domOnEventAjaxProgressUpdate();\n}());\n\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-evt\n */\n    \"use strict\";\n    let debounce;\n    let timerTimeout;\n    debounce = function () {\n        return setTimeout(function () {\n            timerTimeout = undefined;\n        }, 30);\n    };\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\"[data-onevent]\");\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\".disabled,.readonly\")\n        ) {\n            return;\n        }\n        // filter evt-change\n        switch (evt.type !== \"change\" && evt.target.type) {\n        case \"checkbox\":\n        case \"file\":\n        case \"select-one\":\n        case \"radio\":\n            return;\n        }\n        // filter evt-keyup\n        switch (evt.type) {\n        case \"keyup\":\n            if (!timerTimeout && (\n                evt.target.tagName === \"INPUT\"\n                || evt.target.tagName === \"TEXTAREA\"\n            )) {\n                timerTimeout = debounce();\n                if (evt.target.dataset.valueOld !== evt.target.value) {\n                    evt.target.dataset.valueOld = evt.target.value;\n                    break;\n                }\n            }\n            return;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        // handle domOnEventClickTarget\n        if (evt.targetOnEvent.dataset.onevent === \"domOnEventClickTarget\") {\n            document.querySelector(\n                evt.targetOnEvent.dataset.clickTarget\n            ).click();\n            return;\n        }\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);\n    };\n    // handle evt\n    [\n        \"change\",\n        \"click\",\n        \"keyup\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elem\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        let range;\n        let selection;\n        if (\n            evt && (evt.ctrlKey || evt.metaKey) && evt.key === \"a\"\n            && evt.target.closest(\"pre\")\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\"pre\"));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // handle evt\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n\n<a\n    \n    href=\"https://github.com/kaizhu256/node-apidoc-lite\"\n    \n    target=\"_blank\"\n>\n\n    apidoc-lite (2020.6.9)\n\n</a>\n\n</h1>\n<h3>this zero-dependency package will auto-generate documentation for your npm-package with zero-config</h3>\n\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"buttonTestRun1\">run browser-tests</button><br>\n<div class=\"uiAnimateSlide\" id=\"htmlTestReport1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\n\n\n\n\n<!-- custom-html-start -->\n<label>stderr and stdout</label>\n<textarea class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" readonly></textarea>\n<!-- custom-html-end -->\n\n\n\n\n\n<script src=\"assets.app.js\"></script>\n\n\n<div style=\"text-align: center;\">\n    [\n    this app was created with\n    <a\n        href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\"\n    >utility2</a>\n    ]\n</div>\n</body>\n</html>\n"},"env":{"NODE_ENV":"test","npm_package_description":"this zero-dependency package will auto-generate documentation for your npm-package with zero-config","npm_package_homepage":"https://github.com/kaizhu256/node-apidoc-lite","npm_package_name":"apidoc-lite","npm_package_nameLib":"apidoc","npm_package_version":"2020.6.9"},"init":"(function (state) {\nlet utility2 = globalThis.utility2;\nutility2.assetsDict = utility2.assetsDict || {};\nutility2.env = utility2.env || {};\nObject.assign(utility2.assetsDict, state.assetsDict);\nObject.assign(utility2.env, state.env);\n}({}));\n"}
+{"assetsDict":{"/assets.example.html":"<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>apidoc-lite (0.0.1)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #f7f7f7;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > .readonly {\n    background: #ddd;\n}\nbody > .textarea {\n    height: 10rem;\n    resize: vertical;\n    width: 100%;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    let opt;\n    let styleBar0;\n    let styleBar;\n    let styleModal0;\n    let styleModal;\n    let timeStart;\n    let timerInterval;\n    let timerTimeout;\n    let tmp;\n    let width;\n    try {\n        if (\n            window.domOnEventAjaxProgressUpdate\n            || !document.getElementById(\"domElementAjaxProgressBar1\").style\n        ) {\n            return;\n        }\n    } catch (ignore) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            if (!timerTimeout) {\n                timeStart = Date.now();\n                timerInterval = setInterval(opt, 2000, 1, onError);\n                timerTimeout = setTimeout(opt, opt.timeout, 2, onError);\n            }\n            // show ajaxProgressBar\n            if (width !== -1) {\n                styleBar.background = styleBar0.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgressBar\n            if (width === -1) {\n                break;\n            }\n            styleBar.background = styleBar0.background;\n            // reset ajaxProgress if it reaches end\n            if ((styleBar.width.slice(0, -1) | 0) > 95) {\n                width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without reaching 100%\n            width += 1;\n            styleBar.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * width),\n                styleBar.width.slice(0, -1) | 0\n            ) + \"%\";\n            // show ajaxProgressModal\n            styleModal.height = \"100%\";\n            styleModal.opacity = styleModal0.opacity;\n            if (!opt.cnt) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            width = -1;\n            styleBar.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // debug timeElapsed\n            tmp = Date.now();\n            console.error(\n                \"domOnEventAjaxProgressUpdate - timeElapsed - \"\n                + (tmp - timeStart)\n                + \" ms\"\n            );\n            // cleanup timerInterval and timerTimeout\n            timeStart = tmp;\n            clearInterval(timerInterval);\n            timerInterval = undefined;\n            clearTimeout(timerTimeout);\n            timerTimeout = undefined;\n            // hide ajaxProgressBar\n            styleBar.background = \"transparent\";\n            // hide ajaxProgressModal\n            styleModal.opacity = \"0\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            opt.cnt = 0;\n            width = 0;\n            styleBar.width = \"0%\";\n            styleModal.height = \"0\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.cnt = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    // init styleBar\n    styleBar = document.getElementById(\"domElementAjaxProgressBar1\").style;\n    styleBar0 = Object.assign({}, styleBar);\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        styleBar[entry[0]] = styleBar[entry[0]] || entry[1];\n    });\n    // init styleModal\n    styleModal = document.getElementById(\"domElementAjaxProgressModal1\") || {};\n    styleModal = styleModal.style || {};\n    styleModal0 = Object.assign({}, styleModal);\n    Object.entries({\n        height: \"0\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"opacity 125ms\",\n        width: \"100%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        styleModal[entry[0]] = styleModal[entry[0]] || entry[1];\n    });\n    // init state\n    width = 0;\n    opt.cnt = 0;\n    opt.timeout = 30000;\n    // init ajaxProgress\n    window.domOnEventAjaxProgressUpdate();\n}());\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-evt\n */\n    \"use strict\";\n    let debounce;\n    let timerTimeout;\n    debounce = function () {\n        return setTimeout(function () {\n            timerTimeout = undefined;\n        }, 30);\n    };\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\"[data-onevent]\");\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\".disabled,.readonly\")\n        ) {\n            return;\n        }\n        // filter evt-change\n        switch (evt.type !== \"change\" && evt.target.type) {\n        case \"checkbox\":\n        case \"file\":\n        case \"select-one\":\n        case \"radio\":\n            return;\n        }\n        // filter evt-keyup\n        switch (evt.type) {\n        case \"keyup\":\n            if (!timerTimeout && (\n                evt.target.tagName === \"INPUT\"\n                || evt.target.tagName === \"TEXTAREA\"\n            )) {\n                timerTimeout = debounce();\n                if (evt.target.dataset.valueOld !== evt.target.value) {\n                    evt.target.dataset.valueOld = evt.target.value;\n                    break;\n                }\n            }\n            return;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        // handle domOnEventClickTarget\n        if (evt.targetOnEvent.dataset.onevent === \"domOnEventClickTarget\") {\n            document.querySelector(\n                evt.targetOnEvent.dataset.clickTarget\n            ).click();\n            return;\n        }\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);\n    };\n    // handle evt\n    [\n        \"change\",\n        \"click\",\n        \"keyup\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elem\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        let range;\n        let selection;\n        if (\n            evt && (evt.ctrlKey || evt.metaKey) && evt.key === \"a\"\n            && evt.target.closest(\"pre\")\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\"pre\"));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // handle evt\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n<!-- utility2-comment\n<a\n    {{#if env.npm_package_homepage}}\n    href=\"{{env.npm_package_homepage}}\"\n    {{/if env.npm_package_homepage}}\n    target=\"_blank\"\n>\nutility2-comment -->\n    apidoc-lite (0.0.1)\n<!-- utility2-comment\n</a>\nutility2-comment -->\n</h1>\n<h3>the greatest app in the world!</h3>\n<!-- utility2-comment\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"buttonTestRun1\">run browser-tests</button><br>\n<div class=\"uiAnimateSlide\" id=\"htmlTestReport1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\nutility2-comment -->\n\n\n<!-- custom-html-start -->\n<label>stderr and stdout</label>\n<textarea class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" readonly></textarea>\n<!-- custom-html-end -->\n\n\n<!-- utility2-comment\n{{#if isRollup}}\n<script src=\"assets.app.js\"></script>\n{{#unless isRollup}}\n<script src=\"assets.utility2.rollup.js\"></script>\n<script>window.utility2_onReadyBefore.cnt += 1;</script>\n<script src=\"utility2.state.init.js\"></script>\nutility2-comment -->\n<script src=\"assets.apidoc.js\"></script>\n<script src=\"assets.example.js\"></script>\n<script src=\"assets.test.js\"></script>\n<script>\nif (window.utility2_onReadyBefore) {\n    window.utility2_onReadyBefore();\n}\n</script>\n<!-- utility2-comment\n{{/if isRollup}}\nutility2-comment -->\n<div style=\"text-align: center;\">\n    [\n    this app was created with\n    <a\n        href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\"\n    >utility2</a>\n    ]\n</div>\n</body>\n</html>\n","/assets.example.js":"/*\nexample.js\n\nthis script will run web-demo of apidoc-lite\n\ninstruction\n    1. save this script as example.js\n    2. run shell-command:\n        $ npm install apidoc-lite && \\\n            PORT=8081 node example.js\n    3. open browser to http://127.0.0.1:8081 and play with web-demo\n    4. edit this script to suit your needs\n*/\n\n\n/* istanbul instrument in package apidoc */\n// assets.utility2.header.js - start\n/* jslint utility2:true */\n/* istanbul ignore next */\n// run shared js-env code - init-local\n(function () {\n    \"use strict\";\n    let consoleError;\n    let local;\n    // init debugInline\n    if (!globalThis.debugInline) {\n        consoleError = console.error;\n        globalThis.debugInline = function (...argList) {\n        /*\n         * this function will both print <argList> to stderr\n         * and return <argList>[0]\n         */\n            consoleError(\"\\n\\ndebugInline\");\n            consoleError(...argList);\n            consoleError(\"\\n\");\n            return argList[0];\n        };\n    }\n    // init local\n    local = {};\n    local.local = local;\n    globalThis.globalLocal = local;\n    // init isBrowser\n    local.isBrowser = (\n        typeof globalThis.XMLHttpRequest === \"function\"\n        && globalThis.navigator\n        && typeof globalThis.navigator.userAgent === \"string\"\n    );\n    // init isWebWorker\n    local.isWebWorker = (\n        local.isBrowser && typeof globalThis.importScripts === \"function\"\n    );\n    // init function\n    local.assertJsonEqual = function (aa, bb) {\n    /*\n     * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)\n     */\n        let objectDeepCopyWithKeysSorted;\n        objectDeepCopyWithKeysSorted = function (obj) {\n        /*\n         * this function will recursively deep-copy <obj> with keys sorted\n         */\n            let sorted;\n            if (typeof obj !== \"object\" || !obj) {\n                return obj;\n            }\n            // recursively deep-copy list with child-keys sorted\n            if (Array.isArray(obj)) {\n                return obj.map(objectDeepCopyWithKeysSorted);\n            }\n            // recursively deep-copy obj with keys sorted\n            sorted = {};\n            Object.keys(obj).sort().forEach(function (key) {\n                sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);\n            });\n            return sorted;\n        };\n        aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));\n        bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));\n        if (aa !== bb) {\n            throw new Error(JSON.stringify(aa) + \" !== \" + JSON.stringify(bb));\n        }\n    };\n    local.assertOrThrow = function (passed, msg) {\n    /*\n     * this function will throw <msg> if <passed> is falsy\n     */\n        if (passed) {\n            return;\n        }\n        throw (\n            (\n                msg\n                && typeof msg.message === \"string\"\n                && typeof msg.stack === \"string\"\n            )\n            // if msg is err, then leave as is\n            ? msg\n            : new Error(\n                typeof msg === \"string\"\n                // if msg is string, then leave as is\n                ? msg\n                // else JSON.stringify(msg)\n                : JSON.stringify(msg, undefined, 4)\n            )\n        );\n    };\n    local.coalesce = function (...argList) {\n    /*\n     * this function will coalesce null, undefined, or \"\" in <argList>\n     */\n        let arg;\n        let ii;\n        ii = 0;\n        while (ii < argList.length) {\n            arg = argList[ii];\n            if (arg !== undefined && arg !== null && arg !== \"\") {\n                return arg;\n            }\n            ii += 1;\n        }\n        return arg;\n    };\n    local.identity = function (val) {\n    /*\n     * this function will return <val>\n     */\n        return val;\n    };\n    local.nop = function () {\n    /*\n     * this function will do nothing\n     */\n        return;\n    };\n    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {\n    /*\n     * this function will if items from <tgt> are null, undefined, or \"\",\n     * then overwrite them with items from <src>\n     */\n        let recurse;\n        recurse = function (tgt, src, depth) {\n            Object.entries(src).forEach(function ([\n                key, bb\n            ]) {\n                let aa;\n                aa = tgt[key];\n                if (aa === undefined || aa === null || aa === \"\") {\n                    tgt[key] = bb;\n                    return;\n                }\n                if (\n                    depth !== 0\n                    && typeof aa === \"object\" && aa && !Array.isArray(aa)\n                    && typeof bb === \"object\" && bb && !Array.isArray(bb)\n                ) {\n                    recurse(aa, bb, depth - 1);\n                }\n            });\n        };\n        recurse(tgt, src, depth | 0);\n        return tgt;\n    };\n    // bug-workaround - throw unhandledRejections in node-process\n    if (\n        typeof process === \"object\" && process\n        && typeof process.on === \"function\"\n        && process.unhandledRejections !== \"strict\"\n    ) {\n        process.unhandledRejections = \"strict\";\n        process.on(\"unhandledRejection\", function (err) {\n            throw err;\n        });\n    }\n}());\n// assets.utility2.header.js - end\n\n\n/* jslint utility2:true */\n(function (local) {\n\"use strict\";\n\n\n// run shared js-env code - init-before\n(function () {\n// init local\nlocal = (\n    globalThis.utility2_rollup\n    || globalThis.utility2_apidoc\n    || globalThis.utility2_moduleExports\n);\n// init exports\nglobalThis.local = local;\n}());\n\n\n/* istanbul ignore next */\n// run browser js-env code - init-test\n(function () {\nif (!local.isBrowser) {\n    return;\n}\n// log stderr and stdout to #outputStdout1\n[\"error\", \"log\"].forEach(function (key) {\n    let elem;\n    let fnc;\n    elem = document.querySelector(\"#outputStdout1\");\n    if (!elem) {\n        return;\n    }\n    fnc = console[key];\n    console[key] = function (...argList) {\n        fnc(...argList);\n        // append text to #outputStdout1\n        elem.textContent += argList.map(function (arg) {\n            return (\n                typeof arg === \"string\"\n                ? arg\n                : JSON.stringify(arg, undefined, 4)\n            );\n        }).join(\" \").replace((\n            /\\u001b\\[\\d*m/g\n        ), \"\") + \"\\n\";\n        // scroll textarea to bottom\n        elem.scrollTop = elem.scrollHeight;\n    };\n});\nlocal.objectAssignDefault(local, globalThis.domOnEventDelegateDict);\nglobalThis.domOnEventDelegateDict = local;\n}());\n\n\n/* istanbul ignore next */\n// run node js-env code - init-test\n(function () {\nif (local.isBrowser) {\n    return;\n}\n// init exports\nmodule.exports = local;\n// init assetsDict\nlocal.assetsDict = local.assetsDict || {};\n/* jslint ignore:start */\nlocal.assetsDict[\"/assets.index.template.html\"] = '\\\n<!doctype html>\\n\\\n<html lang=\"en\">\\n\\\n<head>\\n\\\n<meta charset=\"utf-8\">\\n\\\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\\n\\\n<!-- \"assets.utility2.template.html\" -->\\n\\\n<title>{{env.npm_package_name}} ({{env.npm_package_version}})</title>\\n\\\n<style>\\n\\\n/* jslint utility2:true */\\n\\\n/*csslint\\n\\\n*/\\n\\\n/* csslint ignore:start */\\n\\\n*,\\n\\\n*:after,\\n\\\n*:before {\\n\\\n    box-sizing: border-box;\\n\\\n}\\n\\\n.uiAnimateSlide {\\n\\\n    overflow-y: hidden;\\n\\\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\\n\\\n}\\n\\\n/* csslint ignore:end */\\n\\\n@keyframes uiAnimateSpin {\\n\\\n0% {\\n\\\n    transform: rotate(0deg);\\n\\\n}\\n\\\n100% {\\n\\\n    transform: rotate(360deg);\\n\\\n}\\n\\\n}\\n\\\na {\\n\\\n    overflow-wrap: break-word;\\n\\\n}\\n\\\nbody {\\n\\\n    background: #f7f7f7;\\n\\\n    font-family: Arial, Helvetica, sans-serif;\\n\\\n    font-size: small;\\n\\\n    margin: 0 40px;\\n\\\n}\\n\\\nbody > div,\\n\\\nbody > input,\\n\\\nbody > pre,\\n\\\nbody > .button,\\n\\\nbody > .textarea {\\n\\\n    margin-bottom: 20px;\\n\\\n    margin-top: 0;\\n\\\n}\\n\\\nbody > input,\\n\\\nbody > .button {\\n\\\n    width: 20rem;\\n\\\n}\\n\\\nbody > .readonly {\\n\\\n    background: #ddd;\\n\\\n}\\n\\\nbody > .textarea {\\n\\\n    height: 10rem;\\n\\\n    resize: vertical;\\n\\\n    width: 100%;\\n\\\n}\\n\\\ncode,\\n\\\npre,\\n\\\n.textarea {\\n\\\n    font-family: Consolas, Menlo, monospace;\\n\\\n    font-size: smaller;\\n\\\n}\\n\\\npre {\\n\\\n    overflow-wrap: break-word;\\n\\\n    white-space: pre-wrap;\\n\\\n}\\n\\\n.button {\\n\\\n    background: #ddd;\\n\\\n    border: 1px solid #999;\\n\\\n    color: #000;\\n\\\n    cursor: pointer;\\n\\\n    display: inline-block;\\n\\\n    padding: 2px 5px;\\n\\\n    text-align: center;\\n\\\n    text-decoration: none;\\n\\\n}\\n\\\n.button:hover {\\n\\\n    background: #bbb;\\n\\\n}\\n\\\n.colorError {\\n\\\n    color: #d00;\\n\\\n}\\n\\\n.textarea {\\n\\\n    background: #fff;\\n\\\n    border: 1px solid #999;\\n\\\n    border-radius: 0;\\n\\\n    cursor: auto;\\n\\\n    overflow: auto;\\n\\\n    padding: 2px;\\n\\\n}\\n\\\n.zeroPixel {\\n\\\n    border: 0;\\n\\\n    height: 0;\\n\\\n    margin: 0;\\n\\\n    padding: 0;\\n\\\n    width: 0;\\n\\\n}\\n\\\n</style>\\n\\\n</head>\\n\\\n<body>\\n\\\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\\n\\\n<script>\\n\\\n/* jslint utility2:true */\\n\\\n// init domOnEventWindowOnloadTimeElapsed\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will measure and print time-elapsed for window.onload\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    if (!(\\n\\\n        typeof window === \"object\" && window && window.document\\n\\\n        && typeof document.addEventListener === \"function\"\\n\\\n    ) || window.domOnEventWindowOnloadTimeElapsed) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\\n\\\n    window.addEventListener(\"load\", function () {\\n\\\n        setTimeout(function () {\\n\\\n            window.domOnEventWindowOnloadTimeElapsed = (\\n\\\n                Date.now()\\n\\\n                - window.domOnEventWindowOnloadTimeElapsed\\n\\\n            );\\n\\\n            console.error(\\n\\\n                \"domOnEventWindowOnloadTimeElapsed = \"\\n\\\n                + window.domOnEventWindowOnloadTimeElapsed\\n\\\n            );\\n\\\n        }, 100);\\n\\\n    });\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n// init domOnEventAjaxProgressUpdate\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will display incrementing ajax-progress-bar\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    let opt;\\n\\\n    let styleBar0;\\n\\\n    let styleBar;\\n\\\n    let styleModal0;\\n\\\n    let styleModal;\\n\\\n    let timeStart;\\n\\\n    let timerInterval;\\n\\\n    let timerTimeout;\\n\\\n    let tmp;\\n\\\n    let width;\\n\\\n    try {\\n\\\n        if (\\n\\\n            window.domOnEventAjaxProgressUpdate\\n\\\n            || !document.getElementById(\"domElementAjaxProgressBar1\").style\\n\\\n        ) {\\n\\\n            return;\\n\\\n        }\\n\\\n    } catch (ignore) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\\n\\\n        gotoState = (gotoState | 0) + 1;\\n\\\n        switch (gotoState) {\\n\\\n        // ajaxProgress - show\\n\\\n        case 1:\\n\\\n            // init timerInterval and timerTimeout\\n\\\n            if (!timerTimeout) {\\n\\\n                timeStart = Date.now();\\n\\\n                timerInterval = setInterval(opt, 2000, 1, onError);\\n\\\n                timerTimeout = setTimeout(opt, opt.timeout, 2, onError);\\n\\\n            }\\n\\\n            // show ajaxProgressBar\\n\\\n            if (width !== -1) {\\n\\\n                styleBar.background = styleBar0.background;\\n\\\n            }\\n\\\n            setTimeout(opt, 50, gotoState, onError);\\n\\\n            break;\\n\\\n        // ajaxProgress - increment\\n\\\n        case 2:\\n\\\n            // show ajaxProgressBar\\n\\\n            if (width === -1) {\\n\\\n                break;\\n\\\n            }\\n\\\n            styleBar.background = styleBar0.background;\\n\\\n            // reset ajaxProgress if it reaches end\\n\\\n            if ((styleBar.width.slice(0, -1) | 0) > 95) {\\n\\\n                width = 0;\\n\\\n            }\\n\\\n            // this algorithm will indefinitely increment ajaxProgress\\n\\\n            // with successively smaller increments without reaching 100%\\n\\\n            width += 1;\\n\\\n            styleBar.width = Math.max(\\n\\\n                100 - 75 * Math.exp(-0.125 * width),\\n\\\n                styleBar.width.slice(0, -1) | 0\\n\\\n            ) + \"%\";\\n\\\n            // show ajaxProgressModal\\n\\\n            styleModal.height = \"100%\";\\n\\\n            styleModal.opacity = styleModal0.opacity;\\n\\\n            if (!opt.cnt) {\\n\\\n                setTimeout(opt, 0, gotoState, onError);\\n\\\n            }\\n\\\n            break;\\n\\\n        // ajaxProgress - 100%\\n\\\n        case 3:\\n\\\n            width = -1;\\n\\\n            styleBar.width = \"100%\";\\n\\\n            setTimeout(opt, 1000, gotoState, onError);\\n\\\n            break;\\n\\\n        // ajaxProgress - hide\\n\\\n        case 4:\\n\\\n            // debug timeElapsed\\n\\\n            tmp = Date.now();\\n\\\n            console.error(\\n\\\n                \"domOnEventAjaxProgressUpdate - timeElapsed - \"\\n\\\n                + (tmp - timeStart)\\n\\\n                + \" ms\"\\n\\\n            );\\n\\\n            // cleanup timerInterval and timerTimeout\\n\\\n            timeStart = tmp;\\n\\\n            clearInterval(timerInterval);\\n\\\n            timerInterval = undefined;\\n\\\n            clearTimeout(timerTimeout);\\n\\\n            timerTimeout = undefined;\\n\\\n            // hide ajaxProgressBar\\n\\\n            styleBar.background = \"transparent\";\\n\\\n            // hide ajaxProgressModal\\n\\\n            styleModal.opacity = \"0\";\\n\\\n            if (onError) {\\n\\\n                onError();\\n\\\n            }\\n\\\n            setTimeout(opt, 250, gotoState);\\n\\\n            break;\\n\\\n        // ajaxProgress - reset\\n\\\n        default:\\n\\\n            opt.cnt = 0;\\n\\\n            width = 0;\\n\\\n            styleBar.width = \"0%\";\\n\\\n            styleModal.height = \"0\";\\n\\\n        }\\n\\\n    };\\n\\\n    opt = window.domOnEventAjaxProgressUpdate;\\n\\\n    opt.end = function (onError) {\\n\\\n        opt.cnt = 0;\\n\\\n        window.domOnEventAjaxProgressUpdate(2, onError);\\n\\\n    };\\n\\\n    // init styleBar\\n\\\n    styleBar = document.getElementById(\"domElementAjaxProgressBar1\").style;\\n\\\n    styleBar0 = Object.assign({}, styleBar);\\n\\\n    Object.entries({\\n\\\n        background: \"#d00\",\\n\\\n        height: \"2px\",\\n\\\n        left: \"0\",\\n\\\n        margin: \"0\",\\n\\\n        padding: \"0\",\\n\\\n        position: \"fixed\",\\n\\\n        top: \"0\",\\n\\\n        transition: \"background 250ms, width 750ms\",\\n\\\n        width: \"0%\",\\n\\\n        \"z-index\": \"1\"\\n\\\n    }).forEach(function (entry) {\\n\\\n        styleBar[entry[0]] = styleBar[entry[0]] || entry[1];\\n\\\n    });\\n\\\n    // init styleModal\\n\\\n    styleModal = document.getElementById(\"domElementAjaxProgressModal1\") || {};\\n\\\n    styleModal = styleModal.style || {};\\n\\\n    styleModal0 = Object.assign({}, styleModal);\\n\\\n    Object.entries({\\n\\\n        height: \"0\",\\n\\\n        left: \"0\",\\n\\\n        margin: \"0\",\\n\\\n        padding: \"0\",\\n\\\n        position: \"fixed\",\\n\\\n        top: \"0\",\\n\\\n        transition: \"opacity 125ms\",\\n\\\n        width: \"100%\",\\n\\\n        \"z-index\": \"1\"\\n\\\n    }).forEach(function (entry) {\\n\\\n        styleModal[entry[0]] = styleModal[entry[0]] || entry[1];\\n\\\n    });\\n\\\n    // init state\\n\\\n    width = 0;\\n\\\n    opt.cnt = 0;\\n\\\n    opt.timeout = 30000;\\n\\\n    // init ajaxProgress\\n\\\n    window.domOnEventAjaxProgressUpdate();\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n// init domOnEventDelegateDict\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will handle delegated dom-evt\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    let debounce;\\n\\\n    let timerTimeout;\\n\\\n    debounce = function () {\\n\\\n        return setTimeout(function () {\\n\\\n            timerTimeout = undefined;\\n\\\n        }, 30);\\n\\\n    };\\n\\\n    if (!(\\n\\\n        typeof window === \"object\" && window && window.document\\n\\\n        && typeof document.addEventListener === \"function\"\\n\\\n    ) || window.domOnEventDelegateDict) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventDelegateDict = {};\\n\\\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\\n\\\n        evt.targetOnEvent = evt.target.closest(\"[data-onevent]\");\\n\\\n        if (\\n\\\n            !evt.targetOnEvent\\n\\\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\\n\\\n            || evt.target.closest(\".disabled,.readonly\")\\n\\\n        ) {\\n\\\n            return;\\n\\\n        }\\n\\\n        // filter evt-change\\n\\\n        switch (evt.type !== \"change\" && evt.target.type) {\\n\\\n        case \"checkbox\":\\n\\\n        case \"file\":\\n\\\n        case \"select-one\":\\n\\\n        case \"radio\":\\n\\\n            return;\\n\\\n        }\\n\\\n        // filter evt-keyup\\n\\\n        switch (evt.type) {\\n\\\n        case \"keyup\":\\n\\\n            if (!timerTimeout && (\\n\\\n                evt.target.tagName === \"INPUT\"\\n\\\n                || evt.target.tagName === \"TEXTAREA\"\\n\\\n            )) {\\n\\\n                timerTimeout = debounce();\\n\\\n                if (evt.target.dataset.valueOld !== evt.target.value) {\\n\\\n                    evt.target.dataset.valueOld = evt.target.value;\\n\\\n                    break;\\n\\\n                }\\n\\\n            }\\n\\\n            return;\\n\\\n        }\\n\\\n        switch (evt.targetOnEvent.tagName) {\\n\\\n        case \"BUTTON\":\\n\\\n        case \"FORM\":\\n\\\n            evt.preventDefault();\\n\\\n            break;\\n\\\n        }\\n\\\n        evt.stopPropagation();\\n\\\n        // handle domOnEventClickTarget\\n\\\n        if (evt.targetOnEvent.dataset.onevent === \"domOnEventClickTarget\") {\\n\\\n            document.querySelector(\\n\\\n                evt.targetOnEvent.dataset.clickTarget\\n\\\n            ).click();\\n\\\n            return;\\n\\\n        }\\n\\\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);\\n\\\n    };\\n\\\n    // handle evt\\n\\\n    [\\n\\\n        \"change\",\\n\\\n        \"click\",\\n\\\n        \"keyup\",\\n\\\n        \"submit\"\\n\\\n    ].forEach(function (eventType) {\\n\\\n        document.addEventListener(\\n\\\n            eventType,\\n\\\n            window.domOnEventDelegateDict.domOnEventDelegate\\n\\\n        );\\n\\\n    });\\n\\\n}());\\n\\\n\\n\\\n\\n\\\n// init domOnEventSelectAllWithinPre\\n\\\n(function () {\\n\\\n/*\\n\\\n * this function will limit select-all within <pre tabIndex=\"0\"> elem\\n\\\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\\n\\\n */\\n\\\n    \"use strict\";\\n\\\n    if (!(\\n\\\n        typeof window === \"object\" && window && window.document\\n\\\n        && typeof document.addEventListener === \"function\"\\n\\\n    ) || window.domOnEventSelectAllWithinPre) {\\n\\\n        return;\\n\\\n    }\\n\\\n    window.domOnEventSelectAllWithinPre = function (evt) {\\n\\\n        let range;\\n\\\n        let selection;\\n\\\n        if (\\n\\\n            evt && (evt.ctrlKey || evt.metaKey) && evt.key === \"a\"\\n\\\n            && evt.target.closest(\"pre\")\\n\\\n        ) {\\n\\\n            range = document.createRange();\\n\\\n            range.selectNodeContents(evt.target.closest(\"pre\"));\\n\\\n            selection = window.getSelection();\\n\\\n            selection.removeAllRanges();\\n\\\n            selection.addRange(range);\\n\\\n            evt.preventDefault();\\n\\\n        }\\n\\\n    };\\n\\\n    // handle evt\\n\\\n    document.addEventListener(\\n\\\n        \"keydown\",\\n\\\n        window.domOnEventSelectAllWithinPre\\n\\\n    );\\n\\\n}());\\n\\\n</script>\\n\\\n<h1>\\n\\\n<!-- utility2-comment\\n\\\n<a\\n\\\n    {{#if env.npm_package_homepage}}\\n\\\n    href=\"{{env.npm_package_homepage}}\"\\n\\\n    {{/if env.npm_package_homepage}}\\n\\\n    target=\"_blank\"\\n\\\n>\\n\\\nutility2-comment -->\\n\\\n    {{env.npm_package_name}} ({{env.npm_package_version}})\\n\\\n<!-- utility2-comment\\n\\\n</a>\\n\\\nutility2-comment -->\\n\\\n</h1>\\n\\\n<h3>{{env.npm_package_description}}</h3>\\n\\\n<!-- utility2-comment\\n\\\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\\n\\\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"buttonTestRun1\">run browser-tests</button><br>\\n\\\n<div class=\"uiAnimateSlide\" id=\"htmlTestReport1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\\n\\\nutility2-comment -->\\n\\\n\\n\\\n\\n\\\n<!-- custom-html-start -->\\n\\\n<label>stderr and stdout</label>\\n\\\n<textarea class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" readonly></textarea>\\n\\\n<!-- custom-html-end -->\\n\\\n\\n\\\n\\n\\\n<!-- utility2-comment\\n\\\n{{#if isRollup}}\\n\\\n<script src=\"assets.app.js\"></script>\\n\\\n{{#unless isRollup}}\\n\\\n<script src=\"assets.utility2.rollup.js\"></script>\\n\\\n<script>window.utility2_onReadyBefore.cnt += 1;</script>\\n\\\n<script src=\"utility2.state.init.js\"></script>\\n\\\nutility2-comment -->\\n\\\n<script src=\"assets.apidoc.js\"></script>\\n\\\n<script src=\"assets.example.js\"></script>\\n\\\n<script src=\"assets.test.js\"></script>\\n\\\n<script>\\n\\\nif (window.utility2_onReadyBefore) {\\n\\\n    window.utility2_onReadyBefore();\\n\\\n}\\n\\\n</script>\\n\\\n<!-- utility2-comment\\n\\\n{{/if isRollup}}\\n\\\nutility2-comment -->\\n\\\n<div style=\"text-align: center;\">\\n\\\n    [\\n\\\n    this app was created with\\n\\\n    <a\\n\\\n        href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\"\\n\\\n    >utility2</a>\\n\\\n    ]\\n\\\n</div>\\n\\\n</body>\\n\\\n</html>\\n\\\n';\n/* jslint ignore:end */\nlocal.assetsDict[\"/assets.apidoc.js\"] = (\n    local.assetsDict[\"/assets.apidoc.js\"]\n    || require(\"fs\").readFileSync(\n        require(\"path\").resolve(local.__dirname + \"/lib.apidoc.js\"),\n        \"utf8\"\n    ).replace((\n        /^#!\\//\n    ), \"// \")\n);\n/* validateLineSortedReset */\nlocal.assetsDict[\"/\"] = local.assetsDict[\n    \"/assets.index.template.html\"\n].replace((\n    /\\{\\{env\\.(\\w+?)\\}\\}/g\n), function (match0, match1) {\n    switch (match1) {\n    case \"npm_package_description\":\n        return \"the greatest app in the world!\";\n    case \"npm_package_name\":\n        return \"apidoc-lite\";\n    case \"npm_package_nameLib\":\n        return \"apidoc\";\n    case \"npm_package_version\":\n        return \"0.0.1\";\n    default:\n        return match0;\n    }\n});\nlocal.assetsDict[\"/assets.example.html\"] = local.assetsDict[\"/\"];\n// init cli\nif (module !== require.main || globalThis.utility2_rollup) {\n    return;\n}\nlocal.assetsDict[\"/assets.example.js\"] = (\n    local.assetsDict[\"/assets.example.js\"]\n    || require(\"fs\").readFileSync(__filename, \"utf8\")\n);\nlocal.assetsDict[\"/favicon.ico\"] = local.assetsDict[\"/favicon.ico\"] || \"\";\nlocal.assetsDict[\"/index.html\"] = local.assetsDict[\"/\"];\n// if $npm_config_timeout_exit exists,\n// then exit this process after $npm_config_timeout_exit ms\nif (Number(process.env.npm_config_timeout_exit)) {\n    setTimeout(process.exit, Number(process.env.npm_config_timeout_exit));\n}\n// start server\nif (globalThis.utility2_serverHttp1) {\n    return;\n}\nprocess.env.PORT = process.env.PORT || \"8081\";\nconsole.error(\"http-server listening on port \" + process.env.PORT);\nrequire(\"http\").createServer(function (req, res) {\n    let data;\n    data = local.assetsDict[require(\"url\").parse(req.url).pathname];\n    if (data !== undefined) {\n        res.end(data);\n        return;\n    }\n    res.statusCode = 404;\n    res.end();\n}).listen(process.env.PORT);\n}());\n}());\n","/assets.test.js":"/* istanbul instrument in package apidoc */\n// assets.utility2.header.js - start\n/* jslint utility2:true */\n/* istanbul ignore next */\n// run shared js-env code - init-local\n(function () {\n    \"use strict\";\n    let consoleError;\n    let local;\n    // init debugInline\n    if (!globalThis.debugInline) {\n        consoleError = console.error;\n        globalThis.debugInline = function (...argList) {\n        /*\n         * this function will both print <argList> to stderr\n         * and return <argList>[0]\n         */\n            consoleError(\"\\n\\ndebugInline\");\n            consoleError(...argList);\n            consoleError(\"\\n\");\n            return argList[0];\n        };\n    }\n    // init local\n    local = {};\n    local.local = local;\n    globalThis.globalLocal = local;\n    // init isBrowser\n    local.isBrowser = (\n        typeof globalThis.XMLHttpRequest === \"function\"\n        && globalThis.navigator\n        && typeof globalThis.navigator.userAgent === \"string\"\n    );\n    // init isWebWorker\n    local.isWebWorker = (\n        local.isBrowser && typeof globalThis.importScripts === \"function\"\n    );\n    // init function\n    local.assertJsonEqual = function (aa, bb) {\n    /*\n     * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)\n     */\n        let objectDeepCopyWithKeysSorted;\n        objectDeepCopyWithKeysSorted = function (obj) {\n        /*\n         * this function will recursively deep-copy <obj> with keys sorted\n         */\n            let sorted;\n            if (typeof obj !== \"object\" || !obj) {\n                return obj;\n            }\n            // recursively deep-copy list with child-keys sorted\n            if (Array.isArray(obj)) {\n                return obj.map(objectDeepCopyWithKeysSorted);\n            }\n            // recursively deep-copy obj with keys sorted\n            sorted = {};\n            Object.keys(obj).sort().forEach(function (key) {\n                sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);\n            });\n            return sorted;\n        };\n        aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));\n        bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));\n        if (aa !== bb) {\n            throw new Error(JSON.stringify(aa) + \" !== \" + JSON.stringify(bb));\n        }\n    };\n    local.assertOrThrow = function (passed, msg) {\n    /*\n     * this function will throw <msg> if <passed> is falsy\n     */\n        if (passed) {\n            return;\n        }\n        throw (\n            (\n                msg\n                && typeof msg.message === \"string\"\n                && typeof msg.stack === \"string\"\n            )\n            // if msg is err, then leave as is\n            ? msg\n            : new Error(\n                typeof msg === \"string\"\n                // if msg is string, then leave as is\n                ? msg\n                // else JSON.stringify(msg)\n                : JSON.stringify(msg, undefined, 4)\n            )\n        );\n    };\n    local.coalesce = function (...argList) {\n    /*\n     * this function will coalesce null, undefined, or \"\" in <argList>\n     */\n        let arg;\n        let ii;\n        ii = 0;\n        while (ii < argList.length) {\n            arg = argList[ii];\n            if (arg !== undefined && arg !== null && arg !== \"\") {\n                return arg;\n            }\n            ii += 1;\n        }\n        return arg;\n    };\n    local.identity = function (val) {\n    /*\n     * this function will return <val>\n     */\n        return val;\n    };\n    local.nop = function () {\n    /*\n     * this function will do nothing\n     */\n        return;\n    };\n    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {\n    /*\n     * this function will if items from <tgt> are null, undefined, or \"\",\n     * then overwrite them with items from <src>\n     */\n        let recurse;\n        recurse = function (tgt, src, depth) {\n            Object.entries(src).forEach(function ([\n                key, bb\n            ]) {\n                let aa;\n                aa = tgt[key];\n                if (aa === undefined || aa === null || aa === \"\") {\n                    tgt[key] = bb;\n                    return;\n                }\n                if (\n                    depth !== 0\n                    && typeof aa === \"object\" && aa && !Array.isArray(aa)\n                    && typeof bb === \"object\" && bb && !Array.isArray(bb)\n                ) {\n                    recurse(aa, bb, depth - 1);\n                }\n            });\n        };\n        recurse(tgt, src, depth | 0);\n        return tgt;\n    };\n    // bug-workaround - throw unhandledRejections in node-process\n    if (\n        typeof process === \"object\" && process\n        && typeof process.on === \"function\"\n        && process.unhandledRejections !== \"strict\"\n    ) {\n        process.unhandledRejections = \"strict\";\n        process.on(\"unhandledRejection\", function (err) {\n            throw err;\n        });\n    }\n}());\n// assets.utility2.header.js - end\n\n\n/* jslint utility2:true */\n/* istanbul ignore next */\n(function (local) {\n\"use strict\";\n\n\n// run shared js-env code - init-before\n(function () {\n// init local\nlocal = globalThis.utility2 || require(\"utility2\");\nlocal = local.requireReadme();\nglobalThis.local = local;\n// init test\nlocal.testRunDefault(local);\n}());\n\n\n// run shared js-env code - function\n(function () {\nlet assertJsonEqual;\nassertJsonEqual = local.assertJsonEqual;\nlocal.testCase_apidocCreate_default = function (options, onError) {\n/*\n * this function will test apidocCreate's default handling-behavior-behavior\n */\n    if (local.isBrowser) {\n        onError(null, options);\n        return;\n    }\n    options = {\n        // test invalid-exampleFile handling-behavior\n        exampleFileList: [\n            \"undefined\"\n        ],\n        libFileList: [\n            // test invalid-libFile handling-behavior\n            \"lib.undefined.js\"\n        ],\n        moduleDict: {\n            // test invalid-module-name handling-behavior\n            \"invalid name\": {}\n        },\n        // test packageJson handling-behavior\n        packageJson: {\n            _: \"\",\n            aa: \"bb\",\n            emailDict: {\n                email: \"a@a.com\"\n            },\n            emailList: [\n                {\n                    email: \"a@a.com\"\n                }\n            ],\n            readme: \"\"\n        }\n    };\n    // test weird-module handling-behavior\n    options.moduleDict.undefined = function () {\n        return;\n    };\n    options.moduleDict.undefined();\n    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/\n    // Working_with_Objects#Defining_getters_and_setters\n    Object.defineProperty(options.moduleDict.undefined, \"error\", {\n        get: local.throwError,\n        set: local.throwError\n    });\n    options.moduleDict.undefined.toString = local.throwError;\n    local.apidocCreate(options);\n    // validate options\n    assertJsonEqual(options.packageJson._, undefined);\n    assertJsonEqual(options.packageJson.aa, \"bb\");\n    assertJsonEqual(options.packageJson.emailDict.email, undefined);\n    assertJsonEqual(options.packageJson.emailList[0].email, undefined);\n    assertJsonEqual(options.packageJson.readme, undefined);\n    // test swgg.apiDict handling-behavior\n    options = {\n        moduleDict: {\n            undefined: {\n                swgg: {\n                    apiDict: {\n                        \"aa bb\": {}\n                    }\n                }\n            }\n        },\n        packageJson: {}\n    };\n    local.apidocCreate(options);\n    // test modeNoApidoc handling-behavior\n    options = {\n        modeNoApidoc: true\n    };\n    local.apidocCreate(options);\n    // test invalid-require handling-behavior\n    options = {\n        require: local.nop\n    };\n    local.apidocCreate(options);\n    onError(null, options);\n};\n\nlocal.testCase_moduleDirname_default = function (opt, onError) {\n/*\n * this function will test moduleDirname's default handling-behavior\n */\n    if (local.isBrowser) {\n        onError(undefined, opt);\n        return;\n    }\n    // test null-case handling-behavior\n    assertJsonEqual(\n        local.moduleDirname(undefined, module.paths),\n        process.cwd()\n    );\n    // test path handling-behavior\n    assertJsonEqual(\n        local.moduleDirname(\".\", module.paths),\n        process.cwd()\n    );\n    assertJsonEqual(\n        local.moduleDirname(\"./\", module.paths),\n        process.cwd()\n    );\n    assertJsonEqual(\n        local.moduleDirname(\n            require(\"path\").basename(process.cwd()),\n            [\n                require(\"path\").dirname(process.cwd())\n            ]\n        ),\n        process.cwd()\n    );\n    // test module-does-not-exist handling-behavior\n    assertJsonEqual(\n        local.moduleDirname(\"syntax-err\", module.paths),\n        \"\"\n    );\n    onError(undefined, opt);\n};\n}());\n}());\n","/index.rollup.html":"<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<!-- \"assets.utility2.template.html\" -->\n<title>apidoc-lite (2020.6.9)</title>\n<style>\n/* jslint utility2:true */\n/*csslint\n*/\n/* csslint ignore:start */\n*,\n*:after,\n*:before {\n    box-sizing: border-box;\n}\n.uiAnimateSlide {\n    overflow-y: hidden;\n    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n}\n/* csslint ignore:end */\n@keyframes uiAnimateSpin {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\na {\n    overflow-wrap: break-word;\n}\nbody {\n    background: #f7f7f7;\n    font-family: Arial, Helvetica, sans-serif;\n    font-size: small;\n    margin: 0 40px;\n}\nbody > div,\nbody > input,\nbody > pre,\nbody > .button,\nbody > .textarea {\n    margin-bottom: 20px;\n    margin-top: 0;\n}\nbody > input,\nbody > .button {\n    width: 20rem;\n}\nbody > .readonly {\n    background: #ddd;\n}\nbody > .textarea {\n    height: 10rem;\n    resize: vertical;\n    width: 100%;\n}\ncode,\npre,\n.textarea {\n    font-family: Consolas, Menlo, monospace;\n    font-size: smaller;\n}\npre {\n    overflow-wrap: break-word;\n    white-space: pre-wrap;\n}\n.button {\n    background: #ddd;\n    border: 1px solid #999;\n    color: #000;\n    cursor: pointer;\n    display: inline-block;\n    padding: 2px 5px;\n    text-align: center;\n    text-decoration: none;\n}\n.button:hover {\n    background: #bbb;\n}\n.colorError {\n    color: #d00;\n}\n.textarea {\n    background: #fff;\n    border: 1px solid #999;\n    border-radius: 0;\n    cursor: auto;\n    overflow: auto;\n    padding: 2px;\n}\n.zeroPixel {\n    border: 0;\n    height: 0;\n    margin: 0;\n    padding: 0;\n    width: 0;\n}\n</style>\n</head>\n<body>\n<div class=\"uiAnimateSpin\" style=\"animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;\"></div>\n<script>\n/* jslint utility2:true */\n// init domOnEventWindowOnloadTimeElapsed\n(function () {\n/*\n * this function will measure and print time-elapsed for window.onload\n */\n    \"use strict\";\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventWindowOnloadTimeElapsed) {\n        return;\n    }\n    window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n    window.addEventListener(\"load\", function () {\n        setTimeout(function () {\n            window.domOnEventWindowOnloadTimeElapsed = (\n                Date.now()\n                - window.domOnEventWindowOnloadTimeElapsed\n            );\n            console.error(\n                \"domOnEventWindowOnloadTimeElapsed = \"\n                + window.domOnEventWindowOnloadTimeElapsed\n            );\n        }, 100);\n    });\n}());\n\n\n// init domOnEventAjaxProgressUpdate\n(function () {\n/*\n * this function will display incrementing ajax-progress-bar\n */\n    \"use strict\";\n    let opt;\n    let styleBar0;\n    let styleBar;\n    let styleModal0;\n    let styleModal;\n    let timeStart;\n    let timerInterval;\n    let timerTimeout;\n    let tmp;\n    let width;\n    try {\n        if (\n            window.domOnEventAjaxProgressUpdate\n            || !document.getElementById(\"domElementAjaxProgressBar1\").style\n        ) {\n            return;\n        }\n    } catch (ignore) {\n        return;\n    }\n    window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n        gotoState = (gotoState | 0) + 1;\n        switch (gotoState) {\n        // ajaxProgress - show\n        case 1:\n            // init timerInterval and timerTimeout\n            if (!timerTimeout) {\n                timeStart = Date.now();\n                timerInterval = setInterval(opt, 2000, 1, onError);\n                timerTimeout = setTimeout(opt, opt.timeout, 2, onError);\n            }\n            // show ajaxProgressBar\n            if (width !== -1) {\n                styleBar.background = styleBar0.background;\n            }\n            setTimeout(opt, 50, gotoState, onError);\n            break;\n        // ajaxProgress - increment\n        case 2:\n            // show ajaxProgressBar\n            if (width === -1) {\n                break;\n            }\n            styleBar.background = styleBar0.background;\n            // reset ajaxProgress if it reaches end\n            if ((styleBar.width.slice(0, -1) | 0) > 95) {\n                width = 0;\n            }\n            // this algorithm will indefinitely increment ajaxProgress\n            // with successively smaller increments without reaching 100%\n            width += 1;\n            styleBar.width = Math.max(\n                100 - 75 * Math.exp(-0.125 * width),\n                styleBar.width.slice(0, -1) | 0\n            ) + \"%\";\n            // show ajaxProgressModal\n            styleModal.height = \"100%\";\n            styleModal.opacity = styleModal0.opacity;\n            if (!opt.cnt) {\n                setTimeout(opt, 0, gotoState, onError);\n            }\n            break;\n        // ajaxProgress - 100%\n        case 3:\n            width = -1;\n            styleBar.width = \"100%\";\n            setTimeout(opt, 1000, gotoState, onError);\n            break;\n        // ajaxProgress - hide\n        case 4:\n            // debug timeElapsed\n            tmp = Date.now();\n            console.error(\n                \"domOnEventAjaxProgressUpdate - timeElapsed - \"\n                + (tmp - timeStart)\n                + \" ms\"\n            );\n            // cleanup timerInterval and timerTimeout\n            timeStart = tmp;\n            clearInterval(timerInterval);\n            timerInterval = undefined;\n            clearTimeout(timerTimeout);\n            timerTimeout = undefined;\n            // hide ajaxProgressBar\n            styleBar.background = \"transparent\";\n            // hide ajaxProgressModal\n            styleModal.opacity = \"0\";\n            if (onError) {\n                onError();\n            }\n            setTimeout(opt, 250, gotoState);\n            break;\n        // ajaxProgress - reset\n        default:\n            opt.cnt = 0;\n            width = 0;\n            styleBar.width = \"0%\";\n            styleModal.height = \"0\";\n        }\n    };\n    opt = window.domOnEventAjaxProgressUpdate;\n    opt.end = function (onError) {\n        opt.cnt = 0;\n        window.domOnEventAjaxProgressUpdate(2, onError);\n    };\n    // init styleBar\n    styleBar = document.getElementById(\"domElementAjaxProgressBar1\").style;\n    styleBar0 = Object.assign({}, styleBar);\n    Object.entries({\n        background: \"#d00\",\n        height: \"2px\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"background 250ms, width 750ms\",\n        width: \"0%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        styleBar[entry[0]] = styleBar[entry[0]] || entry[1];\n    });\n    // init styleModal\n    styleModal = document.getElementById(\"domElementAjaxProgressModal1\") || {};\n    styleModal = styleModal.style || {};\n    styleModal0 = Object.assign({}, styleModal);\n    Object.entries({\n        height: \"0\",\n        left: \"0\",\n        margin: \"0\",\n        padding: \"0\",\n        position: \"fixed\",\n        top: \"0\",\n        transition: \"opacity 125ms\",\n        width: \"100%\",\n        \"z-index\": \"1\"\n    }).forEach(function (entry) {\n        styleModal[entry[0]] = styleModal[entry[0]] || entry[1];\n    });\n    // init state\n    width = 0;\n    opt.cnt = 0;\n    opt.timeout = 30000;\n    // init ajaxProgress\n    window.domOnEventAjaxProgressUpdate();\n}());\n\n\n// init domOnEventDelegateDict\n(function () {\n/*\n * this function will handle delegated dom-evt\n */\n    \"use strict\";\n    let debounce;\n    let timerTimeout;\n    debounce = function () {\n        return setTimeout(function () {\n            timerTimeout = undefined;\n        }, 30);\n    };\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventDelegateDict) {\n        return;\n    }\n    window.domOnEventDelegateDict = {};\n    window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n        evt.targetOnEvent = evt.target.closest(\"[data-onevent]\");\n        if (\n            !evt.targetOnEvent\n            || evt.targetOnEvent.dataset.onevent === \"domOnEventNop\"\n            || evt.target.closest(\".disabled,.readonly\")\n        ) {\n            return;\n        }\n        // filter evt-change\n        switch (evt.type !== \"change\" && evt.target.type) {\n        case \"checkbox\":\n        case \"file\":\n        case \"select-one\":\n        case \"radio\":\n            return;\n        }\n        // filter evt-keyup\n        switch (evt.type) {\n        case \"keyup\":\n            if (!timerTimeout && (\n                evt.target.tagName === \"INPUT\"\n                || evt.target.tagName === \"TEXTAREA\"\n            )) {\n                timerTimeout = debounce();\n                if (evt.target.dataset.valueOld !== evt.target.value) {\n                    evt.target.dataset.valueOld = evt.target.value;\n                    break;\n                }\n            }\n            return;\n        }\n        switch (evt.targetOnEvent.tagName) {\n        case \"BUTTON\":\n        case \"FORM\":\n            evt.preventDefault();\n            break;\n        }\n        evt.stopPropagation();\n        // handle domOnEventClickTarget\n        if (evt.targetOnEvent.dataset.onevent === \"domOnEventClickTarget\") {\n            document.querySelector(\n                evt.targetOnEvent.dataset.clickTarget\n            ).click();\n            return;\n        }\n        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);\n    };\n    // handle evt\n    [\n        \"change\",\n        \"click\",\n        \"keyup\",\n        \"submit\"\n    ].forEach(function (eventType) {\n        document.addEventListener(\n            eventType,\n            window.domOnEventDelegateDict.domOnEventDelegate\n        );\n    });\n}());\n\n\n// init domOnEventSelectAllWithinPre\n(function () {\n/*\n * this function will limit select-all within <pre tabIndex=\"0\"> elem\n * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n */\n    \"use strict\";\n    if (!(\n        typeof window === \"object\" && window && window.document\n        && typeof document.addEventListener === \"function\"\n    ) || window.domOnEventSelectAllWithinPre) {\n        return;\n    }\n    window.domOnEventSelectAllWithinPre = function (evt) {\n        let range;\n        let selection;\n        if (\n            evt && (evt.ctrlKey || evt.metaKey) && evt.key === \"a\"\n            && evt.target.closest(\"pre\")\n        ) {\n            range = document.createRange();\n            range.selectNodeContents(evt.target.closest(\"pre\"));\n            selection = window.getSelection();\n            selection.removeAllRanges();\n            selection.addRange(range);\n            evt.preventDefault();\n        }\n    };\n    // handle evt\n    document.addEventListener(\n        \"keydown\",\n        window.domOnEventSelectAllWithinPre\n    );\n}());\n</script>\n<h1>\n\n<a\n    \n    href=\"https://github.com/kaizhu256/node-apidoc-lite\"\n    \n    target=\"_blank\"\n>\n\n    apidoc-lite (2020.6.9)\n\n</a>\n\n</h1>\n<h3>this zero-dependency package will auto-generate documentation for your npm-package with zero-config</h3>\n\n<a class=\"button\" download href=\"assets.app.js\">download standalone app</a><br>\n<button class=\"button\" data-onevent=\"testRunBrowser\" id=\"buttonTestRun1\">run browser-tests</button><br>\n<div class=\"uiAnimateSlide\" id=\"htmlTestReport1\" style=\"border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;\"></div>\n\n\n\n<!-- custom-html-start -->\n<label>stderr and stdout</label>\n<textarea class=\"onevent-reset-output readonly textarea\" id=\"outputStdout1\" readonly></textarea>\n<!-- custom-html-end -->\n\n\n\n\n<script src=\"assets.app.js\"></script>\n\n\n<div style=\"text-align: center;\">\n    [\n    this app was created with\n    <a\n        href=\"https://github.com/kaizhu256/node-utility2\" target=\"_blank\"\n    >utility2</a>\n    ]\n</div>\n</body>\n</html>\n"},"env":{"NODE_ENV":"test","npm_package_description":"this zero-dependency package will auto-generate documentation for your npm-package with zero-config","npm_package_homepage":"https://github.com/kaizhu256/node-apidoc-lite","npm_package_name":"apidoc-lite","npm_package_nameLib":"apidoc","npm_package_version":"2020.6.9"},"init":"(function (state) {\nlet utility2 = globalThis.utility2;\nutility2.assetsDict = utility2.assetsDict || {};\nutility2.env = utility2.env || {};\nObject.assign(utility2.assetsDict, state.assetsDict);\nObject.assign(utility2.env, state.env);\n}({}));\n"}
 ));
 
 /* jslint ignore:end */
     return local;
 }(globalThis.utility2_rollup));
 /* script-end local.stateInit */
+
+
+
+/* script-begin /assets.my_app.css */
+(function (local) {
+    "use strict";
+/* jslint ignore:start */
+local.assetsDict["/assets.apidoc.css"] = (
+"");
+
+/* jslint ignore:end */
+    return local;
+}(globalThis.utility2_rollup));
+/* script-end /assets.my_app.css */
 
 
 
@@ -72212,7 +72058,6 @@ local.assetsDict["/assets.apidoc.js"] = (
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config\n\
  *\n\
  */\n\
-\n\
 \n\
 \n\
 /* istanbul instrument in package apidoc */\n\
@@ -72378,10 +72223,8 @@ local.assetsDict["/assets.apidoc.js"] = (
 // assets.utility2.header.js - end\n\
 \n\
 \n\
-\n\
 (function (local) {\n\
 \"use strict\";\n\
-\n\
 \n\
 \n\
 /* istanbul ignore next */\n\
@@ -72403,7 +72246,6 @@ if (local.isBrowser) {\n\
 }\n\
 // init lib main\n\
 local.apidoc = local;\n\
-\n\
 \n\
 \n\
 /* validateLineSortedReset */\n\
@@ -72954,7 +72796,6 @@ local.tryCatchOnError = function (fnc, onError) {\n\
 }());\n\
 \n\
 \n\
-\n\
 // run shared js-env code - function\n\
 (function () {\n\
 local.apidocCreate = function (opt) {\n\
@@ -73479,14 +73320,12 @@ local.apidocModuleDictAdd = function (opt, moduleDict) {\n\
 }());\n\
 \n\
 \n\
-\n\
 // run node js-env code - init-after\n\
 /* istanbul ignore next */\n\
 (function () {\n\
 if (local.isBrowser) {\n\
     return;\n\
 }\n\
-\n\
 \n\
 \n\
 local.cliDict = {};\n\
@@ -73517,7 +73356,6 @@ if (module === require.main && !globalThis.utility2_rollup) {\n\
  * this zero-dependency package will auto-generate documentation for your npm-package with zero-config
  *
  */
-
 
 
 /* istanbul instrument in package apidoc */
@@ -73683,10 +73521,8 @@ if (module === require.main && !globalThis.utility2_rollup) {\n\
 // assets.utility2.header.js - end
 
 
-
 (function (local) {
 "use strict";
-
 
 
 /* istanbul ignore next */
@@ -73708,7 +73544,6 @@ if (local.isBrowser) {
 }
 // init lib main
 local.apidoc = local;
-
 
 
 /* validateLineSortedReset */
@@ -74259,7 +74094,6 @@ local.tryCatchOnError = function (fnc, onError) {
 }());
 
 
-
 // run shared js-env code - function
 (function () {
 local.apidocCreate = function (opt) {
@@ -74784,14 +74618,12 @@ local.apidocModuleDictAdd = function (opt, moduleDict) {
 }());
 
 
-
 // run node js-env code - init-after
 /* istanbul ignore next */
 (function () {
 if (local.isBrowser) {
     return;
 }
-
 
 
 local.cliDict = {};
@@ -74836,7 +74668,6 @@ instruction
     3. open browser to http://127.0.0.1:8081 and play with web-demo
     4. edit this script to suit your needs
 */
-
 
 
 /* istanbul instrument in package apidoc */
@@ -75002,11 +74833,9 @@ instruction
 // assets.utility2.header.js - end
 
 
-
 /* jslint utility2:true */
 (function (local) {
 "use strict";
-
 
 
 // run shared js-env code - init-before
@@ -75020,7 +74849,6 @@ local = (
 // init exports
 globalThis.local = local;
 }());
-
 
 
 /* istanbul ignore next */
@@ -75057,7 +74885,6 @@ if (!local.isBrowser) {
 local.objectAssignDefault(local, globalThis.domOnEventDelegateDict);
 globalThis.domOnEventDelegateDict = local;
 }());
-
 
 
 /* istanbul ignore next */
@@ -75204,7 +75031,6 @@ pre {\n\
         }, 100);\n\
     });\n\
 }());\n\
-\n\
 \n\
 \n\
 // init domOnEventAjaxProgressUpdate\n\
@@ -75361,7 +75187,6 @@ pre {\n\
 }());\n\
 \n\
 \n\
-\n\
 // init domOnEventDelegateDict\n\
 (function () {\n\
 /*\n\
@@ -75445,7 +75270,6 @@ pre {\n\
 }());\n\
 \n\
 \n\
-\n\
 // init domOnEventSelectAllWithinPre\n\
 (function () {\n\
 /*\n\
@@ -75503,12 +75327,10 @@ utility2-comment -->\n\
 utility2-comment -->\n\
 \n\
 \n\
-\n\
 <!-- custom-html-start -->\n\
 <label>stderr and stdout</label>\n\
 <textarea class="onevent-reset-output readonly textarea" id="outputStdout1" readonly></textarea>\n\
 <!-- custom-html-end -->\n\
-\n\
 \n\
 \n\
 <!-- utility2-comment\n\
@@ -75772,12 +75594,10 @@ require("http").createServer(function (req, res) {
 // assets.utility2.header.js - end
 
 
-
 /* jslint utility2:true */
 /* istanbul ignore next */
 (function (local) {
 "use strict";
-
 
 
 // run shared js-env code - init-before
@@ -75789,7 +75609,6 @@ globalThis.local = local;
 // init test
 local.testRunDefault(local);
 }());
-
 
 
 // run shared js-env code - function

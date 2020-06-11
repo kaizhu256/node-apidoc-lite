@@ -7,7 +7,6 @@
  */
 
 
-
 /* istanbul instrument in package apidoc */
 // assets.utility2.header.js - start
 /* jslint utility2:true */
@@ -171,10 +170,8 @@
 // assets.utility2.header.js - end
 
 
-
 (function (local) {
 "use strict";
-
 
 
 /* istanbul ignore next */
@@ -196,7 +193,6 @@ if (local.isBrowser) {
 }
 // init lib main
 local.apidoc = local;
-
 
 
 /* validateLineSortedReset */
@@ -747,7 +743,6 @@ local.tryCatchOnError = function (fnc, onError) {
 }());
 
 
-
 // run shared js-env code - function
 (function () {
 local.apidocCreate = function (opt) {
@@ -1272,14 +1267,12 @@ local.apidocModuleDictAdd = function (opt, moduleDict) {
 }());
 
 
-
 // run node js-env code - init-after
 /* istanbul ignore next */
 (function () {
 if (local.isBrowser) {
     return;
 }
-
 
 
 local.cliDict = {};
