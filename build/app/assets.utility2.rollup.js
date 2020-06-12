@@ -48599,7 +48599,8 @@ local.requireReadme = function () {
     if (env.npm_config_mode_auto_restart) {
         require("fs").readdir(".", function (ignore, fileList) {
             fileList.concat(__filename).forEach(function (file) {
-                require("fs").stat(file, function (ignore, data) {
+                require("fs").stat(file, function (err, data) {
+                    local.onErrorThrow(err);
                     if (!data.isFile()) {
                         return;
                     }
