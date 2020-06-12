@@ -16,7 +16,7 @@ branches:
 cache:
     npm: false
 dist:
-    xenial
+    # xenial
 env:
     global:
     # this value is auto-created by shTravisCryptoAesEncryptYml

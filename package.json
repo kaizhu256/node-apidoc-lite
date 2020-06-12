@@ -23,10 +23,6 @@
     "nameAliasPublish": "npmdoc",
     "nameLib": "apidoc",
     "nameOriginal": "apidoc-lite",
-    "os": [
-        "darwin",
-        "linux"
-    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/kaizhu256/node-apidoc-lite.git"
@@ -41,5 +37,5 @@
         "test": "./npm_scripts.sh",
         "utility2": "./npm_scripts.sh"
     },
-    "version": "2020.6.8"
+    "version": "2020.6.9"
 }

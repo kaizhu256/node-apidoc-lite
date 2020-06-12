@@ -3,12 +3,10 @@
 /* jslint utility2:true */
 /* istanbul ignore next */
 // run shared js-env code - init-local
-(function (globalThis) {
+(function () {
     "use strict";
     let consoleError;
     let local;
-    // init globalThis
-    globalThis.globalThis = globalThis.globalThis || globalThis;
     // init debugInline
     if (!globalThis.debugInline) {
         consoleError = console.error;
@@ -159,16 +157,14 @@
             throw err;
         });
     }
-}((typeof globalThis === "object" && globalThis) || window));
+}());
 // assets.utility2.header.js - end
-
 
 
 /* jslint utility2:true */
 /* istanbul ignore next */
 (function (local) {
 "use strict";
-
 
 
 // run shared js-env code - init-before
@@ -180,7 +176,6 @@ globalThis.local = local;
 // init test
 local.testRunDefault(local);
 }());
-
 
 
 // run shared js-env code - function

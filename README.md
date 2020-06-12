@@ -7,7 +7,6 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 [![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.testExampleSh.browser.%252Ftmp%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.com/apidoc.example.html)
 
 
-
 [![travis-ci.com build-status](https://api.travis-ci.com/kaizhu256/node-apidoc-lite.svg)](https://travis-ci.com/kaizhu256/node-apidoc-lite) [![coverage](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.badge.svg)](https://kaizhu256.github.io/node-apidoc-lite/build/coverage.html/index.html)
 
 [![NPM](https://nodei.co/npm/apidoc-lite.png?downloads=true)](https://www.npmjs.com/package/apidoc-lite)
@@ -25,7 +24,6 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 ![npmPackageDependencyTree](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.npmPackageDependencyTree.svg)
 
 
-
 # table of contents
 1. [cdn download](#cdn-download)
 1. [documentation](#documentation)
@@ -37,10 +35,8 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 1. [misc](#misc)
 
 
-
 # cdn download
 - [https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.com/app/assets.apidoc.js](https://kaizhu256.github.io/node-apidoc-lite/build..beta..travis-ci.com/app/assets.apidoc.js)
-
 
 
 # documentation
@@ -52,20 +48,15 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 #### cli help
 ![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.npmPackageCliHelp.svg)
 
-#### changelog 2020.6.8
-- npm publish 2020.6.8
-- remove electron-dependency
-- remove eagerly requiring nodejs-builtins
-- migrate ci from travis-ci.org to travis-ci.com
-- istanbul - fix html-coverage-report bug showing branch-metrics instead of line-metrics
+#### changelog 2020.6.9
+- npm publish 2020.6.9
+- jslint - add eslint-rule no-multiple-empty-lines
+- add limited win32-compat
+- remove globalThis polyfill
 - none
 
 #### todo
 -none
-
-#### this package requires
-- darwin or linux os
-
 
 
 # quickstart shell example
@@ -92,7 +83,6 @@ npm install mysql
 ![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.testExampleSh.svg)
 
 
-
 # extra screenshots
 1. [https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)
 [![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)
@@ -102,7 +92,6 @@ npm install mysql
 
 1. [https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)
 [![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)
-
 
 
 # package.json
@@ -132,10 +121,6 @@ npm install mysql
     "nameAliasPublish": "npmdoc",
     "nameLib": "apidoc",
     "nameOriginal": "apidoc-lite",
-    "os": [
-        "darwin",
-        "linux"
-    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/kaizhu256/node-apidoc-lite.git"
@@ -150,15 +135,13 @@ npm install mysql
         "test": "./npm_scripts.sh",
         "utility2": "./npm_scripts.sh"
     },
-    "version": "2020.6.8"
+    "version": "2020.6.9"
 }
 ```
 
 
-
 # changelog of last 50 commits
 [![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.gitLog.svg)](https://github.com/kaizhu256/node-apidoc-lite/commits)
-
 
 
 # internal build script
@@ -194,7 +177,6 @@ shBuildCiBefore () {(set -e
 eval "$(utility2 source)"
 shBuildCi
 ```
-
 
 
 # misc
