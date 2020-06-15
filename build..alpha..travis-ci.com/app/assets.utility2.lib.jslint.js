@@ -391,7 +391,6 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
 }());
 
 
-/* istanbul ignore next */
 // run shared js-env code - function
 (function () {
 /* jslint ignore:start */
@@ -428,6 +427,7 @@ THE SOFTWARE.
 
 */
 
+/* istanbul ignore next */
 var CSSLint = (function(){
   var module = module || {},
       exports = exports || {};
@@ -16813,7 +16813,7 @@ jslintRecurse = function (code, file, opt, {
     iiStart = 0
 }) {
 /*
- * this function will jslint-autofix <code>
+ * this function will recursively jslint <code> for embedded code
  */
     let code0;
     let errList;

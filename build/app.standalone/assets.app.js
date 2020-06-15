@@ -13494,15 +13494,12 @@ local.cliDict.cover = function () {
     moduleExtensionsJs = tmp._extensions[".js"];
     tmp._extensions[".js"] = function (module, file) {
         if (typeof file === "string" && (
-            file.indexOf(process.env.npm_config_mode_coverage_dir) === 0 || (
-                file.indexOf(process.cwd() + require("path").sep) === 0
-                && (
-                    process.env.npm_config_mode_coverage === "node_modules"
-                    || file.indexOf(
-                        require("path").resolve("node_modules")
-                        + require("path").sep
-                    ) !== 0
-                )
+            file.indexOf(process.cwd() + require("path").sep) === 0 && (
+                process.env.npm_config_mode_coverage === "node_modules"
+                || file.indexOf(
+                    require("path").resolve("node_modules")
+                    + require("path").sep
+                ) !== 0
             )
         )) {
             module._compile(local.instrumentInPackage(
@@ -13979,7 +13976,6 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
 }());
 
 
-/* istanbul ignore next */
 // run shared js-env code - function
 (function () {
 /* jslint ignore:start */
@@ -14016,6 +14012,7 @@ THE SOFTWARE.
 
 */
 
+/* istanbul ignore next */
 var CSSLint = (function(){
   var module = module || {},
       exports = exports || {};
@@ -30401,7 +30398,7 @@ jslintRecurse = function (code, file, opt, {
     iiStart = 0
 }) {
 /*
- * this function will jslint-autofix <code>
+ * this function will recursively jslint <code> for embedded code
  */
     let code0;
     let errList;
@@ -46849,6 +46846,7 @@ local.buildApp = function ({
     let buildReadme;
     let buildTest;
     let fileDict;
+    let port;
     let promiseList;
     let src;
     let tgt;
@@ -46998,7 +46996,7 @@ local.buildApp = function ({
                 cwd: "tmp/build/app.standalone",
                 env: {
                     PATH: process.env.PATH,
-                    PORT: (Math.random() * 0x10000) | 0x8000,
+                    PORT: port,
                     npm_config_timeout_exit: 4000
                 },
                 stdio: [
@@ -47234,9 +47232,10 @@ local.buildApp = function ({
                 )
             }, {
                 // customize screenshot
-                merge: (
+                aa: (
                     /^1\.\u0020.*?screenshot\.(?:npmTest|testExampleJs|testExampleSh).*?\.png[\S\s]*?\n\n/gm
-                )
+                ),
+                bb: ""
             }
         ]);
         // customize shNpmTestPublished
@@ -47369,6 +47368,26 @@ local.buildApp = function ({
                     "ignore", 1, 2
                 ]
             }).on("exit", resolve);
+        }));
+        // init port
+        promiseList.push(new Promise(function (resolve) {
+            let recurse;
+            let server;
+            recurse = function (err) {
+                if (server) {
+                    server.close();
+                }
+                if (!err) {
+                    resolve();
+                    return;
+                }
+                port = Number(
+                    "0x" + require("crypto").randomBytes(2).toString("hex")
+                ) | 0x8000;
+                server = require("net").createServer().listen(port);
+                server.on("error", recurse).on("listening", recurse);
+            };
+            recurse(true);
         }));
         // read file
         [
@@ -50097,7 +50116,9 @@ local.testRunDefault = function (opt) {
     // mock proces.exit
     if (!local.isBrowser) {
         processExit = process.exit;
-        process.exit = local.nop;
+        process.exit = function () {
+            local.eventListenerEmit("utility2.testRunMock.process.exit");
+        };
     }
     // init modeTestCase
     local.modeTestCase = (
@@ -52966,7 +52987,6 @@ local.objectDeepCopyWithKeysSorted = function (obj) {\n\
 }());\n\
 \n\
 \n\
-/* istanbul ignore next */\n\
 // run shared js-env code - function\n\
 (function () {\n\
 /* jslint ignore:start */\n\
@@ -53003,6 +53023,7 @@ THE SOFTWARE.\n\
 \n\
 */\n\
 \n\
+/* istanbul ignore next */\n\
 var CSSLint = (function(){\n\
   var module = module || {},\n\
       exports = exports || {};\n\
@@ -69388,7 +69409,7 @@ jslintRecurse = function (code, file, opt, {\n\
     iiStart = 0\n\
 }) {\n\
 /*\n\
- * this function will jslint-autofix <code>\n\
+ * this function will recursively jslint <code> for embedded code\n\
  */\n\
     let code0;\n\
     let errList;\n\
