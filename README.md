@@ -49,7 +49,7 @@ this zero-dependency package will auto-generate documentation for your npm-packa
 ![screenshot](https://kaizhu256.github.io/node-apidoc-lite/build/screenshot.npmPackageCliHelp.svg)
 
 #### changelog 2020.6.9
-- npm publish 2020.6.9
+- re-add shell-function shServerPortRandom with port-availibility-check
 - jslint - add eslint-rule no-multiple-empty-lines
 - add limited win32-compat
 - remove globalThis polyfill
