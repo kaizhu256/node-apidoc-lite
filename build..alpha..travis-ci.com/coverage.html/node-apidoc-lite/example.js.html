@@ -296,25 +296,25 @@
     </thead>
     <tbody>
         <td>
-            Statements: 69<br>
-            Branches: 55<br>
-            Functions: 13
+            Statements: 71<br>
+            Branches: 57<br>
+            Functions: 14
         </td>
         <td>
             100%<br>
-            (121 / 121)
+            (124 / 124)
         </td>
         <td>
             100%<br>
-            (85 / 85)
+            (87 / 87)
         </td>
         <td>
             100%<br>
-            (22 / 22)
+            (23 / 23)
         </td>
         <td>
             100%<br>
-            (121 / 121)
+            (124 / 124)
         </td>
     </tbody>
     </table>
@@ -1094,6 +1094,14 @@
 <a href="#l769" id="l769">769</a>
 <a href="#l770" id="l770">770</a>
 <a href="#l771" id="l771">771</a>
+<a href="#l772" id="l772">772</a>
+<a href="#l773" id="l773">773</a>
+<a href="#l774" id="l774">774</a>
+<a href="#l775" id="l775">775</a>
+<a href="#l776" id="l776">776</a>
+<a href="#l777" id="l777">777</a>
+<a href="#l778" id="l778">778</a>
+<a href="#l779" id="l779">779</a>
 </td>
         <td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1257,6 +1265,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
@@ -2030,6 +2046,14 @@ instruction
         };
 <span class="cstat-skip" title="statement not covered">        recurse(tgt, src, depth | 0);</span>
 <span class="cstat-skip" title="statement not covered">        return tgt;</span>
+    };
+    local.onErrorThrow = <span class="fstat-skip" title="function not covered">function (err) {</span>
+    /*
+     * this function will throw &lt;err&gt; if exists
+     */
+<span class="cstat-skip" title="statement not covered">        if (err) {</span>
+<span class="cstat-skip" title="statement not covered">            throw err;</span>
+        }
     };
     // bug-workaround - throw unhandledRejections in node-process
     <span class="skip-if-branch" title="if path not taken">I</span>if (

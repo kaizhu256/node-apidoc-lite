@@ -154,6 +154,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.onErrorThrow">
+            function <span class="apidocSignatureSpan">apidoc-lite.</span>onErrorThrow
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.elem.apidoc-lite.stringHtmlSafe">
             function <span class="apidocSignatureSpan">apidoc-lite.</span>stringHtmlSafe
             <span class="apidocSignatureSpan">(str)</span>
@@ -907,6 +916,26 @@ local.<span class="apidocCodeKeywordSpan">objectAssignDefault</span>(opt, {
         return local.tryCatchOnError(function () {
             return require(file);
 ...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.apidoc-lite.onErrorThrow" id="apidoc.elem.apidoc-lite.onErrorThrow">
+        function <span class="apidocSignatureSpan">apidoc-lite.</span>onErrorThrow
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onErrorThrow = function (err) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will throw &lt;err&gt; if exists
+ */
+</span>    if (err) {
+        throw err;
+    }
+}</pre></li>
+    <li>example use<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 

@@ -296,25 +296,25 @@
     </thead>
     <tbody>
         <td>
-            Statements: 50<br>
-            Branches: 38<br>
-            Functions: 12
+            Statements: 52<br>
+            Branches: 40<br>
+            Functions: 13
         </td>
         <td>
             100%<br>
-            (108 / 108)
+            (111 / 111)
         </td>
         <td>
             100%<br>
-            (55 / 55)
+            (57 / 57)
         </td>
         <td>
             100%<br>
-            (19 / 19)
+            (20 / 20)
         </td>
         <td>
             100%<br>
-            (108 / 108)
+            (111 / 111)
         </td>
     </tbody>
     </table>
@@ -629,6 +629,14 @@
 <a href="#l304" id="l304">304</a>
 <a href="#l305" id="l305">305</a>
 <a href="#l306" id="l306">306</a>
+<a href="#l307" id="l307">307</a>
+<a href="#l308" id="l308">308</a>
+<a href="#l309" id="l309">309</a>
+<a href="#l310" id="l310">310</a>
+<a href="#l311" id="l311">311</a>
+<a href="#l312" id="l312">312</a>
+<a href="#l313" id="l313">313</a>
+<a href="#l314" id="l314">314</a>
 </td>
         <td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -778,6 +786,14 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -794,8 +810,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1086,6 +1102,14 @@
 <span class="cstat-skip" title="statement not covered">        recurse(tgt, src, depth | 0);</span>
 <span class="cstat-skip" title="statement not covered">        return tgt;</span>
     };
+    local.onErrorThrow = <span class="fstat-skip" title="function not covered">function (err) {</span>
+    /*
+     * this function will throw &lt;err&gt; if exists
+     */
+<span class="cstat-skip" title="statement not covered">        if (err) {</span>
+<span class="cstat-skip" title="statement not covered">            throw err;</span>
+        }
+    };
     // bug-workaround - throw unhandledRejections in node-process
     <span class="skip-if-branch" title="if path not taken">I</span>if (
         typeof process === "object" &amp;&amp; process
@@ -1102,11 +1126,11 @@
 
 
 /* jslint utility2:true */
-/* istanbul ignore next */
 (function (local) {
 "use strict";
 
 
+/* istanbul ignore next */
 // run shared js-env code - init-before
 (function () {
 // init local
