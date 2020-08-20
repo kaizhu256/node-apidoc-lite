@@ -1,8 +1,8 @@
 // usr/bin/env node
 /*
- * lib.jslint.js (2020.6.9)
+ * lib.jslint.js (2020.8.19)
  * https://github.com/kaizhu256/node-jslint-lite
- * this zero-dependency package will provide browser-compatible versions of jslint (v2020.3.28) and csslint (v2018.2.25), with working web-demo
+ * this zero-dependency package will provide browser-compatible versions of jslint (v2020.7.2) and csslint (v2018.2.25), with working web-demo
  *
  */
 
@@ -14,10 +14,12 @@
 // run shared js-env code - init-local
 (function () {
     "use strict";
-    let consoleError;
+    let isBrowser;
+    let isWebWorker;
     let local;
     // init debugInline
     if (!globalThis.debugInline) {
+        let consoleError;
         consoleError = console.error;
         globalThis.debugInline = function (...argList) {
         /*
@@ -30,27 +32,22 @@
             return argList[0];
         };
     }
-    // init local
-    local = {};
-    local.local = local;
-    globalThis.globalLocal = local;
     // init isBrowser
-    local.isBrowser = (
+    isBrowser = (
         typeof globalThis.XMLHttpRequest === "function"
         && globalThis.navigator
         && typeof globalThis.navigator.userAgent === "string"
     );
     // init isWebWorker
-    local.isWebWorker = (
-        local.isBrowser && typeof globalThis.importScripts === "function"
+    isWebWorker = (
+        isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertJsonEqual = function (aa, bb) {
+    function assertJsonEqual(aa, bb) {
     /*
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)
      */
-        let objectDeepCopyWithKeysSorted;
-        objectDeepCopyWithKeysSorted = function (obj) {
+        function objectDeepCopyWithKeysSorted(obj) {
         /*
          * this function will recursively deep-copy <obj> with keys sorted
          */
@@ -68,14 +65,14 @@
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
             });
             return sorted;
-        };
+        }
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
         if (aa !== bb) {
             throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));
         }
-    };
-    local.assertOrThrow = function (passed, msg) {
+    }
+    function assertOrThrow(passed, msg) {
     /*
      * this function will throw <msg> if <passed> is falsy
      */
@@ -98,8 +95,8 @@
                 : JSON.stringify(msg, undefined, 4)
             )
         );
-    };
-    local.coalesce = function (...argList) {
+    }
+    function coalesce(...argList) {
     /*
      * this function will coalesce null, undefined, or "" in <argList>
      */
@@ -114,20 +111,20 @@
             ii += 1;
         }
         return arg;
-    };
-    local.identity = function (val) {
+    }
+    function identity(val) {
     /*
      * this function will return <val>
      */
         return val;
-    };
-    local.nop = function () {
+    }
+    function nop() {
     /*
      * this function will do nothing
      */
         return;
-    };
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+    }
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {
     /*
      * this function will if items from <tgt> are null, undefined, or "",
      * then overwrite them with items from <src>
@@ -154,15 +151,15 @@
         };
         recurse(tgt, src, depth | 0);
         return tgt;
-    };
-    local.onErrorThrow = function (err) {
+    }
+    function onErrorThrow(err) {
     /*
      * this function will throw <err> if exists
      */
         if (err) {
             throw err;
         }
-    };
+    }
     // bug-workaround - throw unhandledRejections in node-process
     if (
         typeof process === "object" && process
@@ -174,6 +171,19 @@
             throw err;
         });
     }
+    // init local
+    local = {};
+    local.local = local;
+    globalThis.globalLocal = local;
+    local.assertJsonEqual = assertJsonEqual;
+    local.assertOrThrow = assertOrThrow;
+    local.coalesce = coalesce;
+    local.identity = identity;
+    local.isBrowser = isBrowser;
+    local.isWebWorker = isWebWorker;
+    local.nop = nop;
+    local.objectAssignDefault = objectAssignDefault;
+    local.onErrorThrow = onErrorThrow;
 }());
 // assets.utility2.header.js - end
 
@@ -366,8 +376,7 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
 /*
  * this function will recursively deep-copy <obj> with keys sorted
  */
-    let objectDeepCopyWithKeysSorted;
-    objectDeepCopyWithKeysSorted = function (obj) {
+    function objectDeepCopyWithKeysSorted(obj) {
     /*
      * this function will recursively deep-copy <obj> with keys sorted
      */
@@ -385,7 +394,7 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
             sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
         });
         return sorted;
-    };
+    }
     return objectDeepCopyWithKeysSorted(obj);
 };
 }());
@@ -11141,16 +11150,16 @@ return CSSLint;
 
 
 /*
-repo https://github.com/douglascrockford/JSLint/tree/6cc432230093a1779ef0df3388b4f062778b9d9b
-committed 2020-07-01T12:28:54Z
+repo https://github.com/douglascrockford/JSLint/tree/118167e967b4ebfc08759fdd1ab2d87f5a27cc37
+committed 2020-07-02T15:21:03Z
 */
 
 
 /*
-file https://github.com/douglascrockford/JSLint/blob/6cc432230093a1779ef0df3388b4f062778b9d9b/jslint.js
+file https://github.com/douglascrockford/JSLint/blob/118167e967b4ebfc08759fdd1ab2d87f5a27cc37/jslint.js
 */
 // jslint.js
-// 2020-07-01
+// 2020-07-02
 // Copyright (c) 2015 Douglas Crockford  (www.JSLint.com)
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -11617,8 +11626,6 @@ function artifact(the_token) {
     );
 }
 
-// hack-jslint - remove deadcode
-/*
 function artifact_line(the_token) {
 
 // Return the fudged line number of an artifact.
@@ -11628,7 +11635,6 @@ function artifact_line(the_token) {
     }
     return the_token.line + fudge;
 }
-*/
 
 function artifact_column(the_token) {
 
@@ -12066,8 +12072,6 @@ function tokenize(source) {
                     typeof allowed === "boolean"
                     || typeof allowed === "object"
                 ) {
-                    // hack-jslint - remove deadcode
-                    /*
                     if (
                         value === ""
                         || value === "true"
@@ -12082,18 +12086,6 @@ function tokenize(source) {
                     } else {
                         warn("bad_option_a", the_comment, name + ":" + value);
                     }
-                    */
-                    if (
-                        value === "true"
-                        || value === undefined
-                    ) {
-                        option[name] = true;
-                        if (Array.isArray(allowed)) {
-                            populate(allowed, declared_globals, false);
-                        }
-                    } else {
-                        option[name] = false;
-                    }
                 } else {
                     warn("bad_option_a", the_comment, name);
                 }
@@ -12102,10 +12094,7 @@ function tokenize(source) {
                     tenure = empty();
                 }
                 tenure[name] = true;
-            // hack-jslint - remove deadcode
-            // } else if (the_comment.directive === "global") {
-            // the_comment.directive === "global"
-            } else {
+            } else if (the_comment.directive === "global") {
                 if (value) {
                     warn("bad_option_a", the_comment, name + ":" + value);
                 }
@@ -12887,9 +12876,7 @@ function advance(id, match) {
                 next_token,
                 id,
                 artifact(match),
-                // hack-jslint - remove deadcode
-                // artifact_line(match),
-                match.line + fudge,
+                artifact_line(match),
                 artifact(next_token)
             )
         );
@@ -12995,9 +12982,8 @@ function json_value() {
         negative.arity = "unary";
         advance("-");
         advance("(number)");
-        // jslint-hack lint negative-number
         if (!rx_JSON_number.test(token.value)) {
-            warn("unexpected_a");
+            warn("unexpected_a", token);
         }
         negative.expression = token;
         return negative;
@@ -15139,8 +15125,7 @@ function walk_statement(thing) {
 }
 
 function lookup(thing) {
-    // hack-jslint - for-loop
-    if (thing && thing.arity === "variable") {
+    if (thing.arity === "variable") {
 
 // Look up the variable in the current context.
 
@@ -15188,9 +15173,8 @@ function lookup(thing) {
             the_variable.dead
             && (
                 the_variable.calls === undefined
-                || the_variable.calls[
-                    functionage.name && functionage.name.id
-                ] === undefined
+                || functionage.name === undefined
+                || the_variable.calls[functionage.name.id] === undefined
             )
         ) {
             warn("out_of_scope_a", thing);
@@ -15206,12 +15190,9 @@ function subactivate(name) {
 }
 
 function preaction_function(thing) {
-    // hack-jslint - remove deadcode
-    /*
     if (thing.arity === "statement" && blockage.body !== true) {
         warn("unexpected_a", thing);
     }
-    */
     stack.push(functionage);
     block_stack.push(blockage);
     functionage = thing;
@@ -15370,8 +15351,6 @@ preaction("statement", "{", function (thing) {
     thing.live = [];
 });
 preaction("statement", "for", function (thing) {
-    // hack-jslint - remove deadcode
-    /*
     if (thing.name !== undefined) {
         const the_variable = lookup(thing.name);
         if (the_variable !== undefined) {
@@ -15379,14 +15358,6 @@ preaction("statement", "for", function (thing) {
             if (!the_variable.writable) {
                 warn("bad_assignment_a", thing.name);
             }
-        }
-    }
-    */
-    const the_variable = lookup(thing.name);
-    if (the_variable !== undefined) {
-        the_variable.init = true;
-        if (!the_variable.writable) {
-            warn("bad_assignment_a", thing.name);
         }
     }
     walk_statement(thing.initial);
@@ -16425,7 +16396,7 @@ local.jslint0 = Object.freeze(function (
     });
     return {
         directives,
-        edition: "2020-07-01",
+        edition: "2020-07-02",
         exports,
         froms,
         functions,
@@ -16453,7 +16424,6 @@ local.jslint0 = Object.freeze(function (
             ) || (a.line - b.line);
         }),
         // hack-jslint - autofix
-        source,
         source_autofixed: lines_extra.map(function (element, ii) {
             return element.source_autofixed || lines[ii];
         }).join("\n")
@@ -16543,7 +16513,6 @@ jslintAutofix = function (code, file, opt, {fileType, globalList, iiLine}) {
         });
         break;
     case ".js":
-    case ".json":
         // de-mux - code to [code, ignoreList]
         ignoreList = [];
         code = code.replace((
@@ -16760,15 +16729,11 @@ jslintAutofix = function (code, file, opt, {fileType, globalList, iiLine}) {
         ), function () {
             return ignoreList.shift().trimStart();
         });
-        // autofix-json - sort-keys
-        if (fileType === ".json") {
-            code = JSON.stringify(
-                local.objectDeepCopyWithKeysSorted(JSON.parse(code)),
-                undefined,
-                4
-            );
-            break;
-        }
+        break;
+    case ".json":
+        code = JSON.stringify(local.objectDeepCopyWithKeysSorted(JSON.parse(
+            code
+        )), undefined, 4);
         break;
     case ".md":
         // autofix-md - recurse ```javascript...```
@@ -16872,7 +16837,7 @@ jslintRecurse = function (code, file, opt, {
             /^\/\*jslint\b|(^\/\*\u0020jslint\u0020utility2:true\u0020\*\/$)/m
         ),
         ".json": (
-            /^\s*?(?:\[|\{)/
+            /^\s*?\{\s*?"!!jslint_utility2":\s*?true/
         ),
         ".md": (
             /(^\/\*\u0020jslint\u0020utility2:true\u0020\*\/$)/m
@@ -16882,11 +16847,11 @@ jslintRecurse = function (code, file, opt, {
         )
     };
     // jslint - .json
-    if (fileType === ".js" && tmp[".json"].test(code)) {
+    if (fileType === ".js" && tmp[".json"].test(code.slice(0, 4096))) {
         fileType = ".json";
     }
     // init mode-utility2
-    tmp = tmp[fileType] && tmp[fileType].exec(code);
+    tmp = tmp[fileType] && tmp[fileType].exec(code.slice(0, 4096));
     opt.utility2 = Boolean((tmp && tmp[1]) || modeAutofix);
     // if not modeConditional, then do not jslint
     if ((modeConditional && !tmp) || modeCoverage) {
@@ -17394,7 +17359,9 @@ local.jslintAndPrintDir = function (dir, opt, onError) {
                     }
                     // jslint file
                     require("fs").readFile(file, "utf8", function (err, data) {
-                        local.onErrorThrow(err);
+                        if (err) {
+                            return;
+                        }
                         local.jslintAndPrint(data, file, opt);
                         errCnt += local.jslintResult.errList.length;
                         console.error(

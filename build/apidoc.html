@@ -488,12 +488,11 @@ module = opt.moduleExtraDict[opt.env.npm_package_name];
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">assertJsonEqual = function (aa, bb) {
+    <li>description and source-code<pre class="apidocCodePre">function assertJsonEqual(aa, bb) {
 <span class="apidocCodeCommentSpan">/*
  * this function will assert JSON.stringify(&lt;aa&gt;) === JSON.stringify(&lt;bb&gt;)
  */
-</span>    let objectDeepCopyWithKeysSorted;
-    objectDeepCopyWithKeysSorted = function (obj) {
+</span>    function objectDeepCopyWithKeysSorted(obj) {
     /*
      * this function will recursively deep-copy &lt;obj&gt; with keys sorted
      */
@@ -511,7 +510,7 @@ module = opt.moduleExtraDict[opt.env.npm_package_name];
             sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
         });
         return sorted;
-    };
+    }
     aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
     bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
     if (aa !== bb) {
@@ -530,7 +529,7 @@ module = opt.moduleExtraDict[opt.env.npm_package_name];
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">assertOrThrow = function (passed, msg) {
+    <li>description and source-code<pre class="apidocCodePre">function assertOrThrow(passed, msg) {
 <span class="apidocCodeCommentSpan">/*
  * this function will throw &lt;msg&gt; if &lt;passed&gt; is falsy
  */
@@ -720,7 +719,7 @@ if (module === require.main &amp;&amp; !globalThis.utility2_rollup) {
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">coalesce = function (...argList) {
+    <li>description and source-code<pre class="apidocCodePre">function coalesce(...argList) {
 <span class="apidocCodeCommentSpan">/*
  * this function will coalesce null, undefined, or &quot;&quot; in &lt;argList&gt;
  */
@@ -764,7 +763,7 @@ try {
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">identity = function (val) {
+    <li>description and source-code<pre class="apidocCodePre">function identity(val) {
 <span class="apidocCodeCommentSpan">/*
  * this function will return &lt;val&gt;
  */
@@ -853,7 +852,7 @@ local.objectAssignDefault(opt, {
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">nop = function () {
+    <li>description and source-code<pre class="apidocCodePre">function nop() {
 <span class="apidocCodeCommentSpan">/*
  * this function will do nothing
  */
@@ -871,7 +870,7 @@ local.objectAssignDefault(opt, {
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+    <li>description and source-code<pre class="apidocCodePre">function objectAssignDefault(tgt = {}, src = {}, depth = 0) {
 <span class="apidocCodeCommentSpan">/*
  * this function will if items from &lt;tgt&gt; are null, undefined, or &quot;&quot;,
  * then overwrite them with items from &lt;src&gt;
@@ -927,7 +926,7 @@ local.<span class="apidocCodeKeywordSpan">objectAssignDefault</span>(opt, {
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">onErrorThrow = function (err) {
+    <li>description and source-code<pre class="apidocCodePre">function onErrorThrow(err) {
 <span class="apidocCodeCommentSpan">/*
  * this function will throw &lt;err&gt; if exists
  */

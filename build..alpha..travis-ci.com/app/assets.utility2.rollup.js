@@ -13,10 +13,12 @@
 // run shared js-env code - init-local
 (function () {
     "use strict";
-    let consoleError;
+    let isBrowser;
+    let isWebWorker;
     let local;
     // init debugInline
     if (!globalThis.debugInline) {
+        let consoleError;
         consoleError = console.error;
         globalThis.debugInline = function (...argList) {
         /*
@@ -29,27 +31,22 @@
             return argList[0];
         };
     }
-    // init local
-    local = {};
-    local.local = local;
-    globalThis.globalLocal = local;
     // init isBrowser
-    local.isBrowser = (
+    isBrowser = (
         typeof globalThis.XMLHttpRequest === "function"
         && globalThis.navigator
         && typeof globalThis.navigator.userAgent === "string"
     );
     // init isWebWorker
-    local.isWebWorker = (
-        local.isBrowser && typeof globalThis.importScripts === "function"
+    isWebWorker = (
+        isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertJsonEqual = function (aa, bb) {
+    function assertJsonEqual(aa, bb) {
     /*
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)
      */
-        let objectDeepCopyWithKeysSorted;
-        objectDeepCopyWithKeysSorted = function (obj) {
+        function objectDeepCopyWithKeysSorted(obj) {
         /*
          * this function will recursively deep-copy <obj> with keys sorted
          */
@@ -67,14 +64,14 @@
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
             });
             return sorted;
-        };
+        }
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
         if (aa !== bb) {
             throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));
         }
-    };
-    local.assertOrThrow = function (passed, msg) {
+    }
+    function assertOrThrow(passed, msg) {
     /*
      * this function will throw <msg> if <passed> is falsy
      */
@@ -97,8 +94,8 @@
                 : JSON.stringify(msg, undefined, 4)
             )
         );
-    };
-    local.coalesce = function (...argList) {
+    }
+    function coalesce(...argList) {
     /*
      * this function will coalesce null, undefined, or "" in <argList>
      */
@@ -113,20 +110,20 @@
             ii += 1;
         }
         return arg;
-    };
-    local.identity = function (val) {
+    }
+    function identity(val) {
     /*
      * this function will return <val>
      */
         return val;
-    };
-    local.nop = function () {
+    }
+    function nop() {
     /*
      * this function will do nothing
      */
         return;
-    };
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+    }
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {
     /*
      * this function will if items from <tgt> are null, undefined, or "",
      * then overwrite them with items from <src>
@@ -153,15 +150,15 @@
         };
         recurse(tgt, src, depth | 0);
         return tgt;
-    };
-    local.onErrorThrow = function (err) {
+    }
+    function onErrorThrow(err) {
     /*
      * this function will throw <err> if exists
      */
         if (err) {
             throw err;
         }
-    };
+    }
     // bug-workaround - throw unhandledRejections in node-process
     if (
         typeof process === "object" && process
@@ -173,6 +170,19 @@
             throw err;
         });
     }
+    // init local
+    local = {};
+    local.local = local;
+    globalThis.globalLocal = local;
+    local.assertJsonEqual = assertJsonEqual;
+    local.assertOrThrow = assertOrThrow;
+    local.coalesce = coalesce;
+    local.identity = identity;
+    local.isBrowser = isBrowser;
+    local.isWebWorker = isWebWorker;
+    local.nop = nop;
+    local.objectAssignDefault = objectAssignDefault;
+    local.onErrorThrow = onErrorThrow;
 }());
 // assets.utility2.header.js - end
 
@@ -209,10 +219,12 @@
 // run shared js-env code - init-local
 (function () {
     "use strict";
-    let consoleError;
+    let isBrowser;
+    let isWebWorker;
     let local;
     // init debugInline
     if (!globalThis.debugInline) {
+        let consoleError;
         consoleError = console.error;
         globalThis.debugInline = function (...argList) {
         /*
@@ -225,27 +237,22 @@
             return argList[0];
         };
     }
-    // init local
-    local = {};
-    local.local = local;
-    globalThis.globalLocal = local;
     // init isBrowser
-    local.isBrowser = (
+    isBrowser = (
         typeof globalThis.XMLHttpRequest === "function"
         && globalThis.navigator
         && typeof globalThis.navigator.userAgent === "string"
     );
     // init isWebWorker
-    local.isWebWorker = (
-        local.isBrowser && typeof globalThis.importScripts === "function"
+    isWebWorker = (
+        isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertJsonEqual = function (aa, bb) {
+    function assertJsonEqual(aa, bb) {
     /*
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)
      */
-        let objectDeepCopyWithKeysSorted;
-        objectDeepCopyWithKeysSorted = function (obj) {
+        function objectDeepCopyWithKeysSorted(obj) {
         /*
          * this function will recursively deep-copy <obj> with keys sorted
          */
@@ -263,14 +270,14 @@
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
             });
             return sorted;
-        };
+        }
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
         if (aa !== bb) {
             throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));
         }
-    };
-    local.assertOrThrow = function (passed, msg) {
+    }
+    function assertOrThrow(passed, msg) {
     /*
      * this function will throw <msg> if <passed> is falsy
      */
@@ -293,8 +300,8 @@
                 : JSON.stringify(msg, undefined, 4)
             )
         );
-    };
-    local.coalesce = function (...argList) {
+    }
+    function coalesce(...argList) {
     /*
      * this function will coalesce null, undefined, or "" in <argList>
      */
@@ -309,20 +316,20 @@
             ii += 1;
         }
         return arg;
-    };
-    local.identity = function (val) {
+    }
+    function identity(val) {
     /*
      * this function will return <val>
      */
         return val;
-    };
-    local.nop = function () {
+    }
+    function nop() {
     /*
      * this function will do nothing
      */
         return;
-    };
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+    }
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {
     /*
      * this function will if items from <tgt> are null, undefined, or "",
      * then overwrite them with items from <src>
@@ -349,15 +356,15 @@
         };
         recurse(tgt, src, depth | 0);
         return tgt;
-    };
-    local.onErrorThrow = function (err) {
+    }
+    function onErrorThrow(err) {
     /*
      * this function will throw <err> if exists
      */
         if (err) {
             throw err;
         }
-    };
+    }
     // bug-workaround - throw unhandledRejections in node-process
     if (
         typeof process === "object" && process
@@ -369,6 +376,19 @@
             throw err;
         });
     }
+    // init local
+    local = {};
+    local.local = local;
+    globalThis.globalLocal = local;
+    local.assertJsonEqual = assertJsonEqual;
+    local.assertOrThrow = assertOrThrow;
+    local.coalesce = coalesce;
+    local.identity = identity;
+    local.isBrowser = isBrowser;
+    local.isWebWorker = isWebWorker;
+    local.nop = nop;
+    local.objectAssignDefault = objectAssignDefault;
+    local.onErrorThrow = onErrorThrow;
 }());
 // assets.utility2.header.js - end
 
@@ -1505,7 +1525,7 @@ if (module === require.main && !globalThis.utility2_rollup) {
 /* script-begin /assets.utility2.lib.istanbul.js */
 // usr/bin/env node
 /*
- * lib.istanbul.js (2020.6.9)
+ * lib.istanbul.js (2020.8.1)
  * https://github.com/kaizhu256/node-istanbul-lite
  * this zero-dependency package will provide browser-compatible version of istanbul coverage-tool (v0.4.5), with working web-demo
  *
@@ -1519,10 +1539,12 @@ if (module === require.main && !globalThis.utility2_rollup) {
 // run shared js-env code - init-local
 (function () {
     "use strict";
-    let consoleError;
+    let isBrowser;
+    let isWebWorker;
     let local;
     // init debugInline
     if (!globalThis.debugInline) {
+        let consoleError;
         consoleError = console.error;
         globalThis.debugInline = function (...argList) {
         /*
@@ -1535,27 +1557,22 @@ if (module === require.main && !globalThis.utility2_rollup) {
             return argList[0];
         };
     }
-    // init local
-    local = {};
-    local.local = local;
-    globalThis.globalLocal = local;
     // init isBrowser
-    local.isBrowser = (
+    isBrowser = (
         typeof globalThis.XMLHttpRequest === "function"
         && globalThis.navigator
         && typeof globalThis.navigator.userAgent === "string"
     );
     // init isWebWorker
-    local.isWebWorker = (
-        local.isBrowser && typeof globalThis.importScripts === "function"
+    isWebWorker = (
+        isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertJsonEqual = function (aa, bb) {
+    function assertJsonEqual(aa, bb) {
     /*
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)
      */
-        let objectDeepCopyWithKeysSorted;
-        objectDeepCopyWithKeysSorted = function (obj) {
+        function objectDeepCopyWithKeysSorted(obj) {
         /*
          * this function will recursively deep-copy <obj> with keys sorted
          */
@@ -1573,14 +1590,14 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
             });
             return sorted;
-        };
+        }
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
         if (aa !== bb) {
             throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));
         }
-    };
-    local.assertOrThrow = function (passed, msg) {
+    }
+    function assertOrThrow(passed, msg) {
     /*
      * this function will throw <msg> if <passed> is falsy
      */
@@ -1603,8 +1620,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 : JSON.stringify(msg, undefined, 4)
             )
         );
-    };
-    local.coalesce = function (...argList) {
+    }
+    function coalesce(...argList) {
     /*
      * this function will coalesce null, undefined, or "" in <argList>
      */
@@ -1619,20 +1636,20 @@ if (module === require.main && !globalThis.utility2_rollup) {
             ii += 1;
         }
         return arg;
-    };
-    local.identity = function (val) {
+    }
+    function identity(val) {
     /*
      * this function will return <val>
      */
         return val;
-    };
-    local.nop = function () {
+    }
+    function nop() {
     /*
      * this function will do nothing
      */
         return;
-    };
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+    }
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {
     /*
      * this function will if items from <tgt> are null, undefined, or "",
      * then overwrite them with items from <src>
@@ -1659,15 +1676,15 @@ if (module === require.main && !globalThis.utility2_rollup) {
         };
         recurse(tgt, src, depth | 0);
         return tgt;
-    };
-    local.onErrorThrow = function (err) {
+    }
+    function onErrorThrow(err) {
     /*
      * this function will throw <err> if exists
      */
         if (err) {
             throw err;
         }
-    };
+    }
     // bug-workaround - throw unhandledRejections in node-process
     if (
         typeof process === "object" && process
@@ -1679,6 +1696,19 @@ if (module === require.main && !globalThis.utility2_rollup) {
             throw err;
         });
     }
+    // init local
+    local = {};
+    local.local = local;
+    globalThis.globalLocal = local;
+    local.assertJsonEqual = assertJsonEqual;
+    local.assertOrThrow = assertOrThrow;
+    local.coalesce = coalesce;
+    local.identity = identity;
+    local.isBrowser = isBrowser;
+    local.isWebWorker = isWebWorker;
+    local.nop = nop;
+    local.objectAssignDefault = objectAssignDefault;
+    local.onErrorThrow = onErrorThrow;
 }());
 // assets.utility2.header.js - end
 
@@ -2137,7 +2167,6 @@ let esprima;
 let estraverse;
 let esutils;
 let process;
-let require2;
 // mock builtins
 escodegen = {};
 esprima = {};
@@ -2151,29 +2180,19 @@ process = (
     }
     : globalThis.process
 );
-require2 = function (key) {
-    switch (key) {
-    case "./package.json":
-    case "source-map":
-        return {};
-    case "estraverse":
-        return estraverse;
-    case "esutils":
-        return esutils;
-    }
-};
-require2(escodegen, esprima);
+local.nop(escodegen, esprima, estraverse, esutils);
 
 
 /*
-repo https://github.com/acornjs/acorn/tree/6.3.0
-committed 2019-08-12T09:40:59Z
+repo https://github.com/acornjs/acorn/tree/6.4.1
+committed 2020-03-09T10:38:41Z
 */
 
 
 /*
-file https://github.com/acornjs/acorn/blob/6.3.0/acorn/dist/acorn.js
+file https://github.com/acornjs/acorn/blob/6.4.1/acorn/dist/acorn.js
 */
+// hack-istanbul - inline-require
 /* istanbul ignore next */
 /* jslint ignore:start */
 (function () { let exports, module; exports = module = esprima;
@@ -5385,7 +5404,8 @@ file https://github.com/acornjs/acorn/blob/6.3.0/acorn/dist/acorn.js
     if (!this.switchU || c <= 0xD7FF || c >= 0xE000 || i + 1 >= l) {
       return c
     }
-    return (c << 10) + s.charCodeAt(i + 1) - 0x35FDC00
+    var next = s.charCodeAt(i + 1);
+    return next >= 0xDC00 && next <= 0xDFFF ? (c << 10) + next - 0x35FDC00 : c
   };
 
   RegExpValidationState.prototype.nextIndex = function nextIndex (i) {
@@ -5394,8 +5414,9 @@ file https://github.com/acornjs/acorn/blob/6.3.0/acorn/dist/acorn.js
     if (i >= l) {
       return l
     }
-    var c = s.charCodeAt(i);
-    if (!this.switchU || c <= 0xD7FF || c >= 0xE000 || i + 1 >= l) {
+    var c = s.charCodeAt(i), next;
+    if (!this.switchU || c <= 0xD7FF || c >= 0xE000 || i + 1 >= l ||
+        (next = s.charCodeAt(i + 1)) < 0xDC00 || next > 0xDFFF) {
       return i + 1
     }
     return i + 2
@@ -7091,7 +7112,29 @@ file https://github.com/acornjs/acorn/blob/6.3.0/acorn/dist/acorn.js
 
   // Acorn is a tiny, fast JavaScript parser written in JavaScript.
 
-  var version = "6.3.0";
+  var version = "6.4.0";
+
+  Parser.acorn = {
+    Parser: Parser,
+    version: version,
+    defaultOptions: defaultOptions,
+    Position: Position,
+    SourceLocation: SourceLocation,
+    getLineInfo: getLineInfo,
+    Node: Node,
+    TokenType: TokenType,
+    tokTypes: types,
+    keywordTypes: keywords$1,
+    TokContext: TokContext,
+    tokContexts: types$1,
+    isIdentifierChar: isIdentifierChar,
+    isIdentifierStart: isIdentifierStart,
+    Token: Token,
+    isNewLine: isNewLine,
+    lineBreak: lineBreak,
+    lineBreakG: lineBreakG,
+    nonASCIIwhitespace: nonASCIIwhitespace
+  };
 
   // The main exported interface (under `self.acorn` when in the
   // browser) is a `parse` function that takes a code string and
@@ -7144,6 +7187,7 @@ file https://github.com/acornjs/acorn/blob/6.3.0/acorn/dist/acorn.js
 
   Object.defineProperty(exports, '__esModule', { value: true });
 }));
+// hack-istanbul - inline-require
 }());
 
 
@@ -7156,6 +7200,7 @@ committed 2016-03-10T21:51:59Z
 /*
 file https://github.com/estools/estraverse/blob/4.2.0/estraverse.js
 */
+// hack-istanbul - inline-require
 /* istanbul ignore next */
 (function () { let exports; exports = estraverse;
 /*
@@ -7994,7 +8039,8 @@ file https://github.com/estools/estraverse/blob/4.2.0/estraverse.js
         return tree;
     }
 
-    exports.version = require2('./package.json').version;
+    // hack-istanbul - inline-require
+    exports.version = {};
     exports.Syntax = Syntax;
     exports.traverse = traverse;
     exports.replace = replace;
@@ -8007,6 +8053,7 @@ file https://github.com/estools/estraverse/blob/4.2.0/estraverse.js
     return exports;
 }(exports));
 /* vim: set sw=4 ts=4 et tw=80 : */
+// hack-istanbul - inline-require
 }());
 
 
@@ -8019,6 +8066,7 @@ committed 2019-07-31T01:06:44Z
 /*
 file https://github.com/estools/esutils/blob/2.0.3/lib/code.js
 */
+// hack-istanbul - inline-require
 /* istanbul ignore next */
 (function () { let module; module = {};
 /*
@@ -8156,6 +8204,7 @@ file https://github.com/estools/esutils/blob/2.0.3/lib/code.js
     };
 }());
 /* vim: set sw=4 ts=4 et tw=80 : */
+// hack-istanbul - inline-require
 esutils = { code: module.exports }; }());
 
 
@@ -8168,6 +8217,7 @@ committed 2019-08-13T02:08:40Z
 /*
 file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
 */
+// hack-istanbul - inline-require
 /* istanbul ignore next */
 (function () { let exports; exports = escodegen;
 /*
@@ -8213,8 +8263,9 @@ file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
         Precedence,
         BinaryPrecedence,
         SourceNode,
-        estraverse,
-        esutils,
+        // hack-istanbul - inline-require
+        // estraverse,
+        // esutils,
         base,
         indent,
         json,
@@ -8236,8 +8287,9 @@ file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
         FORMAT_MINIFY,
         FORMAT_DEFAULTS;
 
-    estraverse = require2('estraverse');
-    esutils = require2('esutils');
+    // hack-istanbul - inline-require
+    // estraverse = require('estraverse');
+    // esutils = require('esutils');
 
     Syntax = estraverse.Syntax;
 
@@ -10723,7 +10775,8 @@ file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
             if (!exports.browser) {
                 // We assume environment is node.js
                 // And prevent from including source-map by browserify
-                SourceNode = require2('source-map').SourceNode;
+                // hack-istanbul - inline-require
+                SourceNode = {};
             } else {
                 SourceNode = global.sourceMap.SourceNode;
             }
@@ -10770,7 +10823,8 @@ file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
 
     FORMAT_DEFAULTS = getDefaultOptions().format;
 
-    exports.version = require2('./package.json').version;
+    // hack-istanbul - inline-require
+    exports.version = {};
     exports.generate = generate;
     exports.attachComments = estraverse.attachComments;
     exports.Precedence = updateDeeply({}, Precedence);
@@ -10779,6 +10833,7 @@ file https://github.com/estools/escodegen/blob/v1.12.0/escodegen.js
     exports.FORMAT_DEFAULTS = FORMAT_DEFAULTS;
 }());
 /* vim: set sw=4 ts=4 et tw=80 : */
+// hack-istanbul - inline-require
 }());
 
 
@@ -10791,6 +10846,7 @@ committed 2016-08-21T19:53:22Z
 /*
 file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
 */
+// hack-istanbul - inline-require
 /* istanbul ignore next */
 (function () { let module, window; module = undefined; window = local;
 /*
@@ -10803,9 +10859,9 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
     "use strict";
     var SYNTAX,
         nodeType,
-        ESP = isNode ? require2('esprima') : esprima,
-        ESPGEN = isNode ? require2('escodegen') : escodegen,  //TODO - package as dependency
-        crypto = isNode ? require2('crypto') : null,
+        ESP = isNode ? require('esprima') : esprima,
+        ESPGEN = isNode ? require('escodegen') : escodegen,  //TODO - package as dependency
+        crypto = isNode ? require('crypto') : null,
         LEADER_WRAP = '(function () { ',
         TRAILER_WRAP = '\n}());',
         COMMENT_RE = /^\s*istanbul\s+ignore\s+(if|else|next)(?=\W|$)/,
@@ -10850,7 +10906,7 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
             window.__cov_seq += 1;
             suffix = window.__cov_seq;
         }
-        // hack-coverage - pseudorandom coverage-identifier
+        // hack-istanbul - random coverage-identifier
         return '__cov_' + Math.random().toString(16).slice(2);
     }
 
@@ -11131,7 +11187,7 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
      * Usage on nodejs
      * ---------------
      *
-     *      var instrumenter = new require2('istanbul').Instrumenter(),
+     *      var instrumenter = new require('istanbul').Instrumenter(),
      *          changed = instrumenter.instrumentSync('function meaningOfLife() { return 42; }', 'filename.js');
      *
      * Usage in a browser
@@ -11252,7 +11308,7 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
                 code = LEADER_WRAP + code + TRAILER_WRAP;
             }
             try {
-                // hack-coverage - acorn opt
+                // hack-istanbul - inline acorn-opt
                 let opt = {
                     locations: true,
                     onComment: [],
@@ -11305,7 +11361,7 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
                 nodeStart = node.range[0],
                 hint;
             this.currentState.currentHint = null;
-            // hack-coverage - allow top-level istanbul-ignore-next
+            // hack-istanbul - allow top-level istanbul-ignore-next
             if (node.type === "Program") { return; }
             while (i < hints.length) {
                 hint = hints[i];
@@ -11895,6 +11951,7 @@ file https://github.com/gotwarlost/istanbul/blob/v0.4.5/lib/instrumenter.js
         window.Instrumenter = Instrumenter;
     }
 }(typeof module !== 'undefined' && typeof module.exports !== 'undefined' && typeof exports !== 'undefined'));
+// hack-istanbul - inline-require
 }());
 
 
@@ -12839,7 +12896,6 @@ local.coverageReportCreate = function (opt) {
     let coverageInclude;
     let dirCoverage;
     let filePrefix;
-    let filesUnderRoot;
     let htmlAll;
     let nodeChildAdd;
     let nodeCreate;
@@ -12848,7 +12904,6 @@ local.coverageReportCreate = function (opt) {
     let nodeRoot;
     let summaryDict;
     let tmp;
-    let tmpChildren;
     if (!(opt && opt.coverage)) {
         return "";
     }
@@ -12978,7 +13033,7 @@ local.coverageReportCreate = function (opt) {
         });
     };
     // 1. merge previous <dirCoverage>/coverage.json into <opt>.coverage
-    dirCoverage = path.resolve("tmp/build/coverage.html");
+    dirCoverage = path.resolve(".tmp/build/coverage");
     coverageInclude = opt.coverageInclude || globalThis.__coverageInclude__;
     if (!local.isBrowser && process.env.npm_config_mode_coverage_merge) {
         console.error(
@@ -13119,11 +13174,11 @@ local.coverageReportCreate = function (opt) {
         }
     });
     // 3. convert <summaryDict> to <nodeRoot>
+    filePrefix = filePrefix || [];
     tmp = filePrefix.join(path.sep) + path.sep;
     nodeRoot = nodeCreate(tmp);
     nodeDict = {};
     nodeDict[tmp] = nodeRoot;
-    filesUnderRoot = false;
     Object.entries(summaryDict).forEach(function ([
         key,
         metrics
@@ -13146,26 +13201,7 @@ local.coverageReportCreate = function (opt) {
             nodeDict[parentPath] = parent;
         }
         nodeChildAdd(parent, node);
-        if (parent === nodeRoot) {
-            filesUnderRoot = true;
-        }
     });
-    if (filesUnderRoot && filePrefix.length > 0) {
-        //start at one level above
-        filePrefix.pop();
-        tmp = nodeRoot;
-        tmpChildren = tmp.children;
-        tmp.children = [];
-        nodeRoot = nodeCreate(filePrefix.join(path.sep) + path.sep);
-        nodeChildAdd(nodeRoot, tmp);
-        tmpChildren.forEach(function (child) {
-            nodeChildAdd((
-                child.isFile
-                ? tmp
-                : nodeRoot
-            ), child);
-        });
-    }
     nodeNormalize(nodeRoot, 0, filePrefix.join(path.sep) + path.sep);
     // 4. convert <nodeRoot> to text-report <dirCoverage>/coverage.txt
     reportTextWrite(nodeRoot, dirCoverage);
@@ -13184,7 +13220,7 @@ local.coverageReportCreate = function (opt) {
     // write coverage.badge.svg
     tmp = nodeRoot.metrics.lines.pct;
     fileWrite(
-        path.dirname(dirCoverage) + "/coverage.badge.svg",
+        dirCoverage + "/coverage.badge.svg",
         // edit coverage badge percent
         // edit coverage badge color
         local.templateCoverageBadgeSvg.replace((
@@ -13381,9 +13417,9 @@ if (module === require.main && !globalThis.utility2_rollup) {
 /* script-begin /assets.utility2.lib.jslint.js */
 // usr/bin/env node
 /*
- * lib.jslint.js (2020.6.9)
+ * lib.jslint.js (2020.8.19)
  * https://github.com/kaizhu256/node-jslint-lite
- * this zero-dependency package will provide browser-compatible versions of jslint (v2020.3.28) and csslint (v2018.2.25), with working web-demo
+ * this zero-dependency package will provide browser-compatible versions of jslint (v2020.7.2) and csslint (v2018.2.25), with working web-demo
  *
  */
 
@@ -13395,10 +13431,12 @@ if (module === require.main && !globalThis.utility2_rollup) {
 // run shared js-env code - init-local
 (function () {
     "use strict";
-    let consoleError;
+    let isBrowser;
+    let isWebWorker;
     let local;
     // init debugInline
     if (!globalThis.debugInline) {
+        let consoleError;
         consoleError = console.error;
         globalThis.debugInline = function (...argList) {
         /*
@@ -13411,27 +13449,22 @@ if (module === require.main && !globalThis.utility2_rollup) {
             return argList[0];
         };
     }
-    // init local
-    local = {};
-    local.local = local;
-    globalThis.globalLocal = local;
     // init isBrowser
-    local.isBrowser = (
+    isBrowser = (
         typeof globalThis.XMLHttpRequest === "function"
         && globalThis.navigator
         && typeof globalThis.navigator.userAgent === "string"
     );
     // init isWebWorker
-    local.isWebWorker = (
-        local.isBrowser && typeof globalThis.importScripts === "function"
+    isWebWorker = (
+        isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertJsonEqual = function (aa, bb) {
+    function assertJsonEqual(aa, bb) {
     /*
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)
      */
-        let objectDeepCopyWithKeysSorted;
-        objectDeepCopyWithKeysSorted = function (obj) {
+        function objectDeepCopyWithKeysSorted(obj) {
         /*
          * this function will recursively deep-copy <obj> with keys sorted
          */
@@ -13449,14 +13482,14 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
             });
             return sorted;
-        };
+        }
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
         if (aa !== bb) {
             throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));
         }
-    };
-    local.assertOrThrow = function (passed, msg) {
+    }
+    function assertOrThrow(passed, msg) {
     /*
      * this function will throw <msg> if <passed> is falsy
      */
@@ -13479,8 +13512,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 : JSON.stringify(msg, undefined, 4)
             )
         );
-    };
-    local.coalesce = function (...argList) {
+    }
+    function coalesce(...argList) {
     /*
      * this function will coalesce null, undefined, or "" in <argList>
      */
@@ -13495,20 +13528,20 @@ if (module === require.main && !globalThis.utility2_rollup) {
             ii += 1;
         }
         return arg;
-    };
-    local.identity = function (val) {
+    }
+    function identity(val) {
     /*
      * this function will return <val>
      */
         return val;
-    };
-    local.nop = function () {
+    }
+    function nop() {
     /*
      * this function will do nothing
      */
         return;
-    };
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+    }
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {
     /*
      * this function will if items from <tgt> are null, undefined, or "",
      * then overwrite them with items from <src>
@@ -13535,15 +13568,15 @@ if (module === require.main && !globalThis.utility2_rollup) {
         };
         recurse(tgt, src, depth | 0);
         return tgt;
-    };
-    local.onErrorThrow = function (err) {
+    }
+    function onErrorThrow(err) {
     /*
      * this function will throw <err> if exists
      */
         if (err) {
             throw err;
         }
-    };
+    }
     // bug-workaround - throw unhandledRejections in node-process
     if (
         typeof process === "object" && process
@@ -13555,6 +13588,19 @@ if (module === require.main && !globalThis.utility2_rollup) {
             throw err;
         });
     }
+    // init local
+    local = {};
+    local.local = local;
+    globalThis.globalLocal = local;
+    local.assertJsonEqual = assertJsonEqual;
+    local.assertOrThrow = assertOrThrow;
+    local.coalesce = coalesce;
+    local.identity = identity;
+    local.isBrowser = isBrowser;
+    local.isWebWorker = isWebWorker;
+    local.nop = nop;
+    local.objectAssignDefault = objectAssignDefault;
+    local.onErrorThrow = onErrorThrow;
 }());
 // assets.utility2.header.js - end
 
@@ -13747,8 +13793,7 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
 /*
  * this function will recursively deep-copy <obj> with keys sorted
  */
-    let objectDeepCopyWithKeysSorted;
-    objectDeepCopyWithKeysSorted = function (obj) {
+    function objectDeepCopyWithKeysSorted(obj) {
     /*
      * this function will recursively deep-copy <obj> with keys sorted
      */
@@ -13766,7 +13811,7 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
             sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
         });
         return sorted;
-    };
+    }
     return objectDeepCopyWithKeysSorted(obj);
 };
 }());
@@ -24522,16 +24567,16 @@ return CSSLint;
 
 
 /*
-repo https://github.com/douglascrockford/JSLint/tree/6cc432230093a1779ef0df3388b4f062778b9d9b
-committed 2020-07-01T12:28:54Z
+repo https://github.com/douglascrockford/JSLint/tree/118167e967b4ebfc08759fdd1ab2d87f5a27cc37
+committed 2020-07-02T15:21:03Z
 */
 
 
 /*
-file https://github.com/douglascrockford/JSLint/blob/6cc432230093a1779ef0df3388b4f062778b9d9b/jslint.js
+file https://github.com/douglascrockford/JSLint/blob/118167e967b4ebfc08759fdd1ab2d87f5a27cc37/jslint.js
 */
 // jslint.js
-// 2020-07-01
+// 2020-07-02
 // Copyright (c) 2015 Douglas Crockford  (www.JSLint.com)
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24998,8 +25043,6 @@ function artifact(the_token) {
     );
 }
 
-// hack-jslint - remove deadcode
-/*
 function artifact_line(the_token) {
 
 // Return the fudged line number of an artifact.
@@ -25009,7 +25052,6 @@ function artifact_line(the_token) {
     }
     return the_token.line + fudge;
 }
-*/
 
 function artifact_column(the_token) {
 
@@ -25447,8 +25489,6 @@ function tokenize(source) {
                     typeof allowed === "boolean"
                     || typeof allowed === "object"
                 ) {
-                    // hack-jslint - remove deadcode
-                    /*
                     if (
                         value === ""
                         || value === "true"
@@ -25463,18 +25503,6 @@ function tokenize(source) {
                     } else {
                         warn("bad_option_a", the_comment, name + ":" + value);
                     }
-                    */
-                    if (
-                        value === "true"
-                        || value === undefined
-                    ) {
-                        option[name] = true;
-                        if (Array.isArray(allowed)) {
-                            populate(allowed, declared_globals, false);
-                        }
-                    } else {
-                        option[name] = false;
-                    }
                 } else {
                     warn("bad_option_a", the_comment, name);
                 }
@@ -25483,10 +25511,7 @@ function tokenize(source) {
                     tenure = empty();
                 }
                 tenure[name] = true;
-            // hack-jslint - remove deadcode
-            // } else if (the_comment.directive === "global") {
-            // the_comment.directive === "global"
-            } else {
+            } else if (the_comment.directive === "global") {
                 if (value) {
                     warn("bad_option_a", the_comment, name + ":" + value);
                 }
@@ -26268,9 +26293,7 @@ function advance(id, match) {
                 next_token,
                 id,
                 artifact(match),
-                // hack-jslint - remove deadcode
-                // artifact_line(match),
-                match.line + fudge,
+                artifact_line(match),
                 artifact(next_token)
             )
         );
@@ -26376,9 +26399,8 @@ function json_value() {
         negative.arity = "unary";
         advance("-");
         advance("(number)");
-        // jslint-hack lint negative-number
         if (!rx_JSON_number.test(token.value)) {
-            warn("unexpected_a");
+            warn("unexpected_a", token);
         }
         negative.expression = token;
         return negative;
@@ -28520,8 +28542,7 @@ function walk_statement(thing) {
 }
 
 function lookup(thing) {
-    // hack-jslint - for-loop
-    if (thing && thing.arity === "variable") {
+    if (thing.arity === "variable") {
 
 // Look up the variable in the current context.
 
@@ -28569,9 +28590,8 @@ function lookup(thing) {
             the_variable.dead
             && (
                 the_variable.calls === undefined
-                || the_variable.calls[
-                    functionage.name && functionage.name.id
-                ] === undefined
+                || functionage.name === undefined
+                || the_variable.calls[functionage.name.id] === undefined
             )
         ) {
             warn("out_of_scope_a", thing);
@@ -28587,12 +28607,9 @@ function subactivate(name) {
 }
 
 function preaction_function(thing) {
-    // hack-jslint - remove deadcode
-    /*
     if (thing.arity === "statement" && blockage.body !== true) {
         warn("unexpected_a", thing);
     }
-    */
     stack.push(functionage);
     block_stack.push(blockage);
     functionage = thing;
@@ -28751,8 +28768,6 @@ preaction("statement", "{", function (thing) {
     thing.live = [];
 });
 preaction("statement", "for", function (thing) {
-    // hack-jslint - remove deadcode
-    /*
     if (thing.name !== undefined) {
         const the_variable = lookup(thing.name);
         if (the_variable !== undefined) {
@@ -28760,14 +28775,6 @@ preaction("statement", "for", function (thing) {
             if (!the_variable.writable) {
                 warn("bad_assignment_a", thing.name);
             }
-        }
-    }
-    */
-    const the_variable = lookup(thing.name);
-    if (the_variable !== undefined) {
-        the_variable.init = true;
-        if (!the_variable.writable) {
-            warn("bad_assignment_a", thing.name);
         }
     }
     walk_statement(thing.initial);
@@ -29806,7 +29813,7 @@ local.jslint0 = Object.freeze(function (
     });
     return {
         directives,
-        edition: "2020-07-01",
+        edition: "2020-07-02",
         exports,
         froms,
         functions,
@@ -29834,7 +29841,6 @@ local.jslint0 = Object.freeze(function (
             ) || (a.line - b.line);
         }),
         // hack-jslint - autofix
-        source,
         source_autofixed: lines_extra.map(function (element, ii) {
             return element.source_autofixed || lines[ii];
         }).join("\n")
@@ -29924,7 +29930,6 @@ jslintAutofix = function (code, file, opt, {fileType, globalList, iiLine}) {
         });
         break;
     case ".js":
-    case ".json":
         // de-mux - code to [code, ignoreList]
         ignoreList = [];
         code = code.replace((
@@ -30141,15 +30146,11 @@ jslintAutofix = function (code, file, opt, {fileType, globalList, iiLine}) {
         ), function () {
             return ignoreList.shift().trimStart();
         });
-        // autofix-json - sort-keys
-        if (fileType === ".json") {
-            code = JSON.stringify(
-                local.objectDeepCopyWithKeysSorted(JSON.parse(code)),
-                undefined,
-                4
-            );
-            break;
-        }
+        break;
+    case ".json":
+        code = JSON.stringify(local.objectDeepCopyWithKeysSorted(JSON.parse(
+            code
+        )), undefined, 4);
         break;
     case ".md":
         // autofix-md - recurse ```javascript...```
@@ -30253,7 +30254,7 @@ jslintRecurse = function (code, file, opt, {
             /^\/\*jslint\b|(^\/\*\u0020jslint\u0020utility2:true\u0020\*\/$)/m
         ),
         ".json": (
-            /^\s*?(?:\[|\{)/
+            /^\s*?\{\s*?"!!jslint_utility2":\s*?true/
         ),
         ".md": (
             /(^\/\*\u0020jslint\u0020utility2:true\u0020\*\/$)/m
@@ -30263,11 +30264,11 @@ jslintRecurse = function (code, file, opt, {
         )
     };
     // jslint - .json
-    if (fileType === ".js" && tmp[".json"].test(code)) {
+    if (fileType === ".js" && tmp[".json"].test(code.slice(0, 4096))) {
         fileType = ".json";
     }
     // init mode-utility2
-    tmp = tmp[fileType] && tmp[fileType].exec(code);
+    tmp = tmp[fileType] && tmp[fileType].exec(code.slice(0, 4096));
     opt.utility2 = Boolean((tmp && tmp[1]) || modeAutofix);
     // if not modeConditional, then do not jslint
     if ((modeConditional && !tmp) || modeCoverage) {
@@ -30775,7 +30776,9 @@ local.jslintAndPrintDir = function (dir, opt, onError) {
                     }
                     // jslint file
                     require("fs").readFile(file, "utf8", function (err, data) {
-                        local.onErrorThrow(err);
+                        if (err) {
+                            return;
+                        }
                         local.jslintAndPrint(data, file, opt);
                         errCnt += local.jslintResult.errList.length;
                         console.error(
@@ -30862,10 +30865,12 @@ if (module === require.main && !globalThis.utility2_rollup) {
 // run shared js-env code - init-local
 (function () {
     "use strict";
-    let consoleError;
+    let isBrowser;
+    let isWebWorker;
     let local;
     // init debugInline
     if (!globalThis.debugInline) {
+        let consoleError;
         consoleError = console.error;
         globalThis.debugInline = function (...argList) {
         /*
@@ -30878,27 +30883,22 @@ if (module === require.main && !globalThis.utility2_rollup) {
             return argList[0];
         };
     }
-    // init local
-    local = {};
-    local.local = local;
-    globalThis.globalLocal = local;
     // init isBrowser
-    local.isBrowser = (
+    isBrowser = (
         typeof globalThis.XMLHttpRequest === "function"
         && globalThis.navigator
         && typeof globalThis.navigator.userAgent === "string"
     );
     // init isWebWorker
-    local.isWebWorker = (
-        local.isBrowser && typeof globalThis.importScripts === "function"
+    isWebWorker = (
+        isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertJsonEqual = function (aa, bb) {
+    function assertJsonEqual(aa, bb) {
     /*
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)
      */
-        let objectDeepCopyWithKeysSorted;
-        objectDeepCopyWithKeysSorted = function (obj) {
+        function objectDeepCopyWithKeysSorted(obj) {
         /*
          * this function will recursively deep-copy <obj> with keys sorted
          */
@@ -30916,14 +30916,14 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
             });
             return sorted;
-        };
+        }
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
         if (aa !== bb) {
             throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));
         }
-    };
-    local.assertOrThrow = function (passed, msg) {
+    }
+    function assertOrThrow(passed, msg) {
     /*
      * this function will throw <msg> if <passed> is falsy
      */
@@ -30946,8 +30946,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 : JSON.stringify(msg, undefined, 4)
             )
         );
-    };
-    local.coalesce = function (...argList) {
+    }
+    function coalesce(...argList) {
     /*
      * this function will coalesce null, undefined, or "" in <argList>
      */
@@ -30962,20 +30962,20 @@ if (module === require.main && !globalThis.utility2_rollup) {
             ii += 1;
         }
         return arg;
-    };
-    local.identity = function (val) {
+    }
+    function identity(val) {
     /*
      * this function will return <val>
      */
         return val;
-    };
-    local.nop = function () {
+    }
+    function nop() {
     /*
      * this function will do nothing
      */
         return;
-    };
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+    }
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {
     /*
      * this function will if items from <tgt> are null, undefined, or "",
      * then overwrite them with items from <src>
@@ -31002,15 +31002,15 @@ if (module === require.main && !globalThis.utility2_rollup) {
         };
         recurse(tgt, src, depth | 0);
         return tgt;
-    };
-    local.onErrorThrow = function (err) {
+    }
+    function onErrorThrow(err) {
     /*
      * this function will throw <err> if exists
      */
         if (err) {
             throw err;
         }
-    };
+    }
     // bug-workaround - throw unhandledRejections in node-process
     if (
         typeof process === "object" && process
@@ -31022,6 +31022,19 @@ if (module === require.main && !globalThis.utility2_rollup) {
             throw err;
         });
     }
+    // init local
+    local = {};
+    local.local = local;
+    globalThis.globalLocal = local;
+    local.assertJsonEqual = assertJsonEqual;
+    local.assertOrThrow = assertOrThrow;
+    local.coalesce = coalesce;
+    local.identity = identity;
+    local.isBrowser = isBrowser;
+    local.isWebWorker = isWebWorker;
+    local.nop = nop;
+    local.objectAssignDefault = objectAssignDefault;
+    local.onErrorThrow = onErrorThrow;
 }());
 // assets.utility2.header.js - end
 
@@ -31282,10 +31295,12 @@ if (local.isBrowser) {
 // run shared js-env code - init-local
 (function () {
     "use strict";
-    let consoleError;
+    let isBrowser;
+    let isWebWorker;
     let local;
     // init debugInline
     if (!globalThis.debugInline) {
+        let consoleError;
         consoleError = console.error;
         globalThis.debugInline = function (...argList) {
         /*
@@ -31298,27 +31313,22 @@ if (local.isBrowser) {
             return argList[0];
         };
     }
-    // init local
-    local = {};
-    local.local = local;
-    globalThis.globalLocal = local;
     // init isBrowser
-    local.isBrowser = (
+    isBrowser = (
         typeof globalThis.XMLHttpRequest === "function"
         && globalThis.navigator
         && typeof globalThis.navigator.userAgent === "string"
     );
     // init isWebWorker
-    local.isWebWorker = (
-        local.isBrowser && typeof globalThis.importScripts === "function"
+    isWebWorker = (
+        isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertJsonEqual = function (aa, bb) {
+    function assertJsonEqual(aa, bb) {
     /*
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)
      */
-        let objectDeepCopyWithKeysSorted;
-        objectDeepCopyWithKeysSorted = function (obj) {
+        function objectDeepCopyWithKeysSorted(obj) {
         /*
          * this function will recursively deep-copy <obj> with keys sorted
          */
@@ -31336,14 +31346,14 @@ if (local.isBrowser) {
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
             });
             return sorted;
-        };
+        }
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
         if (aa !== bb) {
             throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));
         }
-    };
-    local.assertOrThrow = function (passed, msg) {
+    }
+    function assertOrThrow(passed, msg) {
     /*
      * this function will throw <msg> if <passed> is falsy
      */
@@ -31366,8 +31376,8 @@ if (local.isBrowser) {
                 : JSON.stringify(msg, undefined, 4)
             )
         );
-    };
-    local.coalesce = function (...argList) {
+    }
+    function coalesce(...argList) {
     /*
      * this function will coalesce null, undefined, or "" in <argList>
      */
@@ -31382,20 +31392,20 @@ if (local.isBrowser) {
             ii += 1;
         }
         return arg;
-    };
-    local.identity = function (val) {
+    }
+    function identity(val) {
     /*
      * this function will return <val>
      */
         return val;
-    };
-    local.nop = function () {
+    }
+    function nop() {
     /*
      * this function will do nothing
      */
         return;
-    };
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+    }
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {
     /*
      * this function will if items from <tgt> are null, undefined, or "",
      * then overwrite them with items from <src>
@@ -31422,15 +31432,15 @@ if (local.isBrowser) {
         };
         recurse(tgt, src, depth | 0);
         return tgt;
-    };
-    local.onErrorThrow = function (err) {
+    }
+    function onErrorThrow(err) {
     /*
      * this function will throw <err> if exists
      */
         if (err) {
             throw err;
         }
-    };
+    }
     // bug-workaround - throw unhandledRejections in node-process
     if (
         typeof process === "object" && process
@@ -31442,6 +31452,19 @@ if (local.isBrowser) {
             throw err;
         });
     }
+    // init local
+    local = {};
+    local.local = local;
+    globalThis.globalLocal = local;
+    local.assertJsonEqual = assertJsonEqual;
+    local.assertOrThrow = assertOrThrow;
+    local.coalesce = coalesce;
+    local.identity = identity;
+    local.isBrowser = isBrowser;
+    local.isWebWorker = isWebWorker;
+    local.nop = nop;
+    local.objectAssignDefault = objectAssignDefault;
+    local.onErrorThrow = onErrorThrow;
 }());
 // assets.utility2.header.js - end
 
@@ -44044,7 +44067,7 @@ if (module === require.main && !globalThis.utility2_rollup) {
 /* script-begin /assets.utility2.js */
 // usr/bin/env node
 /*
- * lib.utility2.js (2020.6.14)
+ * lib.utility2.js (2020.8.19)
  * https://github.com/kaizhu256/node-utility2
  * this zero-dependency package will provide high-level functions to to build, test, and deploy webapps
  *
@@ -44058,10 +44081,12 @@ if (module === require.main && !globalThis.utility2_rollup) {
 // run shared js-env code - init-local
 (function () {
     "use strict";
-    let consoleError;
+    let isBrowser;
+    let isWebWorker;
     let local;
     // init debugInline
     if (!globalThis.debugInline) {
+        let consoleError;
         consoleError = console.error;
         globalThis.debugInline = function (...argList) {
         /*
@@ -44074,27 +44099,22 @@ if (module === require.main && !globalThis.utility2_rollup) {
             return argList[0];
         };
     }
-    // init local
-    local = {};
-    local.local = local;
-    globalThis.globalLocal = local;
     // init isBrowser
-    local.isBrowser = (
+    isBrowser = (
         typeof globalThis.XMLHttpRequest === "function"
         && globalThis.navigator
         && typeof globalThis.navigator.userAgent === "string"
     );
     // init isWebWorker
-    local.isWebWorker = (
-        local.isBrowser && typeof globalThis.importScripts === "function"
+    isWebWorker = (
+        isBrowser && typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertJsonEqual = function (aa, bb) {
+    function assertJsonEqual(aa, bb) {
     /*
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)
      */
-        let objectDeepCopyWithKeysSorted;
-        objectDeepCopyWithKeysSorted = function (obj) {
+        function objectDeepCopyWithKeysSorted(obj) {
         /*
          * this function will recursively deep-copy <obj> with keys sorted
          */
@@ -44112,14 +44132,14 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
             });
             return sorted;
-        };
+        }
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));
         if (aa !== bb) {
             throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));
         }
-    };
-    local.assertOrThrow = function (passed, msg) {
+    }
+    function assertOrThrow(passed, msg) {
     /*
      * this function will throw <msg> if <passed> is falsy
      */
@@ -44142,8 +44162,8 @@ if (module === require.main && !globalThis.utility2_rollup) {
                 : JSON.stringify(msg, undefined, 4)
             )
         );
-    };
-    local.coalesce = function (...argList) {
+    }
+    function coalesce(...argList) {
     /*
      * this function will coalesce null, undefined, or "" in <argList>
      */
@@ -44158,20 +44178,20 @@ if (module === require.main && !globalThis.utility2_rollup) {
             ii += 1;
         }
         return arg;
-    };
-    local.identity = function (val) {
+    }
+    function identity(val) {
     /*
      * this function will return <val>
      */
         return val;
-    };
-    local.nop = function () {
+    }
+    function nop() {
     /*
      * this function will do nothing
      */
         return;
-    };
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {
+    }
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {
     /*
      * this function will if items from <tgt> are null, undefined, or "",
      * then overwrite them with items from <src>
@@ -44198,15 +44218,15 @@ if (module === require.main && !globalThis.utility2_rollup) {
         };
         recurse(tgt, src, depth | 0);
         return tgt;
-    };
-    local.onErrorThrow = function (err) {
+    }
+    function onErrorThrow(err) {
     /*
      * this function will throw <err> if exists
      */
         if (err) {
             throw err;
         }
-    };
+    }
     // bug-workaround - throw unhandledRejections in node-process
     if (
         typeof process === "object" && process
@@ -44218,6 +44238,19 @@ if (module === require.main && !globalThis.utility2_rollup) {
             throw err;
         });
     }
+    // init local
+    local = {};
+    local.local = local;
+    globalThis.globalLocal = local;
+    local.assertJsonEqual = assertJsonEqual;
+    local.assertOrThrow = assertOrThrow;
+    local.coalesce = coalesce;
+    local.identity = identity;
+    local.isBrowser = isBrowser;
+    local.isWebWorker = isWebWorker;
+    local.nop = nop;
+    local.objectAssignDefault = objectAssignDefault;
+    local.onErrorThrow = onErrorThrow;
 }());
 // assets.utility2.header.js - end
 
@@ -44283,10 +44316,12 @@ local.assetsDict["/assets.utility2.header.js"] = '\
 // run shared js-env code - init-local\n\
 (function () {\n\
     "use strict";\n\
-    let consoleError;\n\
+    let isBrowser;\n\
+    let isWebWorker;\n\
     let local;\n\
     // init debugInline\n\
     if (!globalThis.debugInline) {\n\
+        let consoleError;\n\
         consoleError = console.error;\n\
         globalThis.debugInline = function (...argList) {\n\
         /*\n\
@@ -44299,27 +44334,22 @@ local.assetsDict["/assets.utility2.header.js"] = '\
             return argList[0];\n\
         };\n\
     }\n\
-    // init local\n\
-    local = {};\n\
-    local.local = local;\n\
-    globalThis.globalLocal = local;\n\
     // init isBrowser\n\
-    local.isBrowser = (\n\
+    isBrowser = (\n\
         typeof globalThis.XMLHttpRequest === "function"\n\
         && globalThis.navigator\n\
         && typeof globalThis.navigator.userAgent === "string"\n\
     );\n\
     // init isWebWorker\n\
-    local.isWebWorker = (\n\
-        local.isBrowser && typeof globalThis.importScripts === "function"\n\
+    isWebWorker = (\n\
+        isBrowser && typeof globalThis.importScripts === "function"\n\
     );\n\
     // init function\n\
-    local.assertJsonEqual = function (aa, bb) {\n\
+    function assertJsonEqual(aa, bb) {\n\
     /*\n\
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)\n\
      */\n\
-        let objectDeepCopyWithKeysSorted;\n\
-        objectDeepCopyWithKeysSorted = function (obj) {\n\
+        function objectDeepCopyWithKeysSorted(obj) {\n\
         /*\n\
          * this function will recursively deep-copy <obj> with keys sorted\n\
          */\n\
@@ -44337,14 +44367,14 @@ local.assetsDict["/assets.utility2.header.js"] = '\
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);\n\
             });\n\
             return sorted;\n\
-        };\n\
+        }\n\
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));\n\
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));\n\
         if (aa !== bb) {\n\
             throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));\n\
         }\n\
-    };\n\
-    local.assertOrThrow = function (passed, msg) {\n\
+    }\n\
+    function assertOrThrow(passed, msg) {\n\
     /*\n\
      * this function will throw <msg> if <passed> is falsy\n\
      */\n\
@@ -44367,8 +44397,8 @@ local.assetsDict["/assets.utility2.header.js"] = '\
                 : JSON.stringify(msg, undefined, 4)\n\
             )\n\
         );\n\
-    };\n\
-    local.coalesce = function (...argList) {\n\
+    }\n\
+    function coalesce(...argList) {\n\
     /*\n\
      * this function will coalesce null, undefined, or "" in <argList>\n\
      */\n\
@@ -44383,20 +44413,20 @@ local.assetsDict["/assets.utility2.header.js"] = '\
             ii += 1;\n\
         }\n\
         return arg;\n\
-    };\n\
-    local.identity = function (val) {\n\
+    }\n\
+    function identity(val) {\n\
     /*\n\
      * this function will return <val>\n\
      */\n\
         return val;\n\
-    };\n\
-    local.nop = function () {\n\
+    }\n\
+    function nop() {\n\
     /*\n\
      * this function will do nothing\n\
      */\n\
         return;\n\
-    };\n\
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {\n\
+    }\n\
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {\n\
     /*\n\
      * this function will if items from <tgt> are null, undefined, or "",\n\
      * then overwrite them with items from <src>\n\
@@ -44423,15 +44453,15 @@ local.assetsDict["/assets.utility2.header.js"] = '\
         };\n\
         recurse(tgt, src, depth | 0);\n\
         return tgt;\n\
-    };\n\
-    local.onErrorThrow = function (err) {\n\
+    }\n\
+    function onErrorThrow(err) {\n\
     /*\n\
      * this function will throw <err> if exists\n\
      */\n\
         if (err) {\n\
             throw err;\n\
         }\n\
-    };\n\
+    }\n\
     // bug-workaround - throw unhandledRejections in node-process\n\
     if (\n\
         typeof process === "object" && process\n\
@@ -44443,6 +44473,19 @@ local.assetsDict["/assets.utility2.header.js"] = '\
             throw err;\n\
         });\n\
     }\n\
+    // init local\n\
+    local = {};\n\
+    local.local = local;\n\
+    globalThis.globalLocal = local;\n\
+    local.assertJsonEqual = assertJsonEqual;\n\
+    local.assertOrThrow = assertOrThrow;\n\
+    local.coalesce = coalesce;\n\
+    local.identity = identity;\n\
+    local.isBrowser = isBrowser;\n\
+    local.isWebWorker = isWebWorker;\n\
+    local.nop = nop;\n\
+    local.objectAssignDefault = objectAssignDefault;\n\
+    local.onErrorThrow = onErrorThrow;\n\
 }());\n\
 // assets.utility2.header.js - end\n\
 '
@@ -45135,7 +45178,7 @@ the greatest app in the world!\n\
 [![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.deployGithub.browser.%252Fnode-my-app-lite%252Fbuild%252Fapp.png)](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/app)\n\
 \n\
 \n\
-[![travis-ci.com build-status](https://api.travis-ci.com/kaizhu256/node-my-app-lite.svg)](https://travis-ci.com/kaizhu256/node-my-app-lite) [![coverage](https://kaizhu256.github.io/node-my-app-lite/build/coverage.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build/coverage.html/index.html)\n\
+[![travis-ci.com build-status](https://api.travis-ci.com/kaizhu256/node-my-app-lite.svg)](https://travis-ci.com/kaizhu256/node-my-app-lite) [![coverage](https://kaizhu256.github.io/node-my-app-lite/build/coverage/coverage.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build/coverage/index.html)\n\
 \n\
 [![NPM](https://nodei.co/npm/my-app-lite.png?downloads=true)](https://www.npmjs.com/package/my-app-lite)\n\
 \n\
@@ -45146,7 +45189,7 @@ the greatest app in the world!\n\
 | test-server-github : | [![github.com test-server](https://kaizhu256.github.io/node-my-app-lite/GitHub-Mark-32px.png)](https://kaizhu256.github.io/node-my-app-lite/build..master..travis-ci.com/app) | [![github.com test-server](https://kaizhu256.github.io/node-my-app-lite/GitHub-Mark-32px.png)](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/app) | [![github.com test-server](https://kaizhu256.github.io/node-my-app-lite/GitHub-Mark-32px.png)](https://kaizhu256.github.io/node-my-app-lite/build..alpha..travis-ci.com/app)|\n\
 | test-server-heroku : | [![heroku.com test-server](https://kaizhu256.github.io/node-my-app-lite/heroku-logo.75x25.png)](https://h1-my-app-master.herokuapp.com) | [![heroku.com test-server](https://kaizhu256.github.io/node-my-app-lite/heroku-logo.75x25.png)](https://h1-my-app-beta.herokuapp.com) | [![heroku.com test-server](https://kaizhu256.github.io/node-my-app-lite/heroku-logo.75x25.png)](https://h1-my-app-alpha.herokuapp.com)|\n\
 | test-report : | [![test-report](https://kaizhu256.github.io/node-my-app-lite/build..master..travis-ci.com/test-report.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build..master..travis-ci.com/test-report.html) | [![test-report](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/test-report.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/test-report.html) | [![test-report](https://kaizhu256.github.io/node-my-app-lite/build..alpha..travis-ci.com/test-report.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build..alpha..travis-ci.com/test-report.html)|\n\
-| coverage : | [![coverage](https://kaizhu256.github.io/node-my-app-lite/build..master..travis-ci.com/coverage.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build..master..travis-ci.com/coverage.html/index.html) | [![coverage](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/coverage.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/coverage.html/index.html) | [![coverage](https://kaizhu256.github.io/node-my-app-lite/build..alpha..travis-ci.com/coverage.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build..alpha..travis-ci.com/coverage.html/index.html)|\n\
+| coverage : | [![coverage](https://kaizhu256.github.io/node-my-app-lite/build..master..travis-ci.com/coverage/coverage.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build..master..travis-ci.com/coverage/index.html) | [![coverage](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/coverage/coverage.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/coverage/index.html) | [![coverage](https://kaizhu256.github.io/node-my-app-lite/build..alpha..travis-ci.com/coverage/coverage.badge.svg)](https://kaizhu256.github.io/node-my-app-lite/build..alpha..travis-ci.com/coverage/index.html)|\n\
 | build-artifacts : | [![build-artifacts](https://kaizhu256.github.io/node-my-app-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-my-app-lite/tree/gh-pages/build..master..travis-ci.com) | [![build-artifacts](https://kaizhu256.github.io/node-my-app-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-my-app-lite/tree/gh-pages/build..beta..travis-ci.com) | [![build-artifacts](https://kaizhu256.github.io/node-my-app-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-my-app-lite/tree/gh-pages/build..alpha..travis-ci.com)|\n\
 \n\
 [![npmPackageListing](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.npmPackageListing.svg)](https://github.com/kaizhu256/node-my-app-lite)\n\
@@ -45165,13 +45208,12 @@ the greatest app in the world!\n\
 #### api doc\n\
 - [https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/apidoc.html](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/apidoc.html)\n\
 \n\
-[![apidoc](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/apidoc.html)\n\
+[![apidoc](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-my-app-lite/build..beta..travis-ci.com/apidoc.html)\n\
 \n\
 #### cli help\n\
 ![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.npmPackageCliHelp.svg)\n\
 \n\
 #### changelog 0.0.1\n\
-- npm publish 0.0.1\n\
 - update build\n\
 - none\n\
 \n\
@@ -45217,14 +45259,14 @@ PORT=8081 node ./assets.app.js\n\
 \n\
 \n\
 # extra screenshots\n\
-1. [https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)\n\
-[![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)\n\
+1. [https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Fapidoc.html.png](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Fapidoc.html.png)\n\
+[![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Fapidoc.html.png)\n\
 \n\
-1. [https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)\n\
-[![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)\n\
+1. [https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Fcoverage.lib.html.png](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Fcoverage.lib.html.png)\n\
+[![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Fcoverage.lib.html.png)](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Fcoverage.lib.html.png)\n\
 \n\
-1. [https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)\n\
-[![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)\n\
+1. [https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Ftest-report.html.png](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Ftest-report.html.png)\n\
+[![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Ftest-report.html.png)](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.buildCi.browser.%252F.tmp%252Fbuild%252Ftest-report.html.png)\n\
 \n\
 1. [https://kaizhu256.github.io/node-my-app-lite/build/screenshot.deployGithub.browser.%252Fnode-my-app-lite%252Fbuild%252Fapp.png](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.deployGithub.browser.%252Fnode-my-app-lite%252Fbuild%252Fapp.png)\n\
 [![screenshot](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.deployGithub.browser.%252Fnode-my-app-lite%252Fbuild%252Fapp.png)](https://kaizhu256.github.io/node-my-app-lite/build/screenshot.deployGithub.browser.%252Fnode-my-app-lite%252Fbuild%252Fapp.png)\n\
@@ -45251,6 +45293,7 @@ PORT=8081 node ./assets.app.js\n\
 # package.json\n\
 ```json\n\
 {\n\
+    "!!jslint_utility2": true,\n\
     "author": "kai zhu <kaizhu256@gmail.com>",\n\
     "description": "the greatest app in the world!",\n\
     "devDependencies": {\n\
@@ -45835,7 +45878,7 @@ local._testCase_buildApidoc_default = function (opt, onError) {
     // coverage-hack
     require2();
     // save apidoc.html
-    local.fsWriteFileWithMkdirp("tmp/build/apidoc.html", local.apidocCreate(
+    local.fsWriteFileWithMkdirp(".tmp/build/apidoc.html", local.apidocCreate(
         Object.assign({
             blacklistDict: local,
             modeNop: (
@@ -46754,7 +46797,7 @@ local.buildApp = function ({
                     "http://127.0.0.1:" + process.env.PORT + elem.url
                 ), function (res) {
                     let file;
-                    file = "tmp/build/app/" + (elem.file || elem.url);
+                    file = ".tmp/build/app/" + (elem.file || elem.url);
                     res.pipe(require("fs").createWriteStream(
                         file
                     ).on("close", function () {
@@ -46770,7 +46813,7 @@ local.buildApp = function ({
             require("child_process").spawn("node", [
                 "assets.utility2.lib.jslint.js", "dir", ".", "--conditional"
             ], {
-                cwd: "tmp/build/app",
+                cwd: ".tmp/build/app",
                 stdio: [
                     "ignore", 1, 2
                 ]
@@ -46778,24 +46821,43 @@ local.buildApp = function ({
         });
     };
     buildAppStandalone = function (resolve) {
-        // write assets.app.js
-        writeFile((
-            "tmp/build/app.standalone/assets.app.js"
-        ), local.assetsDict["/assets.app.js"], function () {
-            // test-file assets.app.js
-            require("child_process").spawn("node", [
-                "assets.app.js"
-            ], {
-                cwd: "tmp/build/app.standalone",
-                env: {
-                    PATH: process.env.PATH,
-                    PORT: port,
-                    npm_config_timeout_exit: 4000
-                },
-                stdio: [
-                    "ignore", 1, 2
-                ]
-            }).on("exit", resolve);
+        // write native-module
+        require("fs").readdir(".", function (err, fileList) {
+            onErrorThrow(err);
+            Promise.all(fileList.map(function (file) {
+                return new Promise(function (resolve) {
+                    if (require("path").extname(file) !== ".node") {
+                        resolve();
+                        return;
+                    }
+                    require("fs").copyFile(file, (
+                        ".tmp/build/app.standalone/" + file
+                    ), function (err) {
+                        onErrorThrow(err);
+                        resolve();
+                    });
+                });
+            })).then(function () {
+                // write assets.app.js
+                writeFile((
+                    ".tmp/build/app.standalone/assets.app.js"
+                ), local.assetsDict["/assets.app.js"], function () {
+                    // test-file assets.app.js
+                    require("child_process").spawn("node", [
+                        "assets.app.js"
+                    ], {
+                        cwd: ".tmp/build/app.standalone",
+                        env: {
+                            PATH: process.env.PATH,
+                            PORT: port,
+                            npm_config_timeout_exit: 4000
+                        },
+                        stdio: [
+                            "ignore", 1, 2
+                        ]
+                    }).on("exit", resolve);
+                });
+            });
         });
     };
     buildLib = function (resolve) {
@@ -47153,7 +47215,7 @@ local.buildApp = function ({
         // cleanup build-dir
         promiseList.push(new Promise(function (resolve) {
             require("child_process").spawn((
-                "for DIR in tmp/build/app/ tmp/build/app.standalone/;"
+                "for DIR in .tmp/build/app/ .tmp/build/app.standalone/;"
                 + "do rm -rf $DIR; mkdir -p $DIR; done"
             ), {
                 shell: true,
@@ -48312,8 +48374,7 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
 /*
  * this function will recursively deep-copy <obj> with keys sorted
  */
-    let objectDeepCopyWithKeysSorted;
-    objectDeepCopyWithKeysSorted = function (obj) {
+    function objectDeepCopyWithKeysSorted(obj) {
     /*
      * this function will recursively deep-copy <obj> with keys sorted
      */
@@ -48331,7 +48392,7 @@ local.objectDeepCopyWithKeysSorted = function (obj) {
             sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);
         });
         return sorted;
-    };
+    }
     return objectDeepCopyWithKeysSorted(obj);
 };
 
@@ -48553,6 +48614,7 @@ jquery|\
 log|\
 min|misc|mock|\
 node_module|\
+old|\
 raw|\rollup|\
 swp|\
 tmp|\
@@ -49552,12 +49614,12 @@ local.testReportCreate = function (testReport) {
     );
     // create test-report.html
     local.fsWriteFileWithMkdirpSync(
-        "tmp/build/test-report.html",
+        ".tmp/build/test-report.html",
         local.testReportMerge(testReport)
     );
     // create build.badge.svg
     local.fsWriteFileWithMkdirpSync(
-        "tmp/build/build.badge.svg",
+        ".tmp/build/build.badge.svg",
         local.assetsDict["/assets.buildBadge.template.svg"].replace((
             /0000-00-00\u002000:00:00\u0020UTC\u0020-\u0020master\u0020-\u0020aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/g
         ), (
@@ -49567,7 +49629,7 @@ local.testReportCreate = function (testReport) {
     );
     // create test-report.badge.svg
     local.fsWriteFileWithMkdirpSync(
-        "tmp/build/test-report.badge.svg",
+        ".tmp/build/test-report.badge.svg",
         local.assetsDict["/assets.testReportBadge.template.svg"].replace((
             // edit number of tests failed
             /999/g
@@ -50574,8 +50636,8 @@ local.http = require("http");
 local.Module = require("module");
 // init env
 local.objectAssignDefault(process.env, {
-    npm_config_dir_build: require("path").resolve("tmp/build"),
-    npm_config_dir_tmp: require("path").resolve("tmp")
+    npm_config_dir_build: require("path").resolve(".tmp/build"),
+    npm_config_dir_tmp: require("path").resolve(".tmp")
 });
 // merge previous test-report
 if (process.env.npm_config_file_test_report_merge) {
@@ -50814,8 +50876,8 @@ instruction\n\
             PORT=8081 \\\n\
             npm_config_mode_coverage=utility2 \\\n\
             node_modules/.bin/utility2 test example.js\n\
-    3. view test-report in ./tmp/build/test-report.html\n\
-    4. view coverage in ./tmp/build/coverage.html/index.html\n\
+    3. view test-report in .tmp/build/test-report.html\n\
+    4. view coverage in .tmp/build/coverage/index.html\n\
 */\n\
 \n\
 \n\
@@ -50826,10 +50888,12 @@ instruction\n\
 // run shared js-env code - init-local\n\
 (function () {\n\
     \"use strict\";\n\
-    let consoleError;\n\
+    let isBrowser;\n\
+    let isWebWorker;\n\
     let local;\n\
     // init debugInline\n\
     if (!globalThis.debugInline) {\n\
+        let consoleError;\n\
         consoleError = console.error;\n\
         globalThis.debugInline = function (...argList) {\n\
         /*\n\
@@ -50842,27 +50906,22 @@ instruction\n\
             return argList[0];\n\
         };\n\
     }\n\
-    // init local\n\
-    local = {};\n\
-    local.local = local;\n\
-    globalThis.globalLocal = local;\n\
     // init isBrowser\n\
-    local.isBrowser = (\n\
+    isBrowser = (\n\
         typeof globalThis.XMLHttpRequest === \"function\"\n\
         && globalThis.navigator\n\
         && typeof globalThis.navigator.userAgent === \"string\"\n\
     );\n\
     // init isWebWorker\n\
-    local.isWebWorker = (\n\
-        local.isBrowser && typeof globalThis.importScripts === \"function\"\n\
+    isWebWorker = (\n\
+        isBrowser && typeof globalThis.importScripts === \"function\"\n\
     );\n\
     // init function\n\
-    local.assertJsonEqual = function (aa, bb) {\n\
+    function assertJsonEqual(aa, bb) {\n\
     /*\n\
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)\n\
      */\n\
-        let objectDeepCopyWithKeysSorted;\n\
-        objectDeepCopyWithKeysSorted = function (obj) {\n\
+        function objectDeepCopyWithKeysSorted(obj) {\n\
         /*\n\
          * this function will recursively deep-copy <obj> with keys sorted\n\
          */\n\
@@ -50880,14 +50939,14 @@ instruction\n\
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);\n\
             });\n\
             return sorted;\n\
-        };\n\
+        }\n\
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));\n\
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));\n\
         if (aa !== bb) {\n\
             throw new Error(JSON.stringify(aa) + \" !== \" + JSON.stringify(bb));\n\
         }\n\
-    };\n\
-    local.assertOrThrow = function (passed, msg) {\n\
+    }\n\
+    function assertOrThrow(passed, msg) {\n\
     /*\n\
      * this function will throw <msg> if <passed> is falsy\n\
      */\n\
@@ -50910,8 +50969,8 @@ instruction\n\
                 : JSON.stringify(msg, undefined, 4)\n\
             )\n\
         );\n\
-    };\n\
-    local.coalesce = function (...argList) {\n\
+    }\n\
+    function coalesce(...argList) {\n\
     /*\n\
      * this function will coalesce null, undefined, or \"\" in <argList>\n\
      */\n\
@@ -50926,20 +50985,20 @@ instruction\n\
             ii += 1;\n\
         }\n\
         return arg;\n\
-    };\n\
-    local.identity = function (val) {\n\
+    }\n\
+    function identity(val) {\n\
     /*\n\
      * this function will return <val>\n\
      */\n\
         return val;\n\
-    };\n\
-    local.nop = function () {\n\
+    }\n\
+    function nop() {\n\
     /*\n\
      * this function will do nothing\n\
      */\n\
         return;\n\
-    };\n\
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {\n\
+    }\n\
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {\n\
     /*\n\
      * this function will if items from <tgt> are null, undefined, or \"\",\n\
      * then overwrite them with items from <src>\n\
@@ -50966,15 +51025,15 @@ instruction\n\
         };\n\
         recurse(tgt, src, depth | 0);\n\
         return tgt;\n\
-    };\n\
-    local.onErrorThrow = function (err) {\n\
+    }\n\
+    function onErrorThrow(err) {\n\
     /*\n\
      * this function will throw <err> if exists\n\
      */\n\
         if (err) {\n\
             throw err;\n\
         }\n\
-    };\n\
+    }\n\
     // bug-workaround - throw unhandledRejections in node-process\n\
     if (\n\
         typeof process === \"object\" && process\n\
@@ -50986,6 +51045,19 @@ instruction\n\
             throw err;\n\
         });\n\
     }\n\
+    // init local\n\
+    local = {};\n\
+    local.local = local;\n\
+    globalThis.globalLocal = local;\n\
+    local.assertJsonEqual = assertJsonEqual;\n\
+    local.assertOrThrow = assertOrThrow;\n\
+    local.coalesce = coalesce;\n\
+    local.identity = identity;\n\
+    local.isBrowser = isBrowser;\n\
+    local.isWebWorker = isWebWorker;\n\
+    local.nop = nop;\n\
+    local.objectAssignDefault = objectAssignDefault;\n\
+    local.onErrorThrow = onErrorThrow;\n\
 }());\n\
 // assets.utility2.header.js - end\n\
 \n\
@@ -52392,9 +52464,9 @@ local.domOnEventInputChange({\n\
 local.assetsDict["/assets.utility2.lib.jslint.js"] = (
 "// usr/bin/env node\n\
 /*\n\
- * lib.jslint.js (2020.6.9)\n\
+ * lib.jslint.js (2020.8.19)\n\
  * https://github.com/kaizhu256/node-jslint-lite\n\
- * this zero-dependency package will provide browser-compatible versions of jslint (v2020.3.28) and csslint (v2018.2.25), with working web-demo\n\
+ * this zero-dependency package will provide browser-compatible versions of jslint (v2020.7.2) and csslint (v2018.2.25), with working web-demo\n\
  *\n\
  */\n\
 \n\
@@ -52406,10 +52478,12 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = (
 // run shared js-env code - init-local\n\
 (function () {\n\
     \"use strict\";\n\
-    let consoleError;\n\
+    let isBrowser;\n\
+    let isWebWorker;\n\
     let local;\n\
     // init debugInline\n\
     if (!globalThis.debugInline) {\n\
+        let consoleError;\n\
         consoleError = console.error;\n\
         globalThis.debugInline = function (...argList) {\n\
         /*\n\
@@ -52422,27 +52496,22 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = (
             return argList[0];\n\
         };\n\
     }\n\
-    // init local\n\
-    local = {};\n\
-    local.local = local;\n\
-    globalThis.globalLocal = local;\n\
     // init isBrowser\n\
-    local.isBrowser = (\n\
+    isBrowser = (\n\
         typeof globalThis.XMLHttpRequest === \"function\"\n\
         && globalThis.navigator\n\
         && typeof globalThis.navigator.userAgent === \"string\"\n\
     );\n\
     // init isWebWorker\n\
-    local.isWebWorker = (\n\
-        local.isBrowser && typeof globalThis.importScripts === \"function\"\n\
+    isWebWorker = (\n\
+        isBrowser && typeof globalThis.importScripts === \"function\"\n\
     );\n\
     // init function\n\
-    local.assertJsonEqual = function (aa, bb) {\n\
+    function assertJsonEqual(aa, bb) {\n\
     /*\n\
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)\n\
      */\n\
-        let objectDeepCopyWithKeysSorted;\n\
-        objectDeepCopyWithKeysSorted = function (obj) {\n\
+        function objectDeepCopyWithKeysSorted(obj) {\n\
         /*\n\
          * this function will recursively deep-copy <obj> with keys sorted\n\
          */\n\
@@ -52460,14 +52529,14 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = (
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);\n\
             });\n\
             return sorted;\n\
-        };\n\
+        }\n\
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));\n\
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));\n\
         if (aa !== bb) {\n\
             throw new Error(JSON.stringify(aa) + \" !== \" + JSON.stringify(bb));\n\
         }\n\
-    };\n\
-    local.assertOrThrow = function (passed, msg) {\n\
+    }\n\
+    function assertOrThrow(passed, msg) {\n\
     /*\n\
      * this function will throw <msg> if <passed> is falsy\n\
      */\n\
@@ -52490,8 +52559,8 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = (
                 : JSON.stringify(msg, undefined, 4)\n\
             )\n\
         );\n\
-    };\n\
-    local.coalesce = function (...argList) {\n\
+    }\n\
+    function coalesce(...argList) {\n\
     /*\n\
      * this function will coalesce null, undefined, or \"\" in <argList>\n\
      */\n\
@@ -52506,20 +52575,20 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = (
             ii += 1;\n\
         }\n\
         return arg;\n\
-    };\n\
-    local.identity = function (val) {\n\
+    }\n\
+    function identity(val) {\n\
     /*\n\
      * this function will return <val>\n\
      */\n\
         return val;\n\
-    };\n\
-    local.nop = function () {\n\
+    }\n\
+    function nop() {\n\
     /*\n\
      * this function will do nothing\n\
      */\n\
         return;\n\
-    };\n\
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {\n\
+    }\n\
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {\n\
     /*\n\
      * this function will if items from <tgt> are null, undefined, or \"\",\n\
      * then overwrite them with items from <src>\n\
@@ -52546,15 +52615,15 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = (
         };\n\
         recurse(tgt, src, depth | 0);\n\
         return tgt;\n\
-    };\n\
-    local.onErrorThrow = function (err) {\n\
+    }\n\
+    function onErrorThrow(err) {\n\
     /*\n\
      * this function will throw <err> if exists\n\
      */\n\
         if (err) {\n\
             throw err;\n\
         }\n\
-    };\n\
+    }\n\
     // bug-workaround - throw unhandledRejections in node-process\n\
     if (\n\
         typeof process === \"object\" && process\n\
@@ -52566,6 +52635,19 @@ local.assetsDict["/assets.utility2.lib.jslint.js"] = (
             throw err;\n\
         });\n\
     }\n\
+    // init local\n\
+    local = {};\n\
+    local.local = local;\n\
+    globalThis.globalLocal = local;\n\
+    local.assertJsonEqual = assertJsonEqual;\n\
+    local.assertOrThrow = assertOrThrow;\n\
+    local.coalesce = coalesce;\n\
+    local.identity = identity;\n\
+    local.isBrowser = isBrowser;\n\
+    local.isWebWorker = isWebWorker;\n\
+    local.nop = nop;\n\
+    local.objectAssignDefault = objectAssignDefault;\n\
+    local.onErrorThrow = onErrorThrow;\n\
 }());\n\
 // assets.utility2.header.js - end\n\
 \n\
@@ -52758,8 +52840,7 @@ local.objectDeepCopyWithKeysSorted = function (obj) {\n\
 /*\n\
  * this function will recursively deep-copy <obj> with keys sorted\n\
  */\n\
-    let objectDeepCopyWithKeysSorted;\n\
-    objectDeepCopyWithKeysSorted = function (obj) {\n\
+    function objectDeepCopyWithKeysSorted(obj) {\n\
     /*\n\
      * this function will recursively deep-copy <obj> with keys sorted\n\
      */\n\
@@ -52777,7 +52858,7 @@ local.objectDeepCopyWithKeysSorted = function (obj) {\n\
             sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);\n\
         });\n\
         return sorted;\n\
-    };\n\
+    }\n\
     return objectDeepCopyWithKeysSorted(obj);\n\
 };\n\
 }());\n\
@@ -63533,16 +63614,16 @@ return CSSLint;\n\
 \n\
 \n\
 /*\n\
-repo https://github.com/douglascrockford/JSLint/tree/6cc432230093a1779ef0df3388b4f062778b9d9b\n\
-committed 2020-07-01T12:28:54Z\n\
+repo https://github.com/douglascrockford/JSLint/tree/118167e967b4ebfc08759fdd1ab2d87f5a27cc37\n\
+committed 2020-07-02T15:21:03Z\n\
 */\n\
 \n\
 \n\
 /*\n\
-file https://github.com/douglascrockford/JSLint/blob/6cc432230093a1779ef0df3388b4f062778b9d9b/jslint.js\n\
+file https://github.com/douglascrockford/JSLint/blob/118167e967b4ebfc08759fdd1ab2d87f5a27cc37/jslint.js\n\
 */\n\
 // jslint.js\n\
-// 2020-07-01\n\
+// 2020-07-02\n\
 // Copyright (c) 2015 Douglas Crockford  (www.JSLint.com)\n\
 \n\
 // Permission is hereby granted, free of charge, to any person obtaining a copy\n\
@@ -64009,8 +64090,6 @@ function artifact(the_token) {\n\
     );\n\
 }\n\
 \n\
-// hack-jslint - remove deadcode\n\
-/*\n\
 function artifact_line(the_token) {\n\
 \n\
 // Return the fudged line number of an artifact.\n\
@@ -64020,7 +64099,6 @@ function artifact_line(the_token) {\n\
     }\n\
     return the_token.line + fudge;\n\
 }\n\
-*/\n\
 \n\
 function artifact_column(the_token) {\n\
 \n\
@@ -64458,8 +64536,6 @@ function tokenize(source) {\n\
                     typeof allowed === \"boolean\"\n\
                     || typeof allowed === \"object\"\n\
                 ) {\n\
-                    // hack-jslint - remove deadcode\n\
-                    /*\n\
                     if (\n\
                         value === \"\"\n\
                         || value === \"true\"\n\
@@ -64474,18 +64550,6 @@ function tokenize(source) {\n\
                     } else {\n\
                         warn(\"bad_option_a\", the_comment, name + \":\" + value);\n\
                     }\n\
-                    */\n\
-                    if (\n\
-                        value === \"true\"\n\
-                        || value === undefined\n\
-                    ) {\n\
-                        option[name] = true;\n\
-                        if (Array.isArray(allowed)) {\n\
-                            populate(allowed, declared_globals, false);\n\
-                        }\n\
-                    } else {\n\
-                        option[name] = false;\n\
-                    }\n\
                 } else {\n\
                     warn(\"bad_option_a\", the_comment, name);\n\
                 }\n\
@@ -64494,10 +64558,7 @@ function tokenize(source) {\n\
                     tenure = empty();\n\
                 }\n\
                 tenure[name] = true;\n\
-            // hack-jslint - remove deadcode\n\
-            // } else if (the_comment.directive === \"global\") {\n\
-            // the_comment.directive === \"global\"\n\
-            } else {\n\
+            } else if (the_comment.directive === \"global\") {\n\
                 if (value) {\n\
                     warn(\"bad_option_a\", the_comment, name + \":\" + value);\n\
                 }\n\
@@ -65279,9 +65340,7 @@ function advance(id, match) {\n\
                 next_token,\n\
                 id,\n\
                 artifact(match),\n\
-                // hack-jslint - remove deadcode\n\
-                // artifact_line(match),\n\
-                match.line + fudge,\n\
+                artifact_line(match),\n\
                 artifact(next_token)\n\
             )\n\
         );\n\
@@ -65387,9 +65446,8 @@ function json_value() {\n\
         negative.arity = \"unary\";\n\
         advance(\"-\");\n\
         advance(\"(number)\");\n\
-        // jslint-hack lint negative-number\n\
         if (!rx_JSON_number.test(token.value)) {\n\
-            warn(\"unexpected_a\");\n\
+            warn(\"unexpected_a\", token);\n\
         }\n\
         negative.expression = token;\n\
         return negative;\n\
@@ -67531,8 +67589,7 @@ function walk_statement(thing) {\n\
 }\n\
 \n\
 function lookup(thing) {\n\
-    // hack-jslint - for-loop\n\
-    if (thing && thing.arity === \"variable\") {\n\
+    if (thing.arity === \"variable\") {\n\
 \n\
 // Look up the variable in the current context.\n\
 \n\
@@ -67580,9 +67637,8 @@ function lookup(thing) {\n\
             the_variable.dead\n\
             && (\n\
                 the_variable.calls === undefined\n\
-                || the_variable.calls[\n\
-                    functionage.name && functionage.name.id\n\
-                ] === undefined\n\
+                || functionage.name === undefined\n\
+                || the_variable.calls[functionage.name.id] === undefined\n\
             )\n\
         ) {\n\
             warn(\"out_of_scope_a\", thing);\n\
@@ -67598,12 +67654,9 @@ function subactivate(name) {\n\
 }\n\
 \n\
 function preaction_function(thing) {\n\
-    // hack-jslint - remove deadcode\n\
-    /*\n\
     if (thing.arity === \"statement\" && blockage.body !== true) {\n\
         warn(\"unexpected_a\", thing);\n\
     }\n\
-    */\n\
     stack.push(functionage);\n\
     block_stack.push(blockage);\n\
     functionage = thing;\n\
@@ -67762,8 +67815,6 @@ preaction(\"statement\", \"{\", function (thing) {\n\
     thing.live = [];\n\
 });\n\
 preaction(\"statement\", \"for\", function (thing) {\n\
-    // hack-jslint - remove deadcode\n\
-    /*\n\
     if (thing.name !== undefined) {\n\
         const the_variable = lookup(thing.name);\n\
         if (the_variable !== undefined) {\n\
@@ -67771,14 +67822,6 @@ preaction(\"statement\", \"for\", function (thing) {\n\
             if (!the_variable.writable) {\n\
                 warn(\"bad_assignment_a\", thing.name);\n\
             }\n\
-        }\n\
-    }\n\
-    */\n\
-    const the_variable = lookup(thing.name);\n\
-    if (the_variable !== undefined) {\n\
-        the_variable.init = true;\n\
-        if (!the_variable.writable) {\n\
-            warn(\"bad_assignment_a\", thing.name);\n\
         }\n\
     }\n\
     walk_statement(thing.initial);\n\
@@ -68817,7 +68860,7 @@ local.jslint0 = Object.freeze(function (\n\
     });\n\
     return {\n\
         directives,\n\
-        edition: \"2020-07-01\",\n\
+        edition: \"2020-07-02\",\n\
         exports,\n\
         froms,\n\
         functions,\n\
@@ -68845,7 +68888,6 @@ local.jslint0 = Object.freeze(function (\n\
             ) || (a.line - b.line);\n\
         }),\n\
         // hack-jslint - autofix\n\
-        source,\n\
         source_autofixed: lines_extra.map(function (element, ii) {\n\
             return element.source_autofixed || lines[ii];\n\
         }).join(\"\\n\")\n\
@@ -68935,7 +68977,6 @@ jslintAutofix = function (code, file, opt, {fileType, globalList, iiLine}) {\n\
         });\n\
         break;\n\
     case \".js\":\n\
-    case \".json\":\n\
         // de-mux - code to [code, ignoreList]\n\
         ignoreList = [];\n\
         code = code.replace((\n\
@@ -69152,15 +69193,11 @@ jslintAutofix = function (code, file, opt, {fileType, globalList, iiLine}) {\n\
         ), function () {\n\
             return ignoreList.shift().trimStart();\n\
         });\n\
-        // autofix-json - sort-keys\n\
-        if (fileType === \".json\") {\n\
-            code = JSON.stringify(\n\
-                local.objectDeepCopyWithKeysSorted(JSON.parse(code)),\n\
-                undefined,\n\
-                4\n\
-            );\n\
-            break;\n\
-        }\n\
+        break;\n\
+    case \".json\":\n\
+        code = JSON.stringify(local.objectDeepCopyWithKeysSorted(JSON.parse(\n\
+            code\n\
+        )), undefined, 4);\n\
         break;\n\
     case \".md\":\n\
         // autofix-md - recurse ```javascript...```\n\
@@ -69264,7 +69301,7 @@ jslintRecurse = function (code, file, opt, {\n\
             /^\\/\\*jslint\\b|(^\\/\\*\\u0020jslint\\u0020utility2:true\\u0020\\*\\/$)/m\n\
         ),\n\
         \".json\": (\n\
-            /^\\s*?(?:\\[|\\{)/\n\
+            /^\\s*?\\{\\s*?\"!!jslint_utility2\":\\s*?true/\n\
         ),\n\
         \".md\": (\n\
             /(^\\/\\*\\u0020jslint\\u0020utility2:true\\u0020\\*\\/$)/m\n\
@@ -69274,11 +69311,11 @@ jslintRecurse = function (code, file, opt, {\n\
         )\n\
     };\n\
     // jslint - .json\n\
-    if (fileType === \".js\" && tmp[\".json\"].test(code)) {\n\
+    if (fileType === \".js\" && tmp[\".json\"].test(code.slice(0, 4096))) {\n\
         fileType = \".json\";\n\
     }\n\
     // init mode-utility2\n\
-    tmp = tmp[fileType] && tmp[fileType].exec(code);\n\
+    tmp = tmp[fileType] && tmp[fileType].exec(code.slice(0, 4096));\n\
     opt.utility2 = Boolean((tmp && tmp[1]) || modeAutofix);\n\
     // if not modeConditional, then do not jslint\n\
     if ((modeConditional && !tmp) || modeCoverage) {\n\
@@ -69786,7 +69823,9 @@ local.jslintAndPrintDir = function (dir, opt, onError) {\n\
                     }\n\
                     // jslint file\n\
                     require(\"fs\").readFile(file, \"utf8\", function (err, data) {\n\
-                        local.onErrorThrow(err);\n\
+                        if (err) {\n\
+                            return;\n\
+                        }\n\
                         local.jslintAndPrint(data, file, opt);\n\
                         errCnt += local.jslintResult.errList.length;\n\
                         console.error(\n\
@@ -69879,10 +69918,12 @@ local.assetsDict["/assets.utility2.test.js"] = (
 // run shared js-env code - init-local\n\
 (function () {\n\
     \"use strict\";\n\
-    let consoleError;\n\
+    let isBrowser;\n\
+    let isWebWorker;\n\
     let local;\n\
     // init debugInline\n\
     if (!globalThis.debugInline) {\n\
+        let consoleError;\n\
         consoleError = console.error;\n\
         globalThis.debugInline = function (...argList) {\n\
         /*\n\
@@ -69895,27 +69936,22 @@ local.assetsDict["/assets.utility2.test.js"] = (
             return argList[0];\n\
         };\n\
     }\n\
-    // init local\n\
-    local = {};\n\
-    local.local = local;\n\
-    globalThis.globalLocal = local;\n\
     // init isBrowser\n\
-    local.isBrowser = (\n\
+    isBrowser = (\n\
         typeof globalThis.XMLHttpRequest === \"function\"\n\
         && globalThis.navigator\n\
         && typeof globalThis.navigator.userAgent === \"string\"\n\
     );\n\
     // init isWebWorker\n\
-    local.isWebWorker = (\n\
-        local.isBrowser && typeof globalThis.importScripts === \"function\"\n\
+    isWebWorker = (\n\
+        isBrowser && typeof globalThis.importScripts === \"function\"\n\
     );\n\
     // init function\n\
-    local.assertJsonEqual = function (aa, bb) {\n\
+    function assertJsonEqual(aa, bb) {\n\
     /*\n\
      * this function will assert JSON.stringify(<aa>) === JSON.stringify(<bb>)\n\
      */\n\
-        let objectDeepCopyWithKeysSorted;\n\
-        objectDeepCopyWithKeysSorted = function (obj) {\n\
+        function objectDeepCopyWithKeysSorted(obj) {\n\
         /*\n\
          * this function will recursively deep-copy <obj> with keys sorted\n\
          */\n\
@@ -69933,14 +69969,14 @@ local.assetsDict["/assets.utility2.test.js"] = (
                 sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);\n\
             });\n\
             return sorted;\n\
-        };\n\
+        }\n\
         aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));\n\
         bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));\n\
         if (aa !== bb) {\n\
             throw new Error(JSON.stringify(aa) + \" !== \" + JSON.stringify(bb));\n\
         }\n\
-    };\n\
-    local.assertOrThrow = function (passed, msg) {\n\
+    }\n\
+    function assertOrThrow(passed, msg) {\n\
     /*\n\
      * this function will throw <msg> if <passed> is falsy\n\
      */\n\
@@ -69963,8 +69999,8 @@ local.assetsDict["/assets.utility2.test.js"] = (
                 : JSON.stringify(msg, undefined, 4)\n\
             )\n\
         );\n\
-    };\n\
-    local.coalesce = function (...argList) {\n\
+    }\n\
+    function coalesce(...argList) {\n\
     /*\n\
      * this function will coalesce null, undefined, or \"\" in <argList>\n\
      */\n\
@@ -69979,20 +70015,20 @@ local.assetsDict["/assets.utility2.test.js"] = (
             ii += 1;\n\
         }\n\
         return arg;\n\
-    };\n\
-    local.identity = function (val) {\n\
+    }\n\
+    function identity(val) {\n\
     /*\n\
      * this function will return <val>\n\
      */\n\
         return val;\n\
-    };\n\
-    local.nop = function () {\n\
+    }\n\
+    function nop() {\n\
     /*\n\
      * this function will do nothing\n\
      */\n\
         return;\n\
-    };\n\
-    local.objectAssignDefault = function (tgt = {}, src = {}, depth = 0) {\n\
+    }\n\
+    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {\n\
     /*\n\
      * this function will if items from <tgt> are null, undefined, or \"\",\n\
      * then overwrite them with items from <src>\n\
@@ -70019,15 +70055,15 @@ local.assetsDict["/assets.utility2.test.js"] = (
         };\n\
         recurse(tgt, src, depth | 0);\n\
         return tgt;\n\
-    };\n\
-    local.onErrorThrow = function (err) {\n\
+    }\n\
+    function onErrorThrow(err) {\n\
     /*\n\
      * this function will throw <err> if exists\n\
      */\n\
         if (err) {\n\
             throw err;\n\
         }\n\
-    };\n\
+    }\n\
     // bug-workaround - throw unhandledRejections in node-process\n\
     if (\n\
         typeof process === \"object\" && process\n\
@@ -70039,6 +70075,19 @@ local.assetsDict["/assets.utility2.test.js"] = (
             throw err;\n\
         });\n\
     }\n\
+    // init local\n\
+    local = {};\n\
+    local.local = local;\n\
+    globalThis.globalLocal = local;\n\
+    local.assertJsonEqual = assertJsonEqual;\n\
+    local.assertOrThrow = assertOrThrow;\n\
+    local.coalesce = coalesce;\n\
+    local.identity = identity;\n\
+    local.isBrowser = isBrowser;\n\
+    local.isWebWorker = isWebWorker;\n\
+    local.nop = nop;\n\
+    local.objectAssignDefault = objectAssignDefault;\n\
+    local.onErrorThrow = onErrorThrow;\n\
 }());\n\
 // assets.utility2.header.js - end\n\
 \n\
@@ -70556,17 +70605,10 @@ local.testCase_buildXxx_default = function (opt, onError) {\n\
     local.testMock([\n\
         [\n\
             local, {\n\
-                //!! assetsDict: {\n\
-                    //!! \"/\": \"\"\n\
-                //!! },\n\
                 browserTest: local.nop\n\
-                //!! buildApidoc: local.nop,\n\
-                //!! fsWriteFileWithMkdirp: local.nop,\n\
             }\n\
         ]\n\
     ], function (onError) {\n\
-        //!! local._testCase_buildApidoc_default({}, local.nop);\n\
-        //!! local.assetsDict[\"/\"] = \"<script src=\\\"assets.test.js\\\"></script>\";\n\
         local._testCase_webpage_default({}, local.nop);\n\
         onError(undefined, opt);\n\
     }, onError);\n\
@@ -70748,12 +70790,12 @@ local.testCase_libUtility2Js_standalone = function (opt, onError) {\n\
     }\n\
     require(\"fs\").readFile(\"lib.utility2.js\", \"utf8\", function (err, data) {\n\
         onErrorThrow(err);\n\
-        require(\"fs\").writeFile(\"tmp/lib.utility2.js\", data.replace(\n\
+        require(\"fs\").writeFile(\".tmp/lib.utility2.js\", data.replace(\n\
             \"/* istanbul instrument in package utility2 */\",\n\
             \"\"\n\
         ), function (err) {\n\
             onErrorThrow(err);\n\
-            require(\"./tmp/lib.utility2.js\");\n\
+            require(\"./.tmp/lib.utility2.js\");\n\
         });\n\
         onError(undefined, opt);\n\
     });\n\

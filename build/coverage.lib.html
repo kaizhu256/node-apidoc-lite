@@ -3,7 +3,7 @@
 <html lang="en" class="x-istanbul">
 
 <head>
-    <title>Code coverage report for node-apidoc-lite/example.js</title>
+    <title>Code coverage report for example.js</title>
     <meta charset="utf-8">
 <style>
 /* jslint utility2:true */
@@ -283,7 +283,7 @@
         <a href="https://github.com/kaizhu256/node-apidoc-lite">apidoc-lite (2020.6.9)</a>
     </h2>
 
-    <h2>Code coverage report for <span class="entity">node-apidoc-lite/example.js</span></h2>
+    <h2>Code coverage report for <span class="entity">example.js</span></h2>
     <table class="tableHeader">
     <thead>
     <tr>
@@ -296,13 +296,13 @@
     </thead>
     <tbody>
         <td>
-            Statements: 71<br>
+            Statements: 70<br>
             Branches: 57<br>
             Functions: 14
         </td>
         <td>
             100%<br>
-            (124 / 124)
+            (134 / 134)
         </td>
         <td>
             100%<br>
@@ -314,11 +314,11 @@
         </td>
         <td>
             100%<br>
-            (124 / 124)
+            (134 / 134)
         </td>
     </tbody>
     </table>
-    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">node-apidoc-lite/</a> &#187; example.js</div>
+    <div class="path"><a href="index.html">All files</a> &#187; example.js</div>
 </div>
 <div class="body">
 
@@ -1102,6 +1102,16 @@
 <a href="#l777" id="l777">777</a>
 <a href="#l778" id="l778">778</a>
 <a href="#l779" id="l779">779</a>
+<a href="#l780" id="l780">780</a>
+<a href="#l781" id="l781">781</a>
+<a href="#l782" id="l782">782</a>
+<a href="#l783" id="l783">783</a>
+<a href="#l784" id="l784">784</a>
+<a href="#l785" id="l785">785</a>
+<a href="#l786" id="l786">786</a>
+<a href="#l787" id="l787">787</a>
+<a href="#l788" id="l788">788</a>
+<a href="#l789" id="l789">789</a>
 </td>
         <td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1127,10 +1137,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1141,10 +1153,6 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1160,8 +1168,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1285,6 +1292,19 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1906,10 +1926,12 @@ instruction
 // run shared js-env code - init-local
 (function () {
     "use strict";
-    let consoleError;
+    let isBrowser;
+    let isWebWorker;
     let local;
     // init debugInline
     <span class="skip-if-branch" title="if path not taken">I</span>if (!globalThis.debugInline) {
+<span class="cstat-skip" title="statement not covered">        let consoleError;</span>
 <span class="cstat-skip" title="statement not covered">        consoleError = console.error;</span>
 <span class="cstat-skip" title="statement not covered">        globalThis.debugInline = <span class="fstat-skip" title="function not covered">function (...argList) {</span></span>
         /*
@@ -1922,27 +1944,22 @@ instruction
 <span class="cstat-skip" title="statement not covered">            return argList[0];</span>
         };
     }
-    // init local
-    local = {};
-    local.local = local;
-    globalThis.globalLocal = local;
     // init isBrowser
-    local.isBrowser = (
+    isBrowser = (
         typeof globalThis.XMLHttpRequest === "function"
         &amp;&amp; globalThis.navigator
         &amp;&amp; typeof globalThis.navigator.userAgent === "string"
     );
     // init isWebWorker
-    local.isWebWorker = (
-        local.isBrowser &amp;&amp; typeof globalThis.importScripts === "function"
+    isWebWorker = (
+        isBrowser &amp;&amp; typeof globalThis.importScripts === "function"
     );
     // init function
-    local.assertJsonEqual = <span class="fstat-skip" title="function not covered">function (aa, bb) {</span>
+<span class="fstat-skip" title="function not covered">    function assertJsonEqual(aa, bb) {</span>
     /*
      * this function will assert JSON.stringify(&lt;aa&gt;) === JSON.stringify(&lt;bb&gt;)
      */
-<span class="cstat-skip" title="statement not covered">        let objectDeepCopyWithKeysSorted;</span>
-<span class="cstat-skip" title="statement not covered">        objectDeepCopyWithKeysSorted = <span class="fstat-skip" title="function not covered">function (obj) {</span></span>
+<span class="fstat-skip" title="function not covered">        function objectDeepCopyWithKeysSorted(obj) {</span>
         /*
          * this function will recursively deep-copy &lt;obj&gt; with keys sorted
          */
@@ -1960,14 +1977,14 @@ instruction
 <span class="cstat-skip" title="statement not covered">                sorted[key] = objectDeepCopyWithKeysSorted(obj[key]);</span>
             });
 <span class="cstat-skip" title="statement not covered">            return sorted;</span>
-        };
+        }
 <span class="cstat-skip" title="statement not covered">        aa = JSON.stringify(objectDeepCopyWithKeysSorted(aa));</span>
 <span class="cstat-skip" title="statement not covered">        bb = JSON.stringify(objectDeepCopyWithKeysSorted(bb));</span>
 <span class="cstat-skip" title="statement not covered">        if (aa !== bb) {</span>
 <span class="cstat-skip" title="statement not covered">            throw new Error(JSON.stringify(aa) + " !== " + JSON.stringify(bb));</span>
         }
-    };
-    local.assertOrThrow = <span class="fstat-skip" title="function not covered">function (passed, msg) {</span>
+    }
+<span class="fstat-skip" title="function not covered">    function assertOrThrow(passed, msg) {</span>
     /*
      * this function will throw &lt;msg&gt; if &lt;passed&gt; is falsy
      */
@@ -1990,8 +2007,8 @@ instruction
                 : JSON.stringify(msg, undefined, 4)
             )
         );
-    };
-    local.coalesce = <span class="fstat-skip" title="function not covered">function (...argList) {</span>
+    }
+<span class="fstat-skip" title="function not covered">    function coalesce(...argList) {</span>
     /*
      * this function will coalesce null, undefined, or "" in &lt;argList&gt;
      */
@@ -2006,20 +2023,20 @@ instruction
 <span class="cstat-skip" title="statement not covered">            ii += 1;</span>
         }
 <span class="cstat-skip" title="statement not covered">        return arg;</span>
-    };
-    local.identity = <span class="fstat-skip" title="function not covered">function (val) {</span>
+    }
+<span class="fstat-skip" title="function not covered">    function identity(val) {</span>
     /*
      * this function will return &lt;val&gt;
      */
 <span class="cstat-skip" title="statement not covered">        return val;</span>
-    };
-    local.nop = <span class="fstat-skip" title="function not covered">function () {</span>
+    }
+<span class="fstat-skip" title="function not covered">    function nop() {</span>
     /*
      * this function will do nothing
      */
 <span class="cstat-skip" title="statement not covered">        return;</span>
-    };
-    local.objectAssignDefault = <span class="fstat-skip" title="function not covered">function (tgt = {}, src = {}, depth = 0) {</span>
+    }
+<span class="fstat-skip" title="function not covered">    function objectAssignDefault(tgt = {}, src = {}, depth = 0) {</span>
     /*
      * this function will if items from &lt;tgt&gt; are null, undefined, or "",
      * then overwrite them with items from &lt;src&gt;
@@ -2046,15 +2063,15 @@ instruction
         };
 <span class="cstat-skip" title="statement not covered">        recurse(tgt, src, depth | 0);</span>
 <span class="cstat-skip" title="statement not covered">        return tgt;</span>
-    };
-    local.onErrorThrow = <span class="fstat-skip" title="function not covered">function (err) {</span>
+    }
+<span class="fstat-skip" title="function not covered">    function onErrorThrow(err) {</span>
     /*
      * this function will throw &lt;err&gt; if exists
      */
 <span class="cstat-skip" title="statement not covered">        if (err) {</span>
 <span class="cstat-skip" title="statement not covered">            throw err;</span>
         }
-    };
+    }
     // bug-workaround - throw unhandledRejections in node-process
     <span class="skip-if-branch" title="if path not taken">I</span>if (
         typeof process === "object" &amp;&amp; process
@@ -2066,6 +2083,19 @@ instruction
 <span class="cstat-skip" title="statement not covered">            throw err;</span>
         });
     }
+    // init local
+    local = {};
+    local.local = local;
+    globalThis.globalLocal = local;
+    local.assertJsonEqual = assertJsonEqual;
+    local.assertOrThrow = assertOrThrow;
+    local.coalesce = coalesce;
+    local.identity = identity;
+    local.isBrowser = isBrowser;
+    local.isWebWorker = isWebWorker;
+    local.nop = nop;
+    local.objectAssignDefault = objectAssignDefault;
+    local.onErrorThrow = onErrorThrow;
 }());
 // assets.utility2.header.js - end
 
